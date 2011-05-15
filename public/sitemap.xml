@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <!-- Vilnius -->
+        <loc><![CDATA[http://openmap.lt/?zoom=12&lat=54.68734&lon=25.28554]]></loc>
+        <changefreq>yearly</changefreq>
+    </url>
+    <url>
+        <!-- Kaunas -->
+        <loc><![CDATA[http://openmap.lt/?zoom=12&lat=54.89419&lon=23.91088]]></loc>
+        <changefreq>yearly</changefreq>
+    </url>
+    <url>
+        <!-- Klaipeda -->
+        <loc><![CDATA[http://openmap.lt/?zoom=12&lat=55.69211&lon=21.15091]]></loc>
+        <changefreq>yearly</changefreq>
+    </url>
+    <url>
+        <!-- Siauliai -->
+        <loc><![CDATA[http://openmap.lt/?zoom=12&lat=55.92171&lon=23.3159]]></loc>
+        <changefreq>yearly</changefreq>
+    </url>
+    <url>
+        <!-- Panevezys -->
+        <loc><![CDATA[http://openmap.lt/?zoom=12&lat=55.72809&lon=24.36544]]></loc>
+        <changefreq>yearly</changefreq>
+    </url>
+    <url>
+        <!-- Utena -->
+        <loc><![CDATA[http://openmap.lt/?zoom=14&lat=55.49504&lon=25.60582]]></loc>
+        <changefreq>yearly</changefreq>
+    </url>
+</urlset>

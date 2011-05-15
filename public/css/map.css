@@ -1,0 +1,68 @@
+@CHARSET "UTF-8";
+// reset.css
+html {margin:0;padding:0;border:0;}
+body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, code, del, dfn, em, img, q, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, dialog, figure, footer, header, hgroup, nav, section {margin:0;padding:0;border:0;font-weight:inherit;font-style:inherit;font-size:100%;font-family:inherit;vertical-align:baseline;}
+article, aside, dialog, figure, footer, header, hgroup, nav, section {display:block;}
+body {font-size:12px;line-height:1.5;background:white;}
+table {border-collapse:separate;border-spacing:0;}
+caption, th, td {text-align:left;font-weight:normal;float:none !important;}
+table, th, td {vertical-align:middle;}
+blockquote:before, blockquote:after, q:before, q:after {content:'';}
+blockquote, q {quotes:"" "";}
+a img {border:none;}
+:focus {outline:0;}
+
+#searchPanel{
+    background: transparent;
+    left: 50px;
+    height:30px;
+    overflow:visible;
+    padding: 5px 30px;
+    position:absolute;
+    top:0;
+    z-index:2000;
+    width:300px;
+}
+
+#searchPanel input {
+    font-size: 11px;
+}
+
+#searchPanel .query {
+    font: normal 15px/19px arial;
+    height: 19px;
+    margin: 2px 5px 0 0;
+    vertical-align: top;
+}
+
+#searchPanel input.loading {
+    background-image: url(/images/preloader_snake_16.gif);
+    background-repeat: no-repeat;
+    background-position: right center;
+} 
+
+#searchPanel .searchResults {
+    font: normal 13px/15px arial;
+    margin: 5px 0 0;
+}
+
+.searchResults ul {
+    list-style-type: none;
+}
+
+.searchResults li {
+    margin: 3px 0;
+}
+
+.searchResults li a {
+    display: block;
+    text-decoration: none;
+}
+
+.searchResults li a.active {
+    outline: 1px dotted grey;
+}
+
+.searchResults li a img {
+    vertical-align: middle;
+    
