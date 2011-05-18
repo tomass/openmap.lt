@@ -191,8 +191,8 @@ function createMap(divName, options) {
 		layerCode:"C"
 	});
 	map.addLayer(cycle);
-	map.addLayer(new OpenLayers.Layer.XYZ("Empty background", "http://openmap.lt/tiles/blank.png", {sphericalMercator:true,numZoomLevels:18}));
-	map.addLayer(new OpenLayers.Layer.XYZ("Grey overlay", "http://openmap.lt/tiles/grey.png", {sphericalMercator:true,isBaseLayer:false,visibility:false,numZoomLevels:18}));
+	map.addLayer(new OpenLayers.Layer.XYZ("Empty background", "http://openmap.lt/tiles/blank.png", {sphericalMercator:true,numZoomLevels:19}));
+	map.addLayer(new OpenLayers.Layer.XYZ("Grey overlay", "http://openmap.lt/tiles/grey.png", {sphericalMercator:true,isBaseLayer:false,visibility:false,numZoomLevels:19}));
 	var osmu_getTileURL = function(bounds){
 		var res = this.map.getResolution();
 		var x = Math.round((bounds.left - this.maxExtent.left) / (res * this.tileSize.w));
