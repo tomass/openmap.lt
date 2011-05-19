@@ -107,40 +107,25 @@ OpenLayers.Layer.OSM.CycleMap = OpenLayers.Class(OpenLayers.Layer.OSM, {
     CLASS_NAME: "OpenLayers.Layer.OSM.CycleMap"
 });
 
-/**
- * Class: OpenLayers.Layer.OSM.Maplint
- *
- * Inherits from:
- *  - <OpenLayers.Layer.OSM>
- */
-OpenLayers.Layer.OSM.Maplint = OpenLayers.Class(OpenLayers.Layer.OSM, {
-    /**
-     * Constructor: OpenLayers.Layer.OSM.Maplint
-     *
-     * Parameters:
-     * name - {String}
-     * options - {Object} Hashtable of extra options to tag onto the layer
-     */
-    initialize: function(name, options) {
-        var url = [
-            "http://d.tah.openstreetmap.org/Tiles/maplint/${z}/${x}/${y}.png",
-            "http://e.tah.openstreetmap.org/Tiles/maplint/${z}/${x}/${y}.png",
-            "http://f.tah.openstreetmap.org/Tiles/maplint/${z}/${x}/${y}.png"
-        ];
-        options = OpenLayers.Util.extend({numZoomLevels:17, isBaseLayer:false, visibility:false}, options);
-        var newArguments = [name, url, options];
-        OpenLayers.Layer.OSM.prototype.initialize.apply(this, newArguments);
-    },
-
-    CLASS_NAME: "OpenLayers.Layer.OSM.Maplint"
-});
-
 OpenLayers.Layer.OSM.Transport = OpenLayers.Class(OpenLayers.Layer.OSM, {
     initialize: function(name, options) {
         var url = "http://openmap.lt/tiles/public_transport/${z}/${x}/${y}.png";
-        options = OpenLayers.Util.extend({isBaseLayer:false,type:'png',numZoomLevels:19,displayOutsideMaxExtent:true,visibility:false}, options);
+        options = OpenLayers.Util.extend({
+            isBaseLayer:false,
+            type:'png',
+            numZoomLevels:19,
+            displayOutsideMaxExtent:true,
+            visibility:false,
+            tileLoadingDelay:0
+        }, options);
         var newArguments = [name, url, options];
         OpenLayers.Layer.OSM.prototype.initialize.apply(this, newArguments);
+console.log(this.div.style);
+    },
+    addTile: function(b, p){
+        var t = OpenLayers.Layer.OSM.prototype.addTile.apply(this, arguments);
+        t.frame.style.backgroundImage = "url(/tiles/grey.png)";
+        return t;
     },
     CLASS_NAME: "OpenLayers.Layer.OSM.Transport"
 });
