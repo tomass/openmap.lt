@@ -120,7 +120,6 @@ OpenLayers.Layer.OSM.Transport = OpenLayers.Class(OpenLayers.Layer.OSM, {
         }, options);
         var newArguments = [name, url, options];
         OpenLayers.Layer.OSM.prototype.initialize.apply(this, newArguments);
-console.log(this.div.style);
     },
     addTile: function(b, p){
         var t = OpenLayers.Layer.OSM.prototype.addTile.apply(this, arguments);
