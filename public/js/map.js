@@ -175,7 +175,7 @@ function createMap(divName, options) {
     map.addLayer(new OpenLayers.Layer.OSM.Transport("Public transport", {
         keyid : "transport",
         layerCode : "T"
-    }, "http://openmap.lt/tiles/public_transport"));
+    }, "http://pt.openmap.lt"));
     // TODO retrive numZoomLevels from map
     var numZoomLevels = Math.max(mapnik.numZoomLevels, osmarender.numZoomLevels);
     markers = new OpenLayers.Layer.Markers("Markers", {
