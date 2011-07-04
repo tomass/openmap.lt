@@ -9,7 +9,7 @@
 	or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public
 	License <http://www.gnu.org/licenses/> for more details.
 
-	Copyright © 2009–2010 Candid Dauth
+	Copyright © 2009–2011 Candid Dauth
 */
 
 /**
@@ -89,18 +89,15 @@ OpenLayers.Layer.OpenStreetBugs = new OpenLayers.Class(OpenLayers.Layer.Markers,
 	*/
 	permalinkURL : "http://www.openstreetmap.org/",
 
-	/**
-	 * A CSS file to be included. Set to null if you don’t need this.
-	 * @var String
-	*/
-	theme : "http://api.facilmap.org/osblayer/osblayer.css",
+	opacity : 0.7,
+	projection : new OpenLayers.Projection("EPSG:4326"),
 
 	/**
 	 * @param String name
 	*/
 	initialize : function(name, options)
 	{
-		OpenLayers.Layer.Markers.prototype.initialize.apply(this, [ name, OpenLayers.Util.extend({ opacity: 0.7, projection: new OpenLayers.Projection("EPSG:4326") }, options) ]);
+		OpenLayers.Layer.Markers.prototype.initialize.apply(this, arguments);
 		putAJAXMarker.layers.push(this);
 		this.events.addEventType("markerAdded");
 
@@ -118,28 +115,7 @@ OpenLayers.Layer.OpenStreetBugs = new OpenLayers.Class(OpenLayers.Layer.Markers,
 			}
 		}
 
-		/* Copied from OpenLayers.Map */
-		if(this.theme) {
-            // check existing links for equivalent url
-            var addNode = true;
-            var nodes = document.getElementsByTagName('link');
-            for(var i=0, len=nodes.length; i<len; ++i) {
-                if(OpenLayers.Util.isEquivalentUrl(nodes.item(i).href,
-                                                   this.theme)) {
-                    addNode = false;
-                    break;
-                }
-            }
-            // only add a new node if one with an equivalent url hasn't already
-            // been added
-            if(addNode) {
-                var cssNode = document.createElement('link');
-                cssNode.setAttribute('rel', 'stylesheet');
-                cssNode.setAttribute('type', 'text/css');
-                cssNode.setAttribute('href', this.theme);
-                document.getElementsByTagName('head')[0].appendChild(cssNode);
-            }
-        }
+		OpenLayers.Layer.OpenStreetBugs.setCSS();
 	},
 
 	/**
@@ -160,7 +136,8 @@ OpenLayers.Layer.OpenStreetBugs = new OpenLayers.Class(OpenLayers.Layer.Markers,
 	 * This method creates a new script HTML element that imports the API request URL. The API JavaScript response then executes the global functions provided below.
 	 * @param String url The URL this.serverURL + url is requested.
 	*/
-	apiRequest : function(url) {
+	apiRequest : function(url)
+	{
 		var script = document.createElement("script");
 		script.type = "text/javascript";
 		script.src = this.serverURL + url + "&nocache="+(new Date()).getTime();
@@ -277,29 +254,50 @@ OpenLayers.Layer.OpenStreetBugs = new OpenLayers.Class(OpenLayers.Layer.Markers,
 		{
 			if(this.bugs[id].popup && !this.bugs[id].popup.visible())
 				this.setPopupContent(id);
-			if(this.bugs[id].closed != putAJAXMarker.bugs[id][2])
+			if(this.bugs[id].osbClosed != putAJAXMarker.bugs[id][2])
 				this.bugs[id].destroy();
 			else
 				return;
 		}
 
-		var lonlat = putAJAXMarker.bugs[id][0].clone().transform(this.apiProjection, this.map.getProjectionObject());
-		var comments = putAJAXMarker.bugs[id][1];
-		var closed = putAJAXMarker.bugs[id][2];
-		var feature = new OpenLayers.Feature(this, lonlat, { icon: (closed ? this.iconClosed : this.iconOpen).clone(), autoSize: true });
-		feature.popupClass = OpenLayers.Popup.FramedCloud.OpenStreetBugs;
+		var feature = this._createMarker(id, putAJAXMarker.bugs[id][0], putAJAXMarker.bugs[id][1], putAJAXMarker.bugs[id][2], (putAJAXMarker.bugs[id][2] ? this.iconClosed : this.iconOpen).clone());
 		feature.osbId = id;
-		feature.closed = closed;
-
-		var marker = feature.createMarker();
-		marker.feature = feature;
-		marker.events.register("click", feature, this.markerClick);
-		marker.events.register("mouseover", feature, this.markerMouseOver);
-		marker.events.register("mouseout", feature, this.markerMouseOut);
-		this.addMarker(marker);
+		feature.osbClosed = putAJAXMarker.bugs[id][2];
+		feature.marker.feature = feature;
+		feature.marker.events.registerPriority("click", feature, this.markerClick);
+		feature.marker.events.register("mouseover", feature, this.markerMouseOver);
+		feature.marker.events.register("mouseout", feature, this.markerMouseOut);
 
 		this.bugs[id] = feature;
+
 		this.events.triggerEvent("markerAdded");
+	},
+
+	/**
+	 * Can be overloaded by subclasses in order to use a different marker creation mechanism. This does not create
+	 * the popup yet, that is created later using the createPopup() method of the returned feature. The parameters
+	 * about the popup content are only passed for the case that a special implementation needs them.
+	 *
+	 * The marker popup class has to support a DOM element as parameter for setContentHTML() and issue a "close" event
+	 * when the popup is closed, like {@link OpenLayers.Popup.FramedCloud.OpenStreetBugs} does.
+	 * @param Number id The bug ID or null when a bug is being created
+	 * @param LonLat lonlat The coordinates in {@link #apiProjection} projection
+	 * @param String comments The comments as HTML code or null when a bug is being created
+	 * @param Boolean closed Whether the bug is closed. null when the bug is being created
+	 * @param OpenLayers.Icon icon The suggested icon for the marker.
+	 * @return OpenLayers.Feature the feature with the marker and the popup
+	*/
+	_createMarker: function(id, lonlat, comments, closed, icon)
+	{
+		lonlat = lonlat.clone().transform(this.apiProjection, this.map.getProjectionObject());
+
+		var feature = new OpenLayers.Feature(this, lonlat, { icon: icon, autoSize: true });
+		feature.popupClass = OpenLayers.Popup.FramedCloud.OpenStreetBugs;
+
+		var marker = feature.createMarker();
+		this.addMarker(marker);
+
+		return feature;
 	},
 
 	/**
@@ -538,6 +536,7 @@ OpenLayers.Layer.OpenStreetBugs = new OpenLayers.Class(OpenLayers.Layer.Markers,
 		else
 			feature.layer.hidePopup(feature.osbId);
 		OpenLayers.Event.stop(e);
+		return false;
 	},
 
 	/**
@@ -563,6 +562,38 @@ OpenLayers.Layer.OpenStreetBugs = new OpenLayers.Class(OpenLayers.Layer.Markers,
 
 	CLASS_NAME: "OpenLayers.Layer.OpenStreetBugs"
 });
+
+/**
+ * Is called by the initialize() function and adds the stylesheets to the document.
+*/
+OpenLayers.Layer.OpenStreetBugs.setCSS = function() {
+	if(OpenLayers.Layer.OpenStreetBugs.setCSS.done)
+		return;
+	else
+		OpenLayers.Layer.OpenStreetBugs.setCSS.done = true;
+
+	// See http://www.hunlock.com/blogs/Totally_Pwn_CSS_with_Javascript
+	var idx = 0;
+	var addRule = function(selector, rules) {
+		var s = document.styleSheets[0];
+		var rule;
+		if(s.addRule) // M$IE
+			rule = s.addRule(selector, rules, idx);
+		else
+			rule = s.insertRule(selector + " { " + rules + " }", idx);
+		OpenLayers.Util.extend(s.style, rules);
+		idx++;
+	};
+
+	addRule(".olPopupFramedCloudOpenStreetBugs dl", 'margin:0; padding:0;');
+	addRule(".olPopupFramedCloudOpenStreetBugs dt", 'margin:0; padding:0; font-weight:bold; float:left; clear:left;');
+	addRule(".olPopupFramedCloudOpenStreetBugs dt:after", 'content: ": ";');
+	addRule("* html .olPopupFramedCloudOpenStreetBugs dt", 'margin-right:1ex;');
+	addRule(".olPopupFramedCloudOpenStreetBugs dd", 'margin:0; padding:0;');
+	addRule(".olPopupFramedCloudOpenStreetBugs ul.buttons", 'list-style-type:none; padding:0; margin:0;');
+	addRule(".olPopupFramedCloudOpenStreetBugs ul.buttons li", 'display:inline; margin:0; padding:0;');
+	addRule(".olPopupFramedCloudOpenStreetBugs h3", 'font-size:1.2em; margin:.2em 0 .7em 0;');
+};
 
 /**
  * An OpenLayers control to create new bugs on mouse clicks on the map. Add an instance of this to your map using
@@ -624,13 +655,9 @@ OpenLayers.Control.OpenStreetBugs = new OpenLayers.Class(OpenLayers.Control, {
 		if(!this.map) return true;
 
 		var control = this;
-		var lonlat = this.map.getLonLatFromViewPortPx(e.xy);
-		var lonlatApi = lonlat.clone().transform(this.map.getProjectionObject(), this.osbLayer.apiProjection);
-		var feature = new OpenLayers.Feature(this.osbLayer, lonlat, { icon: this.icon.clone(), autoSize: true });
-		feature.popupClass = OpenLayers.Popup.FramedCloud.OpenStreetBugs;
-		var marker = feature.createMarker();
-		marker.feature = feature;
-		this.osbLayer.addMarker(marker);
+		var lonlat = this.map.getLonLatFromViewPortPx(e.xy).transform(this.map.getProjectionObject(), this.osbLayer.apiProjection);
+		var feature = this.osbLayer._createMarker(null, lonlat, null, null, this.icon.clone());
+		feature.marker.feature = feature;
 
 		var newContent = document.createElement("div");
 		var el1,el2,el3;
@@ -639,7 +666,7 @@ OpenLayers.Control.OpenStreetBugs = new OpenLayers.Class(OpenLayers.Control, {
 		newContent.appendChild(el1);
 
 		var el_form = document.createElement("form");
-		el_form.onsubmit = function() { control.osbLayer.createBug(lonlatApi, inputDescription.value); marker.feature = null; feature.destroy(); return false; };
+		el_form.onsubmit = function() { control.osbLayer.createBug(lonlat, inputDescription.value); feature.marker.feature = null; feature.destroy(); return false; };
 
 		el1 = document.createElement("dl");
 		el2 = document.createElement("dt");

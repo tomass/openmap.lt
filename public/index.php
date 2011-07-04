@@ -11,15 +11,15 @@ header('Cache-Control: public, max-age=60', true);
 <title>Atviras ir nemokamas žemėlapis</title>
 <link rel="stylesheet" type="text/css" href="/css/map.css"/>
 <link rel="stylesheet" type="text/css" href="/css/ui/overcast/jquery-ui-1.8.11.custom.css"/>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.11/jquery-ui.min.js"></script>
 <script type="text/javascript" src="/js/OpenLayers.min.js"></script>
 </head>
 <body style="height:100%;margin:0;">
 <div id="searchPanel"></div>
 <div id="map" style="height:100%;width:100%;"></div>
-<script type="text/javascript" src="/js/map.js"></script>
-<script type="text/javascript" src="/js/osb/osblayer.min.js"></script>
+<script type="text/javascript" src="/js/map.js?20110523150000"></script>
+<script type="text/javascript" src="/js/osb/osblayer.js"></script>
 <script type="text/javascript" src="/js/startposition.js"></script>
 <script type="text/javascript" src="/js/ui.search.js"></script>
 <script type="text/javascript">
@@ -29,11 +29,13 @@ $(function(){
     map = createMap("map");
     map.addControl(new OpenLayers.Control.LoadingPanel());
     map.addControl(new OpenLayers.Control.MousePosition());
+/*
     var osbLayer = new OpenLayers.Layer.OpenStreetBugs("OpenStreetBugs", {permalink:"http://openmap.lt/", visibility:false});
     map.addLayer(osbLayer);
     var osbControl = new OpenLayers.Control.OpenStreetBugs(osbLayer);
     map.addControl(osbControl);
     //osbControl.activate();
+*/
     if(map.getZoom() == 0){
     	setMapExtent(new OpenLayers.Bounds(20.6,53.8,26.9,56.5));
 	    Startposition(map);
