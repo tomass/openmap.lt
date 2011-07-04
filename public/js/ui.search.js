@@ -52,12 +52,12 @@
     		var self = this;
     		$.getJSON(this.options.engine, {
                 "q":this._query,
-                "viewbox":this.options.viewbox,
+                //"viewbox":this.options.viewbox,
                 "format":"json",
-                "bounded":1,
+                //"bounded":1,
                 "limit":50,
-                "accept-language":this.language,
-                "countrycodes":this.options.countrycodes,
+                //"accept-language":this.language,
+                //"countrycodes":this.options.countrycodes,
                 "addressdetails":1
             }, function(d,s){self._onResponse(d,s);});
     		return false;
@@ -114,21 +114,9 @@
 	    			case "town":
 	    			case "village":
 	    				city = r.address[i];
-	    				/*
-	    				if(city == "YAHOO-HIRES-20080313"){
-	        				city = "Vilnius";
-	        			}
-	        			*/
 	    				break;
 	    			case "postcode":
 	    				postcode = r.address.postcode;
-	    				/*
-	    				if(postcode.indexOf("LT") != 0){
-	        				postcode = "LT-" + postcode;
-	        			}else if(postcode.indexOf("LT-") != 0){
-	        				postcode = postcode.replace(" ", "-");
-	        			}
-	        			*/
 	    				break;
 	    			default:
     			}
