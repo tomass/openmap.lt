@@ -134,7 +134,7 @@ function createMap(divName, options) {
     map = new OpenLayers.Map(divName, {
         controls : options.controls || [ new OpenLayers.Control.ArgParser(), new OpenLayers.Control.Attribution(), new OpenLayers.Control.LayerSwitcher(), new OpenLayers.Control.Navigation(), new OpenLayers.Control.PanZoomBar(), new OpenLayers.Control.ScaleLine({
             geodesic : true
-        }), new OpenLayers.Control.Permalink() ],
+        }) ],
         units : "m",
         numZoomLevels : 20,
         displayProjection : epsg4326,
@@ -164,13 +164,9 @@ function createMap(divName, options) {
     map.addLayer(cycle);
     map.addLayer(new OpenLayers.Layer.XYZ("Empty background", "http://openmap.lt/tiles/blank.png", {
         sphericalMercator : true,
-        numZoomLevels : 19
-    }));
-    map.addLayer(new OpenLayers.Layer.XYZ("Grey overlay", "http://openmap.lt/tiles/grey.png", {
-        sphericalMercator : true,
-        isBaseLayer : false,
-        visibility : false,
-        numZoomLevels : 19
+        numZoomLevels : 19,
+        keyid : "empty",
+        layerCode : "E"
     }));
     map.addLayer(new OpenLayers.Layer.OSM.Transport("Public transport", {
         keyid : "transport",
@@ -327,3 +323,19 @@ function detectResolution() {
     document.body.removeChild(div);
     return res;
 };
+
+function setLocationParam(key, value) {
+	params = location.hash.slice(1).split(",");
+	if (location.hash.slice(1) === "") {
+		params = Array();
+		params.push(key + "=" + value);
+	} else {
+		for (var i in params) {
+			if (params[i].slice(0, params[i].indexOf("=")) == key) {
+				params[i] = key + "=" + value;
+				break;
+			}
+		}
+	}
+	window.location.hash = params.toString();
+}
