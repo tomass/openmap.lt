@@ -62,7 +62,6 @@ OpenLayers.Control.Activeurl = OpenLayers.Class(OpenLayers.Control, {
 				layers[l].setVisibility(true);
 			}
 		}
-		console.log(keys);
 	},
 	draw : function() {
 		OpenLayers.Control.prototype.draw.apply(this, arguments);
