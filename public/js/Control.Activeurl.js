@@ -53,6 +53,9 @@ OpenLayers.Control.Activeurl = OpenLayers.Class(OpenLayers.Control, {
 	},
 	setLayers : function(keys){
 		keys = keys.split(/:/);
+		var baseCode = keys.shift();
+		var baseLayer = this.map.getLayersBy("layerCode", baseCode);
+		this.map.setBaseLayer(baseLayer[0]);
 		for(var i in keys){
 			var layers = this.map.getLayersBy("layerCode", keys[i]);
 			for(var l in layers){
@@ -88,10 +91,10 @@ OpenLayers.Control.Activeurl = OpenLayers.Class(OpenLayers.Control, {
 			params.lat = f;
 			params.lon = h;
 			layers = layers || this.map.layers;
-			params.maplayers = "";
+			params.maplayers = this.map.baseLayer.layerCode;
 			for ( var i in layers) {
 				var layer = layers[i];
-				if(typeof layer.keyid == "undefined" || !layer.getVisibility()){
+				if(typeof layer.keyid == "undefined" || !layer.getVisibility() || layer.isBaseLayer){
 					continue;
 				}
 				params.maplayers += ((params.maplayers != "") ? ":" : "") + layer.layerCode;
