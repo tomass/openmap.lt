@@ -1,5 +1,5 @@
 /**
- * Control.Permalink
+ * Control.Activeurl
  */
 OpenLayers.Control.Activeurl = OpenLayers.Class(OpenLayers.Control, {
 	argParserClass : OpenLayers.Control.ArgParser,
@@ -52,7 +52,7 @@ OpenLayers.Control.Activeurl = OpenLayers.Class(OpenLayers.Control, {
 		}
 	},
 	setLayers : function(keys){
-		keys = keys.split(/:/);
+		keys = keys.split("");
 		var baseCode = keys.shift();
 		var baseLayer = this.map.getLayersBy("layerCode", baseCode);
 		this.map.setBaseLayer(baseLayer[0]);
@@ -76,8 +76,9 @@ OpenLayers.Control.Activeurl = OpenLayers.Class(OpenLayers.Control, {
 	},
 	update : function() {
 		var params = this.createParams();
-		var loc = (Math.round(params.lat * 100000) / 100000) + "|" + (Math.round(params.lon * 100000) / 100000) + "|" + params.zoom + "|" + params.maplayers;
-		setLocationParam("l", loc);
+		var loc = (Math.round(params.lat * 100000) / 100000) + "," + (Math.round(params.lon * 100000) / 100000) + "," + params.zoom + "," + params.maplayers;
+		//setLocationParam("l", loc);
+		window.location.hash = "l=" + loc;
 	},
 	createParams : function(center, l, layers) {
 		center = center || this.map.getCenter();
@@ -96,7 +97,7 @@ OpenLayers.Control.Activeurl = OpenLayers.Class(OpenLayers.Control, {
 				if(typeof layer.keyid == "undefined" || !layer.getVisibility() || layer.isBaseLayer){
 					continue;
 				}
-				params.maplayers += ((params.maplayers != "") ? ":" : "") + layer.layerCode;
+				params.maplayers += layer.layerCode;
 			}
 		}
 		return params;
@@ -109,7 +110,7 @@ OpenLayers.Control.Activeurl = OpenLayers.Class(OpenLayers.Control, {
 		if(OpenLayers.String.contains(h, "#l=")){
 			h = h.substr(3);
 		}
-		var params = h.split(/\|/);
+		var params = h.split(",");
 		if(params.length != 4){
 			return false;
 		}
