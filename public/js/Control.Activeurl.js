@@ -77,7 +77,6 @@ OpenLayers.Control.Activeurl = OpenLayers.Class(OpenLayers.Control, {
 	update : function() {
 		var params = this.createParams();
 		var loc = (Math.round(params.lat * 100000) / 100000) + "," + (Math.round(params.lon * 100000) / 100000) + "," + params.zoom + "," + params.maplayers;
-		//setLocationParam("l", loc);
 		window.location.hash = "l=" + loc;
 	},
 	createParams : function(center, l, layers) {

@@ -323,19 +323,3 @@ function detectResolution() {
     document.body.removeChild(div);
     return res;
 };
-
-function setLocationParam(key, value) {
-	params = location.hash.slice(1).split(",");
-	if (location.hash.slice(1) === "") {
-		params = Array();
-		params.push(key + "=" + value);
-	} else {
-		for (var i in params) {
-			if (params[i].slice(0, params[i].indexOf("=")) == key) {
-				params[i] = key + "=" + value;
-				break;
-			}
-		}
-	}
-	window.location.hash = params.toString();
-}
