@@ -141,8 +141,7 @@ function createMap(divName, options) {
         maxResolution : 156543.0339,
         theme : "http://openmap.lt/css/theme/openmap/style.css"
     });
-    var mapnik = new OpenLayers.Layer.OSM.Mapnik("Mapnik", {
-        keyid : "mapnik",
+    var mapnik = new OpenLayers.Layer.OSM.Mapnik("Mapnik", {     keyid : "mapnik",
         displayOutsideMaxExtent : true,
         wrapDateLine : true,
         layerCode : "M"

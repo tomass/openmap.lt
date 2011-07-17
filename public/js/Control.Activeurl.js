@@ -71,7 +71,9 @@ OpenLayers.Control.Activeurl = OpenLayers.Class(OpenLayers.Control, {
 			changebaselayer : this.update,
 			scope : this
 		});
-		this.update();
+		if(this.params){
+			this.update();
+		}
 		return this.div
 	},
 	update : function() {
