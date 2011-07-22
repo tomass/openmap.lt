@@ -322,3 +322,37 @@ function detectResolution() {
     document.body.removeChild(div);
     return res;
 };
+
+function savePosition(e){
+	var params = new Array();
+	params.push(map.getZoom());
+	var center = map.getCenter();
+	params.push(Math.round(center.lon));
+	params.push(Math.round(center.lat));
+	var layers = map.baseLayer.layerCode;
+	var ml = map.getLayersBy("visibility", true);
+	for(var i in ml){
+		if(typeof ml[i].keyid == "undefined" || ml[i].isBaseLayer){
+			continue;
+		}
+		layers += ml[i].layerCode;
+	}
+	params.push(layers);
+	$.cookie("state", params.join("."), {expires:30});
+};
+
+function loadPosition(){
+	var state = $.cookie("state");
+	if(!state){
+		return false;
+	}
+	state = state.split(".");
+	var pos = new OpenLayers.LonLat(state[1], state[2]);
+	map.zoomTo(state[0]);
+	map.panTo(pos);
+	var layers = state[3].split("");
+	for(var i in layers){
+		map.getLayersBy("layerCode", layers[i])[0].setVisibility(true);
+	}
+	return true;
+};
