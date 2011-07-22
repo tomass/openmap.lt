@@ -6,36 +6,36 @@ header('Cache-Control: public, max-age=60', true);
 <head>
 <base href="/"/>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-<meta name="description" content="Atviras ir nemokamas žemėlapis"/>
-<meta name="keywords" content="žemėlapis, žemėlapiai, map, maps, lt, lietuva, vilnius, kaunas, klaipėda"/>
-<title>Atviras ir nemokamas žemėlapis</title>
+<meta name="description" content="Open and free map"/>
+<meta name="keywords" content="map, maps, globe, europe, public transport"/>
+<title>Open and free map</title>
 <link rel="stylesheet" type="text/css" href="/css/map.css"/>
 <link rel="stylesheet" type="text/css" href="/css/ui/overcast/jquery-ui-1.8.11.custom.css"/>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.11/jquery-ui.min.js"></script>
-<script type="text/javascript" src="/js/OpenLayers.min.js"></script>
+<script type="text/javascript" src="/js/OpenLayers-2.11-rc1.min.js"></script>
 </head>
 <body style="height:100%;margin:0;">
 <div id="searchPanel"></div>
 <div id="map" style="height:100%;width:100%;"></div>
+<script type="text/javascript" src="/js/jquery.cookie.js"></script>
 <script type="text/javascript" src="/js/map.js?20110523150000"></script>
-<script type="text/javascript" src="/js/osb/osblayer.js"></script>
 <script type="text/javascript" src="/js/startposition.js"></script>
 <script type="text/javascript" src="/js/ui.search.js"></script>
 <script type="text/javascript" src="/js/Control.Activeurl.js"></script>
 <script type="text/javascript">
 //<![CDATA[
 $(function(){
-    OpenLayers.Lang.setCode("lt");
     map = createMap("map");
-    map.addControl(new OpenLayers.Control.LoadingPanel());
     map.addControl(new OpenLayers.Control.MousePosition());
     map.addControl(new OpenLayers.Control.Activeurl());
     if(map.getZoom() == 0){
-    	setMapExtent(new OpenLayers.Bounds(20.6,53.8,26.9,56.5));
-	    Startposition(map);
+        if(!loadPosition()){
+	       Startposition(map);
+        }
     }
     $("#searchPanel").search({"map":map});
+    $(window).unload(savePosition);
 });
 //]]>
 </script>
@@ -49,6 +49,6 @@ var _gaq = _gaq || [];_gaq.push(['_setAccount', 'UA-18331326-1']);_gaq.push(['_t
 })();
 //]]>
 </script>
-<div style="display:none;">Atviras ir nemokamas žemėlapis.</div>
+<div style="display:none;">Open and free map</div>
 </body>
 </html>
