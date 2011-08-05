@@ -122,6 +122,21 @@ OpenLayers.Layer.OSM.Transport = OpenLayers.Class(OpenLayers.Layer.OSM, {
     CLASS_NAME : "OpenLayers.Layer.OSM.Transport"
 });
 
+OpenLayers.Layer.OSM.Lt = OpenLayers.Class(OpenLayers.Layer.OSM, {
+    initialize : function(name, options) {
+        var url = [ "http://osmlt.openmap.lt/${z}/${x}/${y}.png" ];
+        options = OpenLayers.Util.extend({
+            numZoomLevels : 19,
+            transitionEffect : "resize",
+            buffer : 0
+        }, options);
+        var newArguments = [ name, url, options ];
+        OpenLayers.Layer.OSM.prototype.initialize.apply(this, newArguments);
+    },
+    CLASS_NAME : "OpenLayers.Layer.OSM.Lt"
+});
+
+
 var epsg4326 = new OpenLayers.Projection("EPSG:4326");
 var map;
 var markers;
@@ -132,7 +147,7 @@ OpenLayers.DOTS_PER_INCH = detectResolution();
 function createMap(divName, options) {
     options = options || {};
     map = new OpenLayers.Map(divName, {
-        controls : options.controls || [ new OpenLayers.Control.ArgParser(), new OpenLayers.Control.Attribution(), new OpenLayers.Control.LayerSwitcher(), new OpenLayers.Control.Navigation(), new OpenLayers.Control.PanZoomBar(), new OpenLayers.Control.ScaleLine({
+        controls : options.controls || [ new OpenLayers.Control.ArgParser(), new OpenLayers.Control.Attribution(), new OpenLayers.Control.Navigation(), new OpenLayers.Control.LayerSwitcher(), new OpenLayers.Control.PanZoomBar(), new OpenLayers.Control.ScaleLine({
             geodesic : true
         }) ],
         units : "m",
@@ -147,6 +162,7 @@ function createMap(divName, options) {
         layerCode : "M"
     });
     map.addLayer(mapnik);
+    map.addLayer(new OpenLayers.Layer.OSM.Lt("Lt", {keyid:"lt",layerCode:"L"}));
     var osmarender = new OpenLayers.Layer.OSM.Osmarender("Osmarender", {
         keyid : "osmarender",
         displayOutsideMaxExtent : true,
