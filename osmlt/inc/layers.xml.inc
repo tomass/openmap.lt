@@ -12,4 +12,4 @@
 <!ENTITY layer-power SYSTEM "layer-power.xml.inc">
 <!ENTITY layer-addressing SYSTEM "layer-addressing.xml.inc">
 <!ENTITY layer-admin SYSTEM "layer-admin.xml.inc">
-
+<!ENTITY layer-ways SYSTEM "layer-ways.xml.inc">

@@ -6,6 +6,7 @@
 <Map srs="&srs900913;">
 &fontset-settings;
 &layer-water;
+&layer-ways;
 &layer-admin;
 &layer-placenames;
 </Map>
