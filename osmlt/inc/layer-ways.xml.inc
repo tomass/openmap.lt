@@ -5520,6 +5520,32 @@
       </LineSymbolizer>
     </Rule>
 </Style>
+<Style name="cycleways">
+    <Rule>
+      <Filter>[cycleway:right] = 'track' or [cycleway] = 'track'</Filter>
+      &maxscale_zoom17;
+      &minscale_zoom18;
+      <LinePatternSymbolizer file="&symbols;/ct20r.png" height="20" width="4" type="png" />
+    </Rule>
+    <Rule>
+      <Filter>[cycleway:left] = 'track' or [cycleway] = 'track'</Filter>
+      &maxscale_zoom17;
+      &minscale_zoom18;
+      <LinePatternSymbolizer file="&symbols;/ct20l.png" height="20" width="4" type="png" />
+    </Rule>
+    <Rule>
+      <Filter>[cycleway:right] = 'track' or [cycleway] = 'track'</Filter>
+      &maxscale_zoom15;
+      &minscale_zoom16;
+      <LinePatternSymbolizer file="&symbols;/ct17r.png" height="17" width="4" type="png" />
+    </Rule>
+    <Rule>
+      <Filter>[cycleway:left] = 'track' or [cycleway] = 'track'</Filter>
+      &maxscale_zoom15;
+      &minscale_zoom16;
+      <LinePatternSymbolizer file="&symbols;/ct17l.png" height="17" width="4" type="png" />
+    </Rule>
+</Style>
 <Layer name="tunnels" status="on" srs="&osm2pgsql_projection;">
     <StyleName>tunnels-casing</StyleName>
     <StyleName>tunnels-fill</StyleName>
@@ -5644,11 +5670,12 @@
     </Datasource>
 </Layer>
 <Layer name="minor-roads-fill" status="on" srs="&osm2pgsql_projection;">
+    <StyleName>cycleways</StyleName>
     <StyleName>minor-roads-fill-links</StyleName>
     <StyleName>minor-roads-fill</StyleName>
     <Datasource>
       <Parameter name="table">
-      (select way,highway,horse,bicycle,foot,construction,aeroway,
+      (select way,highway,horse,bicycle,foot,construction,aeroway,cycleway,"cycleway:right","cycleway:left",
        case when tunnel in ('yes','true','1') then 'yes'::text else tunnel end as tunnel,
        case when bridge in ('yes','true','1','viaduct') then 'yes'::text else bridge end as bridge,
        case when railway in ('spur','siding')
