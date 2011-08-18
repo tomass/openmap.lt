@@ -212,13 +212,13 @@
       &maxscale_zoom8;
       &minscale_zoom13;
       <PolygonSymbolizer>
-        <CssParameter name="fill">#8dc56c</CssParameter>
+        <CssParameter name="fill">#cdffac</CssParameter>
      </PolygonSymbolizer>
     </Rule>
     <Rule>
       <Filter>[landuse] = 'forest'</Filter>
       &maxscale_zoom14;
-      <PolygonPatternSymbolizer file="&symbols;/forest.png" />
+      <PolygonPatternSymbolizer file="&symbols;/forest_light.png" />
     </Rule>
     <Rule>
       <Filter>[landuse]='farmyard'</Filter>

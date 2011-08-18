@@ -5,9 +5,11 @@
 ]>
 <Map srs="&srs900913;">
 &fontset-settings;
+&layer-landcover;
 &layer-water;
 &layer-ways;
 &layer-admin;
 &layer-placenames;
+&layer-buildings;
 </Map>
 
