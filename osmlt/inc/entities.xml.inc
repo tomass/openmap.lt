@@ -43,5 +43,13 @@
 <!ENTITY minscale_zoom17 "<MinScaleDenominator>2500</MinScaleDenominator>">
 <!ENTITY maxscale_zoom18 "<MaxScaleDenominator>2500</MaxScaleDenominator>">
 <!ENTITY minscale_zoom18 "<MinScaleDenominator>50</MinScaleDenominator>">
+<!ENTITY trunk_motorway_col "#ffa020">
+<!ENTITY trunk_motorway_cas_col "#ff0000">
+<!ENTITY primary_col "#ffb050">
+<!ENTITY primary_cas_col "#ff0000">
+<!ENTITY secondary_col "#ffd090">
+<!ENTITY secondary_cas_col "#ff0000">
+<!ENTITY tertiary_col "#ffff80">
+<!ENTITY tertiary_cas_col "#ff0000">
 <!ENTITY % layers SYSTEM "layers.xml.inc">
 %layers;

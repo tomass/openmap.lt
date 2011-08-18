@@ -233,7 +233,7 @@
       &maxscale_zoom12;
       &minscale_zoom12;
       <LineSymbolizer>
-        <CssParameter name="stroke">#506077</CssParameter>
+        <CssParameter name="stroke">&trunk_motorway_cas_col;</CssParameter>
         <CssParameter name="stroke-width">3</CssParameter>
         <CssParameter name="stroke-dasharray">4,2</CssParameter>
       </LineSymbolizer>
@@ -243,7 +243,7 @@
       &maxscale_zoom13;
       &minscale_zoom14;
       <LineSymbolizer>
-        <CssParameter name="stroke">#506077</CssParameter>
+        <CssParameter name="stroke">&trunk_motorway_cas_col;</CssParameter>
         <CssParameter name="stroke-width">6.5</CssParameter>
         <CssParameter name="stroke-dasharray">4,2</CssParameter>
       </LineSymbolizer>
@@ -253,7 +253,7 @@
       &maxscale_zoom15;
       &minscale_zoom16;
       <LineSymbolizer>
-        <CssParameter name="stroke">#506077</CssParameter>
+        <CssParameter name="stroke">&trunk_motorway_cas_col;</CssParameter>
         <CssParameter name="stroke-width">10</CssParameter>
         <CssParameter name="stroke-dasharray">4,2</CssParameter>
       </LineSymbolizer>
@@ -263,7 +263,7 @@
       &maxscale_zoom17;
       &minscale_zoom18;
       <LineSymbolizer>
-        <CssParameter name="stroke">#506077</CssParameter>
+        <CssParameter name="stroke">&trunk_motorway_cas_col;</CssParameter>
         <CssParameter name="stroke-width">13</CssParameter>
         <CssParameter name="stroke-dasharray">4,2</CssParameter>
       </LineSymbolizer>
@@ -273,7 +273,7 @@
       &maxscale_zoom12;
       &minscale_zoom12;
       <LineSymbolizer>
-        <CssParameter name="stroke">#477147</CssParameter>
+        <CssParameter name="stroke">&trunk_motorway_cas_col;</CssParameter>
         <CssParameter name="stroke-width">4</CssParameter>
         <CssParameter name="stroke-dasharray">4,2</CssParameter>
       </LineSymbolizer>
@@ -283,7 +283,7 @@
       &maxscale_zoom13;
       &minscale_zoom14;
       <LineSymbolizer>
-        <CssParameter name="stroke">#477147</CssParameter>
+        <CssParameter name="stroke">&trunk_motorway_cas_col;</CssParameter>
         <CssParameter name="stroke-width">8</CssParameter>
         <CssParameter name="stroke-dasharray">4,2</CssParameter>
       </LineSymbolizer>
@@ -293,7 +293,7 @@
       &maxscale_zoom15;
       &minscale_zoom16;
       <LineSymbolizer>
-        <CssParameter name="stroke">#477147</CssParameter>
+        <CssParameter name="stroke">&trunk_motorway_cas_col;</CssParameter>
         <CssParameter name="stroke-width">11</CssParameter>
         <CssParameter name="stroke-dasharray">4,2</CssParameter>
       </LineSymbolizer>
@@ -303,7 +303,7 @@
       &maxscale_zoom17;
       &minscale_zoom18;
       <LineSymbolizer>
-        <CssParameter name="stroke">#477147</CssParameter>
+        <CssParameter name="stroke">&trunk_motorway_cas_col;</CssParameter>
         <CssParameter name="stroke-width">14</CssParameter>
         <CssParameter name="stroke-dasharray">4,2</CssParameter>
       </LineSymbolizer>
@@ -313,7 +313,7 @@
       &maxscale_zoom12;
       &minscale_zoom12;
       <LineSymbolizer>
-        <CssParameter name="stroke">#8d4346</CssParameter>
+        <CssParameter name="stroke">&primary_cas_col;</CssParameter>
         <CssParameter name="stroke-width">4</CssParameter>
         <CssParameter name="stroke-dasharray">4,2</CssParameter>
       </LineSymbolizer>
@@ -323,7 +323,7 @@
       &maxscale_zoom13;
       &minscale_zoom14;
       <LineSymbolizer>
-        <CssParameter name="stroke">#8d4346</CssParameter>
+        <CssParameter name="stroke">&primary_cas_col;</CssParameter>
         <CssParameter name="stroke-width">8</CssParameter>
         <CssParameter name="stroke-dasharray">4,2</CssParameter>
       </LineSymbolizer>
@@ -333,7 +333,7 @@
       &maxscale_zoom15;
       &minscale_zoom16;
       <LineSymbolizer>
-        <CssParameter name="stroke">#8d4346</CssParameter>
+        <CssParameter name="stroke">&primary_cas_col;</CssParameter>
         <CssParameter name="stroke-width">11</CssParameter>
         <CssParameter name="stroke-dasharray">4,2</CssParameter>
       </LineSymbolizer>
@@ -343,7 +343,7 @@
       &maxscale_zoom17;
       &minscale_zoom18;
       <LineSymbolizer>
-        <CssParameter name="stroke">#8d4346</CssParameter>
+        <CssParameter name="stroke">&primary_cas_col;</CssParameter>
         <CssParameter name="stroke-width">14</CssParameter>
         <CssParameter name="stroke-dasharray">4,2</CssParameter>
       </LineSymbolizer>
@@ -353,7 +353,7 @@
       &maxscale_zoom12;
       &minscale_zoom12;
       <LineSymbolizer>
-        <CssParameter name="stroke">#a37b48</CssParameter>
+        <CssParameter name="stroke">&secondary_cas_col;</CssParameter>
         <CssParameter name="stroke-width">4</CssParameter>
         <CssParameter name="stroke-dasharray">4,2</CssParameter>
       </LineSymbolizer>
@@ -363,7 +363,7 @@
       &maxscale_zoom13;
       &minscale_zoom14;
       <LineSymbolizer>
-        <CssParameter name="stroke">#a37b48</CssParameter>
+        <CssParameter name="stroke">&secondary_cas_col;</CssParameter>
         <CssParameter name="stroke-width">10</CssParameter>
         <CssParameter name="stroke-dasharray">4,2</CssParameter>
       </LineSymbolizer>
@@ -373,7 +373,7 @@
       &maxscale_zoom15;
       &minscale_zoom16;
       <LineSymbolizer>
-        <CssParameter name="stroke">#a37b48</CssParameter>
+        <CssParameter name="stroke">&secondary_cas_col;</CssParameter>
         <CssParameter name="stroke-width">12</CssParameter>
         <CssParameter name="stroke-dasharray">4,2</CssParameter>
       </LineSymbolizer>
@@ -383,7 +383,7 @@
       &maxscale_zoom17;
       &minscale_zoom18;
       <LineSymbolizer>
-        <CssParameter name="stroke">#a37b48</CssParameter>
+        <CssParameter name="stroke">&secondary_cas_col;</CssParameter>
         <CssParameter name="stroke-width">17</CssParameter>
         <CssParameter name="stroke-dasharray">4,2</CssParameter>
       </LineSymbolizer>
@@ -393,7 +393,7 @@
       &maxscale_zoom13;
       &minscale_zoom13;
       <LineSymbolizer>
-        <CssParameter name="stroke">#999</CssParameter>
+        <CssParameter name="stroke">&tertiary_cas_col;</CssParameter>
         <CssParameter name="stroke-width">6</CssParameter>
         <CssParameter name="stroke-dasharray">4,2</CssParameter>
       </LineSymbolizer>
@@ -403,7 +403,7 @@
       &maxscale_zoom14;
       &minscale_zoom14;
       <LineSymbolizer>
-        <CssParameter name="stroke">#999</CssParameter>
+        <CssParameter name="stroke">&tertiary_cas_col;</CssParameter>
         <CssParameter name="stroke-width">7.5</CssParameter>
         <CssParameter name="stroke-dasharray">4,2</CssParameter>
       </LineSymbolizer>
@@ -453,7 +453,7 @@
       &maxscale_zoom15;
       &minscale_zoom16;
       <LineSymbolizer>
-        <CssParameter name="stroke">#999</CssParameter>
+        <CssParameter name="stroke">&tertiary_cas_col;</CssParameter>
         <CssParameter name="stroke-width">11</CssParameter>
         <CssParameter name="stroke-dasharray">4,2</CssParameter>
       </LineSymbolizer>
@@ -463,7 +463,7 @@
       &maxscale_zoom17;
       &minscale_zoom18;
       <LineSymbolizer>
-        <CssParameter name="stroke">#999</CssParameter>
+        <CssParameter name="stroke">&tertiary_cas_col;</CssParameter>
         <CssParameter name="stroke-width">16</CssParameter>
         <CssParameter name="stroke-dasharray">4,2</CssParameter>
       </LineSymbolizer>
@@ -475,7 +475,7 @@
       &maxscale_zoom12;
       &minscale_zoom12;
       <LineSymbolizer>
-        <CssParameter name="stroke">#d6dfea</CssParameter>
+        <CssParameter name="stroke">&trunk_motorway_col;</CssParameter>
         <CssParameter name="stroke-width">2</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
         <CssParameter name="stroke-linecap">round</CssParameter>
@@ -486,7 +486,7 @@
       &maxscale_zoom13;
       &minscale_zoom14;
       <LineSymbolizer>
-        <CssParameter name="stroke">#d6dfea</CssParameter>
+        <CssParameter name="stroke">&trunk_motorway_col;</CssParameter>
         <CssParameter name="stroke-width">5</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
         <CssParameter name="stroke-linecap">round</CssParameter>
@@ -497,7 +497,7 @@
       &maxscale_zoom15;
       &minscale_zoom16;
       <LineSymbolizer>
-        <CssParameter name="stroke">#d6dfea</CssParameter>
+        <CssParameter name="stroke">&trunk_motorway_col;</CssParameter>
         <CssParameter name="stroke-width">8.5</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
         <CssParameter name="stroke-linecap">round</CssParameter>
@@ -508,7 +508,7 @@
       &maxscale_zoom17;
       &minscale_zoom18;
       <LineSymbolizer>
-        <CssParameter name="stroke">#d6dfea</CssParameter>
+        <CssParameter name="stroke">&trunk_motorway_col;</CssParameter>
         <CssParameter name="stroke-width">11</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
         <CssParameter name="stroke-linecap">round</CssParameter>
@@ -519,7 +519,7 @@
       &maxscale_zoom12;
       &minscale_zoom12;
       <LineSymbolizer>
-        <CssParameter name="stroke">#cdeacd</CssParameter>
+        <CssParameter name="stroke">&trunk_motorway_col;</CssParameter>
         <CssParameter name="stroke-width">2.5</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
         <CssParameter name="stroke-linecap">round</CssParameter>
@@ -530,7 +530,7 @@
       &maxscale_zoom13;
       &minscale_zoom14;
       <LineSymbolizer>
-        <CssParameter name="stroke">#cdeacd</CssParameter>
+        <CssParameter name="stroke">&trunk_motorway_col;</CssParameter>
         <CssParameter name="stroke-width">6.5</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
         <CssParameter name="stroke-linecap">round</CssParameter>
@@ -541,7 +541,7 @@
       &maxscale_zoom15;
       &minscale_zoom16;
       <LineSymbolizer>
-        <CssParameter name="stroke">#cdeacd</CssParameter>
+        <CssParameter name="stroke">&trunk_motorway_col;</CssParameter>
         <CssParameter name="stroke-width">9</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
         <CssParameter name="stroke-linecap">round</CssParameter>
@@ -552,7 +552,7 @@
       &maxscale_zoom17;
       &minscale_zoom18;
       <LineSymbolizer>
-        <CssParameter name="stroke">#cdeacd</CssParameter>
+        <CssParameter name="stroke">&trunk_motorway_col;</CssParameter>
         <CssParameter name="stroke-width">12</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
         <CssParameter name="stroke-linecap">round</CssParameter>
@@ -563,7 +563,7 @@
       &maxscale_zoom12;
       &minscale_zoom12;
       <LineSymbolizer>
-        <CssParameter name="stroke">#f4c3c4</CssParameter>
+        <CssParameter name="stroke">&primary_col;</CssParameter>
         <CssParameter name="stroke-width">2.5</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
         <CssParameter name="stroke-linecap">round</CssParameter>
@@ -574,7 +574,7 @@
       &maxscale_zoom13;
       &minscale_zoom14;
       <LineSymbolizer>
-        <CssParameter name="stroke">#f4c3c4</CssParameter>
+        <CssParameter name="stroke">&primary_col;</CssParameter>
         <CssParameter name="stroke-width">6.5</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
         <CssParameter name="stroke-linecap">round</CssParameter>
@@ -585,7 +585,7 @@
       &maxscale_zoom15;
       &minscale_zoom16;
       <LineSymbolizer>
-        <CssParameter name="stroke">#f4c3c4</CssParameter>
+        <CssParameter name="stroke">&primary_col;</CssParameter>
         <CssParameter name="stroke-width">9</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
         <CssParameter name="stroke-linecap">round</CssParameter>
@@ -596,7 +596,7 @@
       &maxscale_zoom17;
       &minscale_zoom18;
       <LineSymbolizer>
-        <CssParameter name="stroke">#f4c3c4</CssParameter>
+        <CssParameter name="stroke">&primary_col;</CssParameter>
         <CssParameter name="stroke-width">12</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
         <CssParameter name="stroke-linecap">round</CssParameter>
@@ -607,7 +607,7 @@
       &maxscale_zoom12;
       &minscale_zoom12;
       <LineSymbolizer>
-        <CssParameter name="stroke">#fee0b8</CssParameter>
+        <CssParameter name="stroke">&secondary_col;</CssParameter>
         <CssParameter name="stroke-width">2</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
         <CssParameter name="stroke-linecap">round</CssParameter>
@@ -618,7 +618,7 @@
       &maxscale_zoom13;
       &minscale_zoom14;
       <LineSymbolizer>
-        <CssParameter name="stroke">#fee0b8</CssParameter>
+        <CssParameter name="stroke">&secondary_col;</CssParameter>
         <CssParameter name="stroke-width">8</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
         <CssParameter name="stroke-linecap">round</CssParameter>
@@ -629,7 +629,7 @@
       &maxscale_zoom15;
       &minscale_zoom16;
       <LineSymbolizer>
-        <CssParameter name="stroke">#fee0b8</CssParameter>
+        <CssParameter name="stroke">&secondary_col;</CssParameter>
         <CssParameter name="stroke-width">10</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
         <CssParameter name="stroke-linecap">round</CssParameter>
@@ -640,7 +640,7 @@
       &maxscale_zoom17;
       &minscale_zoom18;
       <LineSymbolizer>
-        <CssParameter name="stroke">#fee0b8</CssParameter>
+        <CssParameter name="stroke">&secondary_col;</CssParameter>
         <CssParameter name="stroke-width">14</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
         <CssParameter name="stroke-linecap">round</CssParameter>
@@ -651,7 +651,7 @@
       &maxscale_zoom13;
       &minscale_zoom13;
       <LineSymbolizer>
-        <CssParameter name="stroke">#ffc</CssParameter>
+        <CssParameter name="stroke">&tertiary_col;</CssParameter>
         <CssParameter name="stroke-width">5</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
         <CssParameter name="stroke-linecap">round</CssParameter>
@@ -662,7 +662,7 @@
       &maxscale_zoom14;
       &minscale_zoom14;
       <LineSymbolizer>
-        <CssParameter name="stroke">#ffc</CssParameter>
+        <CssParameter name="stroke">&tertiary_col;</CssParameter>
         <CssParameter name="stroke-width">6.5</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
         <CssParameter name="stroke-linecap">round</CssParameter>
@@ -695,7 +695,7 @@
       &maxscale_zoom15;
       &minscale_zoom16;
       <LineSymbolizer>
-        <CssParameter name="stroke">#ffc</CssParameter>
+        <CssParameter name="stroke">&tertiary_col;</CssParameter>
         <CssParameter name="stroke-width">9.4</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
         <CssParameter name="stroke-linecap">round</CssParameter>
@@ -706,7 +706,7 @@
       &maxscale_zoom17;
       &minscale_zoom18;
       <LineSymbolizer>
-        <CssParameter name="stroke">#ffc</CssParameter>
+        <CssParameter name="stroke">&tertiary_col;</CssParameter>
         <CssParameter name="stroke-width">13</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
         <CssParameter name="stroke-linecap">round</CssParameter>
@@ -782,7 +782,7 @@
       &maxscale_zoom12;
       &minscale_zoom12;
       <LineSymbolizer>
-        <CssParameter name="stroke">#506077</CssParameter>
+        <CssParameter name="stroke">&trunk_motorway_cas_col;</CssParameter>
         <CssParameter name="stroke-width">1.5</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
       </LineSymbolizer>
@@ -792,7 +792,7 @@
       &maxscale_zoom13;
       &minscale_zoom14;
       <LineSymbolizer>
-        <CssParameter name="stroke">#506077</CssParameter>
+        <CssParameter name="stroke">&trunk_motorway_cas_col;</CssParameter>
         <CssParameter name="stroke-width">4.5</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
       </LineSymbolizer>
@@ -802,7 +802,7 @@
       &maxscale_zoom15;
       &minscale_zoom16;
       <LineSymbolizer>
-        <CssParameter name="stroke">#506077</CssParameter>
+        <CssParameter name="stroke">&trunk_motorway_cas_col;</CssParameter>
         <CssParameter name="stroke-width">8</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
       </LineSymbolizer>
@@ -812,7 +812,7 @@
       &maxscale_zoom17;
       &minscale_zoom18;
       <LineSymbolizer>
-        <CssParameter name="stroke">#506077</CssParameter>
+        <CssParameter name="stroke">&trunk_motorway_cas_col;</CssParameter>
         <CssParameter name="stroke-width">11</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
       </LineSymbolizer>
@@ -822,7 +822,7 @@
       &maxscale_zoom12;
       &minscale_zoom12;
       <LineSymbolizer>
-        <CssParameter name="stroke">#477147</CssParameter>
+        <CssParameter name="stroke">&trunk_motorway_cas_col;</CssParameter>
         <CssParameter name="stroke-width">3</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
       </LineSymbolizer>
@@ -832,7 +832,7 @@
       &maxscale_zoom13;
       &minscale_zoom14;
       <LineSymbolizer>
-        <CssParameter name="stroke">#477147</CssParameter>
+        <CssParameter name="stroke">&trunk_motorway_cas_col;</CssParameter>
         <CssParameter name="stroke-width">7.5</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
       </LineSymbolizer>
@@ -842,7 +842,7 @@
       &maxscale_zoom15;
       &minscale_zoom16;
       <LineSymbolizer>
-        <CssParameter name="stroke">#477147</CssParameter>
+        <CssParameter name="stroke">&trunk_motorway_cas_col;</CssParameter>
         <CssParameter name="stroke-width">11.5</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
       </LineSymbolizer>
@@ -852,7 +852,7 @@
       &maxscale_zoom17;
       &minscale_zoom18;
       <LineSymbolizer>
-        <CssParameter name="stroke">#477147</CssParameter>
+        <CssParameter name="stroke">&trunk_motorway_cas_col;</CssParameter>
         <CssParameter name="stroke-width">16</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
       </LineSymbolizer>
@@ -862,7 +862,7 @@
       &maxscale_zoom12;      
       &minscale_zoom12;
       <LineSymbolizer>
-        <CssParameter name="stroke">#8d4346</CssParameter>
+        <CssParameter name="stroke">&primary_cas_col;</CssParameter>
         <CssParameter name="stroke-width">3</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
       </LineSymbolizer>
@@ -872,7 +872,7 @@
       &maxscale_zoom13;      
       &minscale_zoom14;
       <LineSymbolizer>
-        <CssParameter name="stroke">#8d4346</CssParameter>
+        <CssParameter name="stroke">&primary_cas_col;</CssParameter>
         <CssParameter name="stroke-width">7.5</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
       </LineSymbolizer>
@@ -882,7 +882,7 @@
       &maxscale_zoom15;      
       &minscale_zoom16;
       <LineSymbolizer>
-        <CssParameter name="stroke">#8d4346</CssParameter>
+        <CssParameter name="stroke">&primary_cas_col;</CssParameter>
         <CssParameter name="stroke-width">11.5</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
       </LineSymbolizer>
@@ -892,7 +892,7 @@
       &maxscale_zoom17;      
       &minscale_zoom18;
       <LineSymbolizer>
-        <CssParameter name="stroke">#8d4346</CssParameter>
+        <CssParameter name="stroke">&primary_cas_col;</CssParameter>
         <CssParameter name="stroke-width">16</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
       </LineSymbolizer>
@@ -902,7 +902,7 @@
       &maxscale_zoom12;
       &minscale_zoom12;
       <LineSymbolizer>
-        <CssParameter name="stroke">#a37b48</CssParameter>
+        <CssParameter name="stroke">&secondary_cas_col;</CssParameter>
         <CssParameter name="stroke-width">2.5</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
         <CssParameter name="stroke-linecap">round</CssParameter>
@@ -913,7 +913,7 @@
       &maxscale_zoom13;
       &minscale_zoom14;
       <LineSymbolizer>
-        <CssParameter name="stroke">#a37b48</CssParameter>
+        <CssParameter name="stroke">&secondary_cas_col;</CssParameter>
         <CssParameter name="stroke-width">8.5</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
         <CssParameter name="stroke-linecap">round</CssParameter>
@@ -924,7 +924,7 @@
       &maxscale_zoom15;
       &minscale_zoom16;
       <LineSymbolizer>
-        <CssParameter name="stroke">#a37b48</CssParameter>
+        <CssParameter name="stroke">&secondary_cas_col;</CssParameter>
         <CssParameter name="stroke-width">11.5</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
         <CssParameter name="stroke-linecap">round</CssParameter>
@@ -935,7 +935,7 @@
       &maxscale_zoom17;
       &minscale_zoom18;
       <LineSymbolizer>
-        <CssParameter name="stroke">#a37b48</CssParameter>
+        <CssParameter name="stroke">&secondary_cas_col;</CssParameter>
         <CssParameter name="stroke-width">16</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
         <CssParameter name="stroke-linecap">round</CssParameter>
@@ -946,7 +946,7 @@
       &maxscale_zoom13;
       &minscale_zoom13;
       <LineSymbolizer>
-        <CssParameter name="stroke">#bbb</CssParameter>
+        <CssParameter name="stroke">&tertiary_cas_col;</CssParameter>
         <CssParameter name="stroke-width">6</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
         <CssParameter name="stroke-linecap">round</CssParameter>
@@ -957,7 +957,7 @@
       &maxscale_zoom14;
       &minscale_zoom14;
       <LineSymbolizer>
-        <CssParameter name="stroke">#bbb</CssParameter>
+        <CssParameter name="stroke">&tertiary_cas_col;</CssParameter>
         <CssParameter name="stroke-width">7.5</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
         <CssParameter name="stroke-linecap">round</CssParameter>
@@ -968,7 +968,7 @@
       &maxscale_zoom15;
       &minscale_zoom16;
       <LineSymbolizer>
-        <CssParameter name="stroke">#bbb</CssParameter>
+        <CssParameter name="stroke">&tertiary_cas_col;</CssParameter>
         <CssParameter name="stroke-width">11</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
         <CssParameter name="stroke-linecap">round</CssParameter>
@@ -979,7 +979,7 @@
       &maxscale_zoom17;
       &minscale_zoom18;
       <LineSymbolizer>
-        <CssParameter name="stroke">#bbb</CssParameter>
+        <CssParameter name="stroke">&tertiary_cas_col;</CssParameter>
         <CssParameter name="stroke-width">16</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
         <CssParameter name="stroke-linecap">round</CssParameter>
@@ -992,7 +992,7 @@
       &maxscale_zoom12;
       &minscale_zoom12;
       <LineSymbolizer>
-        <CssParameter name="stroke">#506077</CssParameter>
+        <CssParameter name="stroke">&trunk_motorway_cas_col;</CssParameter>
         <CssParameter name="stroke-width">3</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
       </LineSymbolizer>
@@ -1002,7 +1002,7 @@
       &maxscale_zoom12;
       &minscale_zoom12;
       <LineSymbolizer>
-        <CssParameter name="stroke">#477147</CssParameter>
+        <CssParameter name="stroke">&trunk_motorway_cas_col;</CssParameter>
         <CssParameter name="stroke-width">3</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
       </LineSymbolizer>
@@ -1012,7 +1012,7 @@
       &maxscale_zoom12;      
       &minscale_zoom12;
       <LineSymbolizer>
-        <CssParameter name="stroke">#8d4346</CssParameter>
+        <CssParameter name="stroke">&primary_cas_col;</CssParameter>
         <CssParameter name="stroke-width">3</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
       </LineSymbolizer>
@@ -1022,7 +1022,7 @@
       &maxscale_zoom12;
       &minscale_zoom12;
       <LineSymbolizer>
-        <CssParameter name="stroke">#a37b48</CssParameter>
+        <CssParameter name="stroke">&secondary_cas_col;</CssParameter>
         <CssParameter name="stroke-width">2.5</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
         <CssParameter name="stroke-linecap">round</CssParameter>
@@ -1033,7 +1033,7 @@
       &maxscale_zoom13;
       &minscale_zoom14;
       <LineSymbolizer>
-        <CssParameter name="stroke">#506077</CssParameter>
+        <CssParameter name="stroke">&trunk_motorway_cas_col;</CssParameter>
         <CssParameter name="stroke-width">6.5</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
       </LineSymbolizer>
@@ -1043,7 +1043,7 @@
       &maxscale_zoom13;
       &minscale_zoom14;
       <LineSymbolizer>
-        <CssParameter name="stroke">#477147</CssParameter>
+        <CssParameter name="stroke">&trunk_motorway_cas_col;</CssParameter>
         <CssParameter name="stroke-width">7.5</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
       </LineSymbolizer>
@@ -1053,7 +1053,7 @@
       &maxscale_zoom13;      
       &minscale_zoom14;
       <LineSymbolizer>
-        <CssParameter name="stroke">#8d4346</CssParameter>
+        <CssParameter name="stroke">&primary_cas_col;</CssParameter>
         <CssParameter name="stroke-width">7.5</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
       </LineSymbolizer>
@@ -1063,7 +1063,7 @@
       &maxscale_zoom13;
       &minscale_zoom14;
       <LineSymbolizer>
-        <CssParameter name="stroke">#a37b48</CssParameter>
+        <CssParameter name="stroke">&secondary_cas_col;</CssParameter>
         <CssParameter name="stroke-width">8.5</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
         <CssParameter name="stroke-linecap">round</CssParameter>
@@ -1074,7 +1074,7 @@
       &maxscale_zoom15;
       &minscale_zoom16;
       <LineSymbolizer>
-        <CssParameter name="stroke">#506077</CssParameter>
+        <CssParameter name="stroke">&trunk_motorway_cas_col;</CssParameter>
         <CssParameter name="stroke-width">10</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
       </LineSymbolizer>
@@ -1084,7 +1084,7 @@
       &maxscale_zoom15;
       &minscale_zoom16;
       <LineSymbolizer>
-        <CssParameter name="stroke">#477147</CssParameter>
+        <CssParameter name="stroke">&trunk_motorway_cas_col;</CssParameter>
         <CssParameter name="stroke-width">11.5</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
       </LineSymbolizer>
@@ -1094,7 +1094,7 @@
       &maxscale_zoom15;      
       &minscale_zoom16;
       <LineSymbolizer>
-        <CssParameter name="stroke">#8d4346</CssParameter>
+        <CssParameter name="stroke">&primary_cas_col;</CssParameter>
         <CssParameter name="stroke-width">11.5</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
       </LineSymbolizer>
@@ -1104,7 +1104,7 @@
       &maxscale_zoom15;
       &minscale_zoom16;
       <LineSymbolizer>
-        <CssParameter name="stroke">#a37b48</CssParameter>
+        <CssParameter name="stroke">&secondary_cas_col;</CssParameter>
         <CssParameter name="stroke-width">11.5</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
         <CssParameter name="stroke-linecap">round</CssParameter>
@@ -1115,7 +1115,7 @@
       &maxscale_zoom17;
       &minscale_zoom18;
       <LineSymbolizer>
-        <CssParameter name="stroke">#506077</CssParameter>
+        <CssParameter name="stroke">&trunk_motorway_cas_col;</CssParameter>
         <CssParameter name="stroke-width">13</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
       </LineSymbolizer>
@@ -1125,7 +1125,7 @@
       &maxscale_zoom17;
       &minscale_zoom18;
       <LineSymbolizer>
-        <CssParameter name="stroke">#477147</CssParameter>
+        <CssParameter name="stroke">&trunk_motorway_cas_col;</CssParameter>
         <CssParameter name="stroke-width">16</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
       </LineSymbolizer>
@@ -1135,7 +1135,7 @@
       &maxscale_zoom17;      
       &minscale_zoom18;
       <LineSymbolizer>
-        <CssParameter name="stroke">#8d4346</CssParameter>
+        <CssParameter name="stroke">&primary_cas_col;</CssParameter>
         <CssParameter name="stroke-width">16</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
       </LineSymbolizer>
@@ -1145,7 +1145,7 @@
       &maxscale_zoom17;
       &minscale_zoom18;
       <LineSymbolizer>
-        <CssParameter name="stroke">#a37b48</CssParameter>
+        <CssParameter name="stroke">&secondary_cas_col;</CssParameter>
         <CssParameter name="stroke-width">16</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
         <CssParameter name="stroke-linecap">round</CssParameter>
@@ -1156,7 +1156,7 @@
       &maxscale_zoom13;
       &minscale_zoom13;
       <LineSymbolizer>
-        <CssParameter name="stroke">#bbb</CssParameter>
+        <CssParameter name="stroke">&tertiary_cas_col;</CssParameter>
         <CssParameter name="stroke-width">6</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
         <CssParameter name="stroke-linecap">round</CssParameter>
@@ -1225,7 +1225,7 @@
       &maxscale_zoom15;
       &minscale_zoom16;
       <LineSymbolizer>
-        <CssParameter name="stroke">#bbb</CssParameter>
+        <CssParameter name="stroke">&tertiary_cas_col;</CssParameter>
         <CssParameter name="stroke-width">11</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
         <CssParameter name="stroke-linecap">round</CssParameter>
@@ -1236,7 +1236,7 @@
       &maxscale_zoom17;
       &minscale_zoom18;
       <LineSymbolizer>
-        <CssParameter name="stroke">#bbb</CssParameter>
+        <CssParameter name="stroke">&tertiary_cas_col;</CssParameter>
         <CssParameter name="stroke-width">16</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
         <CssParameter name="stroke-linecap">round</CssParameter>
@@ -1441,7 +1441,7 @@
       &maxscale_zoom12;
       &minscale_zoom12;
       <LineSymbolizer>
-        <CssParameter name="stroke">#809bc0</CssParameter>
+        <CssParameter name="stroke">&trunk_motorway_col;</CssParameter>
         <CssParameter name="stroke-width">0.5</CssParameter>
       </LineSymbolizer>
     </Rule>
@@ -1450,7 +1450,7 @@
       &maxscale_zoom13;
       &minscale_zoom14;
       <LineSymbolizer>
-        <CssParameter name="stroke">#809bc0</CssParameter>
+        <CssParameter name="stroke">&trunk_motorway_col;</CssParameter>
         <CssParameter name="stroke-width">3</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
         <CssParameter name="stroke-linecap">round</CssParameter>
@@ -1461,7 +1461,7 @@
       &maxscale_zoom15;
       &minscale_zoom16;
       <LineSymbolizer>
-        <CssParameter name="stroke">#809bc0</CssParameter>
+        <CssParameter name="stroke">&trunk_motorway_col;</CssParameter>
         <CssParameter name="stroke-width">6.5</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
         <CssParameter name="stroke-linecap">round</CssParameter>
@@ -1472,7 +1472,7 @@
       &maxscale_zoom17;
       &minscale_zoom18;
       <LineSymbolizer>
-        <CssParameter name="stroke">#809bc0</CssParameter>
+        <CssParameter name="stroke">&trunk_motorway_col;</CssParameter>
         <CssParameter name="stroke-width">9</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
         <CssParameter name="stroke-linecap">round</CssParameter>
@@ -1483,7 +1483,7 @@
       &maxscale_zoom12;
       &minscale_zoom12;
       <LineSymbolizer>
-        <CssParameter name="stroke">#a9dba9</CssParameter>
+        <CssParameter name="stroke">&trunk_motorway_col;</CssParameter>
         <CssParameter name="stroke-width">2.5</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
         <CssParameter name="stroke-linecap">round</CssParameter>
@@ -1494,7 +1494,7 @@
       &maxscale_zoom13;
       &minscale_zoom14;
       <LineSymbolizer>
-        <CssParameter name="stroke">#a9dba9</CssParameter>
+        <CssParameter name="stroke">&trunk_motorway_col;</CssParameter>
         <CssParameter name="stroke-width">7</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
         <CssParameter name="stroke-linecap">round</CssParameter>
@@ -1505,7 +1505,7 @@
       &maxscale_zoom15;
       &minscale_zoom16;
       <LineSymbolizer>
-        <CssParameter name="stroke">#a9dba9</CssParameter>
+        <CssParameter name="stroke">&trunk_motorway_col;</CssParameter>
         <CssParameter name="stroke-width">11</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
         <CssParameter name="stroke-linecap">round</CssParameter>
@@ -1516,7 +1516,7 @@
       &maxscale_zoom17;
       &minscale_zoom18;
       <LineSymbolizer>
-        <CssParameter name="stroke">#a9dba9</CssParameter>
+        <CssParameter name="stroke">&trunk_motorway_col;</CssParameter>
         <CssParameter name="stroke-width">15.5</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
         <CssParameter name="stroke-linecap">round</CssParameter>
@@ -1527,7 +1527,7 @@
       &maxscale_zoom12;
       &minscale_zoom12;
       <LineSymbolizer>
-        <CssParameter name="stroke">#ec989a</CssParameter>
+        <CssParameter name="stroke">&primary_col;</CssParameter>
         <CssParameter name="stroke-width">2.5</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
         <CssParameter name="stroke-linecap">round</CssParameter>
@@ -1538,7 +1538,7 @@
       &maxscale_zoom13;
       &minscale_zoom14;
       <LineSymbolizer>
-        <CssParameter name="stroke">#ec989a</CssParameter>
+        <CssParameter name="stroke">&primary_col;</CssParameter>
         <CssParameter name="stroke-width">7</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
         <CssParameter name="stroke-linecap">round</CssParameter>
@@ -1549,7 +1549,7 @@
       &maxscale_zoom15;
       &minscale_zoom16;
       <LineSymbolizer>
-        <CssParameter name="stroke">#ec989a</CssParameter>
+        <CssParameter name="stroke">&primary_col;</CssParameter>
         <CssParameter name="stroke-width">11</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
         <CssParameter name="stroke-linecap">round</CssParameter>
@@ -1560,7 +1560,7 @@
       &maxscale_zoom17;
       &minscale_zoom18;
       <LineSymbolizer>
-        <CssParameter name="stroke">#ec989a</CssParameter>
+        <CssParameter name="stroke">&primary_col;</CssParameter>
         <CssParameter name="stroke-width">15.5</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
         <CssParameter name="stroke-linecap">round</CssParameter>
@@ -1571,7 +1571,7 @@
       &maxscale_zoom12;
       &minscale_zoom12;
       <LineSymbolizer>
-        <CssParameter name="stroke">#fed7a5</CssParameter>
+        <CssParameter name="stroke">&secondary_col;</CssParameter>
         <CssParameter name="stroke-width">2</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
         <CssParameter name="stroke-linecap">round</CssParameter>
@@ -1582,7 +1582,7 @@
       &maxscale_zoom13;
       &minscale_zoom14;
       <LineSymbolizer>
-        <CssParameter name="stroke">#fed7a5</CssParameter>
+        <CssParameter name="stroke">&secondary_col;</CssParameter>
         <CssParameter name="stroke-width">8</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
         <CssParameter name="stroke-linecap">round</CssParameter>
@@ -1593,7 +1593,7 @@
       &maxscale_zoom15;
       &minscale_zoom16;
       <LineSymbolizer>
-        <CssParameter name="stroke">#fed7a5</CssParameter>
+        <CssParameter name="stroke">&secondary_col;</CssParameter>
         <CssParameter name="stroke-width">11</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
         <CssParameter name="stroke-linecap">round</CssParameter>
@@ -1604,7 +1604,7 @@
       &maxscale_zoom17;
       &minscale_zoom18;
       <LineSymbolizer>
-        <CssParameter name="stroke">#fed7a5</CssParameter>
+        <CssParameter name="stroke">&secondary_col;</CssParameter>
         <CssParameter name="stroke-width">15.5</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
         <CssParameter name="stroke-linecap">round</CssParameter>
@@ -1615,7 +1615,7 @@
       &maxscale_zoom13;
       &minscale_zoom13;
       <LineSymbolizer>
-        <CssParameter name="stroke">#ffffb3</CssParameter>
+        <CssParameter name="stroke">&tertiary_col;</CssParameter>
         <CssParameter name="stroke-width">4.5</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
         <CssParameter name="stroke-linecap">round</CssParameter>
@@ -1626,7 +1626,7 @@
       &maxscale_zoom14;
       &minscale_zoom14;
       <LineSymbolizer>
-        <CssParameter name="stroke">#ffffb3</CssParameter>
+        <CssParameter name="stroke">&tertiary_col;</CssParameter>
         <CssParameter name="stroke-width">6</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
         <CssParameter name="stroke-linecap">round</CssParameter>
@@ -1637,7 +1637,7 @@
       &maxscale_zoom15;
       &minscale_zoom16;
       <LineSymbolizer>
-        <CssParameter name="stroke">#ffffb3</CssParameter>
+        <CssParameter name="stroke">&tertiary_col;</CssParameter>
         <CssParameter name="stroke-width">9.4</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
         <CssParameter name="stroke-linecap">round</CssParameter>
@@ -1648,7 +1648,7 @@
       &maxscale_zoom17;
       &minscale_zoom18;
       <LineSymbolizer>
-        <CssParameter name="stroke">#ffffb3</CssParameter>
+        <CssParameter name="stroke">&tertiary_col;</CssParameter>
         <CssParameter name="stroke-width">13</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
         <CssParameter name="stroke-linecap">round</CssParameter>
@@ -1946,7 +1946,7 @@
       &maxscale_zoom12;
       &minscale_zoom12;
       <LineSymbolizer>
-        <CssParameter name="stroke">#809bc0</CssParameter>
+        <CssParameter name="stroke">&trunk_motorway_col;</CssParameter>
         <CssParameter name="stroke-width">2</CssParameter>
       </LineSymbolizer>
     </Rule>
@@ -1955,7 +1955,7 @@
       &maxscale_zoom13;
       &minscale_zoom14;
       <LineSymbolizer>
-        <CssParameter name="stroke">#809bc0</CssParameter>
+        <CssParameter name="stroke">&trunk_motorway_col;</CssParameter>
         <CssParameter name="stroke-width">5</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
         <CssParameter name="stroke-linecap">round</CssParameter>
@@ -1966,7 +1966,7 @@
       &maxscale_zoom15;
       &minscale_zoom16;
       <LineSymbolizer>
-        <CssParameter name="stroke">#809bc0</CssParameter>
+        <CssParameter name="stroke">&trunk_motorway_col;</CssParameter>
         <CssParameter name="stroke-width">8.5</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
         <CssParameter name="stroke-linecap">round</CssParameter>
@@ -1977,7 +1977,7 @@
       &maxscale_zoom17;
       &minscale_zoom18;
       <LineSymbolizer>
-        <CssParameter name="stroke">#809bc0</CssParameter>
+        <CssParameter name="stroke">&trunk_motorway_col;</CssParameter>
         <CssParameter name="stroke-width">11</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
         <CssParameter name="stroke-linecap">round</CssParameter>
@@ -1988,7 +1988,7 @@
       &maxscale_zoom12;
       &minscale_zoom12;
       <LineSymbolizer>
-        <CssParameter name="stroke">#a9dba9</CssParameter>
+        <CssParameter name="stroke">&trunk_motorway_col;</CssParameter>
         <CssParameter name="stroke-width">2.5</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
         <CssParameter name="stroke-linecap">round</CssParameter>
@@ -1999,7 +1999,7 @@
       &maxscale_zoom13;
       &minscale_zoom14;
       <LineSymbolizer>
-        <CssParameter name="stroke">#a9dba9</CssParameter>
+        <CssParameter name="stroke">&trunk_motorway_col;</CssParameter>
         <CssParameter name="stroke-width">7</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
         <CssParameter name="stroke-linecap">round</CssParameter>
@@ -2010,7 +2010,7 @@
       &maxscale_zoom15;
       &minscale_zoom16;
       <LineSymbolizer>
-        <CssParameter name="stroke">#a9dba9</CssParameter>
+        <CssParameter name="stroke">&trunk_motorway_col;</CssParameter>
         <CssParameter name="stroke-width">11</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
         <CssParameter name="stroke-linecap">round</CssParameter>
@@ -2021,7 +2021,7 @@
       &maxscale_zoom17;
       &minscale_zoom18;
       <LineSymbolizer>
-        <CssParameter name="stroke">#a9dba9</CssParameter>
+        <CssParameter name="stroke">&trunk_motorway_col;</CssParameter>
         <CssParameter name="stroke-width">15.5</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
         <CssParameter name="stroke-linecap">round</CssParameter>
@@ -2032,7 +2032,7 @@
       &maxscale_zoom11;
       &minscale_zoom12;
       <LineSymbolizer>
-        <CssParameter name="stroke">#ec989a</CssParameter>
+        <CssParameter name="stroke">&primary_col;</CssParameter>
         <CssParameter name="stroke-width">2.5</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
         <CssParameter name="stroke-linecap">round</CssParameter>
@@ -2043,7 +2043,7 @@
       &maxscale_zoom13;
       &minscale_zoom14;
       <LineSymbolizer>
-        <CssParameter name="stroke">#ec989a</CssParameter>
+        <CssParameter name="stroke">&primary_col;</CssParameter>
         <CssParameter name="stroke-width">7</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
         <CssParameter name="stroke-linecap">round</CssParameter>
@@ -2054,7 +2054,7 @@
       &maxscale_zoom15;
       &minscale_zoom16;
       <LineSymbolizer>
-        <CssParameter name="stroke">#ec989a</CssParameter>
+        <CssParameter name="stroke">&primary_col;</CssParameter>
         <CssParameter name="stroke-width">11</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
         <CssParameter name="stroke-linecap">round</CssParameter>
@@ -2065,7 +2065,7 @@
       &maxscale_zoom17;
       &minscale_zoom18;
       <LineSymbolizer>
-        <CssParameter name="stroke">#ec989a</CssParameter>
+        <CssParameter name="stroke">&primary_col;</CssParameter>
         <CssParameter name="stroke-width">15.5</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
         <CssParameter name="stroke-linecap">round</CssParameter>
@@ -2076,7 +2076,7 @@
       &maxscale_zoom12;
       &minscale_zoom12;
       <LineSymbolizer>
-        <CssParameter name="stroke">#fed7a5</CssParameter>
+        <CssParameter name="stroke">&secondary_col;</CssParameter>
         <CssParameter name="stroke-width">2</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
         <CssParameter name="stroke-linecap">round</CssParameter>
@@ -2087,7 +2087,7 @@
       &maxscale_zoom13;
       &minscale_zoom14;
       <LineSymbolizer>
-        <CssParameter name="stroke">#fed7a5</CssParameter>
+        <CssParameter name="stroke">&secondary_col;</CssParameter>
         <CssParameter name="stroke-width">8</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
         <CssParameter name="stroke-linecap">round</CssParameter>
@@ -2098,7 +2098,7 @@
       &maxscale_zoom15;
       &minscale_zoom16;
       <LineSymbolizer>
-        <CssParameter name="stroke">#fed7a5</CssParameter>
+        <CssParameter name="stroke">&secondary_col;</CssParameter>
         <CssParameter name="stroke-width">11</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
         <CssParameter name="stroke-linecap">round</CssParameter>
@@ -2109,7 +2109,7 @@
       &maxscale_zoom17;
       &minscale_zoom18;
       <LineSymbolizer>
-        <CssParameter name="stroke">#fed7a5</CssParameter>
+        <CssParameter name="stroke">&secondary_col;</CssParameter>
         <CssParameter name="stroke-width">15.5</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
         <CssParameter name="stroke-linecap">round</CssParameter>
@@ -2556,7 +2556,7 @@
       &maxscale_zoom13;
       &minscale_zoom13;
       <LineSymbolizer>
-        <CssParameter name="stroke">#ffffb3</CssParameter>
+        <CssParameter name="stroke">&tertiary_col;</CssParameter>
         <CssParameter name="stroke-width">4.5</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
         <CssParameter name="stroke-linecap">round</CssParameter>
@@ -2567,7 +2567,7 @@
       &maxscale_zoom14;
       &minscale_zoom14;
       <LineSymbolizer>
-        <CssParameter name="stroke">#ffffb3</CssParameter>
+        <CssParameter name="stroke">&tertiary_col;</CssParameter>
         <CssParameter name="stroke-width">6</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
         <CssParameter name="stroke-linecap">round</CssParameter>
@@ -2578,7 +2578,7 @@
       &maxscale_zoom15;
       &minscale_zoom16;
       <LineSymbolizer>
-        <CssParameter name="stroke">#ffffb3</CssParameter>
+        <CssParameter name="stroke">&tertiary_col;</CssParameter>
         <CssParameter name="stroke-width">9.4</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
         <CssParameter name="stroke-linecap">round</CssParameter>
@@ -2589,7 +2589,7 @@
       &maxscale_zoom17;
       &minscale_zoom18;
       <LineSymbolizer>
-        <CssParameter name="stroke">#ffffb3</CssParameter>
+        <CssParameter name="stroke">&tertiary_col;</CssParameter>
         <CssParameter name="stroke-width">13</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
         <CssParameter name="stroke-linecap">round</CssParameter>
@@ -4048,7 +4048,7 @@
       &maxscale_zoom12;
       &minscale_zoom12;
       <LineSymbolizer>
-        <CssParameter name="stroke">#809bc0</CssParameter>
+        <CssParameter name="stroke">&trunk_motorway_col;</CssParameter>
         <CssParameter name="stroke-width">2</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
         <CssParameter name="stroke-linecap">round</CssParameter>
@@ -4059,7 +4059,7 @@
       &maxscale_zoom13;
       &minscale_zoom14;
       <LineSymbolizer>
-        <CssParameter name="stroke">#809bc0</CssParameter>
+        <CssParameter name="stroke">&trunk_motorway_col;</CssParameter>
         <CssParameter name="stroke-width">5.5</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
         <CssParameter name="stroke-linecap">round</CssParameter>
@@ -4070,7 +4070,7 @@
       &maxscale_zoom15;
       &minscale_zoom16;
       <LineSymbolizer>
-        <CssParameter name="stroke">#809bc0</CssParameter>
+        <CssParameter name="stroke">&trunk_motorway_col;</CssParameter>
         <CssParameter name="stroke-width">7.5</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
         <CssParameter name="stroke-linecap">round</CssParameter>
@@ -4081,7 +4081,7 @@
       &maxscale_zoom17;
       &minscale_zoom18;
       <LineSymbolizer>
-        <CssParameter name="stroke">#809bc0</CssParameter>
+        <CssParameter name="stroke">&trunk_motorway_col;</CssParameter>
         <CssParameter name="stroke-width">10</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
         <CssParameter name="stroke-linecap">round</CssParameter>
@@ -4092,7 +4092,7 @@
       &maxscale_zoom12;
       &minscale_zoom12;
       <LineSymbolizer>
-        <CssParameter name="stroke">#a9dba9</CssParameter>
+        <CssParameter name="stroke">&trunk_motorway_col;</CssParameter>
         <CssParameter name="stroke-width">3</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
         <CssParameter name="stroke-linecap">round</CssParameter>
@@ -4103,7 +4103,7 @@
       &maxscale_zoom13;
       &minscale_zoom14;
       <LineSymbolizer>
-        <CssParameter name="stroke">#a9dba9</CssParameter>
+        <CssParameter name="stroke">&trunk_motorway_col;</CssParameter>
         <CssParameter name="stroke-width">7</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
         <CssParameter name="stroke-linecap">round</CssParameter>
@@ -4114,7 +4114,7 @@
       &maxscale_zoom15;
       &minscale_zoom16;
       <LineSymbolizer>
-        <CssParameter name="stroke">#a9dba9</CssParameter>
+        <CssParameter name="stroke">&trunk_motorway_col;</CssParameter>
         <CssParameter name="stroke-width">9.5</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
         <CssParameter name="stroke-linecap">round</CssParameter>
@@ -4125,7 +4125,7 @@
       &maxscale_zoom17;
       &minscale_zoom18;
       <LineSymbolizer>
-        <CssParameter name="stroke">#a9dba9</CssParameter>
+        <CssParameter name="stroke">&trunk_motorway_col;</CssParameter>
         <CssParameter name="stroke-width">14.5</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
         <CssParameter name="stroke-linecap">round</CssParameter>
@@ -4136,7 +4136,7 @@
       &maxscale_zoom12;
       &minscale_zoom12;
       <LineSymbolizer>
-        <CssParameter name="stroke">#ec989a</CssParameter>
+        <CssParameter name="stroke">&primary_col;</CssParameter>
         <CssParameter name="stroke-width">3</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
         <CssParameter name="stroke-linecap">round</CssParameter>
@@ -4147,7 +4147,7 @@
       &maxscale_zoom13;
       &minscale_zoom14;
       <LineSymbolizer>
-        <CssParameter name="stroke">#ec989a</CssParameter>
+        <CssParameter name="stroke">&primary_col;</CssParameter>
         <CssParameter name="stroke-width">7</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
         <CssParameter name="stroke-linecap">round</CssParameter>
@@ -4158,7 +4158,7 @@
       &maxscale_zoom15;
       &minscale_zoom16;
       <LineSymbolizer>
-        <CssParameter name="stroke">#ec989a</CssParameter>
+        <CssParameter name="stroke">&primary_col;</CssParameter>
         <CssParameter name="stroke-width">9.5</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
         <CssParameter name="stroke-linecap">round</CssParameter>
@@ -4169,7 +4169,7 @@
       &maxscale_zoom17;
       &minscale_zoom18;
       <LineSymbolizer>
-        <CssParameter name="stroke">#ec989a</CssParameter>
+        <CssParameter name="stroke">&primary_col;</CssParameter>
         <CssParameter name="stroke-width">14.5</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
         <CssParameter name="stroke-linecap">round</CssParameter>
@@ -4180,7 +4180,7 @@
       &maxscale_zoom13;
       &minscale_zoom14;
       <LineSymbolizer>
-        <CssParameter name="stroke">#fed7a5</CssParameter>
+        <CssParameter name="stroke">&secondary_col;</CssParameter>
         <CssParameter name="stroke-width">9</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
         <CssParameter name="stroke-linecap">round</CssParameter>
@@ -4191,7 +4191,7 @@
       &maxscale_zoom15;
       &minscale_zoom16;
       <LineSymbolizer>
-        <CssParameter name="stroke">#fed7a5</CssParameter>
+        <CssParameter name="stroke">&secondary_col;</CssParameter>
         <CssParameter name="stroke-width">10.5</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
         <CssParameter name="stroke-linecap">round</CssParameter>
@@ -4202,7 +4202,7 @@
       &maxscale_zoom17;
       &minscale_zoom18;
       <LineSymbolizer>
-        <CssParameter name="stroke">#fed7a5</CssParameter>
+        <CssParameter name="stroke">&secondary_col;</CssParameter>
         <CssParameter name="stroke-width">14.5</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
         <CssParameter name="stroke-linecap">round</CssParameter>
@@ -4213,7 +4213,7 @@
       &maxscale_zoom14;
       &minscale_zoom14;
       <LineSymbolizer>
-        <CssParameter name="stroke">#ffffb3</CssParameter>
+        <CssParameter name="stroke">&tertiary_col;</CssParameter>
         <CssParameter name="stroke-width">6</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
         <CssParameter name="stroke-linecap">round</CssParameter>
@@ -4224,7 +4224,7 @@
       &maxscale_zoom15;
       &minscale_zoom16;
       <LineSymbolizer>
-        <CssParameter name="stroke">#ffffb3</CssParameter>
+        <CssParameter name="stroke">&tertiary_col;</CssParameter>
         <CssParameter name="stroke-width">9.5</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
         <CssParameter name="stroke-linecap">round</CssParameter>
@@ -4235,7 +4235,7 @@
       &maxscale_zoom17;
       &minscale_zoom18;
       <LineSymbolizer>
-        <CssParameter name="stroke">#ffffb3</CssParameter>
+        <CssParameter name="stroke">&tertiary_col;</CssParameter>
         <CssParameter name="stroke-width">14</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
         <CssParameter name="stroke-linecap">round</CssParameter>
@@ -4635,7 +4635,7 @@
       &maxscale_zoom5;
       &minscale_zoom6;
       <LineSymbolizer>
-        <CssParameter name="stroke">#809bc0</CssParameter>
+        <CssParameter name="stroke">&trunk_motorway_col;</CssParameter>
         <CssParameter name="stroke-width">0.5</CssParameter>
       </LineSymbolizer>
     </Rule>
@@ -4644,16 +4644,16 @@
       &maxscale_zoom7;
       &minscale_zoom8;
       <LineSymbolizer>
-       <CssParameter name="stroke">#809bc0</CssParameter>
+       <CssParameter name="stroke">&trunk_motorway_col;</CssParameter>
        <CssParameter name="stroke-width">1</CssParameter>
       </LineSymbolizer>
     </Rule>
-<Rule>
+    <Rule>
       <Filter>[highway] = 'motorway' or [highway] = 'motorway_link'</Filter>
       &maxscale_zoom9;
       &minscale_zoom9;
       <LineSymbolizer>
-       <CssParameter name="stroke">#809bc0</CssParameter>
+       <CssParameter name="stroke">&trunk_motorway_col;</CssParameter>
        <CssParameter name="stroke-width">1.4</CssParameter>
       </LineSymbolizer>
     </Rule>
@@ -4662,7 +4662,7 @@
       &maxscale_zoom10;
       &minscale_zoom10;
       <LineSymbolizer>
-      <CssParameter name="stroke">#809bc0</CssParameter>
+      <CssParameter name="stroke">&trunk_motorway_col;</CssParameter>
       <CssParameter name="stroke-width">2</CssParameter>
     </LineSymbolizer>
    </Rule>
@@ -4671,7 +4671,7 @@
       &maxscale_zoom11;
       &minscale_zoom11;
       <LineSymbolizer>
-      <CssParameter name="stroke">#809bc0</CssParameter>
+      <CssParameter name="stroke">&trunk_motorway_col;</CssParameter>
       <CssParameter name="stroke-width">2.5</CssParameter>
     </LineSymbolizer>
    </Rule>
@@ -4681,7 +4681,7 @@
       &maxscale_zoom5;
       &minscale_zoom6;
       <LineSymbolizer>
-        <CssParameter name="stroke">#a9dba9</CssParameter>
+        <CssParameter name="stroke">&trunk_motorway_col;</CssParameter>
         <CssParameter name="stroke-width">0.4</CssParameter>
       </LineSymbolizer>
     </Rule>
@@ -4690,7 +4690,7 @@
       &maxscale_zoom7;
       &minscale_zoom8;
       <LineSymbolizer>
-        <CssParameter name="stroke">#97d397</CssParameter>
+        <CssParameter name="stroke">&trunk_motorway_col;</CssParameter>
         <CssParameter name="stroke-width">1</CssParameter>
       </LineSymbolizer>
     </Rule>
@@ -4699,7 +4699,7 @@
       &maxscale_zoom9;
       &minscale_zoom10;
       <LineSymbolizer>
-        <CssParameter name="stroke">#97d397</CssParameter>
+        <CssParameter name="stroke">&trunk_motorway_col;</CssParameter>
         <CssParameter name="stroke-width">2</CssParameter>
       </LineSymbolizer>
     </Rule>
@@ -4708,7 +4708,7 @@
       &maxscale_zoom11;
       &minscale_zoom11;
       <LineSymbolizer>
-        <CssParameter name="stroke">#97d397</CssParameter>
+        <CssParameter name="stroke">&trunk_motorway_col;</CssParameter>
         <CssParameter name="stroke-width">2.5</CssParameter>
       </LineSymbolizer>
     </Rule>
@@ -4718,7 +4718,7 @@
       &maxscale_zoom7;
       &minscale_zoom8;
       <LineSymbolizer>
-        <CssParameter name="stroke">#ec989a</CssParameter>
+        <CssParameter name="stroke">&primary_col;</CssParameter>
         <CssParameter name="stroke-width">0.5</CssParameter>
       </LineSymbolizer>
     </Rule>
@@ -4727,7 +4727,7 @@
       &maxscale_zoom9;
       &minscale_zoom9;
       <LineSymbolizer>
-        <CssParameter name="stroke">#ec989a</CssParameter>
+        <CssParameter name="stroke">&primary_col;</CssParameter>
         <CssParameter name="stroke-width">1.2</CssParameter>
       </LineSymbolizer>
     </Rule>
@@ -4736,7 +4736,7 @@
       &maxscale_zoom10;
       &minscale_zoom10;
       <LineSymbolizer>
-        <CssParameter name="stroke">#ec989a</CssParameter>
+        <CssParameter name="stroke">&primary_col;</CssParameter>
         <CssParameter name="stroke-width">2</CssParameter>
       </LineSymbolizer>
     </Rule>
@@ -4745,7 +4745,7 @@
       &maxscale_zoom11;
       &minscale_zoom11;
       <LineSymbolizer>
-        <CssParameter name="stroke">#ec989a</CssParameter>
+        <CssParameter name="stroke">&primary_col;</CssParameter>
         <CssParameter name="stroke-width">2.5</CssParameter>
       </LineSymbolizer>
     </Rule>
@@ -4755,7 +4755,7 @@
       &maxscale_zoom9;
       &minscale_zoom10;
       <LineSymbolizer>
-        <CssParameter name="stroke">#fecc8b</CssParameter>
+        <CssParameter name="stroke">&secondary_col;</CssParameter>
         <CssParameter name="stroke-width">1</CssParameter>
       </LineSymbolizer>
     </Rule>
@@ -4764,7 +4764,7 @@
       &maxscale_zoom11;
       &minscale_zoom11;
       <LineSymbolizer>
-        <CssParameter name="stroke">#fecc8b</CssParameter>
+        <CssParameter name="stroke">&secondary_col;</CssParameter>
         <CssParameter name="stroke-width">2</CssParameter>
       </LineSymbolizer>
     </Rule>
@@ -4980,145 +4980,145 @@
       <Filter>[highway] = 'motorway' and [length] = 1</Filter>
       &maxscale_zoom10;
       &minscale_zoom12;
-      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/mot_shield1.png" min_distance="30" spacing="750"/>
+      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/aut_shield1.png" min_distance="30" spacing="750"/>
     </Rule>
     <Rule>
       <Filter>[highway] = 'motorway' and [length] = 2</Filter>
       &maxscale_zoom10;
       &minscale_zoom12;
-      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/mot_shield2.png" min_distance="30" spacing="750"/>
+      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/aut_shield2.png" min_distance="30" spacing="750"/>
     </Rule>
     <Rule>
       <Filter>[highway] = 'motorway' and [length] = 3</Filter>
       &maxscale_zoom10;
       &minscale_zoom12;
-      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/mot_shield3.png" min_distance="30" spacing="750"/>
+      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/aut_shield3.png" min_distance="30" spacing="750"/>
     </Rule>
     <Rule>
       <Filter>[highway] = 'motorway' and [length] = 4</Filter>
       &maxscale_zoom10;
       &minscale_zoom12;
-      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/mot_shield4.png" min_distance="30" spacing="750"/>
+      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/aut_shield4.png" min_distance="30" spacing="750"/>
     </Rule>
     <Rule>
       <Filter>[highway] = 'motorway' and [length] = 5</Filter>
       &maxscale_zoom10;
       &minscale_zoom12;
-      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/mot_shield5.png" min_distance="30" spacing="750"/>
+      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/aut_shield5.png" min_distance="30" spacing="750"/>
     </Rule>
     <Rule>
       <Filter>[highway] = 'motorway' and [length] = 6</Filter>
       &maxscale_zoom10;
       &minscale_zoom12;
-      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/mot_shield6.png" min_distance="30" spacing="750"/>
+      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/aut_shield6.png" min_distance="30" spacing="750"/>
     </Rule>
     <Rule>
       <Filter>[highway] = 'motorway' and [length] = 7</Filter>
       &maxscale_zoom10;
       &minscale_zoom12;
-      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/mot_shield6.png" min_distance="30" spacing="750"/>
+      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/aut_shield6.png" min_distance="30" spacing="750"/>
     </Rule>
     <Rule>
       <Filter>[highway] = 'motorway' and [length] = 8</Filter>
       &maxscale_zoom10;
       &minscale_zoom12;
-      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/mot_shield7.png" min_distance="30" spacing="750"/>
+      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/aut_shield7.png" min_distance="30" spacing="750"/>
     </Rule>
     <Rule>
       <Filter>[highway] = 'trunk' and [length] = 1</Filter>
       &maxscale_zoom11;
       &minscale_zoom12;
-      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/tru_shield1.png" min_distance="30" spacing="750"/>
+      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/aut_shield1.png" min_distance="30" spacing="750"/>
     </Rule>
     <Rule>
       <Filter>[highway] = 'trunk' and [length] = 2</Filter>
       &maxscale_zoom11;
       &minscale_zoom12;
-      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/tru_shield2.png" min_distance="30" spacing="750"/>
+      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/aut_shield2.png" min_distance="30" spacing="750"/>
     </Rule>
     <Rule>
       <Filter>[highway] = 'trunk' and [length] = 3</Filter>
       &maxscale_zoom11;
       &minscale_zoom12;
-      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/tru_shield3.png" min_distance="24" spacing="750"/>
+      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/aut_shield3.png" min_distance="24" spacing="750"/>
     </Rule>
     <Rule>
       <Filter>[highway] = 'trunk' and [length] = 4</Filter>
       &maxscale_zoom11;
       &minscale_zoom12;
-      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/tru_shield4.png" min_distance="30" spacing="750"/>
+      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/aut_shield4.png" min_distance="30" spacing="750"/>
     </Rule>
     <Rule>
       <Filter>[highway] = 'trunk' and [length] = 5</Filter>
       &maxscale_zoom11;
       &minscale_zoom12;
-      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/tru_shield5.png" min_distance="30" spacing="750"/>
+      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/aut_shield5.png" min_distance="30" spacing="750"/>
     </Rule>
     <Rule>
       <Filter>[highway] = 'trunk' and [length] = 6</Filter>
       &maxscale_zoom11;
       &minscale_zoom12;
-      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/tru_shield6.png" min_distance="30" spacing="750"/>
+      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/aut_shield6.png" min_distance="30" spacing="750"/>
     </Rule>
     <Rule>
       <Filter>[highway] = 'trunk' and [length] = 7</Filter>
       &maxscale_zoom11;
       &minscale_zoom12;
-      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/tru_shield7.png" min_distance="30" spacing="750"/>
+      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/aut_shield7.png" min_distance="30" spacing="750"/>
     </Rule>
     <Rule>
       <Filter>[highway] = 'trunk' and [length] = 8</Filter>
       &maxscale_zoom11;
       &minscale_zoom12;
-      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/tru_shield8.png" min_distance="30" spacing="750"/>
+      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/aut_shield8.png" min_distance="30" spacing="750"/>
     </Rule>
     <Rule>
       <Filter>[highway] = 'primary' and [length] = 1</Filter>
       &maxscale_zoom11;
       &minscale_zoom12;
-      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/pri_shield1.png" min_distance="30" spacing="750"/>
+      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#000" placement="line" file="&symbols;/kra_shield1.png" min_distance="30" spacing="750"/>
     </Rule>
     <Rule>
       <Filter>[highway] = 'primary' and [length] = 2</Filter>
       &maxscale_zoom11;
       &minscale_zoom12;
-      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/pri_shield2.png" min_distance="30" spacing="750"/>
+      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#000" placement="line" file="&symbols;/kra_shield2.png" min_distance="30" spacing="750"/>
     </Rule>
     <Rule>
       <Filter>[highway] = 'primary' and [length] = 3</Filter>
       &maxscale_zoom11;
       &minscale_zoom12;
-      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/pri_shield3.png" min_distance="30" spacing="750"/>
+      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#000" placement="line" file="&symbols;/kra_shield3.png" min_distance="30" spacing="750"/>
     </Rule>
     <Rule>
       <Filter>[highway] = 'primary' and [length] = 4</Filter>
       &maxscale_zoom11;
       &minscale_zoom12;
-      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/pri_shield4.png" min_distance="30" spacing="750"/>
+      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#000" placement="line" file="&symbols;/kra_shield4.png" min_distance="30" spacing="750"/>
     </Rule>
     <Rule>
       <Filter>[highway] = 'primary' and [length] = 5</Filter>
       &maxscale_zoom11;
       &minscale_zoom12;
-      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/pri_shield5.png" min_distance="30" spacing="750"/>
+      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#000" placement="line" file="&symbols;/kra_shield5.png" min_distance="30" spacing="750"/>
     </Rule>
     <Rule>
       <Filter>[highway] = 'primary' and [length] = 6</Filter>
       &maxscale_zoom11;
       &minscale_zoom12;
-      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/pri_shield6.png" min_distance="30" spacing="750"/>
+      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#000" placement="line" file="&symbols;/kra_shield6.png" min_distance="30" spacing="750"/>
     </Rule>
     <Rule>
       <Filter>[highway] = 'primary' and [length] = 7</Filter>
       &maxscale_zoom11;
       &minscale_zoom12;
-      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/pri_shield7.png" min_distance="30" spacing="750"/>
+      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#000" placement="line" file="&symbols;/kra_shield7.png" min_distance="30" spacing="750"/>
     </Rule>
     <Rule>
       <Filter>[highway] = 'primary' and [length] = 8</Filter>
       &maxscale_zoom11;
       &minscale_zoom12;
-      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/pri_shield8.png" min_distance="30" spacing="750"/>
+      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#000" placement="line" file="&symbols;/kra_shield8.png" min_distance="30" spacing="750"/>
     </Rule>
 </Style>
 <Style name="roads-text">
@@ -5126,241 +5126,241 @@
       <Filter>[highway] = 'motorway' and [length] = 1</Filter>
       &maxscale_zoom13;
       &minscale_zoom18;
-      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/mot_shield1.png" min_distance="30" spacing="750"/>
+      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/aut_shield1.png" min_distance="30" spacing="750"/>
     </Rule>
     <Rule>
       <Filter>[highway] = 'motorway' and [length] = 2</Filter>
       &maxscale_zoom13;
       &minscale_zoom18;
-      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/mot_shield2.png" min_distance="30" spacing="750"/>
+      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/aut_shield2.png" min_distance="30" spacing="750"/>
     </Rule>
     <Rule>
       <Filter>[highway] = 'motorway' and [length] = 3</Filter>
       &maxscale_zoom13;
       &minscale_zoom18;
-      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/mot_shield3.png" min_distance="30" spacing="750"/>
+      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/aut_shield3.png" min_distance="30" spacing="750"/>
     </Rule>
     <Rule>
       <Filter>[highway] = 'motorway' and [length] = 4</Filter>
       &maxscale_zoom13;
       &minscale_zoom18;
-      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/mot_shield4.png" min_distance="30" spacing="750"/>
+      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/aut_shield4.png" min_distance="30" spacing="750"/>
     </Rule>
     <Rule>
       <Filter>[highway] = 'motorway' and [length] = 5</Filter>
       &maxscale_zoom13;
       &minscale_zoom18;
-      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/mot_shield5.png" min_distance="30" spacing="750"/>
+      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/aut_shield5.png" min_distance="30" spacing="750"/>
     </Rule>
     <Rule>
       <Filter>[highway] = 'motorway' and [length] = 6</Filter>
       &maxscale_zoom13;
       &minscale_zoom18;
-      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/mot_shield6.png" min_distance="30" spacing="750"/>
+      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/aut_shield6.png" min_distance="30" spacing="750"/>
     </Rule>
     <Rule>
       <Filter>[highway] = 'motorway' and [length] = 7</Filter>
       &maxscale_zoom13;
       &minscale_zoom18;
-      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/mot_shield6.png" min_distance="30" spacing="750"/>
+      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/aut_shield6.png" min_distance="30" spacing="750"/>
     </Rule>
     <Rule>
       <Filter>[highway] = 'motorway' and [length] = 8</Filter>
       &maxscale_zoom13;
       &minscale_zoom18;
-      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/mot_shield7.png" min_distance="30" spacing="750"/>
+      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/aut_shield7.png" min_distance="30" spacing="750"/>
     </Rule>
     <Rule>
       <Filter>[highway] = 'trunk' and [length] = 1</Filter>
       &maxscale_zoom13;
       &minscale_zoom18;
-      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/tru_shield1.png" min_distance="30" spacing="750"/>
+      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/aut_shield1.png" min_distance="30" spacing="750"/>
     </Rule>
     <Rule>
       <Filter>[highway] = 'trunk' and [length] = 2</Filter>
       &maxscale_zoom13;
       &minscale_zoom18;
-      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/tru_shield2.png" min_distance="30" spacing="750"/>
+      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/aut_shield2.png" min_distance="30" spacing="750"/>
     </Rule>
     <Rule>
       <Filter>[highway] = 'trunk' and [length] = 3</Filter>
       &maxscale_zoom13;
       &minscale_zoom18;
-      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/tru_shield3.png" min_distance="24" spacing="750"/>
+      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/aut_shield3.png" min_distance="24" spacing="750"/>
     </Rule>
     <Rule>
       <Filter>[highway] = 'trunk' and [length] = 4</Filter>
       &maxscale_zoom13;
       &minscale_zoom18;
-      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/tru_shield4.png" min_distance="30" spacing="750"/>
+      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/aut_shield4.png" min_distance="30" spacing="750"/>
     </Rule>
     <Rule>
       <Filter>[highway] = 'trunk' and [length] = 5</Filter>
       &maxscale_zoom13;
       &minscale_zoom18;
-      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/tru_shield5.png" min_distance="30" spacing="750"/>
+      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/aut_shield5.png" min_distance="30" spacing="750"/>
     </Rule>
     <Rule>
       <Filter>[highway] = 'trunk' and [length] = 6</Filter>
       &maxscale_zoom13;
       &minscale_zoom18;
-      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/tru_shield6.png" min_distance="30" spacing="750"/>
+      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/aut_shield6.png" min_distance="30" spacing="750"/>
     </Rule>
     <Rule>
       <Filter>[highway] = 'trunk' and [length] = 7</Filter>
       &maxscale_zoom13;
       &minscale_zoom18;
-      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/tru_shield7.png" min_distance="30" spacing="750"/>
+      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/aut_shield7.png" min_distance="30" spacing="750"/>
     </Rule>
     <Rule>
       <Filter>[highway] = 'trunk' and [length] = 8</Filter>
       &maxscale_zoom13;
       &minscale_zoom18;
-      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/tru_shield8.png" min_distance="30" spacing="750"/>
+      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/aut_shield8.png" min_distance="30" spacing="750"/>
     </Rule>
     <Rule>
       <Filter>[highway] = 'primary' and [length] = 1</Filter>
       &maxscale_zoom13;
       &minscale_zoom18;
-      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/pri_shield1.png" min_distance="30" spacing="750"/>
+      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#000" placement="line" file="&symbols;/kra_shield1.png" min_distance="30" spacing="750"/>
     </Rule>
     <Rule>
       <Filter>[highway] = 'primary' and [length] = 2</Filter>
       &maxscale_zoom13;
       &minscale_zoom18;
-      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/pri_shield2.png" min_distance="30" spacing="750"/>
+      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#000" placement="line" file="&symbols;/kra_shield2.png" min_distance="30" spacing="750"/>
     </Rule>
     <Rule>
       <Filter>[highway] = 'primary' and [length] = 3</Filter>
       &maxscale_zoom13;
       &minscale_zoom18;
-      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/pri_shield3.png" min_distance="30" spacing="750"/>
+      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#000" placement="line" file="&symbols;/kra_shield3.png" min_distance="30" spacing="750"/>
     </Rule>
     <Rule>
       <Filter>[highway] = 'primary' and [length] = 4</Filter>
       &maxscale_zoom13;
       &minscale_zoom18;
-      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/pri_shield4.png" min_distance="30" spacing="750"/>
+      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#000" placement="line" file="&symbols;/kra_shield4.png" min_distance="30" spacing="750"/>
     </Rule>
     <Rule>
       <Filter>[highway] = 'primary' and [length] = 5</Filter>
       &maxscale_zoom13;
       &minscale_zoom18;
-      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/pri_shield5.png" min_distance="30" spacing="750"/>
+      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#000" placement="line" file="&symbols;/kra_shield5.png" min_distance="30" spacing="750"/>
     </Rule>
     <Rule>
       <Filter>[highway] = 'primary' and [length] = 6</Filter>
       &maxscale_zoom13;
       &minscale_zoom18;
-      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/pri_shield6.png" min_distance="30" spacing="750"/>
+      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#000" placement="line" file="&symbols;/kra_shield6.png" min_distance="30" spacing="750"/>
     </Rule>
     <Rule>
       <Filter>[highway] = 'primary' and [length] = 7</Filter>
       &maxscale_zoom13;
       &minscale_zoom18;
-      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/pri_shield7.png" min_distance="30" spacing="750"/>
+      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#000" placement="line" file="&symbols;/kra_shield7.png" min_distance="30" spacing="750"/>
     </Rule>
     <Rule>
       <Filter>[highway] = 'primary' and [length] = 8</Filter>
       &maxscale_zoom13;
       &minscale_zoom18;
-      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/pri_shield8.png" min_distance="30" spacing="750"/>
+      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#000" placement="line" file="&symbols;/kra_shield8.png" min_distance="30" spacing="750"/>
     </Rule>
     <Rule>
       <Filter>([highway] = 'secondary' and [length] = 1) and not [bridge]='yes'</Filter>
       &maxscale_zoom12;
       &minscale_zoom18;
-      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/sec_shield1.png" min_distance="40" spacing="750"/>
+      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/raj_shield1.png" min_distance="40" spacing="750"/>
     </Rule>
     <Rule>
       <Filter>([highway] = 'secondary' and [length] = 2) and not [bridge]='yes'</Filter>
       &maxscale_zoom12;
       &minscale_zoom18;
-      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/sec_shield2.png" min_distance="40" spacing="750"/>
+      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/raj_shield2.png" min_distance="40" spacing="750"/>
     </Rule>
     <Rule>
       <Filter>([highway] = 'secondary' and [length] = 3) and not [bridge]='yes'</Filter>
       &maxscale_zoom12;
       &minscale_zoom18;
-      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/sec_shield3.png" min_distance="40" spacing="750"/>
+      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/raj_shield3.png" min_distance="40" spacing="750"/>
     </Rule>
     <Rule>
       <Filter>([highway] = 'secondary' and [length] = 4) and not [bridge]='yes'</Filter>
       &maxscale_zoom12;
       &minscale_zoom18;
-      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/sec_shield4.png" min_distance="40" spacing="750"/>
+      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/raj_shield4.png" min_distance="40" spacing="750"/>
     </Rule>
     <Rule>
       <Filter>([highway] = 'secondary' and [length] = 5) and not [bridge]='yes'</Filter>
       &maxscale_zoom12;
       &minscale_zoom18;
-      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/sec_shield5.png" min_distance="40" spacing="750"/>
+      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/raj_shield5.png" min_distance="40" spacing="750"/>
     </Rule>
     <Rule>
       <Filter>([highway] = 'secondary' and [length] = 6) and not [bridge]='yes'</Filter>
       &maxscale_zoom12;
       &minscale_zoom18;
-      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/sec_shield6.png" min_distance="40" spacing="750"/>
+      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/raj_shield6.png" min_distance="40" spacing="750"/>
     </Rule>
     <Rule>
       <Filter>([highway] = 'secondary' and [length] = 7) and not [bridge]='yes'</Filter>
       &maxscale_zoom12;
       &minscale_zoom18;
-      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/sec_shield7.png" min_distance="40" spacing="750"/>
+      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/raj_shield7.png" min_distance="40" spacing="750"/>
     </Rule>
     <Rule>
       <Filter>([highway] = 'secondary' and [length] = 8) and not [bridge]='yes'</Filter>
       &maxscale_zoom12;
       &minscale_zoom18;
-      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/sec_shield8.png" min_distance="40" spacing="750"/>
+      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/raj_shield8.png" min_distance="40" spacing="750"/>
     </Rule>
     <Rule>
       <Filter>([highway] = 'tertiary' and [length] = 1) and not [bridge]='yes'</Filter>
       &maxscale_zoom13;
       &minscale_zoom18;
-      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/ter_shield1.png" min_distance="40" spacing="750"/>
+      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/raj_shield1.png" min_distance="40" spacing="750"/>
     </Rule>
     <Rule>
       <Filter>([highway] = 'tertiary' and [length] = 2) and not [bridge]='yes'</Filter>
       &maxscale_zoom13;
       &minscale_zoom18;
-      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/ter_shield2.png" min_distance="40" spacing="750"/>
+      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/raj_shield2.png" min_distance="40" spacing="750"/>
     </Rule>
     <Rule>
       <Filter>([highway] = 'tertiary' and [length] = 3) and not [bridge]='yes'</Filter>
       &maxscale_zoom13;
       &minscale_zoom18;
-      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/ter_shield3.png" min_distance="40" spacing="750"/>
+      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/raj_shield3.png" min_distance="40" spacing="750"/>
     </Rule>
     <Rule>
       <Filter>([highway] = 'tertiary' and [length] = 4) and not [bridge]='yes'</Filter>
       &maxscale_zoom13;
       &minscale_zoom18;
-      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/ter_shield4.png" min_distance="40" spacing="750"/>
+      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/raj_shield4.png" min_distance="40" spacing="750"/>
     </Rule>
     <Rule>
       <Filter>([highway] = 'tertiary' and [length] = 5) and not [bridge]='yes'</Filter>
       &maxscale_zoom13;
       &minscale_zoom18;
-      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/ter_shield5.png" min_distance="40" spacing="750"/>
+      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/raj_shield5.png" min_distance="40" spacing="750"/>
     </Rule>
     <Rule>
       <Filter>([highway] = 'tertiary' and [length] = 6) and not [bridge]='yes'</Filter>
       &maxscale_zoom13;
       &minscale_zoom18;
-      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/ter_shield6.png" min_distance="40" spacing="750"/>
+      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/raj_shield6.png" min_distance="40" spacing="750"/>
     </Rule>
     <Rule>
       <Filter>([highway] = 'tertiary' and [length] = 7) and not [bridge]='yes'</Filter>
       &maxscale_zoom13;
       &minscale_zoom18;
-      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/ter_shield7.png" min_distance="40" spacing="750"/>
+      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/raj_shield7.png" min_distance="40" spacing="750"/>
     </Rule>
     <Rule>
       <Filter>([highway] = 'tertiary' and [length] = 8) and not [bridge]='yes'</Filter>
       &maxscale_zoom13;
       &minscale_zoom18;
-      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/ter_shield8.png" min_distance="40" spacing="750"/>
+      <ShieldSymbolizer name="ref" fontset_name="bold-fonts" size="10" fill="#fff" placement="line" file="&symbols;/raj_shield8.png" min_distance="40" spacing="750"/>
     </Rule>
     <Rule>
       <Filter>([highway] = 'unclassified' or [highway]='residential') and not [bridge]='yes'</Filter>

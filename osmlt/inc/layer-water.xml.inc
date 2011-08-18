@@ -40,7 +40,7 @@
       <Filter>[natural] = 'lake' or [natural] = 'water' or [landuse] = 'reservoir' or [waterway] = 'riverbank' or [landuse] = 'water' or [natural]='bay'</Filter>
       &maxscale_zoom6;
       <PolygonSymbolizer>
-        <CssParameter name="fill">#b5d0d0</CssParameter>
+        <CssParameter name="fill">#c5e0f0</CssParameter>
         <CssParameter name="gamma">.75</CssParameter>
      </PolygonSymbolizer>
     </Rule>
