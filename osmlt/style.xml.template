@@ -7,9 +7,9 @@
 &fontset-settings;
 &layer-landcover;
 &layer-water;
+&layer-buildings;
 &layer-ways;
 &layer-admin;
 &layer-placenames;
-&layer-buildings;
 </Map>
 
