@@ -80,7 +80,7 @@
       &minscale_zoom18;
       <Filter>[landuse] = 'residential'</Filter>
       <PolygonSymbolizer>
-        <CssParameter name="fill">#ddd</CssParameter>
+        <CssParameter name="fill">#f4f4f4</CssParameter>
       </PolygonSymbolizer>
     </Rule>
     <Rule>
@@ -212,7 +212,7 @@
       &maxscale_zoom8;
       &minscale_zoom13;
       <PolygonSymbolizer>
-        <CssParameter name="fill">#cdffac</CssParameter>
+        <CssParameter name="fill">#bdef9c</CssParameter>
      </PolygonSymbolizer>
     </Rule>
     <Rule>
@@ -267,7 +267,7 @@
       <Filter>[landuse] = 'industrial' or [landuse]='railway'</Filter>
       &maxscale_zoom10;
       <PolygonSymbolizer>
-        <CssParameter name="fill">#dfd1d6</CssParameter>
+        <CssParameter name="fill">#f4e5ea</CssParameter>
      </PolygonSymbolizer>
     </Rule>
     <Rule>
@@ -304,7 +304,7 @@
       <Filter>[landuse] = 'commercial'</Filter>
       &maxscale_zoom10;
       <PolygonSymbolizer>
-        <CssParameter name="fill">#efc8c8</CssParameter>
+        <CssParameter name="fill">#ffe8e8</CssParameter>
      </PolygonSymbolizer>
     </Rule>
     <Rule>
