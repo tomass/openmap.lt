@@ -13,7 +13,7 @@ header('Cache-Control: public, max-age=60', true);
 <link rel="stylesheet" type="text/css" href="/css/ui/overcast/jquery-ui-1.8.14.custom.css"/>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/jquery-ui.min.js"></script>
-<script type="text/javascript" src="/js/OpenLayers-2.11-rc1.min.js"></script>
+<script type="text/javascript" src="/js/OpenLayers-2.11-rc2.min.js"></script>
 </head>
 <body style="height:100%;margin:0;">
 <div id="searchPanel"></div>
