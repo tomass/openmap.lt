@@ -53,5 +53,8 @@
 <!ENTITY secondary_cas_col "#ff0000">
 <!ENTITY tertiary_col "#ffffa0">
 <!ENTITY tertiary_cas_col "#ff5555">
+
+<!ENTITY color_water "#c5e0f0">
+
 <!ENTITY % layers SYSTEM "layers.xml.inc">
 %layers;
