@@ -65,4 +65,20 @@ a img {border:none;}
 
 .searchResults li a img {
     vertical-align: middle;
+}
+
+#buttonsPanel {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    text-align: right;
+    z-index: 2005;
+}
+
+#buttonsPanel .buttons-base {
     
+}
+
+#buttonsPanel .buttons-over {
+    margin-top: 5px;
+}

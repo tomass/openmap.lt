@@ -10,18 +10,20 @@ header('Cache-Control: public, max-age=60', true);
 <meta name="keywords" content="map, maps, globe, europe, public transport"/>
 <title>Open and free map</title>
 <link rel="stylesheet" type="text/css" href="/css/map.css"/>
-<link rel="stylesheet" type="text/css" href="/css/ui/overcast/jquery-ui-1.8.11.custom.css"/>
+<link rel="stylesheet" type="text/css" href="/css/ui/overcast/jquery-ui-1.8.14.custom.css"/>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.11/jquery-ui.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/jquery-ui.min.js"></script>
 <script type="text/javascript" src="/js/OpenLayers-2.11-rc1.min.js"></script>
 </head>
 <body style="height:100%;margin:0;">
 <div id="searchPanel"></div>
+<div id="buttonsPanel"></div>
 <div id="map" style="height:100%;width:100%;"></div>
 <script type="text/javascript" src="/js/jquery.cookie.js"></script>
-<script type="text/javascript" src="/js/map.js?20110523150000"></script>
+<script type="text/javascript" src="/js/map.js?201108211400"></script>
 <script type="text/javascript" src="/js/startposition.js"></script>
 <script type="text/javascript" src="/js/ui.search.js"></script>
+<script type="text/javascript" src="/js/ui.switcher.js"></script>
 <script type="text/javascript" src="/js/Control.Activeurl.js"></script>
 <script type="text/javascript">
 //<![CDATA[
@@ -30,12 +32,10 @@ $(function(){
     map.addControl(new OpenLayers.Control.MousePosition());
     map.addControl(new OpenLayers.Control.Activeurl());
     if(map.getZoom() == 0){
-        if(!loadPosition()){
-	       Startposition(map);
-        }
+        Startposition(map);
     }
-    $("#searchPanel").search({"map":map});
-    $(window).unload(savePosition);
+    $("#searchPanel").search({map:map});
+    $("#buttonsPanel").switcher({map:map});
 });
 //]]>
 </script>

@@ -129,6 +129,8 @@ OpenLayers.Layer.OSM.Lt = OpenLayers.Class(OpenLayers.Layer.OSM, {
             numZoomLevels : 19,
             transitionEffect : "resize",
             buffer : 0
+            //maxExtent : new OpenLayers.Bounds(2200000, 7100000, 3100000, 7700000),
+            //displayOutsideMaxExtent : false
         }, options);
         var newArguments = [ name, url, options ];
         OpenLayers.Layer.OSM.prototype.initialize.apply(this, newArguments);
@@ -147,7 +149,7 @@ OpenLayers.DOTS_PER_INCH = detectResolution();
 function createMap(divName, options) {
     options = options || {};
     map = new OpenLayers.Map(divName, {
-        controls : options.controls || [ new OpenLayers.Control.ArgParser(), new OpenLayers.Control.Attribution(), new OpenLayers.Control.Navigation(), new OpenLayers.Control.LayerSwitcher(), new OpenLayers.Control.PanZoomBar(), new OpenLayers.Control.ScaleLine({
+        controls : options.controls || [ new OpenLayers.Control.ArgParser(), new OpenLayers.Control.Attribution(), new OpenLayers.Control.Navigation(), new OpenLayers.Control.PanZoomBar(), new OpenLayers.Control.ScaleLine({
             geodesic : true
         }) ],
         units : "m",
@@ -177,7 +179,7 @@ function createMap(divName, options) {
         layerCode : "C"
     }, "http://cycle.openmap.lt/cycle");
     map.addLayer(cycle);
-    map.addLayer(new OpenLayers.Layer.XYZ("Empty background", "http://openmap.lt/tiles/blank.png", {
+    map.addLayer(new OpenLayers.Layer.XYZ("Empty", "http://openmap.lt/tiles/blank.png", {
         sphericalMercator : true,
         numZoomLevels : 19,
         keyid : "empty",
