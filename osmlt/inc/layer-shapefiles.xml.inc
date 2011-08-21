@@ -20,14 +20,14 @@
     <StyleName>lkrantas</StyleName>
     <Datasource>
       <Parameter name="type">shape</Parameter>
-      <Parameter name="file">lkrantas.shp</Parameter>
+      <Parameter name="file">coastline/coastline.shp</Parameter>
     </Datasource>
 </Layer>
 <Layer name="lsalos" status="on" srs="&srs4326;">
     <StyleName>lsalos</StyleName>
     <Datasource>
       <Parameter name="type">shape</Parameter>
-      <Parameter name="file">lsalos.shp</Parameter>
+      <Parameter name="file">coastline/islands.shp</Parameter>
     </Datasource>
 </Layer>
 
