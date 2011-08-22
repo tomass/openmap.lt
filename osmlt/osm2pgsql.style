@@ -99,3 +99,7 @@ way        way_area     real                # This is calculated during import
 way        cycleway     text         linear
 way        cycleway:right text       linear
 way        cycleway:left  text       linear
+way        sidewalk     text         linear
+node,way   addr:city    text         linear
+node,way   addr:street  text         linear
+node,way   addr:postcode text        linear
