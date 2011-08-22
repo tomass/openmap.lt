@@ -8,9 +8,11 @@
 &layer-shapefiles;
 &layer-landcover;
 &layer-water;
+&layer-ferry-routes;
 &layer-buildings;
 &layer-ways;
 &layer-admin;
+&layer-boundaries;
 &layer-placenames;
 </Map>
 
