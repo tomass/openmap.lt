@@ -9,8 +9,11 @@
 &layer-landcover;
 &layer-water;
 &layer-buildings;
+&layer-addresing;
 &layer-ways;
+&layer-power;
 &layer-admin;
+&layer-parks;
 &layer-placenames;
 </Map>
 
