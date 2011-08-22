@@ -9,7 +9,7 @@
 &layer-landcover;
 &layer-water;
 &layer-buildings;
-&layer-addresing;
+&layer-addressing;
 &layer-ways;
 &layer-power;
 &layer-admin;
