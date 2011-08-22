@@ -32,6 +32,7 @@ $(function(){
     map.addControl(new OpenLayers.Control.MousePosition());
     map.addControl(new OpenLayers.Control.Activeurl());
     if(map.getZoom() == 0){
+    	setMapExtent(new OpenLayers.Bounds(-10, 35, 50, 70));
         Startposition(map);
     }
     $("#searchPanel").search({map:map});

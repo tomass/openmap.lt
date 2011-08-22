@@ -39,23 +39,29 @@ OpenLayers.Control.Activeurl = OpenLayers.Class(OpenLayers.Control, {
 		}
 	},
 	set : function(params){
-		if(params.zoom){
-			this.map.zoomTo(params.zoom);
+		if(this.map.getZoom() == 0){
+			this.map.zoomTo(12); //workaround for strange OpenLayers issue
+		}
+		if(params.layers){
+			this.setLayers(params.layers);
 		}
 		if(params.lat && params.lon){
 			var l = new OpenLayers.LonLat(params.lon, params.lat);
 			l = l.transform(epsg4326, this.map.getProjectionObject());
 			this.map.panTo(l);
 		}
-		if(params.layers){
-			this.setLayers(params.layers);
+		if(params.zoom){
+			this.map.zoomTo(params.zoom);
 		}
 	},
 	setLayers : function(keys){
 		keys = keys.split("");
 		var baseCode = keys.shift();
-		var baseLayer = this.map.getLayersBy("layerCode", baseCode);
-		this.map.setBaseLayer(baseLayer[0]);
+		if(this.map.baseLayer.layerCode != baseCode){
+			var baseLayer = this.map.getLayersBy("layerCode", baseCode);
+			this.map.setBaseLayer(baseLayer[0]);
+			this.map.events.triggerEvent("changebaselayer");
+		}
 		for(var i in keys){
 			var layers = this.map.getLayersBy("layerCode", keys[i]);
 			for(var l in layers){
