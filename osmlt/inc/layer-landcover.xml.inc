@@ -157,7 +157,7 @@
       &maxscale_zoom10;
       <Filter>[landuse] = 'meadow' or [landuse] = 'grass'</Filter>
       <PolygonSymbolizer>
-        <CssParameter name="fill">#cfeca8</CssParameter>
+        <CssParameter name="fill">#dffcb8</CssParameter>
      </PolygonSymbolizer>
     </Rule>
     <Rule>

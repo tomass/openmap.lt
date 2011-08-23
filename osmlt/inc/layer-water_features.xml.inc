@@ -151,5 +151,3 @@
       &datasource-settings;
     </Datasource>
 </Layer>
-
-
