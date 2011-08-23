@@ -14,3 +14,4 @@
 <!ENTITY layer-admin SYSTEM "layer-admin.xml.inc">
 <!ENTITY layer-ways SYSTEM "layer-ways.xml.inc">
 <!ENTITY layer-shapefiles SYSTEM "layer-shapefiles.xml.inc">
+<!ENTITY layer-boundaries SYSTEM "layer-boundaries.xml.inc">

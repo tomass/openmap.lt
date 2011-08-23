@@ -2727,7 +2727,7 @@
       </LineSymbolizer>
     </Rule>  
     <Rule>
-      <Filter>([highway] = 'footway' or ([highway] = 'path' and [foot] = 'designated')) and not [tunnel]='yes'</Filter>
+      <Filter>([highway] = 'footway' or ([highway] = 'path' and [foot] = 'designated' and not [bicycle] = 'designated')) and not [tunnel]='yes'</Filter>
       &maxscale_zoom13;
       <LineSymbolizer>
         <CssParameter name="stroke">#fff</CssParameter>
@@ -2790,7 +2790,7 @@
       </LineSymbolizer>
     </Rule>
     <Rule>
-      <Filter>([highway] = 'cycleway' or ([highway] = 'path' and [bicycle] = 'designated')) and not [tunnel] = 'yes'</Filter>
+      <Filter>([highway] = 'cycleway' or ([highway] = 'path' and [bicycle] = 'designated' and not [foot] = 'designated')) and not [tunnel] = 'yes'</Filter>
       &maxscale_zoom13;
       <LineSymbolizer>
         <CssParameter name="stroke">white</CssParameter>
@@ -2803,6 +2803,31 @@
         <CssParameter name="stroke">blue</CssParameter>
         <CssParameter name="stroke-width">1.2</CssParameter>
         <CssParameter name="stroke-dasharray">1,3</CssParameter>
+        <CssParameter name="stroke-linejoin">round</CssParameter>
+        <CssParameter name="stroke-linecap">round</CssParameter>
+      </LineSymbolizer>
+    </Rule>
+    <Rule>
+      <Filter>([highway] = 'path' and [bicycle] = 'designated' and [foot] = 'designated') and not [tunnel] = 'yes'</Filter>
+      &maxscale_zoom13;
+      <LineSymbolizer>
+        <CssParameter name="stroke">white</CssParameter>
+        <CssParameter name="stroke-width">3</CssParameter>
+        <CssParameter name="stroke-linejoin">round</CssParameter>
+        <CssParameter name="stroke-linecap">round</CssParameter>
+        <CssParameter name="stroke-opacity">0.4</CssParameter>
+      </LineSymbolizer>
+      <LineSymbolizer>
+        <CssParameter name="stroke">blue</CssParameter>
+        <CssParameter name="stroke-width">1.2</CssParameter>
+        <CssParameter name="stroke-dasharray">1,3,0,4</CssParameter>
+        <CssParameter name="stroke-linejoin">round</CssParameter>
+        <CssParameter name="stroke-linecap">round</CssParameter>
+      </LineSymbolizer>
+      <LineSymbolizer>
+        <CssParameter name="stroke">salmon</CssParameter>
+        <CssParameter name="stroke-width">1.2</CssParameter>
+        <CssParameter name="stroke-dasharray">0,4,1,3</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
         <CssParameter name="stroke-linecap">round</CssParameter>
       </LineSymbolizer>
@@ -5531,30 +5556,80 @@
       </LineSymbolizer>
     </Rule>
 </Style>
-<Style name="cycleways">
+<Style name="cycleways_sidewalks">
     <Rule>
-      <Filter>[cycleway:right] = 'track' or [cycleway] = 'track'</Filter>
+      <Filter>([cycleway:right] = 'track' or [cycleway] = 'track') and not ([sidewalk] = 'both' or [sidewalk] = 'right')</Filter>
       &maxscale_zoom17;
       &minscale_zoom18;
       <LinePatternSymbolizer file="&symbols;/ct20r.png" height="20" width="4" type="png" />
     </Rule>
     <Rule>
-      <Filter>[cycleway:left] = 'track' or [cycleway] = 'track'</Filter>
+      <Filter>([cycleway:left] = 'track' or [cycleway] = 'track')  and not ([sidewalk] = 'both' or [sidewalk] = 'left')</Filter>
       &maxscale_zoom17;
       &minscale_zoom18;
       <LinePatternSymbolizer file="&symbols;/ct20l.png" height="20" width="4" type="png" />
     </Rule>
     <Rule>
-      <Filter>[cycleway:right] = 'track' or [cycleway] = 'track'</Filter>
+      <Filter>([cycleway:right] = 'track' or [cycleway] = 'track') and not ([sidewalk] = 'both' or [sidewalk] = 'right')</Filter>
       &maxscale_zoom15;
       &minscale_zoom16;
       <LinePatternSymbolizer file="&symbols;/ct17r.png" height="17" width="4" type="png" />
     </Rule>
     <Rule>
-      <Filter>[cycleway:left] = 'track' or [cycleway] = 'track'</Filter>
+      <Filter>([cycleway:left] = 'track' or [cycleway] = 'track') and not ([sidewalk] = 'both' or [sidewalk] = 'left')</Filter>
       &maxscale_zoom15;
       &minscale_zoom16;
       <LinePatternSymbolizer file="&symbols;/ct17l.png" height="17" width="4" type="png" />
+    </Rule>
+    <!-- Sidewalk -->
+    <Rule>
+      <Filter>([sidewalk] = 'right' or [sidewalk] = 'both') and not ([cycleway:right] = 'track' or [cycleway] = 'track')</Filter>
+      &maxscale_zoom17;
+      &minscale_zoom18;
+      <LinePatternSymbolizer file="&symbols;/sw20r.png" height="20" width="4" type="png" />
+    </Rule>
+    <Rule>
+      <Filter>([sidewalk] = 'left' or [sidewalk] = 'both') and not ([cycleway:left] = 'track' or [cycleway] = 'track')</Filter>
+      &maxscale_zoom17;
+      &minscale_zoom18;
+      <LinePatternSymbolizer file="&symbols;/sw20l.png" height="20" width="4" type="png" />
+    </Rule>
+    <Rule>
+      <Filter>([sidewalk] = 'right' or [sidewalk] = 'both') and not ([cycleway:right] = 'track' or [cycleway] = 'track')</Filter>
+      &maxscale_zoom15;
+      &minscale_zoom16;
+      <LinePatternSymbolizer file="&symbols;/sw17r.png" height="17" width="4" type="png" />
+    </Rule>
+    <Rule>
+      <Filter>([sidewalk] = 'left' or [sidewalk] = 'both') and not ([cycleway:left] = 'track' or [cycleway] = 'track')</Filter>
+      &maxscale_zoom15;
+      &minscale_zoom16;
+      <LinePatternSymbolizer file="&symbols;/sw17l.png" height="17" width="4" type="png" />
+    </Rule>
+    <!-- Combined cycleway & sidewalk -->
+    <Rule>
+      <Filter>([sidewalk] = 'right' or [sidewalk] = 'both') and ([cycleway:right] = 'track' or [cycleway] = 'track')</Filter>
+      &maxscale_zoom17;
+      &minscale_zoom18;
+      <LinePatternSymbolizer file="&symbols;/ctsw20r.png" height="20" width="8" type="png" />
+    </Rule>
+    <Rule>
+      <Filter>([sidewalk] = 'left' or [sidewalk] = 'both') and ([cycleway:left] = 'track' or [cycleway] = 'track')</Filter>
+      &maxscale_zoom17;
+      &minscale_zoom18;
+      <LinePatternSymbolizer file="&symbols;/ctsw20l.png" height="20" width="8" type="png" />
+    </Rule>
+    <Rule>
+      <Filter>([sidewalk] = 'right' or [sidewalk] = 'both') and ([cycleway:right] = 'track' or [cycleway] = 'track')</Filter>
+      &maxscale_zoom15;
+      &minscale_zoom16;
+      <LinePatternSymbolizer file="&symbols;/ctsw17r.png" height="17" width="8" type="png" />
+    </Rule>
+    <Rule>
+      <Filter>([sidewalk] = 'left' or [sidewalk] = 'both') and ([cycleway:left] = 'track' or [cycleway] = 'track')</Filter>
+      &maxscale_zoom15;
+      &minscale_zoom16;
+      <LinePatternSymbolizer file="&symbols;/ctsw17l.png" height="17" width="8" type="png" />
     </Rule>
 </Style>
 <Layer name="tunnels" status="on" srs="&osm2pgsql_projection;">
@@ -5681,12 +5756,12 @@
     </Datasource>
 </Layer>
 <Layer name="minor-roads-fill" status="on" srs="&osm2pgsql_projection;">
-    <StyleName>cycleways</StyleName>
+    <StyleName>cycleways_sidewalks</StyleName>
     <StyleName>minor-roads-fill-links</StyleName>
     <StyleName>minor-roads-fill</StyleName>
     <Datasource>
       <Parameter name="table">
-      (select way,highway,horse,bicycle,foot,construction,aeroway,cycleway,"cycleway:right","cycleway:left",
+      (select way,highway,horse,bicycle,foot,construction,aeroway,cycleway,"cycleway:right","cycleway:left",sidewalk,
        case when tunnel in ('yes','true','1') then 'yes'::text else tunnel end as tunnel,
        case when bridge in ('yes','true','1','viaduct') then 'yes'::text else bridge end as bridge,
        case when railway in ('spur','siding')
