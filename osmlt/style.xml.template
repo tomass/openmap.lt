@@ -8,6 +8,7 @@
 &layer-shapefiles;
 &layer-landcover;
 &layer-water;
+&layer-ferry-routes;
 &layer-buildings;
 &layer-addressing;
 &layer-ways;
