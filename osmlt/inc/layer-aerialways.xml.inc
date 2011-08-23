@@ -13,7 +13,7 @@
     </Rule>
 </Style>
 
-<Layer name="aerialways" status="on" srs="&osm2pgsql_projection;">
+<Layer name="aerialways" status="on" srs="&osm2pgsql_projection;" maxzoom="&max_zoom12;">
     <StyleName>aerialways</StyleName>
     <Datasource>
       <Parameter name="table">

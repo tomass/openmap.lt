@@ -5801,7 +5801,7 @@
       &datasource-settings;
     </Datasource>
 </Layer>
-<Layer name="planet roads text osm low zoom" status="on" srs="&osm2pgsql_projection;">
+<Layer name="planet roads text osm low zoom" status="on" srs="&osm2pgsql_projection;" maxzoom="&max_zoom10;" minzoom="&min_zoom12;">
      <StyleName>roads-text-low-zoom</StyleName>
      <Datasource>
       <Parameter name="table">

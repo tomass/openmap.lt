@@ -1,30 +1,26 @@
-<Style name="lkrantas">
+<Style name="coastline">
     <Rule>
-      &maxscale_zoom1;
-      &minscale_zoom18;
       <PolygonSymbolizer>
         <CssParameter name="fill">#c5e0f0</CssParameter>
       </PolygonSymbolizer>
     </Rule>
 </Style>
-<Style name="lsalos">
+<Style name="islands">
     <Rule>
-      &maxscale_zoom1;
-      &minscale_zoom18;
       <PolygonSymbolizer>
         <CssParameter name="fill">#ffffff</CssParameter>
       </PolygonSymbolizer>
     </Rule>
 </Style>
-<Layer name="lkrantas" status="on" srs="&srs4326;">
-    <StyleName>lkrantas</StyleName>
+<Layer name="coastline" status="on" srs="&srs4326;">
+    <StyleName>coastline</StyleName>
     <Datasource>
       <Parameter name="type">shape</Parameter>
       <Parameter name="file">coastline/coastline.shp</Parameter>
     </Datasource>
 </Layer>
-<Layer name="lsalos" status="on" srs="&srs4326;">
-    <StyleName>lsalos</StyleName>
+<Layer name="islands" status="on" srs="&srs4326;">
+    <StyleName>islands</StyleName>
     <Datasource>
       <Parameter name="type">shape</Parameter>
       <Parameter name="file">coastline/islands.shp</Parameter>

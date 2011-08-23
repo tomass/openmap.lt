@@ -6,6 +6,37 @@
 <!ENTITY srsmercator "+proj=merc +datum=WGS84 +over">
 <!ENTITY srs4326 "+init=epsg:4326">
 
+<!ENTITY max_zoom2  "200000000">
+<!ENTITY min_zoom2  "100000000">
+<!ENTITY max_zoom5  "25000000">
+<!ENTITY min_zoom5  "12500000">
+<!ENTITY max_zoom6  "12500000">
+<!ENTITY min_zoom6  "6500000">
+<!ENTITY max_zoom7  "6500000">
+<!ENTITY min_zoom7  "3000000">
+<!ENTITY max_zoom8  "3000000">
+<!ENTITY min_zoom8  "1500000">
+<!ENTITY max_zoom9  "1500000">
+<!ENTITY min_zoom9  "750000">
+<!ENTITY max_zoom10 "750000">
+<!ENTITY min_zoom10 "400000">
+<!ENTITY max_zoom11 "400000">
+<!ENTITY min_zoom11 "200000">
+<!ENTITY max_zoom12 "200000">
+<!ENTITY min_zoom12 "100000">
+<!ENTITY max_zoom13 "100000">
+<!ENTITY min_zoom13 "50000">
+<!ENTITY max_zoom14 "50000">
+<!ENTITY min_zoom14 "25000">
+<!ENTITY max_zoom15 "25000">
+<!ENTITY min_zoom15 "12500">
+<!ENTITY max_zoom16 "12500">
+<!ENTITY min_zoom16 "5000">
+<!ENTITY max_zoom17 "5000">
+<!ENTITY min_zoom17 "2500">
+<!ENTITY max_zoom18 "2500">
+<!ENTITY min_zoom18 "50">
+
 <!ENTITY maxscale_zoom0 "<MaxScaleDenominator>250000000000</MaxScaleDenominator>">
 <!ENTITY maxscale_zoom1 "<MaxScaleDenominator>500000000</MaxScaleDenominator>">
 <!ENTITY minscale_zoom1 "<MinScaleDenominator>200000000</MinScaleDenominator>">

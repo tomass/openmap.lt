@@ -478,7 +478,7 @@
     </Rule>
 </Style>
 
-<Layer name="landcover" status="on" srs="&osm2pgsql_projection;">
+<Layer name="landcover" status="on" srs="&osm2pgsql_projection;" maxzoom="&max_zoom8;">
     <StyleName>landcover</StyleName>
     <Datasource>
       <Parameter name="table">
@@ -500,7 +500,7 @@
       &datasource-settings;
     </Datasource>
 </Layer>
-<Layer name="landcover_line" status="on" srs="&osm2pgsql_projection;">
+<Layer name="landcover_line" status="on" srs="&osm2pgsql_projection;" maxzoom="&max_zoom14;">
     <StyleName>landcover_line</StyleName>
     <Datasource>
       <Parameter name="table">
@@ -512,7 +512,7 @@
       &datasource-settings;
     </Datasource>
 </Layer>
-<Layer name="sports_grounds" status="on" srs="&osm2pgsql_projection;">
+<Layer name="sports_grounds" status="on" srs="&osm2pgsql_projection;" maxzoom="&max_zoom10;">
     <StyleName>sports_grounds</StyleName>
     <Datasource>
       <Parameter name="table">

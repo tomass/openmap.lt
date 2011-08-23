@@ -107,7 +107,7 @@
       <PointSymbolizer file="&symbols;/lock_gate.png" />
 </Rule>
 </Style>
-<Layer name="dam" status="on" srs="&osm2pgsql_projection;">
+<Layer name="dam" status="on" srs="&osm2pgsql_projection;" maxzoom="&max_zoom13;">
     <StyleName>dam</StyleName>
     <Datasource>
       <Parameter name="table">
@@ -115,7 +115,7 @@
       &datasource-settings;
     </Datasource>
 </Layer>
-<Layer name="marinas-area" status="on" srs="&osm2pgsql_projection;">
+<Layer name="marinas-area" status="on" srs="&osm2pgsql_projection;" maxzoom="&max_zoom14;">
     <StyleName>marinas-area</StyleName>
     <Datasource>
       <Parameter name="table">
@@ -124,7 +124,7 @@
       &datasource-settings;
     </Datasource>
 </Layer>
-<Layer name="piers-area" status="on" srs="&osm2pgsql_projection;">
+<Layer name="piers-area" status="on" srs="&osm2pgsql_projection;" maxzoom="&max_zoom12;">
     <StyleName>piers-area</StyleName>
     <Datasource>
       <Parameter name="table">
@@ -133,7 +133,7 @@
       &datasource-settings;
     </Datasource>
 </Layer>
-<Layer name="piers" status="on" srs="&osm2pgsql_projection;">
+<Layer name="piers" status="on" srs="&osm2pgsql_projection;" maxzoom="&max_zoom11;">
      <StyleName>piers</StyleName>
      <Datasource>
       <Parameter name="table">
@@ -142,7 +142,7 @@
       &datasource-settings;
     </Datasource>
 </Layer>
-<Layer name="locks" status="on" srs="&osm2pgsql_projection;">
+<Layer name="locks" status="on" srs="&osm2pgsql_projection;" maxzoom="&max_zoom17;">
      <StyleName>locks</StyleName>
      <Datasource>
       <Parameter name="table">
