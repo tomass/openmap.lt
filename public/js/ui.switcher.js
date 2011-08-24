@@ -42,7 +42,6 @@
     	},
     	
     	onSwitch : function(e){
-    		console.log($(e.target).val());
     		if($(e.target).attr('name') == 'baseLayer'){
     			var layers = this.getMap().getLayersBy("layerCode", $(e.target).val());
                 this.getMap().setBaseLayer(layers[0]);
