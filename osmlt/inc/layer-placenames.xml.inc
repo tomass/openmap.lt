@@ -44,22 +44,22 @@
      <Rule>
       &maxscale_zoom5;
       &minscale_zoom5;
-      <TextSymbolizer name="name" fontset_name="book-fonts" size="9" fill="#000" dy="0" halo_radius="1" wrap_width="0"/>
+      <TextSymbolizer name="name" fontset_name="book-fonts" size="10" fill="#000" halo_radius="2" wrap_width="0"/>
     </Rule>
     <Rule>
       &maxscale_zoom6;
       &minscale_zoom8;
-      <TextSymbolizer name="name" fontset_name="book-fonts" size="11" fill="#000" dy="0" halo_radius="1" wrap_width="0"/>
+      <TextSymbolizer name="name" fontset_name="book-fonts" size="12" fill="#000" halo_radius="2" wrap_width="0"/>
     </Rule>
     <Rule>
       &maxscale_zoom9;
       &minscale_zoom10;
-      <TextSymbolizer name="name" fontset_name="book-fonts" size="11" fill="#000" dy="0" halo_radius="1" wrap_width="0"/>
+      <TextSymbolizer name="name" fontset_name="book-fonts" size="13" fill="#000" halo_radius="2" wrap_width="0"/>
     </Rule>
     <Rule>
       &maxscale_zoom11;
       &minscale_zoom14;
-      <TextSymbolizer name="name" fontset_name="book-fonts" size="14" fill="#000" dy="0" halo_radius="1" wrap_width="0"/>
+      <TextSymbolizer name="name" fontset_name="book-fonts" size="15" fill="#000" halo_radius="2" wrap_width="0"/>
     </Rule>
 </Style>
 <Style name="city">
@@ -67,19 +67,19 @@
       <Filter>[place] = 'city' or [place]='metropolis'</Filter>
       &maxscale_zoom6;
       &minscale_zoom8;
-      <TextSymbolizer name="name" fontset_name="book-fonts" size="8" fill="#000" dy="0" halo_radius="1" wrap_width="0"/>
+      <TextSymbolizer name="name" fontset_name="book-fonts" size="10" fill="#000" halo_radius="2" wrap_width="0" allow_overlap="true"/>
     </Rule>
     <Rule>
       <Filter>[place] = 'city' or [place]='metropolis'</Filter>
       &maxscale_zoom9;
       &minscale_zoom10;
-      <TextSymbolizer name="name" fontset_name="book-fonts" size="11" fill="#000" dy="0" halo_radius="1" wrap_width="0"/>
+      <TextSymbolizer name="name" fontset_name="book-fonts" size="12" fill="#000" halo_radius="2" wrap_width="0" allow_overlap="true"/>
     </Rule>
     <Rule>
       <Filter>[place] = 'city' or [place]='metropolis'</Filter>
       &maxscale_zoom11;
       &minscale_zoom14;
-      <TextSymbolizer name="name" fontset_name="book-fonts" size="14" fill="#000" dy="0" halo_radius="1" wrap_width="0"/>
+      <TextSymbolizer name="name" fontset_name="book-fonts" size="14" fill="#000" halo_radius="2" wrap_width="0" allow_overlap="true"/>
     </Rule>
 </Style>
 <Style name="town">
@@ -87,18 +87,19 @@
       <Filter>[place] = 'town' or [place]='large_town' or [place]='small_town'</Filter>
       &maxscale_zoom9;
       &minscale_zoom10;
-      <TextSymbolizer name="name" fontset_name="book-fonts" size="8" fill="#000" halo_radius="1" wrap_width="20"/>
+      <TextSymbolizer name="name" fontset_name="book-fonts" size="9" fill="#000" halo_radius="2" wrap_width="20" allow_overlap="true"/>
     </Rule>
     <Rule>
       <Filter>[place] = 'town' or [place]='large_town' or [place]='small_town'</Filter>
       &maxscale_zoom11;
       &minscale_zoom13;
-      <TextSymbolizer name="name" fontset_name="book-fonts" size="10" fill="#000" halo_radius="1" wrap_width="20"/>
+      <TextSymbolizer name="name" fontset_name="book-fonts" size="12" fill="#000" halo_radius="2" wrap_width="20" allow_overlap="true"/>
     </Rule>
     <Rule>
       <Filter>[place] = 'town' or [place]='large_town' or [place]='small_town'</Filter>
       &maxscale_zoom14;
-      <TextSymbolizer name="name" fontset_name="book-fonts" size="14" fill="#777777" halo_radius="1" wrap_width="20"/>
+      &minscale_zoom16;
+      <TextSymbolizer name="name" fontset_name="book-fonts" size="14" fill="#777777" halo_radius="2" wrap_width="20" allow_overlap="true"/>
     </Rule>
 </Style>
 <Style name="suburb">
@@ -106,12 +107,12 @@
       <Filter>[place] = 'suburb'</Filter>
       &maxscale_zoom12;
       &minscale_zoom13;
-      <TextSymbolizer name="name" fontset_name="book-fonts" size="10" fill="#000" halo_radius="1" wrap_width="0"/>
+      <TextSymbolizer name="name" fontset_name="book-fonts" size="10" fill="#000" halo_radius="2" wrap_width="0" allow_overlap="true"/>
     </Rule>
     <Rule>
       <Filter>[place] = 'suburb'</Filter>
       &maxscale_zoom14;
-      <TextSymbolizer name="name" fontset_name="book-fonts" size="13" fill="#777777" halo_radius="1" wrap_width="0"/>
+      <TextSymbolizer name="name" fontset_name="book-fonts" size="13" fill="#777777" halo_radius="2" wrap_width="0" allow_overlap="true"/>
     </Rule>
 </Style>
 <Style name="village">
@@ -119,12 +120,12 @@
       <Filter>[place] = 'village' or [place]='large_village'</Filter>
       &maxscale_zoom12;
       &minscale_zoom14;
-      <TextSymbolizer name="name" fontset_name="book-fonts" size="9" fill="#000" halo_radius="1" wrap_width="0"/>
+      <TextSymbolizer name="name" fontset_name="book-fonts" size="10" fill="#000" halo_radius="2" wrap_width="0" allow_overlap="true"/>
     </Rule>
     <Rule>
       <Filter>[place] = 'village' or [place]='large_village'</Filter>
       &maxscale_zoom15;
-      <TextSymbolizer name="name" fontset_name="book-fonts" size="12" fill="#777777" halo_radius="1" wrap_width="0"/>
+      <TextSymbolizer name="name" fontset_name="book-fonts" size="12" fill="#777777" halo_radius="2" wrap_width="0" allow_overlap="true"/>
     </Rule>
 </Style>
 <Style name="hamlet">
@@ -132,16 +133,16 @@
       <Filter>[place] = 'hamlet' or [place] = 'locality' or [place] = 'isolated_dwelling' or [place] = 'farm'</Filter>
       &maxscale_zoom14;
       &minscale_zoom15;
-      <TextSymbolizer name="name" fontset_name="book-fonts" size="8" fill="#000" halo_radius="1" wrap_width="0"/>
+      <TextSymbolizer name="name" fontset_name="book-fonts" size="8" fill="#000" halo_radius="1" wrap_width="0" allow_overlap="true"/>
     </Rule>
     <Rule>
       <Filter>[place] = 'hamlet' or [place] = 'locality' or [place] = 'isolated_dwelling' or [place] = 'farm'</Filter>
       &maxscale_zoom16;
-      <TextSymbolizer name="name" fontset_name="book-fonts" size="11" fill="#777777" halo_radius="1" wrap_width="0"/>
+      <TextSymbolizer name="name" fontset_name="book-fonts" size="11" fill="#777777" halo_radius="1" wrap_width="0" allow_overlap="true"/>
     </Rule>
 </Style>
 
-<Layer name="placenames-large" status="on" srs="&osm2pgsql_projection;">
+<Layer name="placenames-large" status="on" srs="&osm2pgsql_projection;" maxzoom="&max_zoom2;" minzoom="&min_zoom8;">
     <StyleName>country</StyleName>
     <StyleName>state</StyleName>
     <Datasource>
@@ -153,7 +154,7 @@
       &datasource-settings;
     </Datasource>
 </Layer>
-<Layer name="placenames-capital" status="on" srs="&osm2pgsql_projection;">
+<Layer name="placenames-capital" status="on" srs="&osm2pgsql_projection;" maxzoom="&max_zoom5;" minzoom="&min_zoom14;">
     <StyleName>capital</StyleName>
     <Datasource>
       <Parameter name="table">
@@ -164,7 +165,7 @@
       &datasource-settings;
     </Datasource>
 </Layer>
-<Layer name="placenames-medium" status="on" srs="&osm2pgsql_projection;">
+<Layer name="placenames-medium" status="on" srs="&osm2pgsql_projection;" maxzoom="&max_zoom6;">
     <StyleName>city</StyleName>
     <StyleName>town</StyleName>
     <Datasource>
@@ -177,7 +178,7 @@
       &datasource-settings;
     </Datasource>
 </Layer>
-<Layer name="placenames-small" status="on" srs="&osm2pgsql_projection;">
+<Layer name="placenames-small" status="on" srs="&osm2pgsql_projection;" maxzooom="&max_zoom12;">
     <StyleName>suburb</StyleName>
     <StyleName>village</StyleName>
     <StyleName>hamlet</StyleName>

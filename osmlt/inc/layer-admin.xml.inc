@@ -138,7 +138,7 @@
       &datasource-settings;
     </Datasource>
 </Layer>
-<Layer name="admin-5678" status="on" srs="&osm2pgsql_projection;">
+<Layer name="admin-5678" status="on" srs="&osm2pgsql_projection;" maxzoom="&max_zoom11;">
     <StyleName>admin-5678</StyleName>
     <Datasource>
       <Parameter name="table">
@@ -150,7 +150,7 @@
       &datasource-settings;
     </Datasource>
 </Layer>
-<Layer name="admin-other" status="on" srs="&osm2pgsql_projection;">
+<Layer name="admin-other" status="on" srs="&osm2pgsql_projection;" maxzoom="&max_zoom9;">
     <StyleName>admin-other</StyleName>
     <Datasource>
       <Parameter name="table">

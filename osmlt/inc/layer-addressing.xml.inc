@@ -17,7 +17,6 @@
 <Style name="housenames">
     <Rule>
       &maxscale_zoom17;
-      &minscale_zoom17;
       <TextSymbolizer name="addr:housename" fontset_name="book-fonts" size="8" fill="#444" dy="0" wrap_width="20"/>
     </Rule>
     <Rule>
@@ -25,7 +24,7 @@
       <TextSymbolizer name="addr:housename" fontset_name="book-fonts" size="9" fill="#444" dy="0" wrap_width="20"/>
     </Rule>
 </Style>
-<Layer name="interpolation_lines" status="on" srs="&osm2pgsql_projection;">
+<Layer name="interpolation_lines" status="on" srs="&osm2pgsql_projection;" maxzoom="&max_zoom17;">
      <StyleName>interpolation</StyleName>
      <Datasource>
       <Parameter name="table">
@@ -34,7 +33,7 @@
       &datasource-settings;
     </Datasource>
 </Layer>
-<Layer name="housenumbers" status="on" srs="&osm2pgsql_projection;">
+<Layer name="housenumbers" status="on" srs="&osm2pgsql_projection;" maxzoom="&max_zoom17;">
     <StyleName>housenumbers</StyleName>
     <Datasource>
       <Parameter name="table">
@@ -46,7 +45,7 @@
       &datasource-settings;
     </Datasource>
 </Layer>
-<Layer name="housenames" status="on" srs="&osm2pgsql_projection;">
+<Layer name="housenames" status="on" srs="&osm2pgsql_projection;" maxzoom="&max_zoom17;">
     <StyleName>housenames</StyleName>
     <Datasource>
       <Parameter name="table">

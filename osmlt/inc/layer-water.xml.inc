@@ -485,7 +485,7 @@
     </Rule>
 </Style>
 
-<Layer name="water-lines-casing" status="on" srs="&osm2pgsql_projection;">
+<Layer name="water-lines-casing" status="on" srs="&osm2pgsql_projection;" maxzoom="&max_zoom13;">
     <StyleName>water-lines-casing</StyleName>
     <Datasource>
       <Parameter name="table">
@@ -497,7 +497,7 @@
       &datasource-settings;
     </Datasource>
 </Layer>
-<Layer name="water_areas" status="on" srs="&osm2pgsql_projection;">
+<Layer name="water_areas" status="on" srs="&osm2pgsql_projection;" maxzoom="&max_zoom6;">
     <StyleName>water_areas</StyleName>
     <Datasource>
       <Parameter name="table">
@@ -512,7 +512,7 @@
     </Datasource>
 </Layer>
 <!-- Make sure overlay styles are always rendered on top of solid areas. -->
-<Layer name="water-areas-overlay" status="on" srs="&osm2pgsql_projection;">
+<Layer name="water-areas-overlay" status="on" srs="&osm2pgsql_projection;" maxzoom="&max_zoom13;">
     <StyleName>water-areas-overlay</StyleName>
     <Datasource>
       <Parameter name="table">
@@ -524,7 +524,7 @@
       &datasource-settings;
     </Datasource>
 </Layer>
-<Layer name="glaciers-text" status="on" srs="&osm2pgsql_projection;">
+<Layer name="glaciers-text" status="on" srs="&osm2pgsql_projection;" maxzoom="&max_zoom10;">
     <StyleName>glaciers-text</StyleName>
     <Datasource>
       <Parameter name="table">
@@ -537,7 +537,7 @@
     </Datasource>
 </Layer>
 
-<Layer name="water-lines-low-zoom" status="on" srs="&osm2pgsql_projection;">
+<Layer name="water-lines-low-zoom" status="on" srs="&osm2pgsql_projection;" minzoom="&min_zoom11;" maxzoom="&max_zoom8;">
     <StyleName>water-lines-low-zoom</StyleName>
     <Datasource>
       <Parameter name="table">
@@ -549,7 +549,7 @@
     </Datasource>
 </Layer>
 
-<Layer name="water_lines" status="on" srs="&osm2pgsql_projection;">
+<Layer name="water_lines" status="on" srs="&osm2pgsql_projection;" maxzoom="&max_zoom12;">
     <StyleName>water_lines</StyleName>
     <Datasource>
       <Parameter name="table">

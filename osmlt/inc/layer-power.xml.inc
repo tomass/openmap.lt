@@ -46,28 +46,28 @@
       <PointSymbolizer file="&symbols;/power_pole.png" allow_overlap="false"/>
     </Rule>
 </Style>
-<Layer name="power_line" status="on" srs="&osm2pgsql_projection;">
+<Layer name="power_line" status="on" srs="&osm2pgsql_projection;" maxzoom="&max_zoom14;">
     <StyleName>power_line</StyleName>
     <Datasource>
       <Parameter name="table">(select way from &prefix;_line where "power"='line') as power_line</Parameter>
       &datasource-settings;
     </Datasource>
 </Layer>
-<Layer name="power_minorline" status="on" srs="&osm2pgsql_projection;">
+<Layer name="power_minorline" status="on" srs="&osm2pgsql_projection;" maxzoom="&max_zoom16;">
     <StyleName>power_minorline</StyleName>
     <Datasource>
       <Parameter name="table">(select way from &prefix;_line where "power"='minor_line') as power_minorline</Parameter>
       &datasource-settings;
     </Datasource>
 </Layer>
-<Layer name="power_towers" status="on" srs="&osm2pgsql_projection;">
+<Layer name="power_towers" status="on" srs="&osm2pgsql_projection;" maxzoom="&max_zoom14;">
      <StyleName>power_towers</StyleName>
     <Datasource>
       <Parameter name="table">(select way from &prefix;_point where power='tower') as power_towers</Parameter>
       &datasource-settings;
     </Datasource>
 </Layer>
-<Layer name="power_poles" status="on" srs="&osm2pgsql_projection;">
+<Layer name="power_poles" status="on" srs="&osm2pgsql_projection;" maxzoom="&max_zoom16;">
      <StyleName>power_poles</StyleName>
     <Datasource>
       <Parameter name="table">(select way from &prefix;_point where power='pole') as power_poles</Parameter>
