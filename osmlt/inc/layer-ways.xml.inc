@@ -3721,31 +3721,6 @@
       </LineSymbolizer>
     </Rule>
     <Rule>
-      <Filter>[aeroway] = 'runway'</Filter>
-      &maxscale_zoom14;
-      <LineSymbolizer>
-        <CssParameter name="stroke">black</CssParameter>
-        <CssParameter name="stroke-width">19</CssParameter>
-      </LineSymbolizer>
-    </Rule>
-    <Rule>
-      <Filter>[aeroway] = 'taxiway'</Filter>
-      &maxscale_zoom14;
-      &minscale_zoom14;
-      <LineSymbolizer>
-        <CssParameter name="stroke">black</CssParameter>
-        <CssParameter name="stroke-width">5</CssParameter>
-      </LineSymbolizer>
-    </Rule>
-    <Rule>
-      <Filter>[aeroway] = 'taxiway'</Filter>
-      &maxscale_zoom15;
-      <LineSymbolizer>
-        <CssParameter name="stroke">black</CssParameter>
-        <CssParameter name="stroke-width">7</CssParameter>
-      </LineSymbolizer>
-    </Rule>
-     <Rule>
       &maxscale_zoom14;
       &minscale_zoom18;
       <Filter>[railway]='subway'</Filter>
@@ -3753,8 +3728,8 @@
         <CssParameter name="stroke">black</CssParameter>
         <CssParameter name="stroke-width">5.5</CssParameter>
       </LineSymbolizer>
-     </Rule>
-     <Rule>
+    </Rule>
+    <Rule>
       &maxscale_zoom14;
       &minscale_zoom18;
       <Filter>[railway]='light_rail' or [railway]='narrow_gauge'</Filter>
@@ -4420,31 +4395,6 @@
       </LineSymbolizer>
     </Rule>
     <Rule>
-      <Filter>[aeroway] = 'runway'</Filter>
-      &maxscale_zoom14;
-      <LineSymbolizer>
-        <CssParameter name="stroke">#bbc</CssParameter>
-        <CssParameter name="stroke-width">18</CssParameter>
-      </LineSymbolizer>
-    </Rule>
-    <Rule>
-      <Filter>[aeroway] = 'taxiway'</Filter>
-      &maxscale_zoom14;
-      &minscale_zoom14;
-      <LineSymbolizer>
-        <CssParameter name="stroke">#bbc</CssParameter>
-        <CssParameter name="stroke-width">4</CssParameter>
-      </LineSymbolizer>
-    </Rule>
-    <Rule>
-      <Filter>[aeroway] = 'taxiway'</Filter>
-      &maxscale_zoom15;
-      <LineSymbolizer>
-        <CssParameter name="stroke">#bbc</CssParameter>
-        <CssParameter name="stroke-width">6</CssParameter>
-      </LineSymbolizer>
-    </Rule>
-    <Rule>
       &maxscale_zoom14;
       &minscale_zoom18;
       <Filter>[railway]='subway'</Filter>
@@ -4499,7 +4449,7 @@
       &maxscale_zoom14;
       <LineSymbolizer>
         <CssParameter name="stroke">salmon</CssParameter>
-        <CssParameter name="stroke-width">2.0</CssParameter>
+        <CssParameter name="stroke-width">2</CssParameter>
         <CssParameter name="stroke-dasharray">1,3</CssParameter>
         <CssParameter name="stroke-linejoin">round</CssParameter>
         <CssParameter name="stroke-linecap">round</CssParameter>
@@ -5798,6 +5748,15 @@
     <StyleName>waterway-bridges</StyleName>
     <Datasource>
       <Parameter name="table">(select way,name from &prefix;_line where waterway='canal' and bridge in ('yes','true','1','aqueduct') order by z_order) as water</Parameter>
+      &datasource-settings;
+    </Datasource>
+</Layer>
+<Layer name="bridges" status="on" srs="&osm2pgsql_projection;">
+    <StyleName>bridges_casing</StyleName>
+    <StyleName>bridges_casing2</StyleName>
+    <StyleName>bridges_fill</StyleName>
+    <Datasource>
+      <Parameter name="table">(select way,name,highway,railway,foot,bicycle,horse,tracktype from &prefix;_line where highway is not null and bridge in ('yes','true','1') order by z_order) as water</Parameter>
       &datasource-settings;
     </Datasource>
 </Layer>
