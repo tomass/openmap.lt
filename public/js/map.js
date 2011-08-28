@@ -27,118 +27,6 @@ OpenLayers.Util.onImageLoadError = function() {
     }
 };
 
-/**
- * Class: OpenLayers.Layer.OSM.Mapnik
- * 
- * Inherits from: - <OpenLayers.Layer.OSM>
- */
-OpenLayers.Layer.OSM.Mapnik = OpenLayers.Class(OpenLayers.Layer.OSM, {
-    /**
-     * Constructor: OpenLayers.Layer.OSM.Mapnik
-     * 
-     * Parameters: name - {String} options - {Object} Hashtable of extra options
-     * to tag onto the layer
-     */
-    initialize : function(name, options) {
-        var url = [ "http://tiles.openmap.lt/${z}/${x}/${y}.png" ];
-        options = OpenLayers.Util.extend({
-            numZoomLevels : 19,
-            transitionEffect : "resize",
-            buffer : 0
-        }, options);
-        var newArguments = [ name, url, options ];
-        OpenLayers.Layer.OSM.prototype.initialize.apply(this, newArguments);
-    },
-
-    CLASS_NAME : "OpenLayers.Layer.OSM.Mapnik"
-});
-
-/**
- * Class: OpenLayers.Layer.OSM.Osmarender
- * 
- * Inherits from: - <OpenLayers.Layer.OSM>
- */
-OpenLayers.Layer.OSM.Osmarender = OpenLayers.Class(OpenLayers.Layer.OSM, {
-    /**
-     * Constructor: OpenLayers.Layer.OSM.Osmarender
-     * 
-     * Parameters: name - {String} options - {Object} Hashtable of extra options
-     * to tag onto the layer
-     */
-    initialize : function(name, options) {
-        var url = [ "http://a.tah.openstreetmap.org/Tiles/tile/${z}/${x}/${y}.png", "http://b.tah.openstreetmap.org/Tiles/tile/${z}/${x}/${y}.png", "http://c.tah.openstreetmap.org/Tiles/tile/${z}/${x}/${y}.png" ];
-        options = OpenLayers.Util.extend({
-            numZoomLevels : 19
-        }, options);
-        var newArguments = [ name, url, options ];
-        OpenLayers.Layer.OSM.prototype.initialize.apply(this, newArguments);
-    },
-
-    CLASS_NAME : "OpenLayers.Layer.OSM.Osmarender"
-});
-
-/**
- * Class: OpenLayers.Layer.OSM.CycleMap
- * 
- * Inherits from: - <OpenLayers.Layer.OSM>
- */
-OpenLayers.Layer.OSM.CycleMap = OpenLayers.Class(OpenLayers.Layer.OSM, {
-    /**
-     * Constructor: OpenLayers.Layer.OSM.CycleMap
-     * 
-     * Parameters: name - {String} options - {Object} Hashtable of extra options
-     * to tag onto the layer
-     */
-    initialize : function(name, options, base) {
-        var url = base + "/${z}/${x}/${y}.png";
-        options = OpenLayers.Util.extend({
-            numZoomLevels : 17
-        }, options);
-        var newArguments = [ name, url, options ];
-        OpenLayers.Layer.OSM.prototype.initialize.apply(this, newArguments);
-    },
-    CLASS_NAME : "OpenLayers.Layer.OSM.CycleMap"
-});
-
-OpenLayers.Layer.OSM.Transport = OpenLayers.Class(OpenLayers.Layer.OSM, {
-    initialize : function(name, options, base) {
-        var url = base + "/${z}/${x}/${y}.png";
-        options = OpenLayers.Util.extend({
-            isBaseLayer : false,
-            type : 'png',
-            numZoomLevels : 19,
-            displayOutsideMaxExtent : true,
-            visibility : false,
-            tileLoadingDelay : 0
-        }, options);
-        var newArguments = [ name, url, options ];
-        OpenLayers.Layer.OSM.prototype.initialize.apply(this, newArguments);
-    },
-    addTile : function(b, p) {
-        var t = OpenLayers.Layer.OSM.prototype.addTile.apply(this, arguments);
-        t.frame.style.backgroundImage = "url(http://openmap.lt/tiles/grey.png)";
-        return t;
-    },
-    CLASS_NAME : "OpenLayers.Layer.OSM.Transport"
-});
-
-OpenLayers.Layer.OSM.Lt = OpenLayers.Class(OpenLayers.Layer.OSM, {
-    initialize : function(name, options) {
-        var url = [ "http://osmlt.openmap.lt/${z}/${x}/${y}.png" ];
-        options = OpenLayers.Util.extend({
-            numZoomLevels : 19,
-            transitionEffect : "resize",
-            buffer : 0
-            //maxExtent : new OpenLayers.Bounds(2200000, 7100000, 3100000, 7700000),
-            //displayOutsideMaxExtent : false
-        }, options);
-        var newArguments = [ name, url, options ];
-        OpenLayers.Layer.OSM.prototype.initialize.apply(this, newArguments);
-    },
-    CLASS_NAME : "OpenLayers.Layer.OSM.Lt"
-});
-
-
 var epsg4326 = new OpenLayers.Projection("EPSG:4326");
 var map;
 var markers;
@@ -163,9 +51,9 @@ function createMap(divName, options) {
         displayOutsideMaxExtent : true,
         wrapDateLine : true,
         layerCode : "M"
-    });
+    }, "http://tiles.openmap.lt");
     map.addLayer(mapnik);
-    map.addLayer(new OpenLayers.Layer.OSM.Lt("Lt", {keyid:"lt",layerCode:"L"}));
+    map.addLayer(new OpenLayers.Layer.OSM.Lt("Lt", {keyid:"lt",layerCode:"L"}, "http://osmlt.openmap.lt"));
     var osmarender = new OpenLayers.Layer.OSM.Osmarender("Osmarender", {
         keyid : "osmarender",
         displayOutsideMaxExtent : true,
