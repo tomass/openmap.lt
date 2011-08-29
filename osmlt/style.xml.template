@@ -13,8 +13,11 @@
 &layer-buildings;
 &layer-addressing;
 &layer-ways;
-&layer-power;
 &layer-admin;
+&layer-power;
+&layer-amenity-stations;
+&layer-amenity-symbols;
+&layer-amenity-points;
 &layer-parks;
 &layer-placenames;
 </Map>
