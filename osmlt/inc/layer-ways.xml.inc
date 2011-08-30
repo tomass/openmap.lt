@@ -3632,6 +3632,7 @@
       </LineSymbolizer>
     </Rule>
     <Rule>
+
       <Filter>[highway] = 'residential' or [highway] = 'unclassified' or [highway] = 'road'</Filter>
       &maxscale_zoom14;
       &minscale_zoom14;
@@ -5095,7 +5096,7 @@
       <LinePatternSymbolizer file="&symbols;/ctsw17l.png" height="17" width="8" type="png" />
     </Rule>
 </Style>
-<Layer name="tunnels" status="on" srs="&osm2pgsql_projection;">
+<Layer name="tunnels" status="on" srs="&osm2pgsql_projection;" maxzoom="&max_zoom12;">
     <StyleName>tunnels-casing</StyleName>
     <StyleName>tunnels-fill</StyleName>
     <Datasource>
@@ -5105,7 +5106,7 @@
       &datasource-settings;
     </Datasource>
 </Layer>
-<Layer name="turning_circle-casing" status="on" srs="&osm2pgsql_projection;">
+<Layer name="turning_circle-casing" status="on" srs="&osm2pgsql_projection;" maxzoom="&max_zoom15;">
     <StyleName>turning_circle-casing</StyleName>    
     <Datasource>
       <Parameter name="table">
@@ -5128,7 +5129,7 @@
       &datasource-settings;
     </Datasource>
 </Layer>
-<Layer name="footbikecycle-tunnels" status="on" srs="&osm2pgsql_projection;" clear_label_cache="on">
+<Layer name="footbikecycle-tunnels" status="on" srs="&osm2pgsql_projection;" clear_label_cache="on" maxzoom="&max_zoom13;">
     <StyleName>footbikecycle-tunnels</StyleName>
     <Datasource>
       <Parameter name="table">
@@ -5137,7 +5138,7 @@
       &datasource-settings;
     </Datasource>
 </Layer>
-<Layer name="tracks-tunnels" status="on" srs="&osm2pgsql_projection;">
+<Layer name="tracks-tunnels" status="on" srs="&osm2pgsql_projection;" maxzoom="&max_zoom14;">
     <StyleName>tracks-tunnels</StyleName>
     <Datasource>
       <Parameter name="table">
@@ -5146,7 +5147,7 @@
       &datasource-settings;
     </Datasource>
 </Layer>
-<Layer name="highway-area-casing" status="on" srs="&osm2pgsql_projection;">
+<Layer name="highway-area-casing" status="on" srs="&osm2pgsql_projection;" maxzoom="&max_zoom14;">
     <StyleName>highway-area-casing</StyleName>
     <Datasource>
       <Parameter name="table">
@@ -5158,7 +5159,7 @@
       &datasource-settings;
     </Datasource>
 </Layer>
-<Layer name="minor-roads-casing" status="on" srs="&osm2pgsql_projection;">
+<Layer name="minor-roads-casing" status="on" srs="&osm2pgsql_projection;" maxzoom="&max_zoom12;">
     <StyleName>minor-roads-casing-links</StyleName>
     <StyleName>minor-roads-casing</StyleName>
     <Datasource>
@@ -5173,7 +5174,7 @@
       &datasource-settings;
     </Datasource>
 </Layer>
-<Layer name="highway-area-fill" status="on" srs="&osm2pgsql_projection;">
+<Layer name="highway-area-fill" status="on" srs="&osm2pgsql_projection;" maxzoom="&max_zoom11;">
     <StyleName>highway-area-fill</StyleName>
     <Datasource>
       <Parameter name="table">
@@ -5186,7 +5187,7 @@
       &datasource-settings;
     </Datasource>
 </Layer>
-<Layer name="turning_circle-fill" status="on" srs="&osm2pgsql_projection;">
+<Layer name="turning_circle-fill" status="on" srs="&osm2pgsql_projection;" maxzoom="&max_zoom15;">
     <StyleName>turning_circle-fill</StyleName>    
     <Datasource>
       <Parameter name="table">
@@ -5209,7 +5210,7 @@
       &datasource-settings;
     </Datasource>
 </Layer>
-<Layer name="tracks-notunnel-nobridge" status="on" srs="&osm2pgsql_projection;">
+<Layer name="tracks-notunnel-nobridge" status="on" srs="&osm2pgsql_projection;" maxzoom="&max_zoom14;">
     <StyleName>tracks-notunnel-nobridge</StyleName>
     <Datasource>
       <Parameter name="table">
@@ -5240,7 +5241,7 @@
       &datasource-settings;
     </Datasource>
 </Layer>
-<Layer name="roads" status="on" srs="&osm2pgsql_projection;">
+<Layer name="roads" status="on" srs="&osm2pgsql_projection;" maxzoom="&max_zoom5;">
     <StyleName>roads</StyleName>
     <Datasource>
       <Parameter name="table">
@@ -5257,23 +5258,204 @@
       &datasource-settings;
     </Datasource>
 </Layer>
-<Layer name="waterway-bridges" status="on" srs="&osm2pgsql_projection;">
+<Layer name="waterway-bridges" status="on" srs="&osm2pgsql_projection;" maxzoom="&max_zoom14;">
     <StyleName>waterway-bridges</StyleName>
     <Datasource>
       <Parameter name="table">(select way,name from &prefix;_line where waterway='canal' and bridge in ('yes','true','1','aqueduct') order by z_order) as water</Parameter>
       &datasource-settings;
     </Datasource>
 </Layer>
-<Layer name="bridges" status="on" srs="&osm2pgsql_projection;">
+<Layer name="access-pre_bridges" status="on" srs="&osm2pgsql_projection;" maxzoom="&max_zoom15;">
+    <StyleName>access</StyleName>
+    <Datasource>
+      <Parameter name="table">
+      (select way,access,highway,
+       case when service in ('parking_aisle','drive-through','driveway') then 'INT-minor'::text end as service
+       from &prefix;_line
+       where access is not null and highway is not null
+         and (bridge is null or bridge not in ('yes','true','1','viaduct'))
+      ) as access
+      </Parameter>
+      &datasource-settings;
+    </Datasource>
+</Layer>
+<Layer name="direction_pre_bridges" status="on" srs="&osm2pgsql_projection;" maxzoom="&max_zoom16;">
+     <StyleName>directions</StyleName>
+     <Datasource>
+      <Parameter name="table">
+      (select way,
+       case when oneway in ('yes','true','1') then 'yes'::text else oneway end as oneway
+       from &prefix;_line
+       where oneway is not null
+         and (highway is not null or railway is not null or waterway is not null)
+         and (bridge is null or bridge not in ('yes','true','1','viaduct'))
+      ) as directions
+      </Parameter>
+      &datasource-settings;
+    </Datasource>
+</Layer>
+<Layer name="bridges_layer0" status="on" srs="&osm2pgsql_projection;" maxzoom="&max_zoom12;">
     <StyleName>bridges_casing</StyleName>
     <StyleName>bridges_casing2</StyleName>
     <StyleName>bridges_fill</StyleName>
     <Datasource>
-      <Parameter name="table">(select way,name,highway,railway,foot,bicycle,horse,tracktype from &prefix;_line where highway is not null and bridge in ('yes','true','1') order by z_order) as water</Parameter>
+      <Parameter name="table">
+      (select way,highway,aeroway,horse,bicycle,foot,tracktype,
+       case when railway in ('spur','siding')
+              or (railway='rail' and service in ('spur','siding','yard'))
+            then 'INT-spur-siding-yard'::text else railway end as railway
+       from &prefix;_line
+       where (highway is not null
+              or aeroway in ('runway','taxiway')
+              or railway in ('light_rail','subway','narrow_gauge','rail','spur','siding','disused','abandoned','construction'))
+         and bridge in ('yes','true','1','viaduct')
+         and (layer is null or layer = '0')
+       order by z_order
+      ) as roads
+      </Parameter>
       &datasource-settings;
     </Datasource>
 </Layer>
-<Layer name="highway-junctions" status="on" srs="&osm2pgsql_projection;">
+<Layer name="bridges_access0" status="on" srs="&osm2pgsql_projection;" maxzoom="&max_zoom15;">
+    <StyleName>access</StyleName>
+    <Datasource>
+      <Parameter name="table">
+      (select way,access,highway,
+       case when service in ('parking_aisle','drive-through','driveway') then 'INT-minor'::text end as service
+       from &prefix;_line
+       where access is not null and highway is not null
+         and bridge in ('yes','true','1','viaduct')
+         and (layer is null or layer in ('-5','-4','-3','-2','-1','0'))
+      ) as access
+      </Parameter>
+      &datasource-settings;
+    </Datasource>
+</Layer>
+<Layer name="bridges_directions0" status="on" srs="&osm2pgsql_projection;" maxzoom="&max_zoom16;">
+     <StyleName>directions</StyleName>
+     <Datasource>
+      <Parameter name="table">
+      (select way,
+       case when oneway in ('yes','true','1') then 'yes'::text else oneway end as oneway
+       from &prefix;_line
+       where oneway is not null
+         and (highway is not null or railway is not null or waterway is not null)
+         and bridge in ('yes','true','1','viaduct')
+         and (layer is null or layer in ('-5','-4','-3','-2','-1','0'))
+      ) as directions
+      </Parameter>
+      &datasource-settings;
+    </Datasource>
+</Layer>
+<Layer name="bridges_layer1" status="on" srs="&osm2pgsql_projection;" maxzoom="&max_zoom12;">
+    <StyleName>bridges_casing</StyleName>
+    <StyleName>bridges_casing2</StyleName>
+    <StyleName>bridges_fill</StyleName>
+    <Datasource>
+      <Parameter name="table">
+      (select way,highway,aeroway,horse,bicycle,foot,tracktype,
+       case when railway in ('spur','siding')
+              or (railway='rail' and service in ('spur','siding','yard'))
+            then 'INT-spur-siding-yard'::text else railway end as railway
+       from &prefix;_line
+       where (highway is not null
+              or aeroway in ('runway','taxiway')
+              or railway in ('light_rail','subway','narrow_gauge','rail','spur','siding','disused','abandoned','construction'))
+         and bridge in ('yes','true','1','viaduct')
+         and layer = '1'
+       order by z_order
+      ) as roads
+      </Parameter>
+      &datasource-settings;
+    </Datasource>
+</Layer>
+<Layer name="bridges_access1" status="on" srs="&osm2pgsql_projection;" maxzoom="&max_zoom15;">
+    <StyleName>access</StyleName>
+    <Datasource>
+      <Parameter name="table">
+      (select way,access,highway,
+       case when service in ('parking_aisle','drive-through','driveway') then 'INT-minor'::text end as service
+       from &prefix;_line
+       where access is not null and highway is not null
+         and bridge in ('yes','true','1','viaduct')
+         and layer = '1'
+      ) as access
+      </Parameter>
+      &datasource-settings;
+    </Datasource>
+</Layer>
+<Layer name="bridges_directions1" status="on" srs="&osm2pgsql_projection;" maxzoom="&max_zoom16;">
+     <StyleName>directions</StyleName>
+     <Datasource>
+      <Parameter name="table">
+      (select way,
+       case when oneway in ('yes','true','1') then 'yes'::text else oneway end as oneway
+       from &prefix;_line
+       where oneway is not null
+         and (highway is not null or railway is not null or waterway is not null)
+         and bridge in ('yes','true','1','viaduct')
+         and layer = '1'
+      ) as directions
+      </Parameter>
+      &datasource-settings;
+    </Datasource>
+</Layer>
+<Layer name="bridges_layer2" status="on" srs="&osm2pgsql_projection;" maxzoom="&max_zoom12;">
+    <StyleName>bridges_casing</StyleName>
+	<StyleName>bridges_casing2</StyleName>
+    <StyleName>bridges_fill</StyleName>
+    <Datasource>
+      <Parameter name="table">
+      (select way,highway,aeroway,horse,bicycle,foot,tracktype,
+       case when railway in ('spur','siding')
+              or (railway='rail' and service in ('spur','siding','yard'))
+            then 'INT-spur-siding-yard'::text else railway end as railway
+       from &prefix;_line
+       where (highway is not null
+              or aeroway in ('runway','taxiway')
+              or railway in ('light_rail','subway','narrow_gauge','rail','spur','siding','disused','abandoned','construction'))
+         and bridge in ('yes','true','1','viaduct')
+         and layer = '2'
+       order by z_order
+      ) as roads
+      </Parameter>
+      &datasource-settings;
+    </Datasource>
+</Layer>
+<Layer name="bridges_access2" status="on" srs="&osm2pgsql_projection;" maxzoom="&max_zoom15;">
+    <StyleName>access</StyleName>
+    <Datasource>
+      <Parameter name="table">
+      (select way,access,highway,
+       case when service in ('parking_aisle','drive-through','driveway') then 'INT-minor'::text end as service
+       from &prefix;_line
+       where access is not null and highway is not null
+         and bridge in ('yes','true','1','viaduct')
+         and layer = '2'
+      ) as access
+      </Parameter>
+      &datasource-settings;
+    </Datasource>
+</Layer>
+<Layer name="bridges_directions2" status="on" srs="&osm2pgsql_projection;" maxzoom="&max_zoom16;">
+     <StyleName>directions</StyleName>
+     <Datasource>
+      <Parameter name="table">
+      (select way,
+       case when oneway in ('yes','true','1') then 'yes'::text else oneway end as oneway
+       from &prefix;_line
+       where oneway is not null
+         and (highway is not null or railway is not null or waterway is not null)
+         and bridge in ('yes','true','1','viaduct')
+         and layer = '2'
+      ) as directions
+      </Parameter>
+      &datasource-settings;
+    </Datasource>
+</Layer>
+
+
+<Layer name="highway-junctions" status="on" srs="&osm2pgsql_projection;" maxzoom="&max_zoom11;">
     <StyleName>highway-junctions</StyleName>
     <Datasource>
      <Parameter name="table">
