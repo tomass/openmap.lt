@@ -16,4 +16,5 @@
 <!ENTITY layer-shapefiles SYSTEM "layer-shapefiles.xml.inc">
 <!ENTITY layer-parks SYSTEM "layer-parks.xml.inc">
 <!ENTITY layer-roads-text SYSTEM "layer-roads-text.xml.inc">
+<!ENTITY layer-texts SYSTEM "layer-texts.xml.inc">
 

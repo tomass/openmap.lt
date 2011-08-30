@@ -11,13 +11,14 @@
 &layer-water_features;
 &layer-ferry-routes;
 &layer-buildings;
-&layer-addressing;
 &layer-ways;
 &layer-admin;
 &layer-power;
 &layer-amenity-stations;
 &layer-amenity-symbols;
 &layer-amenity-points;
+&layer-texts;
+&layer-addressing;
 &layer-parks;
 &layer-placenames;
 &layer-roads-text;
