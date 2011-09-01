@@ -113,10 +113,10 @@ OpenLayers.Control.Activeurl = OpenLayers.Class(OpenLayers.Control, {
 	parseParams : function(){
 		if(window.location.hash == ""){
 			var params = $.cookie("state");
-			params = params.split(",");
 			if(!params){
 				return false;
 			}
+			params = params.split(",");
 		}else{
 			var h = window.location.hash;
 			if(OpenLayers.String.contains(h, "#l=")){
