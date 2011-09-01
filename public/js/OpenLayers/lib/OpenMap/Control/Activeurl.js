@@ -11,6 +11,7 @@ OpenLayers.Control.Activeurl = OpenLayers.Class(OpenLayers.Control, {
 		OpenLayers.Control.prototype.initialize.apply(this, []);
 		this.base = document.location.href;
 		this.params = this.parseParams();
+		$(window).bind("beforeunload", $.proxy(this.saveParams, this));
 	},
 	destroy : function() {
 		this.map.events.unregister("moveend", this, this.update);
@@ -84,7 +85,7 @@ OpenLayers.Control.Activeurl = OpenLayers.Class(OpenLayers.Control, {
 	},
 	update : function() {
 		var params = this.createParams();
-		var loc = (Math.round(params.lat * 100000) / 100000) + "," + (Math.round(params.lon * 100000) / 100000) + "," + params.zoom + "," + params.maplayers;
+		var loc = (Math.round(params.lat * 100000) / 100000) + "," + (Math.round(params.lon * 100000) / 100000) + "," + params.zoom + "," + params.layers;
 		window.location.hash = "l=" + loc;
 	},
 	createParams : function(center, l, layers) {
@@ -98,26 +99,31 @@ OpenLayers.Control.Activeurl = OpenLayers.Class(OpenLayers.Control, {
 			params.lat = f;
 			params.lon = h;
 			layers = layers || this.map.layers;
-			params.maplayers = this.map.baseLayer.layerCode;
+			params.layers = this.map.baseLayer.layerCode;
 			for ( var i in layers) {
 				var layer = layers[i];
 				if(typeof layer.keyid == "undefined" || !layer.getVisibility() || layer.isBaseLayer){
 					continue;
 				}
-				params.maplayers += layer.layerCode;
+				params.layers += layer.layerCode;
 			}
 		}
 		return params;
 	},
 	parseParams : function(){
 		if(window.location.hash == ""){
-			return false;
+			var params = $.cookie("state");
+			params = params.split(",");
+			if(!params){
+				return false;
+			}
+		}else{
+			var h = window.location.hash;
+			if(OpenLayers.String.contains(h, "#l=")){
+				h = h.substr(3);
+			}
+			var params = h.split(",");
 		}
-		var h = window.location.hash;
-		if(OpenLayers.String.contains(h, "#l=")){
-			h = h.substr(3);
-		}
-		var params = h.split(",");
 		if(params.length != 4){
 			return false;
 		}
@@ -128,5 +134,16 @@ OpenLayers.Control.Activeurl = OpenLayers.Class(OpenLayers.Control, {
 			layers : params[3]
 		};
 	},
+	
+	saveParams : function(){
+		var params = this.createParams();
+		var state = new Array();
+		state.push(params.lat);
+		state.push(params.lon);
+		state.push(params.zoom);
+		state.push(params.layers);
+		$.cookie("state", state.join(","));
+	},
+	
 	CLASS_NAME : "OpenLayers.Control.Activeurl"
 });
