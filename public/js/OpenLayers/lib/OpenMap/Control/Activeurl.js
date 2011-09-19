@@ -142,7 +142,7 @@ OpenLayers.Control.Activeurl = OpenLayers.Class(OpenLayers.Control, {
 		state.push(params.lon);
 		state.push(params.zoom);
 		state.push(params.layers);
-		$.cookie("state", state.join(","));
+		$.cookie("state", state.join(","), {expires:30});
 	},
 	
 	CLASS_NAME : "OpenLayers.Control.Activeurl"
