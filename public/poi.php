@@ -1,6 +1,4 @@
 <?php
-header("Content-type: text/plain; charset=UTF-8");
-
 /*****************************************************************
  * Parameters:
  *  debug=yes|no - turn on debugging (default=no)
@@ -30,12 +28,12 @@ $g_debug = false;
  * Print out debug information. This print out something only
  * if called with an parameter debug=yes
  ***************************************************************/
-function msg($txt) {
-  global $g_debug;
-  if ($g_debug) {
-    print $txt . "\n";
-  }
-} // msg
+function debug($txt) {
+    global $g_debug;
+    if ($g_debug) {
+        echo $txt, PHP_EOL;
+    }
+} // debug
 
 /************************************************************
  * Parse tags in a given string
@@ -105,7 +103,7 @@ function assemble_title($default)
   } else {
     $p_title = $default;
   }
-  msg("Title=" . $p_title);
+  debug("Title=" . $p_title);
 } // assemble_title
 
 /***********************************************************************
@@ -129,7 +127,7 @@ function assemble_description()
   if ($city !== "" or $street !== "" or $housenumber !== "") {
     add_to_description("<i>Adr:</i>" . $city . " " . $street . " " . $housenumber);
   }
-  msg("Description=".$p_description);
+  debug("Description=".$p_description);
 } // assemble_description
 
 /*************************************************************
@@ -142,59 +140,60 @@ function assemble_description()
  ************************************************************/
 function fetch_poi($left, $top, $right, $bottom, $p_type)
 {
-  global $p_title, $p_description;
-
-  // Contruct a query part filtering out only required POI's
-  msg("poi type is " . $p_type);
-  if ($p_type === "fuel") {
-    $filter = "p.amenity = 'fuel'";
-  } else if ($p_type === "cafe") {
-    $filter = "p.amenity = 'cafe'";
-  } else if ($p_type === "hotel") {
-    $filter = "p.tourism = 'hotel'";
-  }
-
-  msg("Query is: " . "SELECT n.lat, n.lon, n.tags FROM planet_osm_point p, planet_osm_nodes n
- where p.way && SetSRID('BOX3D(" . $left . " " . $top . "," . $right . " " . $bottom . ")'::box3d,900913)
-   and " . $filter .
- " and p.osm_id = n.id;");
-  $res = pg_query("SELECT n.lat, n.lon, n.tags FROM planet_osm_point p, planet_osm_nodes n
- where p.way && SetSRID('BOX3D(" . $left . " " . $top . "," . $right . " " . $bottom . ")'::box3d,900913)
-   and " . $filter .
- " and p.osm_id = n.id;");
-  if (!$res) {
-    print "ojojoj" . pg_last_error();
-    exit;
-  }
-
-  $id = 0;
-  while ($row = pg_fetch_row($res)) {
-    msg("lat:" . $row[0] . ", lon:" . $row[1] . ", tags:" . $row[2]);
-    //msg("lat:" . $row[0] . ", lon:" . $row[1]);
-    parse_tags($row[2]);
-    assemble_title("Kolonėlė");
-    assemble_description();
-
-    // add data to future json
-    $lon = $row[0];
-    $lat = $row[1];
-    $latlon = array($lon,$lat);
-
-    $arr[] = array(
-      "geometry" => array("type" => "Point", "coordinates" => $latlon),
-      "type" => "Feature",
-      "properties" => array(
-        "title" => $p_title,
-        "description" => $p_description,
-      ),
-      "id" => $id
-    );
-    $id++;
-  }
-  print "Done.";
-
-  $geojson = '{"type":"FeatureCollection","features":'.json_encode($arr).'}';
-  print $geojson;
+    global $p_title, $p_description;
+    global $link;
+    // Contruct a query part filtering out only required POI's
+    debug("poi type is " . $p_type);
+    switch($p_type){
+        case 'fuel':
+            $filter = "p.amenity = 'fuel'";
+            break;
+        case 'cafe':
+            $filter = "p.amenity = 'cafe'";
+            break;
+        case 'hotel':
+            $filter = "p.tourism = 'hotel'";
+            break;
+        default:
+            $filter = '1';
+    }
+    $query = "SELECT n.lat, n.lon, n.tags
+    			FROM planet_osm_point p, planet_osm_nodes n
+    			WHERE p.way && SetSRID('BOX3D({$left} {$top},{$right} {$bottom})'::box3d,900913)
+    				AND {$filter} AND p.osm_id = n.id";
+    debug('Query is: ' . $query);
+    $res = pg_query($link, $query);
+    if (!$res) {
+        throw new Exception(pg_last_error($link));
+        exit;
+    }
+    $id = 0;
+    $arr = array();
+    while ($row = pg_fetch_row($res)) {
+        debug("lat:" . $row[0] . ", lon:" . $row[1] . ", tags:" . $row[2]);
+        parse_tags($row[2]);
+        assemble_title("Kolonėlė");
+        assemble_description();
+    
+        // add data to future json
+        $latlon = array($row[0],$row[1]);
+    
+        $arr[] = array(
+    		'geometry' => array(
+    			'type' => 'Point',
+    			'coordinates' => $latlon,
+            ),
+            'type' => 'Feature',
+            'properties' => array(
+                'title' => $p_title,
+                'description' => $p_description,
+            ),
+          	'id' => $id,
+        );
+        $id++;
+    }
+    header('Content-type: application/json; charset=UTF-8');
+    echo '{"type":"FeatureCollection","features":', json_encode($arr), '}';
 } // fetch_poi
 
 //***********************************************************************
@@ -203,7 +202,11 @@ function fetch_poi($left, $top, $right, $bottom, $p_type)
 // a number of "human readable" debug messages
 $debug = $_GET["debug"];
 if ($debug === "yes") {
-  $g_debug = true;
+    $g_debug = true;
+    error_reporting(E_ALL ^ E_NOTICE);
+    echo '<pre>';
+}else{
+    error_reporting(0);
 }
 
 // Check the bounding box
@@ -213,10 +216,8 @@ if (!is_array($cl) or count($cl) != 4) {
   print "incorrect bbox parameter";
   exit;
 }
-$left = $cl[0];
-$top = $cl[1];
-$right = $cl[2];
-$bottom = $cl[3];
+
+list($left, $bottom, $right, $top) = $cl;
 
 // Try fixing some common mistakes
 if ($left > $right)
@@ -232,10 +233,15 @@ if ($bottom > $top)
     $top    = $bottom;
     $bottom = $temp;
 }
-msg("left="   . $left);
-msg("top="    . $top);
-msg("right="  . $right);
-msg("bottom=" . $bottom);
+debug("left="   . $left);
+debug("top="    . $top);
+debug("right="  . $right);
+debug("bottom=" . $bottom);
+
+//limit request to 1 square degree, ~ 100000 * 200000 in 900913
+if(abs($top - $bottom) * abs($right - $left) > 20000000000){
+    die('Requests is limited to 1 square degree');
+}
 
 // Check the type of poi to be fetched
 $type = $_GET["type"];
@@ -243,14 +249,14 @@ if ($type === null) {
   $type = "fuel"; // default poi type is fuel
 }
 
-//$link = connect_db();
-$link = pg_connect('host=localhost port=5432 dbname=gis user=tomas');
+$config = require './config.php';
+$link = pg_connect(vsprintf('host=%s port=%u dbname=%s user=%s password=%s', $config['resource']['db']));
 if (!$link) {
-  print "ajajajaj";
-  exit;
+    debug('Cannot connect to database');
+    die;
 }
 
 fetch_poi($left, $top, $right, $bottom, $type);
 
-pg_close();
+pg_close($link);
 ?>
