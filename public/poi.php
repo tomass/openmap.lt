@@ -2,7 +2,7 @@
 /*****************************************************************
  * Parameters:
  *  debug=yes|no - turn on debugging (default=no)
- *  bbox=L,T,R,B - bounding box
+ *  bbox=L,B,R,T - bounding box in EPSG:4326
  *  type=history|monument|tower|attraction|picnic_fireplace|picnic_nofireplace|camping|cafe|restaurant|pub|hotel|hostel|fuel
  *       groupAttraction| (castles, hillforts, museums, parks and other attractions)
  *       groupCamping| (camping, picnic palces etc.)
@@ -26,16 +26,12 @@ $p_lon = "";
 $p_title = "";
 $p_description = "";
 
-// internal
-$g_debug = false;
-
 /***************************************************************
  * Print out debug information. This print out something only
  * if called with an parameter debug=yes
  ***************************************************************/
 function debug($txt) {
-    global $g_debug;
-    if ($g_debug) {
+    if (DEBUG) {
         echo $txt, PHP_EOL;
     }
 } // debug
@@ -261,13 +257,12 @@ function fetch_poi($left, $top, $right, $bottom, $p_type)
             default:
                 $filter = '1';
         }
-        // 900913/4326/4267 (postgis fails on 4326 therefore 4267 is used which seems to produce the same results)
-        $query = "SELECT st_x(transform(way, 4267)) lat
-                        ,st_y(transform(way, 4267)) lon
-                        ,n.tags
-                    FROM planet_osm_point p, planet_osm_nodes n
-                   WHERE p.way && SetSRID('BOX3D({$left} {$top},{$right} {$bottom})'::box3d,900913)
-                     AND {$filter} AND p.osm_id = n.id";
+
+        $query = "SELECT ST_X(ST_Transform(way,4326)) lat, ST_Y(ST_Transform(way,4326)) lon, n.tags
+			FROM planet_osm_point p
+			LEFT JOIN planet_osm_nodes n ON n.id = p.osm_id
+			WHERE p.way && ST_Transform(SetSRID('BOX3D(25 55,26 54)'::box3d,4326), 900913)
+                     AND {$filter}";
         debug('Query is: ' . $query);
         $res = pg_query($link, $query);
         if (!$res) {
@@ -281,18 +276,18 @@ function fetch_poi($left, $top, $right, $bottom, $p_type)
             $default_title = "";
             switch($types[$i]) {
                 case 'fuel':
-                    $default_title = "Kolonėlė";
+                    $default_title = "Kolon?l?";
                     break;
                 case 'cafe':
-                    $default_title = "Kavinė";
+                    $default_title = "Kavin?";
                     break;
                 case 'hotel':
-                    $default_title = "Viešbutis";
+                    $default_title = "Vie�butis";
                     break;
                 default:
-                    $default_title = "Nežinomas taškas";
+                    $default_title = "Ne�inomas ta�kas";
             }
-            assemble_title("Kolonėlė");
+            assemble_title("Kolon?l?");
             assemble_description();
 
             // add data to future json
@@ -323,9 +318,8 @@ function fetch_poi($left, $top, $right, $bottom, $p_type)
 // Check if debugging is on/off
 // When debugging is on, prior to geojson information you will get
 // a number of "human readable" debug messages
-$debug = $_GET["debug"];
-if ($debug === "yes") {
-    $g_debug = true;
+define('DEBUG', ($_GET['debug'] == 'yes'));
+if (DEBUG) {
     error_reporting(E_ALL ^ E_NOTICE);
     echo '<pre>';
 }else{
@@ -333,8 +327,7 @@ if ($debug === "yes") {
 }
 
 // Check the bounding box
-$bbox = $_GET["bbox"];
-$cl = explode(",", $bbox);
+$cl = explode(',', $_GET['bbox']);
 if (!is_array($cl) or count($cl) != 4) {
   print "incorrect bbox parameter";
   exit;
@@ -361,10 +354,10 @@ debug("top="    . $top);
 debug("right="  . $right);
 debug("bottom=" . $bottom);
 
-//limit request to 1 square degree, ~ 100000 * 200000 in 900913
-//if(abs($top - $bottom) * abs($right - $left) > 20000000000){
-//    die('Requests are limited to 1 square degree');
-//}
+//limit request to 1 square degree
+if(abs($top - $bottom) * abs($right - $left) > 1){
+    die('Requests are limited to 1 square degree');
+}
 
 // Check the type of poi to be fetched
 $type = $_GET["type"];
@@ -382,4 +375,3 @@ if (!$link) {
 fetch_poi($left, $top, $right, $bottom, $type);
 
 pg_close($link);
-?>
