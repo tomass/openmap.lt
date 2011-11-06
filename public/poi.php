@@ -226,7 +226,7 @@ function fetch_poi($left, $top, $right, $bottom, $p_type)
         $query = "SELECT ST_X(ST_Transform(way,4326)) lat, ST_Y(ST_Transform(way,4326)) lon, n.tags
 			FROM planet_osm_point p
 			LEFT JOIN planet_osm_nodes n ON n.id = p.osm_id
-			WHERE p.way && ST_Transform(SetSRID('BOX3D(25 55,26 54)'::box3d,4326), 900913)
+			WHERE p.way && ST_Transform(SetSRID('BOX3D({$left} {$top},{$right} {$bottom})'::box3d,4326), 900913)
                      AND {$filter}";
         debug('Query is: ' . $query);
         $res = pg_query($link, $query);
