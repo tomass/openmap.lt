@@ -103,3 +103,4 @@ way        sidewalk     text         linear
 node,way   addr:city    text         linear
 node,way   addr:street  text         linear
 node,way   addr:postcode text        linear
+node       fireplace    text         linear
