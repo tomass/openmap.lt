@@ -41,66 +41,31 @@ function debug($txt) {
  ************************************************************/
 function parse_tags($tagstr)
 {
-  global $name, $operator, $description, $opening_hours, $city, $street, $housenumber,
-         $phone, $email, $url, $website, $wikipedia, $wikipedialt, $notes, $height, $fee;
-  $name = "";
-  $operator = "";
-  $description = "";
-  $opening_hours = "";
-  $city = "";
-  $street = "";
-  $housenumber = "";
-  $phone = "";
-  $email = "";
-  $url = "";
-  $website = "";
-  $wikipedia = "";
-  $wikipedialt = "";
-  $notes = "";
-  $height = "";
-  $fee = "";
-
-  $tagstr = substr($tagstr, 1, strlen($tagstr) - 2);
-  $tags = explode(",", $tagstr);
-  $i = count($tags) - 1;
-  while ($i > 0) {
-    $key = $tags[$i-1];
-    $value = $tags[$i];
-    if ($key === "name") {
-      $name = $value;
-    } else if ($key === "operator") {
-      $operator = $value;
-    } else if ($key === "description") {
-      $description = $value;
-    } else if ($key === "opening_hours") {
-      $opening_hours = $value;
-    } else if ($key === "addr:city") {
-      $city = $value;
-    } else if ($key === "addr:street") {
-      $street = $value;
-    } else if ($key === "addr:housenumber") {
-      $housenumber = $value;
-    } else if ($key === "phone") {
-      $phone = $value;
-    } else if ($key === "email") {
-      $email = $value;
-    } else if ($key === "url") {
-      $url = $value;
-    } else if ($key === "website") {
-      $website = $value;
-    } else if ($key === "wikipedia") {
-      $wikipedia = $value;
-    } else if ($key === "wikipedia:lt") {
-      $wikipedialt = $value;
-    } else if ($key === "notes") {
-      $notes = $value;
-    } else if ($key === "height") {
-      $height = $value;
-    } else if ($key === "fee") {
-      $fee = $value;
+    $fields = array('name', 'operator', 'description', 'opening_hours', 'city', 'street', 'housenumber',
+         'phone', 'email', 'url', 'website', 'wikipedia', 'wikipedialt', 'notes', 'height', 'fee');
+    $tags = trim($tagstr, '{}');
+    $tags = explode(',', $tags);
+    for($i = 0, $cnt = count($tags);$i < $cnt; $i += 2){
+        $key = $tags[$i];
+        $value = $tags[$i + 1];
+        $tags[$key] = $value;
+        unset($tags[$i], $tags[$i + 1]);
     }
-    $i = $i - 2;
-  }
+    foreach ($fields as $field){
+        $GLOBALS[$field] = '';
+        switch($field){
+            case 'city':
+            case 'street':
+            case 'housenumber':
+                $GLOBALS[$field] = $tags['addr:' . $field];
+                break;
+            case 'wikipedialt':
+                $GLOBALS['wikipedialt'] = $tags['wikipedia:lt'];
+                break;
+            default:
+                $GLOBALS[$field] = @$tags[$field];
+        }
+    }
 } // parse_tags
 
 /*******************************************************************
@@ -108,12 +73,12 @@ function parse_tags($tagstr)
  ************************************************************/
 function add_to_description($info)
 {
-  global $p_description;
+    global $p_description;
 
-  if ($p_description !== "") {
-    $p_description = $p_description . "<br>";
-  }
-  $p_description = $p_descriptionj . $info;
+    if (!empty($p_description)) {
+        $p_description = $p_description . '<br>';
+    }
+    $p_description = $p_descriptionj . $info;
 } // add_to_description
 
 /**********************************************************************
@@ -144,19 +109,19 @@ function assemble_description()
   global $name, $operator, $description, $opening_hours, $city, $street, $housenumber; // tags
   global $p_lat, $p_lon, $p_title, $p_description; // properties
 
-  // Description
-  $p_description = $description;
+    // Description
+    $p_description = $description;
 
-  // Working time
-  if ($opening_hours !== "") {
-    add_to_description("<i>Darbo laikas:</i>" . $opening_hours);
-  }
+    // Working time
+    if (!empty($opening_hours)) {
+        add_to_description("<i>Darbo laikas:</i>{$opening_hours}");
+    }
 
-  // Address
-  if ($city !== "" or $street !== "" or $housenumber !== "") {
-    add_to_description("<i>Adr:</i>" . $city . " " . $street . " " . $housenumber);
-  }
-  debug("Description=".$p_description);
+    // Address
+    if (!empty($city) || !empty($street) || !empty($housenumber)) {
+        add_to_description("<i>Adr:</i>{$city} {$street} {$housenumber}");
+    }
+    debug("Description=".$p_description);
 } // assemble_description
 
 /*************************************************************
@@ -282,10 +247,10 @@ function fetch_poi($left, $top, $right, $bottom, $p_type)
                     $default_title = "Kavin?";
                     break;
                 case 'hotel':
-                    $default_title = "Viešbutis";
+                    $default_title = "Vieï¿½butis";
                     break;
                 default:
-                    $default_title = "Nežinomas taškas";
+                    $default_title = "Neï¿½inomas taï¿½kas";
             }
             assemble_title("Kolon?l?");
             assemble_description();
