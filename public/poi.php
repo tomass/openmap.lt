@@ -3,7 +3,12 @@
  * Parameters:
  *  debug=yes|no - turn on debugging (default=no)
  *  bbox=L,T,R,B - bounding box
- *  type=fuel|cafe|hotel
+ *  type=history|monument|tower|attraction|picnic_fireplace|picnic_nofireplace|camping|cafe|restaurant|pub|hotel|hostel|fuel
+ *       groupAttraction| (castles, hillforts, museums, parks and other attractions)
+ *       groupCamping| (camping, picnic palces etc.)
+ *       groupFood| (cafes, restaurants, pubs, bars etc.)
+ *       groupAccomodation| (hotels, hostels etc.)
+ *       groupAuto (fuel, garages etc.)
  ****************************************************************/
 
 // tags on nodes/ways
@@ -40,7 +45,8 @@ function debug($txt) {
  ************************************************************/
 function parse_tags($tagstr)
 {
-  global $name, $operator, $description, $opening_hours, $city, $street, $housenumber;
+  global $name, $operator, $description, $opening_hours, $city, $street, $housenumber,
+         $phone, $email, $url, $website, $wikipedia, $wikipedialt, $notes, $height, $fee;
   $name = "";
   $operator = "";
   $description = "";
@@ -48,6 +54,15 @@ function parse_tags($tagstr)
   $city = "";
   $street = "";
   $housenumber = "";
+  $phone = "";
+  $email = "";
+  $url = "";
+  $website = "";
+  $wikipedia = "";
+  $wikipedialt = "";
+  $notes = "";
+  $height = "";
+  $fee = "";
 
   $tagstr = substr($tagstr, 1, strlen($tagstr) - 2);
   $tags = explode(",", $tagstr);
@@ -69,6 +84,24 @@ function parse_tags($tagstr)
       $street = $value;
     } else if ($key === "addr:housenumber") {
       $housenumber = $value;
+    } else if ($key === "phone") {
+      $phone = $value;
+    } else if ($key === "email") {
+      $email = $value;
+    } else if ($key === "url") {
+      $url = $value;
+    } else if ($key === "website") {
+      $website = $value;
+    } else if ($key === "wikipedia") {
+      $wikipedia = $value;
+    } else if ($key === "wikipedia:lt") {
+      $wikipedialt = $value;
+    } else if ($key === "notes") {
+      $notes = $value;
+    } else if ($key === "height") {
+      $height = $value;
+    } else if ($key === "fee") {
+      $fee = $value;
     }
     $i = $i - 2;
   }
@@ -120,7 +153,7 @@ function assemble_description()
 
   // Working time
   if ($opening_hours !== "") {
-    add_to_description("<i>Tel:</i>" . $opening_hours);
+    add_to_description("<i>Darbo laikas:</i>" . $opening_hours);
   }
 
   // Address
@@ -144,54 +177,144 @@ function fetch_poi($left, $top, $right, $bottom, $p_type)
     global $link;
     // Contruct a query part filtering out only required POI's
     debug("poi type is " . $p_type);
-    switch($p_type){
-        case 'fuel':
-            $filter = "p.amenity = 'fuel'";
+    switch ($p_type) {
+        case 'groupAttraction':
+            $p_type = 'history|monument|tower|attraction';
             break;
-        case 'cafe':
-            $filter = "p.amenity = 'cafe'";
+        case 'groupCamping':
+            $p_type = 'camping|picnic_fireplace|picnic_nofireplace';
             break;
-        case 'hotel':
-            $filter = "p.tourism = 'hotel'";
+        case 'groupFood':
+            $p_type = 'restaurant|cafe|pub';
             break;
-        default:
-            $filter = '1';
+        case 'groupAccomodation':
+            $p_type = 'hostel|hotel';
+            break;
+        case 'groupAuto':
+            $p_type = 'fuel';
+            break;
     }
-    $query = "SELECT n.lat, n.lon, n.tags
-    			FROM planet_osm_point p, planet_osm_nodes n
-    			WHERE p.way && SetSRID('BOX3D({$left} {$top},{$right} {$bottom})'::box3d,900913)
-    				AND {$filter} AND p.osm_id = n.id";
-    debug('Query is: ' . $query);
-    $res = pg_query($link, $query);
-    if (!$res) {
-        throw new Exception(pg_last_error($link));
-        exit;
+    $types = explode("|", $p_type);
+    if (!is_array($types) or count($types) == 0) {
+        debug("ERROR: Incorrect type parameter");
+        die;
     }
     $id = 0;
     $arr = array();
-    while ($row = pg_fetch_row($res)) {
-        debug("lat:" . $row[0] . ", lon:" . $row[1] . ", tags:" . $row[2]);
-        parse_tags($row[2]);
-        assemble_title("Kolonėlė");
-        assemble_description();
-    
-        // add data to future json
-        $latlon = array($row[0],$row[1]);
-    
-        $arr[] = array(
-    		'geometry' => array(
-    			'type' => 'Point',
-    			'coordinates' => $latlon,
-            ),
-            'type' => 'Feature',
-            'properties' => array(
-                'title' => $p_title,
-                'description' => $p_description,
-            ),
-          	'id' => $id,
-        );
-        $id++;
-    }
+    $i = 0;
+    while ($i < count($types)) {
+        debug("processing type=" . $types[$i]);
+
+        switch($types[$i]){
+            case 'history':
+                $filter = "p.historic in ('hill_fort', 'archaeological_site', 'castle', 'ruins')";
+                $tp = 'HIS';
+                break;
+            case 'monument':
+                $filter = "p.historic in ('monument', 'memorial')";
+                $tp = 'MON';
+                break;
+            case 'tower':
+                $filter = "p.man_made = 'tower' and \"tower:type\" = 'observation'";
+                $tp = 'TOW';
+                break;
+            case 'attraction':
+                $filter = "p.tourism in ('attraction', 'viewpoint')";
+                $tp = 'ATT';
+                break;
+            case 'picnic_fireplace':
+                $filter = "p.tourism = 'picnic_site' and fireplace = 'yes'";
+                $tp = 'PIF';
+                break;
+            case 'picnic_nofireplace':
+                $filter = "p.tourism = 'picnic_site' and (fireplace is null or fireplace = 'no')";
+                $tp = 'PIC';
+                break;
+            case 'camping':
+                $filter = "p.tourism = 'camp_site'";
+                $tp = 'CAM';
+                break;
+            case 'hostel':
+                $filter = "p.tourism in ('chalet', 'hostel')";
+                $tp = 'HOS';
+                break;
+            case 'fuel':
+                $filter = "p.amenity = 'fuel'";
+                $tp = 'FUE';
+                break;
+            case 'cafe':
+                $filter = "p.amenity = 'cafe'";
+                $tp = 'CAF';
+                break;
+            case 'restaurant':
+                $filter = "p.amenity = 'restaurant'";
+                $tp = 'RES';
+                break;
+            case 'pub':
+                $filter = "p.amenity in ('pub', 'bar')";
+                $tp = 'PUB';
+                break;
+            case 'hotel':
+                $filter = "p.tourism = 'hotel'";
+                $tp = 'HOT';
+                break;
+            default:
+                $filter = '1';
+        }
+        // 900913/4326/4267 (postgis fails on 4326 therefore 4267 is used which seems to produce the same results)
+        $query = "SELECT st_x(transform(way, 4267)) lat
+                        ,st_y(transform(way, 4267)) lon
+                        ,n.tags
+                    FROM planet_osm_point p, planet_osm_nodes n
+                   WHERE p.way && SetSRID('BOX3D({$left} {$top},{$right} {$bottom})'::box3d,900913)
+                     AND {$filter} AND p.osm_id = n.id";
+        debug('Query is: ' . $query);
+        $res = pg_query($link, $query);
+        if (!$res) {
+            echo pg_last_error();
+            throw new Exception(pg_last_error($link));
+            exit;
+        }
+        while ($row = pg_fetch_row($res)) {
+            debug("lat:" . $row[0] . ", lon:" . $row[1] . ", tags:" . $row[2]);
+            parse_tags($row[2]);
+            $default_title = "";
+            switch($types[$i]) {
+                case 'fuel':
+                    $default_title = "Kolonėlė";
+                    break;
+                case 'cafe':
+                    $default_title = "Kavinė";
+                    break;
+                case 'hotel':
+                    $default_title = "Viešbutis";
+                    break;
+                default:
+                    $default_title = "Nežinomas taškas";
+            }
+            assemble_title("Kolonėlė");
+            assemble_description();
+
+            // add data to future json
+            $latlon = array($row[0],$row[1]);
+
+            $arr[] = array(
+                'geometry' => array(
+                    'type' => 'Point',
+                    'coordinates' => $latlon,
+                ),
+                'type' => 'Feature',
+                'properties' => array(
+                    'tp' => $tp,
+                    'title' => $p_title,
+                    'description' => $p_description,
+                ),
+                'id' => $id,
+            );
+            $id++;
+        }
+        $i++;
+    } // while loop through all type values
     header('Content-type: application/json; charset=UTF-8');
     echo '{"type":"FeatureCollection","features":', json_encode($arr), '}';
 } // fetch_poi
@@ -239,9 +362,9 @@ debug("right="  . $right);
 debug("bottom=" . $bottom);
 
 //limit request to 1 square degree, ~ 100000 * 200000 in 900913
-if(abs($top - $bottom) * abs($right - $left) > 20000000000){
-    die('Requests is limited to 1 square degree');
-}
+//if(abs($top - $bottom) * abs($right - $left) > 20000000000){
+//    die('Requests are limited to 1 square degree');
+//}
 
 // Check the type of poi to be fetched
 $type = $_GET["type"];
