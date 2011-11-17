@@ -1,15 +1,11 @@
 <Style name="coastline">
     <Rule>
-      <PolygonSymbolizer>
-        <CssParameter name="fill">#c5e0f0</CssParameter>
-      </PolygonSymbolizer>
+      <PolygonSymbolizer fill="#c5e0f0"/>
     </Rule>
 </Style>
 <Style name="islands">
     <Rule>
-      <PolygonSymbolizer>
-        <CssParameter name="fill">#ffffff</CssParameter>
-      </PolygonSymbolizer>
+      <PolygonSymbolizer fill="#ffffff"/>
     </Rule>
 </Style>
 <Layer name="coastline" status="on" srs="&srs4326;">
