@@ -112,6 +112,7 @@
       &maxscale_zoom16;
       <Filter>[barrier]='bollard' or [barrier]='block'</Filter>
       <PointSymbolizer file="&symbols;/bollard.png" allow-overlap="false"/>
+
     </Rule>
 </Style>
 

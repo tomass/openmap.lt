@@ -182,18 +182,18 @@
     <Rule>
       &maxscale_zoom11;
       &minscale_zoom11;
-      <TextSymbolizer name="[ref]" fontset-name="oblique-fonts" size="9" fill="#6666ff" halo-radius="1" wrap-width="12" min-distance="2"/>
+      <TextSymbolizer name="[[ref]]" fontset-name="oblique-fonts" size="9" fill="#6666ff" halo-radius="1" wrap-width="12" minimum-distance="2"/>
     </Rule>
     <Rule>
       &maxscale_zoom12;
       &minscale_zoom14;
-      <TextSymbolizer name="[ref]" fontset-name="oblique-fonts" size="9" fill="#6666ff" halo-radius="1" wrap-width="12" min-distance="2"/>
-      <TextSymbolizer name="[name]" fontset-name="oblique-fonts" size="8" fill="#6666ff" halo-radius="1" wrap-width="2" dy="-8" min-distance="2" wrap-character=";"/>
+      <TextSymbolizer name="[[ref]]" fontset-name="oblique-fonts" size="9" fill="#6666ff" halo-radius="1" wrap-width="12" minimum-distance="2"/>
+      <TextSymbolizer name="[name]"" fontset-name="oblique-fonts" size="8" fill="#6666ff" halo-radius="1" wrap-width="2" dy="-8" minimum-distance="2" wrap-character=";"/>
     </Rule>
     <Rule>
       &maxscale_zoom15;
-      <TextSymbolizer name="[ref]" fontset-name="oblique-fonts" size="12" fill="#6666ff" halo-radius="1" wrap-width="12" min-distance="2"/>
-      <TextSymbolizer name="[name]" fontset-name="oblique-fonts" size="11" fill="#6666ff" halo-radius="1" wrap-width="2" dy="-10" min-distance="2" wrap-character=";"/>
+      <TextSymbolizer name="[[ref]]" fontset-name="oblique-fonts" size="12" fill="#6666ff" halo-radius="1" wrap-width="12" minimum-distance="2"/>
+      <TextSymbolizer name="[name]"" fontset-name="oblique-fonts" size="11" fill="#6666ff" halo-radius="1" wrap-width="2" dy="-10" minimum-distance="2" wrap-character=";"/>
     </Rule>
 </Style>
 <Style name="tunnels-casing">
@@ -1834,14 +1834,14 @@
       &minscale_zoom16;
       <LineSymbolizer stroke="#000" stroke-width="7" stroke-linejoin="round"/>
       <LineSymbolizer stroke="#b5d0d0" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
-      <TextSymbolizer name="[name]" fontset-name="book-fonts" size="9" fill="#6699cc" halo-radius="1" placement="line"/>
+      <TextSymbolizer name="[name]"" fontset-name="book-fonts" size="9" fill="#6699cc" halo-radius="1" placement="line"/>
     </Rule>
     <Rule>
       &maxscale_zoom17;
       &minscale_zoom18;
       <LineSymbolizer stroke="#000" stroke-width="11" stroke-linejoin="round"/>
       <LineSymbolizer stroke="#b5d0d0" stroke-width="10" stroke-linejoin="round" stroke-linecap="round"/>
-      <TextSymbolizer name="[name]" fontset-name="book-fonts" size="9" fill="#6699cc" halo-radius="1" placement="line"/>
+      <TextSymbolizer name="[name]"" fontset-name="book-fonts" size="9" fill="#6699cc" halo-radius="1" placement="line"/>
     </Rule>
 </Style>
 <Style name="bridges_casing">

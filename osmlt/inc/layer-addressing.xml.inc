@@ -7,17 +7,17 @@
 <Style name="housenumbers">
     <Rule>
       &maxscale_zoom17;
-      <TextSymbolizer name="[addr:housenumber]" fontset-name="book-fonts" size="9" fill="#444" dy="0" wrap-width="0"/>
+      <TextSymbolizer name="[[addr:housenumber]]" fontset-name="book-fonts" size="9" fill="#444" dy="0" wrap-width="0"/>
     </Rule>
 </Style>
 <Style name="housenames">
     <Rule>
       &maxscale_zoom17;
-      <TextSymbolizer name="[addr:housename]" fontset-name="book-fonts" size="8" fill="#444" dy="0" wrap-width="20"/>
+      <TextSymbolizer name="[[addr:housename]]" fontset-name="book-fonts" size="8" fill="#444" dy="0" wrap-width="20"/>
     </Rule>
     <Rule>
       &maxscale_zoom18;
-      <TextSymbolizer name="[addr:housename]" fontset-name="book-fonts" size="9" fill="#444" dy="0" wrap-width="20"/>
+      <TextSymbolizer name="[[addr:housename]]" fontset-name="book-fonts" size="9" fill="#444" dy="0" wrap-width="20"/>
     </Rule>
 </Style>
 <Layer name="interpolation_lines" status="on" srs="&osm2pgsql_projection;" maxzoom="&max_zoom17;">

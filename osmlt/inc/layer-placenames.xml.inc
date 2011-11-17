@@ -25,7 +25,7 @@
       <Filter>[place] = 'state'</Filter>
       &maxscale_zoom4;
       &minscale_zoom4;
-      <TextSymbolizer name="[ref]" fontset-name="oblique-fonts" size="9" fill="#9d6c9d" dy="0" halo-radius="1" wrap-width="0"/>
+      <TextSymbolizer name="[[ref]]" fontset-name="oblique-fonts" size="9" fill="#9d6c9d" dy="0" halo-radius="1" wrap-width="0"/>
     </Rule>
     <Rule>
       <Filter>[place] = 'state'</Filter>

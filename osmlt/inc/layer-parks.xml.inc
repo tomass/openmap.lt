@@ -20,12 +20,12 @@
       <Filter>[way_area] &gt;= 200000000</Filter>
       &maxscale_zoom8;
       &minscale_zoom9;
-        <TextSymbolizer name="[name]" fontset-name="bold-fonts" size="8" fill="#9c9" halo-radius="1" wrap-width="14"/>
+        <TextSymbolizer name="[name]"" fontset-name="bold-fonts" size="8" fill="#9c9" halo-radius="1" wrap-width="14"/>
     </Rule>
     <Rule>
       &maxscale_zoom10;
       &minscale_zoom11;
-        <TextSymbolizer name="[name]" fontset-name="bold-fonts" size="11" fill="#9c9" halo-radius="1" wrap-width="14"/>
+        <TextSymbolizer name="[name]"" fontset-name="bold-fonts" size="11" fill="#9c9" halo-radius="1" wrap-width="14"/>
     </Rule>
 </Style>
 <Style name="theme_park">
