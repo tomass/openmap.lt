@@ -3,33 +3,33 @@
       &maxscale_zoom16;
       <Filter>[aeroway]='helipad'</Filter>
       <PointSymbolizer file="&symbols;/helipad.p.16.png" />
-      <TextSymbolizer name="[name]" fontset-name="bold-fonts" size="8" fill="#6692da" dy="-10" halo-radius="1" wrap-width="0"/>
+      <TextSymbolizer fontset-name="bold-fonts" size="8" fill="#6692da" dy="-10" halo-radius="1" wrap-width="0">[name]</TextSymbolizer>
     </Rule>
     <Rule>
       &maxscale_zoom9;
       &minscale_zoom10;
       <Filter>[aeroway]='airport'</Filter>
       <PointSymbolizer file="&symbols;/airport.p.16.png" />
-      <TextSymbolizer name="[name]" fontset-name="bold-fonts" size="8" fill="#6692da" dy="-12" halo-radius="1" wrap-width="0"/>
+      <TextSymbolizer fontset-name="bold-fonts" size="8" fill="#6692da" dy="-12" halo-radius="1" wrap-width="0">[name]</TextSymbolizer>
     </Rule>
     <Rule>
       &maxscale_zoom11;
       &minscale_zoom12;
       <Filter>[aeroway]='airport'</Filter>
-      <TextSymbolizer name="[name]" fontset-name="bold-fonts" size="9" fill="#6692da" halo-radius="1" wrap-width="0"/>
+      <TextSymbolizer fontset-name="bold-fonts" size="9" fill="#6692da" halo-radius="1" wrap-width="0">[name]</TextSymbolizer>
     </Rule>
     <Rule>
       &maxscale_zoom10;
       &minscale_zoom10;
       <Filter>[aeroway]='aerodrome'</Filter>
       <PointSymbolizer file="&symbols;/aerodrome.p.16.png" />
-      <TextSymbolizer name="[name]" fontset-name="oblique-fonts" size="8" fill="#6692da" dy="-12" halo-radius="1" wrap-width="0"/>
+      <TextSymbolizer fontset-name="oblique-fonts" size="8" fill="#6692da" dy="-12" halo-radius="1" wrap-width="0">[name]</TextSymbolizer>
     </Rule>
     <Rule>
       &maxscale_zoom11;
       &minscale_zoom12;
       <Filter>[aeroway]='aerodrome'</Filter>
-      <TextSymbolizer name="[name]" fontset-name="oblique-fonts" size="8" fill="#6692da" halo-radius="1" wrap-width="0"/>
+      <TextSymbolizer fontset-name="oblique-fonts" size="8" fill="#6692da" halo-radius="1" wrap-width="0">[name]</TextSymbolizer>
     </Rule>
     <Rule>
       &maxscale_zoom14;

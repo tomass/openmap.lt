@@ -49,17 +49,17 @@
     <Rule> 
       <Filter>[way_area] &gt;= 10000000</Filter>
       &maxscale_zoom10;
-      <TextSymbolizer name="[name]" fontset-name="book-fonts" size="9" fill="#99f" halo-radius="1" wrap-width="20"/>
+      <TextSymbolizer fontset-name="book-fonts" size="9" fill="#99f" halo-radius="1" wrap-width="20">[name]</TextSymbolizer>
     </Rule>
     <Rule>
       <Filter>[way_area] &gt;= 5000000 and [way_area] &lt; 10000000</Filter>
       &maxscale_zoom11;
-      <TextSymbolizer name="[name]" fontset-name="book-fonts" size="9" fill="#99f" halo-radius="1" wrap-width="20"/>
+      <TextSymbolizer fontset-name="book-fonts" size="9" fill="#99f" halo-radius="1" wrap-width="20">[name]</TextSymbolizer>
     </Rule>
     <Rule>
       <Filter>[way_area] &lt; 5000000</Filter>
       &maxscale_zoom12;
-      <TextSymbolizer name="[name]" fontset-name="book-fonts" size="9" fill="#99f" halo-radius="1" wrap-width="20"/>
+      <TextSymbolizer fontset-name="book-fonts" size="9" fill="#99f" halo-radius="1" wrap-width="20">[name]</TextSymbolizer>
     </Rule>
 </Style>
 
@@ -128,34 +128,34 @@
       &maxscale_zoom13;
       &minscale_zoom13;
       <LineSymbolizer stroke="&color_water;" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
-      <TextSymbolizer name="[name]" fontset-name="book-fonts" size="9" fill="#6699cc" halo-radius="1" placement="line" spacing="400"/>
+      <TextSymbolizer fontset-name="book-fonts" size="9" fill="#6699cc" halo-radius="1" placement="line" spacing="400">[name]</TextSymbolizer>
     </Rule>
     <Rule>
       <Filter>[waterway]='river'</Filter>
       &maxscale_zoom14;
       &minscale_zoom14;
       <LineSymbolizer stroke="&color_water;" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
-      <TextSymbolizer name="[name]" fontset-name="book-fonts" size="10" fill="#6699cc" halo-radius="1" placement="line" spacing="400"/>
+      <TextSymbolizer fontset-name="book-fonts" size="10" fill="#6699cc" halo-radius="1" placement="line" spacing="400">[name]</TextSymbolizer>
     </Rule><Rule>
       <Filter>[waterway]='river'</Filter>
       &maxscale_zoom15;
       &minscale_zoom16;
       <LineSymbolizer stroke="&color_water;" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
-      <TextSymbolizer name="[name]" fontset-name="book-fonts" size="10" fill="#6699cc" halo-radius="1" placement="line" spacing="400"/>
+      <TextSymbolizer fontset-name="book-fonts" size="10" fill="#6699cc" halo-radius="1" placement="line" spacing="400">[name]</TextSymbolizer>
     </Rule>
     <Rule>
       <Filter>[waterway]='river'</Filter>
       &maxscale_zoom17;
       &minscale_zoom17;
       <LineSymbolizer stroke="&color_water;" stroke-width="10" stroke-linejoin="round" stroke-linecap="round"/>
-      <TextSymbolizer name="[name]" fontset-name="book-fonts" size="10" fill="#6699cc" halo-radius="1" placement="line" spacing="400"/>
+      <TextSymbolizer fontset-name="book-fonts" size="10" fill="#6699cc" halo-radius="1" placement="line" spacing="400">[name]</TextSymbolizer>
     </Rule>
     <Rule>
       <Filter>[waterway]='river'</Filter>
       &maxscale_zoom18;
       &minscale_zoom18;
       <LineSymbolizer stroke="&color_water;" stroke-width="12" stroke-linejoin="round" stroke-linecap="round"/>
-      <TextSymbolizer name="[name]" fontset-name="book-fonts" size="10" fill="#6699cc" halo-radius="1" placement="line" spacing="400"/>
+      <TextSymbolizer fontset-name="book-fonts" size="10" fill="#6699cc" halo-radius="1" placement="line" spacing="400">[name]</TextSymbolizer>
     </Rule>
     <Rule>
       <Filter>[waterway]='canal' and not [disused]='yes'</Filter>
@@ -168,7 +168,7 @@
       &maxscale_zoom13;
       &minscale_zoom13;
       <LineSymbolizer stroke="&color_water;" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
-      <TextSymbolizer name="[name]" fontset-name="book-fonts" size="8" fill="#6699cc" halo-radius="1" placement="line"/>
+      <TextSymbolizer fontset-name="book-fonts" size="8" fill="#6699cc" halo-radius="1" placement="line">[name]</TextSymbolizer>
     </Rule>
     <Rule>
       <Filter>[waterway]='stream' or [waterway]='ditch' or [waterway]='drain'</Filter>
@@ -182,14 +182,14 @@
       &minscale_zoom14;
       <LineSymbolizer stroke="&color_water;" stroke-width="6" stroke-dasharray="4,2"/>
       <LineSymbolizer stroke="white" stroke-width="4"/>
-      <TextSymbolizer name="[name]" fontset-name="book-fonts" size="10" fill="#6699cc" halo-radius="1" placement="line" minimum-distance="200"/>
+      <TextSymbolizer fontset-name="book-fonts" size="10" fill="#6699cc" halo-radius="1" placement="line" minimum-distance="200">[name]</TextSymbolizer>
     </Rule><Rule>
       <Filter>[waterway]='river' and [tunnel] = 'yes'</Filter>
       &maxscale_zoom15;
       &minscale_zoom16;
       <LineSymbolizer stroke="&color_water;" stroke-width="7" stroke-dasharray="4,2"/>
       <LineSymbolizer stroke="white" stroke-width="4"/>
-      <TextSymbolizer name="[name]" fontset-name="book-fonts" size="10" fill="#6699cc" halo-radius="1" placement="line" minimum-distance="200"/>
+      <TextSymbolizer fontset-name="book-fonts" size="10" fill="#6699cc" halo-radius="1" placement="line" minimum-distance="200">[name]</TextSymbolizer>
     </Rule>
     <Rule>
       <Filter>[waterway]='river' and [tunnel] = 'yes'</Filter>
@@ -197,14 +197,14 @@
       &minscale_zoom17;
       <LineSymbolizer stroke="&color_water;" stroke-width="11" stroke-dasharray="4,2"/>
       <LineSymbolizer stroke="white" stroke-width="7"/>
-      <TextSymbolizer name="[name]" fontset-name="book-fonts" size="10" fill="#6699cc" halo-radius="1" placement="line" minimum-distance="200"/>
+      <TextSymbolizer fontset-name="book-fonts" size="10" fill="#6699cc" halo-radius="1" placement="line" minimum-distance="200">[name]</TextSymbolizer>
     </Rule>
     <Rule>
       <Filter>[waterway]='river' and [tunnel] = 'yes'</Filter>
       &maxscale_zoom18;
       <LineSymbolizer stroke="&color_water;" stroke-width="13" stroke-dasharray="4,2"/>
       <LineSymbolizer stroke="white" stroke-width="9"/>
-      <TextSymbolizer name="[name]" fontset-name="book-fonts" size="10" fill="#6699cc" halo-radius="1" placement="line" minimum-distance="200"/>
+      <TextSymbolizer fontset-name="book-fonts" size="10" fill="#6699cc" halo-radius="1" placement="line" minimum-distance="200">[name]</TextSymbolizer>
     </Rule>
     <Rule>
       <Filter>[waterway]='canal' and [tunnel] = 'yes'</Filter>
@@ -212,14 +212,14 @@
       &minscale_zoom16;
        <LineSymbolizer stroke="&color_water;" stroke-width="7" stroke-dasharray="4,2"/>
       <LineSymbolizer stroke="white" stroke-width="3"/>
-      <TextSymbolizer name="[name]" fontset-name="book-fonts" size="9" fill="#6699cc" halo-radius="1" placement="line"/>
+      <TextSymbolizer fontset-name="book-fonts" size="9" fill="#6699cc" halo-radius="1" placement="line">[name]</TextSymbolizer>
     </Rule>
     <Rule>
       <Filter>[waterway]='canal' and not ([tunnel] = 'yes' or [disused]='yes')</Filter>
       &maxscale_zoom14;
       &minscale_zoom16;
       <LineSymbolizer stroke="&color_water;" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/>
-      <TextSymbolizer name="[name]" fontset-name="book-fonts" size="9" fill="#6699cc" halo-radius="1" placement="line"/>
+      <TextSymbolizer fontset-name="book-fonts" size="9" fill="#6699cc" halo-radius="1" placement="line">[name]</TextSymbolizer>
     </Rule>
     <Rule>
       <Filter>[waterway]='canal' and [tunnel] = 'yes'</Filter>
@@ -227,21 +227,21 @@
       &minscale_zoom18;
        <LineSymbolizer stroke="&color_water;" stroke-width="11" stroke-dasharray="4,2"/>
       <LineSymbolizer stroke="white" stroke-width="7"/>
-      <TextSymbolizer name="[name]" fontset-name="book-fonts" size="9" fill="#6699cc" halo-radius="1" placement="line"/>
+      <TextSymbolizer fontset-name="book-fonts" size="9" fill="#6699cc" halo-radius="1" placement="line">[name]</TextSymbolizer>
     </Rule>
     <Rule>
       <Filter>[waterway]='canal' and not ([tunnel] = 'yes' or [disused]='yes' or [lock]='yes')</Filter>
       &maxscale_zoom17;
       &minscale_zoom18;
       <LineSymbolizer stroke="&color_water;" stroke-width="11" stroke-linejoin="round" stroke-linecap="round"/>
-      <TextSymbolizer name="[name]" fontset-name="book-fonts" size="9" fill="#6699cc" halo-radius="1" placement="line"/>
+      <TextSymbolizer fontset-name="book-fonts" size="9" fill="#6699cc" halo-radius="1" placement="line">[name]</TextSymbolizer>
     </Rule>
     <Rule>
       <Filter>[waterway]='canal' and not ([tunnel] = 'yes' or [disused]='yes') and [lock]='yes'</Filter>
       &maxscale_zoom17;
       &minscale_zoom18;
       <LineSymbolizer stroke="&color_water;" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/>
-      <TextSymbolizer name="[name]" fontset-name="book-fonts" size="9" fill="#6699cc" halo-radius="1" wrap-width="20"/>
+      <TextSymbolizer fontset-name="book-fonts" size="9" fill="#6699cc" halo-radius="1" wrap-width="20">[name]</TextSymbolizer>
     </Rule>
     <Rule>
       <Filter>[waterway]='derelict_canal' or ([waterway]='canal' and [disused]='yes')</Filter>
@@ -254,14 +254,14 @@
       &maxscale_zoom13;
       &minscale_zoom13;
       <LineSymbolizer stroke="#b5e4d0" stroke-width="2.5" stroke-dasharray="4,6" stroke-opacity="0.5" stroke-linejoin="round" stroke-linecap="round"/>
-      <TextSymbolizer name="[name]" fontset-name="book-fonts" size="9" fill="#80d1ae" halo-radius="1" spacing="600" placement="line"/>
+      <TextSymbolizer fontset-name="book-fonts" size="9" fill="#80d1ae" halo-radius="1" spacing="600" placement="line">[name]</TextSymbolizer>
     </Rule>
     <Rule>
       <Filter>[waterway]='derelict_canal' or ([waterway]='canal' and [disused]='yes')</Filter>
       &maxscale_zoom14;
       &minscale_zoom18;
       <LineSymbolizer stroke="#b5e4d0" stroke-width="4.5" stroke-dasharray="4,8" stroke-opacity="0.5" stroke-linejoin="round" stroke-linecap="round"/>
-      <TextSymbolizer name="[name]" fontset-name="book-fonts" size="10" fill="#80d1ae" halo-radius="1" spacing="600" placement="line"/>
+      <TextSymbolizer fontset-name="book-fonts" size="10" fill="#80d1ae" halo-radius="1" spacing="600" placement="line">[name]</TextSymbolizer>
     </Rule>
     <Rule>
       <Filter>[waterway]='stream' and [tunnel]='yes'</Filter>
@@ -275,7 +275,7 @@
       &maxscale_zoom15;
       &minscale_zoom18;
       <LineSymbolizer stroke="&color_water;" stroke-width="2"/>
-      <TextSymbolizer name="[name]" fontset-name="book-fonts" size="8" fill="#6699cc" halo-radius="1" spacing="600" placement="line"/>
+      <TextSymbolizer fontset-name="book-fonts" size="8" fill="#6699cc" halo-radius="1" spacing="600" placement="line">[name]</TextSymbolizer>
     </Rule>
     <Rule>
       <Filter>([waterway]='drain' or [waterway]='ditch') and [tunnel]='yes'</Filter>
@@ -289,7 +289,7 @@
       &maxscale_zoom15;
       &minscale_zoom18;
       <LineSymbolizer stroke="&color_water;" stroke-width="1"/>
-      <TextSymbolizer name="[name]" fontset-name="book-fonts" size="8" fill="#6699cc" halo-radius="1" spacing="600" placement="line"/>
+      <TextSymbolizer fontset-name="book-fonts" size="8" fill="#6699cc" halo-radius="1" spacing="600" placement="line">[name]</TextSymbolizer>
     </Rule>
 </Style>
 
