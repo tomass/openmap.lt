@@ -388,12 +388,12 @@
     <Rule>
       <Filter>([highway] = 'unclassified' or [highway]='residential') and not [bridge]='yes'</Filter>
       &maxscale_zoom15;
-      <TextSymbolizer name="[[ref]]" fontset-name="bold-fonts" size="10" fill="#000" halo-radius="1"  minimum-distance="18" spacing="750"/>
+      <TextSymbolizer name="[ref]" fontset-name="bold-fonts" size="10" fill="#000" halo-radius="1"  minimum-distance="18" spacing="750"/>
     </Rule>
     <Rule>
       <Filter>([aeroway] = 'runway' or [aeroway]='taxiway') and not [bridge]='yes'</Filter>
       &maxscale_zoom15;
-      <TextSymbolizer name="[[ref]]" fontset-name="book-fonts" size="10" fill="#333" halo-radius="1"  minimum-distance="18" spacing="750" placement="line"/>
+      <TextSymbolizer name="[ref]" fontset-name="book-fonts" size="10" fill="#333" halo-radius="1"  minimum-distance="18" spacing="750" placement="line"/>
     </Rule>
     <Rule>
       <Filter>[highway] = 'trunk' or [highway] = 'primary'</Filter>

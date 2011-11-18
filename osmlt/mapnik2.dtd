@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!ELEMENT Map (Datasource | FileSource | FontSet | Layer | Style)* >
 <!ATTLIST Map
-    bgcolor         CDATA    "transparent"
+    background-color         CDATA    "transparent"
     srs             CDATA    "+proj=latlong +datum=WGS84"
     buffer_size     CDATA    "0"
     minimum_version CDATA    #IMPLIED

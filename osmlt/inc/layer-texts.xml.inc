@@ -63,12 +63,12 @@
     <Rule>
       <Filter>[natural] = 'peak' and not [name] != ''</Filter>
       &maxscale_zoom14;
-      <TextSymbolizer name="[[ele]]" fontset-name="oblique-fonts" size="9" fill="brown" dy="6" halo-radius="1"/>
+      <TextSymbolizer name="[ele]" fontset-name="oblique-fonts" size="9" fill="brown" dy="6" halo-radius="1"/>
     </Rule>
     <Rule>
       <Filter>[natural] = 'peak' and [name] != ''</Filter>
       &maxscale_zoom14;
-      <TextSymbolizer name="[[ele]]" fontset-name="oblique-fonts" size="9" fill="brown" dy="18" halo-radius="1"/>
+      <TextSymbolizer name="[ele]" fontset-name="oblique-fonts" size="9" fill="brown" dy="18" halo-radius="1"/>
     </Rule>
     <Rule>
       <Filter>[natural] = 'volcano'</Filter>
@@ -78,12 +78,12 @@
     <Rule>
       <Filter>[natural] = 'volcano' and not [name] != ''</Filter>
       &maxscale_zoom14;
-      <TextSymbolizer name="[[ele]]" fontset-name="oblique-fonts" size="9" fill="brown" dy="6" halo-radius="1"/>
+      <TextSymbolizer name="[ele]" fontset-name="oblique-fonts" size="9" fill="brown" dy="6" halo-radius="1"/>
     </Rule>
     <Rule>
       <Filter>[natural] = 'volcano' and [name] != ''</Filter>
       &maxscale_zoom14;
-      <TextSymbolizer name="[[ele]]" fontset-name="oblique-fonts" size="9" fill="brown" dy="16" halo-radius="1"/>
+      <TextSymbolizer name="[ele]" fontset-name="oblique-fonts" size="9" fill="brown" dy="16" halo-radius="1"/>
     </Rule>
     <Rule>
       <Filter>[natural] = 'cave_entrance'</Filter>
@@ -123,13 +123,13 @@
     <Rule>
       <Filter>[tourism] = 'alpine_hut'</Filter>
       &maxscale_zoom16;
-      <TextSymbolizer name="[[ele]]" fontset-name="oblique-fonts" size="8" fill="#6699cc" dy="22" halo-radius="1"/>
+      <TextSymbolizer name="[ele]" fontset-name="oblique-fonts" size="8" fill="#6699cc" dy="22" halo-radius="1"/>
     </Rule>
     <Rule>
       <Filter>[amenity]='shelter'</Filter>
       &maxscale_zoom17;
       <TextSymbolizer name="[name]" fontset-name="book-fonts" size="9" fill="#6699cc" dy="10" halo-radius="1"/>
-      <TextSymbolizer name="[[ele]]" fontset-name="oblique-fonts" size="8" fill="#6699cc" dy="22" halo-radius="1"/>
+      <TextSymbolizer name="[ele]" fontset-name="oblique-fonts" size="8" fill="#6699cc" dy="22" halo-radius="1"/>
     </Rule>
     <Rule>
       <Filter>[amenity] = 'bank'</Filter>
@@ -266,7 +266,7 @@
     <Rule>
       <Filter>[aeroway] = 'gate'</Filter>
       &maxscale_zoom17;
-      <TextSymbolizer name="[[ref]]" fontset-name="book-fonts" size="10" fill="#aa66cc" halo-radius="1" wrap-width="10"/>
+      <TextSymbolizer name="[ref]" fontset-name="book-fonts" size="10" fill="#aa66cc" halo-radius="1" wrap-width="10"/>
     </Rule>
 </Style>
 <Style name="area-text">
