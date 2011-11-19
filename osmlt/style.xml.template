@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE Map[
+<!DOCTYPE Map SYSTEM "mapnik2.dtd" [
     <!ENTITY % entities SYSTEM "inc/entities.xml.inc">
     %entities;
 ]>
-<Map srs="&srs900913;" bgcolor="#FFFFFF">
+<Map srs="&srs900913;" background-color="#FFFFFF">
 &fontset-settings;
 &layer-shapefiles;
 &layer-landcover;
