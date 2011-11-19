@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE Map [
+    <!ENTITY % entities SYSTEM "inc/entities.xml.inc">
+    %entities;
+]>
+<Map srs="&srs900913;">
+&fontset-settings;
+&layer-stops-groups;
+&layer-routes;
+&layer-stops;
+&layer-routes-references;
+</Map>
