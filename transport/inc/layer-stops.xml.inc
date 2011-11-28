@@ -1,4 +1,4 @@
-<Style name="stops">
+<Style name="stops_points">
 	<Rule>
 		<Filter>not [name] != ''</Filter>
 		&maxscale_zoom10;
@@ -11,41 +11,32 @@
 		&minscale_zoom18;
 		<PointSymbolizer allow-overlap="no" file="&symbols;/white_point.png" />
 	</Rule>
+</Style>
+<Style name="stop_single">
 	<Rule>
 		<Filter>[type] = 'stop' and [name] != ''</Filter>
 		&maxscale_zoom15;
 		&minscale_zoom18;
-		<TextSymbolizer allow-overlap="no" face-name="DejaVu Sans Book" size="11" fill="#000" halo-radius="2" halo-fill="#fff" label-position-tolerance="300" horizontal-alignment="left" dx="-7">[name]</TextSymbolizer>
-	</Rule>
-	<Rule>
-		<Filter>[bus_ref] != '' and [trolleybus_ref] != ''</Filter>
-		&maxscale_zoom17;
-		&minscale_zoom18;
-		<TextSymbolizer allow-overlap="no" face-name="DejaVu Sans Book" size="10" halo-fill="#fff" halo-radius="2" fill="&troll_color;" dy="20" label-position-tolerance="300" horizontal-alignment="left" dx="-8">[trolleybus_ref]</TextSymbolizer>
-		<TextSymbolizer allow-overlap="no" face-name="DejaVu Sans Book" size="10" halo-fill="#fff" halo-radius="2" fill="&bus_color;" dy="10" label-position-tolerance="300" horizontal-alignment="left" dx="-8">[bus_ref]</TextSymbolizer>
-	</Rule>
-	<Rule>
-		<Filter>not [bus_ref] != '' and [trolleybus_ref] != ''</Filter>  
-		&maxscale_zoom17;
-		&minscale_zoom18;
-		<TextSymbolizer allow-overlap="no" face-name="DejaVu Sans Book" size="10" halo-fill="#fff" halo-radius="2" fill="&troll_color;" dy="10" label-position-tolerance="300" horizontal-alignment="left" dx="-8">[trolleybus_ref]</TextSymbolizer>      
-	</Rule>
-	<Rule>
-		<Filter>[bus_ref] != '' and not [trolleybus_ref] != ''</Filter>
-		&maxscale_zoom17;
-		&minscale_zoom18;
-		<TextSymbolizer allow-overlap="no" face-name="DejaVu Sans Book" size="10" halo-fill="#fff" halo-radius="2" fill="&bus_color;" dy="10" label-position-tolerance="300" horizontal-alignment="left" dx="-8">[bus_ref]</TextSymbolizer>
+		<TextSymbolizer allow-overlap="no" face-name="DejaVu Sans Book" size="11" fill="#000" halo-radius="2" halo-fill="#fff" horizontal-alignment="middle" dy="-7">[name]</TextSymbolizer>
 	</Rule>
 </Style>
 <Style name="stops_names">
 	<Rule>
-		<TextSymbolizer allow-overlap="yes" face-name="DejaVu Sans Book" size="12" fill="#000" halo-radius="2" halo-fill="#fff" horizontal-alignment="middle">[name]</TextSymbolizer>
+		<TextSymbolizer allow-overlap="no" face-name="DejaVu Sans Book" size="11" fill="#000" halo-radius="2" halo-fill="#fff" placement-type="simple" placements="N,S,10,9" horizontal-alignment="middle" vertical-alignment="auto">[name]</TextSymbolizer>
 	</Rule>
 </Style>
+
 <Layer name="stops" status="on" srs="&osm2pgsql_projection;" minzoom="50" maxzoom="750000">
-	<StyleName>stops</StyleName>
+	<StyleName>stops_points</StyleName>
 	<Datasource>
-		<Parameter name="table">(select * from &prefix;_point where type in ('stop', 'stops') order by z_order) as roads</Parameter>
+		<Parameter name="table">(select name,type,way from &prefix;_point where type in ('stop', 'stops') order by z_order) as roads</Parameter>
+		&datasource-settings;
+	</Datasource>
+</Layer>
+<Layer name="stops_names" status="on" srs="&osm2pgsql_projection;" minzoom="50" maxzoom="25000" clear-label-cache="yes">
+	<StyleName>stop_single</StyleName>
+	<Datasource>
+		<Parameter name="table">(select name,type,way from &prefix;_point where type = 'stop' order by z_order) as roads</Parameter>
 		&datasource-settings;
 	</Datasource>
 </Layer>
