@@ -241,18 +241,18 @@ function fetch_poi($left, $top, $right, $bottom, $p_type)
             $default_title = "";
             switch($types[$i]) {
                 case 'fuel':
-                    $default_title = "Kolon?l?";
+                    $default_title = 'Kolonėlė';
                     break;
                 case 'cafe':
-                    $default_title = "Kavin?";
+                    $default_title = 'Kavinė';
                     break;
                 case 'hotel':
-                    $default_title = "Vie�butis";
+                    $default_title = 'Viešbutis';
                     break;
                 default:
-                    $default_title = "Ne�inomas ta�kas";
+                    $default_title = 'Nežinomas taškas';
             }
-            assemble_title("Kolon?l?");
+            assemble_title('Kolonėlė');
             assemble_description();
 
             // add data to future json
