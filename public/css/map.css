@@ -82,3 +82,8 @@ a img {border:none;}
 #buttonsPanel .buttons-over {
     margin-top: 5px;
 }
+
+#ui-switcher-layer-osb + label span {
+    background: url(/images/open_bug_marker.png) no-repeat center center;
+    color: transparent;
+}

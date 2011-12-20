@@ -9,10 +9,10 @@ header('Cache-Control: public, max-age=60', true);
 <meta name="description" content="Open and free map"/>
 <meta name="keywords" content="map, maps, globe, europe, public transport"/>
 <title>Open and free map</title>
-<link rel="stylesheet" type="text/css" href="/css/map.css"/>
+<link rel="stylesheet" type="text/css" href="/css/map.css?201112192300"/>
 <link rel="stylesheet" type="text/css" href="/css/ui/overcast/jquery-ui-1.8.14.custom.css"/>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/jquery-ui.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
 <script type="text/javascript" src="/js/OpenLayers-2.11-latest.min.js"></script>
 </head>
 <body style="height:100%;margin:0;">
@@ -24,12 +24,15 @@ header('Cache-Control: public, max-age=60', true);
 <script type="text/javascript" src="/js/startposition.js"></script>
 <script type="text/javascript" src="/js/ui.search.js"></script>
 <script type="text/javascript" src="/js/ui.switcher.js"></script>
+<script type="text/javascript" src="http://api.facilmap.org/osblayer/osblayer.js"></script>
 <script type="text/javascript">
 //<![CDATA[
 $(function(){
     map = createMap("map");
+    map.addLayer(new OpenLayers.Layer.OpenStreetBugs("OSB", {visibility:false,layerCode:"B",keyid:"osb",readonly:false,setCookie:true}));
     map.addControl(new OpenLayers.Control.MousePosition());
     map.addControl(new OpenLayers.Control.Activeurl());
+    
     if(map.getZoom() == 0){
     	setMapExtent(new OpenLayers.Bounds(-10, 35, 50, 70));
         Startposition(map);
