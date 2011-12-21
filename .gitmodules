@@ -1,0 +1,3 @@
+[submodule "public/js/osblayer"]
+	path = public/js/osblayer
+	url = git@gitorious.org:~ramunasd/osblayer/ramunasd-osblayer.git
