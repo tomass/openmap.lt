@@ -42,7 +42,8 @@ function debug($txt) {
 function parse_tags($tagstr)
 {
     $fields = array('name', 'operator', 'description', 'opening_hours', 'city', 'street', 'housenumber',
-         'phone', 'email', 'url', 'website', 'wikipedia', 'wikipedialt', 'notes', 'height', 'fee');
+         'phone', 'email', 'website', 'wikipedia', 'wikipedialt', 'notes', 'height', 'fee',
+         'information', 'wikipediaen', 'phone');
     $tags = trim($tagstr, '{}');
     $tags = explode(',', $tags);
     for($i = 0, $cnt = count($tags);$i < $cnt; $i += 2){
@@ -62,6 +63,9 @@ function parse_tags($tagstr)
             case 'wikipedialt':
                 $GLOBALS['wikipedialt'] = $tags['wikipedia:lt'];
                 break;
+            case 'wikipediaen':
+                $GLOBALS['wikipediaen'] = $tags['wikipedia:en'];
+                break;
             default:
                 $GLOBALS[$field] = @$tags[$field];
         }
@@ -78,7 +82,7 @@ function add_to_description($info)
     if (!empty($p_description)) {
         $p_description = $p_description . '<br>';
     }
-    $p_description = $p_descriptionj . $info;
+    $p_description = $p_description . $info;
 } // add_to_description
 
 /**********************************************************************
@@ -92,7 +96,7 @@ function assemble_title($default)
 {
   global $p_title, $name;
 
-  if ($name !== "") {
+  if (!empty($name)) {
     $p_title = $name;
   } else {
     $p_title = $default;
@@ -106,21 +110,73 @@ function assemble_title($default)
  **********************************************************************/
 function assemble_description()
 {
-  global $name, $operator, $description, $opening_hours, $city, $street, $housenumber; // tags
+  global $name, $operator, $description, $opening_hours, $city, $street, $housenumber,
+         $information, $wikipedia, $wikipedialt, $wikipediaen, $phone, $email, $website,
+         $height, $fee; // tags
   global $p_lat, $p_lon, $p_title, $p_description; // properties
 
     // Description
     $p_description = $description;
 
+    // Information
+    if (!empty($information)) {
+        add_to_description("<br>{$information}");
+    }
+
     // Working time
     if (!empty($opening_hours)) {
-        add_to_description("<i>Darbo laikas:</i>{$opening_hours}");
+        add_to_description("<br><i>Darbo laikas:</i> {$opening_hours}");
     }
 
     // Address
     if (!empty($city) || !empty($street) || !empty($housenumber)) {
-        add_to_description("<i>Adr:</i>{$city} {$street} {$housenumber}");
+        add_to_description("<br><i>Adr:</i> {$city} {$street} {$housenumber}");
     }
+
+    // Phone
+    if (!empty($phone)) {
+        add_to_description("<br><i>Tel:</i> {$phone}");
+    }
+
+    // E-mail
+    if (!empty($email)) {
+        add_to_description("<br><i>Tel:</i> {$email}");
+    }
+
+    // Website (according to OSM wiki url tag is deprecated, website tag should be used)
+    if (!empty($website)) {
+        add_to_description("<br><i>Svetainė:</i> {$website}");
+    }
+
+    // Wikipedia lt
+    if (!empty($wikipedialt)) {
+        add_to_description("<br><a href=\"http://lt.wikipedia.org/wiki/{$wikipedialt}\" target=\" blank\">Vikipedija (LT)</a>");
+    }
+
+    // Wikipedia en
+    if (!empty($wikipediaen)) {
+        add_to_description("<br><a href=\"http://en.wikipedia.org/wiki/{$wikipediaen}\" target=\" blank\">Vikipedija (EN)</a>");
+    }
+
+    // Wikipedia default
+    if (!empty($wikipedia)) {
+        add_to_description("<br><a href=\"http://en.wikipedia.org/wiki/{$wikipedia}\" target=\" blank\">Vikipedija (EN)</a>");
+    }
+
+    // Height
+    if (!empty($height)) {
+        add_to_description("<br><i>Aukštis:</i> {$height}m.");
+    }
+
+    // Fee
+    if (!empty($fee)) {
+        if ($fee != "no") {
+            add_to_description("<br><i>Apsilankymas mokamas</i>");
+        } else {
+            add_to_description("<br><i>Apsilankymas nemokamas</i>");
+        }
+    }
+
     debug("Description=".$p_description);
 } // assemble_description
 
@@ -249,10 +305,25 @@ function fetch_poi($left, $top, $right, $bottom, $p_type)
                 case 'hotel':
                     $default_title = 'Viešbutis';
                     break;
+                case 'hostel':
+                    $default_title = 'Kaimo sodyba';
+                    break;
+                case 'picnic_nofireplace':
+                    $default_title = 'Poilsiavietė';
+                    break;
+                case 'picnic_fireplace':
+                    $default_title = 'Poilsiavietė su laužu';
+                    break;
+                case 'pub':
+                    $default_title = 'Aludė';
+                    break;
+                case 'camping':
+                    $default_title = 'Kempingas';
+                    break;
                 default:
                     $default_title = 'Nežinomas taškas';
             }
-            assemble_title('Kolonėlė');
+            assemble_title($default_title);
             assemble_description();
 
             // add data to future json
