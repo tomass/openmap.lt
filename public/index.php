@@ -24,7 +24,7 @@ header('Cache-Control: public, max-age=60', true);
 <script type="text/javascript" src="/js/startposition.js"></script>
 <script type="text/javascript" src="/js/ui.search.js"></script>
 <script type="text/javascript" src="/js/ui.switcher.js"></script>
-<script type="text/javascript" src="http://api.facilmap.org/osblayer/osblayer.js"></script>
+<script type="text/javascript" src="/js/osblayer/osblayer.js"></script>
 <script type="text/javascript">
 //<![CDATA[
 $(function(){
