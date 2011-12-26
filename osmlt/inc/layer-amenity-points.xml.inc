@@ -367,7 +367,7 @@
     </Rule>
 </Style>
 
-<Layer name="amenity-points" status="on" srs="&osm2pgsql_projection;" maxzoom="&max_zoom13;">
+<Layer name="amenity-points" maxzoom="&max_zoom13;">
     <StyleName>points</StyleName>
     <Datasource>
       <Parameter name="table">
@@ -386,7 +386,7 @@
       &datasource-settings;
     </Datasource>
 </Layer>
-<Layer name="amenity-points-poly" status="on" srs="&osm2pgsql_projection;" maxzoom="&max_zoom13;">
+<Layer name="amenity-points-poly" maxzoom="&max_zoom13;">
     <StyleName>points</StyleName>
     <Datasource>
       <Parameter name="table">

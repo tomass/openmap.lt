@@ -66,7 +66,7 @@
     </Rule>
 </Style>
 
-<Layer name="amenity-stations" status="on" srs="&osm2pgsql_projection;" maxzoom="&max_zoom12;">
+<Layer name="amenity-stations" maxzoom="&max_zoom12;">
     <StyleName>stations</StyleName>
     <Datasource>
       <Parameter name="table">
@@ -79,7 +79,7 @@
       &datasource-settings;
     </Datasource>
 </Layer>
-<Layer name="amenity-stations-poly" status="on" srs="&osm2pgsql_projection;" maxzoom="&max_zoom12;">
+<Layer name="amenity-stations-poly" maxzoom="&max_zoom12;">
     <StyleName>stations</StyleName>
     <Datasource>
       <Parameter name="table">

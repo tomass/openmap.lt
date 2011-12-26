@@ -52,7 +52,7 @@
 </Style>
 
 <!-- Render only select building types starting at z10. -->
-<Layer name="buildings-lz" status="on" srs="&osm2pgsql_projection;" maxzoom="&max_zoom10;">
+<Layer name="buildings-lz" maxzoom="&max_zoom10;">
     <StyleName>buildings-lz</StyleName>
     <Datasource>
       <Parameter name="table">
@@ -68,7 +68,7 @@
 
 <!-- Render the other building types. Some sql filtering is needed to exclude
      any type not already specifically rendered in buildings-lz. -->
-<Layer name="buildings" status="on" srs="&osm2pgsql_projection;" maxzoom="&max_zoom10;">
+<Layer name="buildings" maxzoom="&max_zoom10;">
     <StyleName>buildings</StyleName>
     <Datasource>
       <Parameter name="table">

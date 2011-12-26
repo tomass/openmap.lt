@@ -26,21 +26,21 @@
       <LineSymbolizer stroke="#888" stroke-width="2"/>
     </Rule>
 </Style>
-<Layer name="citywalls" status="on" srs="&osm2pgsql_projection;" maxzoom="&max_zoom14;">
+<Layer name="citywalls" maxzoom="&max_zoom14;">
     <StyleName>citywalls</StyleName>
     <Datasource>
       <Parameter name="table">(select way from &prefix;_line where "historic"='citywalls') as citywalls</Parameter>
       &datasource-settings;
     </Datasource>
 </Layer>
-<Layer name="castle_walls" status="on" srs="&osm2pgsql_projection;" maxzoom="&max_zoom14;">
+<Layer name="castle_walls" maxzoom="&max_zoom14;">
     <StyleName>castle_walls</StyleName>
     <Datasource>
       <Parameter name="table">(select way from &prefix;_line where "historic"='castle_walls') as castle_walls</Parameter>
       &datasource-settings;
     </Datasource>
 </Layer>
-<Layer name="castle_walls" status="on" srs="&osm2pgsql_projection;">
+<Layer name="castle_walls">
     <StyleName>castle_walls</StyleName>
     <Datasource>
       <Parameter name="table">(select way from &prefix;_polygon where "historic"='castle_walls') as castle_walls</Parameter>

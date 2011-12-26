@@ -42,7 +42,7 @@
       <LineSymbolizer stroke="#734a08" stroke-width="2.5" stroke-dasharray="9,3" stroke-opacity="0.6"/>
     </Rule>
 </Style>
-<Layer name="misc_boundaries" status="on" srs="&osm2pgsql_projection;" maxzoom="&max_zoom7;">
+<Layer name="misc_boundaries" maxzoom="&max_zoom7;">
     <StyleName>boundary</StyleName>
     <Datasource>
       <Parameter name="table">
@@ -51,7 +51,7 @@
       &datasource-settings;
     </Datasource>
 </Layer>
-<Layer name="theme_park" status="on" srs="&osm2pgsql_projection;" maxzoom="&max_zoom13;">
+<Layer name="theme_park" maxzoom="&max_zoom13;">
     <StyleName>theme_park</StyleName>
     <Datasource>
       <Parameter name="table">

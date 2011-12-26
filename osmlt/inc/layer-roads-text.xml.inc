@@ -485,7 +485,7 @@
       <TextSymbolizer fontset-name="book-fonts" size="11" fill="#000" halo-radius="1" placement="line" >[name]</TextSymbolizer>
     </Rule>
 </Style>
-<Layer name="planet roads text osm low zoom" status="on" srs="&osm2pgsql_projection;" maxzoom="&max_zoom10;" minzoom="&min_zoom12;">
+<Layer name="planet roads text osm low zoom" maxzoom="&max_zoom10;" minzoom="&min_zoom12;">
      <StyleName>roads-text-low-zoom</StyleName>
      <Datasource>
       <Parameter name="table">
@@ -498,7 +498,7 @@
       &datasource-settings;
     </Datasource>
 </Layer>
-<Layer name="planet roads text osm" status="on" srs="&osm2pgsql_projection;" maxzoom="&max_zoom12;">
+<Layer name="planet roads text osm" maxzoom="&max_zoom12;">
      <StyleName>roads-text</StyleName>
      <Datasource>
       <Parameter name="table">

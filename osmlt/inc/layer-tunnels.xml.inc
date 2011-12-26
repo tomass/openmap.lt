@@ -461,7 +461,7 @@
       &datasource-settings;
     </Datasource>
 </Layer>
-<Layer name="footbikecycle-tunnels" status="on" srs="&osm2pgsql_projection;" clear-label-cache="on" maxzoom="&max_zoom13;">
+<Layer name="footbikecycle-tunnels" status="on" clear-label-cache="on" maxzoom="&max_zoom13;">
     <StyleName>footbikecycle-tunnels</StyleName>
     <Datasource>
       <Parameter name="table">
@@ -470,7 +470,7 @@
       &datasource-settings;
     </Datasource>
 </Layer>
-<Layer name="tracks-tunnels" status="on" srs="&osm2pgsql_projection;" maxzoom="&max_zoom14;">
+<Layer name="tracks-tunnels" status="on" maxzoom="&max_zoom14;">
     <StyleName>tracks-tunnels</StyleName>
     <Datasource>
       <Parameter name="table">

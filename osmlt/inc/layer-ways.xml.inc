@@ -2801,7 +2801,7 @@
       <LinePatternSymbolizer file="&symbols;/ctsw17l.png"/>
     </Rule>
 </Style>
-<Layer name="tunnels" status="on" srs="&osm2pgsql_projection;" maxzoom="&max_zoom12;">
+<Layer name="tunnels" status="on" maxzoom="&max_zoom12;" cache-features="on">
     <StyleName>tunnels-casing</StyleName>
     <StyleName>tunnels-fill</StyleName>
     <Datasource>
@@ -2811,7 +2811,7 @@
       &datasource-settings;
     </Datasource>
 </Layer>
-<Layer name="turning_circle-casing" status="on" srs="&osm2pgsql_projection;" maxzoom="&max_zoom15;">
+<Layer name="turning_circle-casing" status="on" maxzoom="&max_zoom15;">
     <StyleName>turning_circle-casing</StyleName>    
     <Datasource>
       <Parameter name="table">
@@ -2834,7 +2834,7 @@
       &datasource-settings;
     </Datasource>
 </Layer>
-<Layer name="footbikecycle-tunnels" status="on" srs="&osm2pgsql_projection;" clear-label-cache="on" maxzoom="&max_zoom13;">
+<Layer name="footbikecycle-tunnels" status="on" clear-label-cache="on" maxzoom="&max_zoom13;">
     <StyleName>footbikecycle-tunnels</StyleName>
     <Datasource>
       <Parameter name="table">
@@ -2843,7 +2843,7 @@
       &datasource-settings;
     </Datasource>
 </Layer>
-<Layer name="tracks-tunnels" status="on" srs="&osm2pgsql_projection;" maxzoom="&max_zoom14;">
+<Layer name="tracks-tunnels" status="on" maxzoom="&max_zoom14;">
     <StyleName>tracks-tunnels</StyleName>
     <Datasource>
       <Parameter name="table">
@@ -2852,7 +2852,7 @@
       &datasource-settings;
     </Datasource>
 </Layer>
-<Layer name="highway-area-casing" status="on" srs="&osm2pgsql_projection;" maxzoom="&max_zoom14;">
+<Layer name="highway-area-casing" status="on" maxzoom="&max_zoom14;">
     <StyleName>highway-area-casing</StyleName>
     <Datasource>
       <Parameter name="table">
@@ -2864,7 +2864,7 @@
       &datasource-settings;
     </Datasource>
 </Layer>
-<Layer name="minor-roads-casing" status="on" srs="&osm2pgsql_projection;" maxzoom="&max_zoom12;">
+<Layer name="minor-roads-casing" status="on" maxzoom="&max_zoom12;" cache-features="on">
     <StyleName>minor-roads-casing-links</StyleName>
     <StyleName>minor-roads-casing</StyleName>
     <Datasource>
@@ -2879,7 +2879,7 @@
       &datasource-settings;
     </Datasource>
 </Layer>
-<Layer name="highway-area-fill" status="on" srs="&osm2pgsql_projection;" maxzoom="&max_zoom11;">
+<Layer name="highway-area-fill" status="on" maxzoom="&max_zoom11;">
     <StyleName>highway-area-fill</StyleName>
     <Datasource>
       <Parameter name="table">
@@ -2892,7 +2892,7 @@
       &datasource-settings;
     </Datasource>
 </Layer>
-<Layer name="turning_circle-fill" status="on" srs="&osm2pgsql_projection;" maxzoom="&max_zoom15;">
+<Layer name="turning_circle-fill" status="on" maxzoom="&max_zoom15;">
     <StyleName>turning_circle-fill</StyleName>    
     <Datasource>
       <Parameter name="table">
@@ -2915,7 +2915,7 @@
       &datasource-settings;
     </Datasource>
 </Layer>
-<Layer name="tracks-notunnel-nobridge" status="on" srs="&osm2pgsql_projection;" maxzoom="&max_zoom14;">
+<Layer name="tracks-notunnel-nobridge" status="on" maxzoom="&max_zoom14;">
     <StyleName>tracks-notunnel-nobridge</StyleName>
     <Datasource>
       <Parameter name="table">
@@ -2924,7 +2924,7 @@
       &datasource-settings;
     </Datasource>
 </Layer>
-<Layer name="minor-roads-fill" status="on" srs="&osm2pgsql_projection;">
+<Layer name="minor-roads-fill" status="on" cache-features="on">
     <StyleName>cycleways_sidewalks</StyleName>
     <StyleName>minor-roads-fill-links</StyleName>
     <StyleName>minor-roads-fill</StyleName>
@@ -2946,7 +2946,7 @@
       &datasource-settings;
     </Datasource>
 </Layer>
-<Layer name="roads" status="on" srs="&osm2pgsql_projection;" maxzoom="&max_zoom5;">
+<Layer name="roads" status="on" maxzoom="&max_zoom5;">
     <StyleName>roads</StyleName>
     <Datasource>
       <Parameter name="table">
@@ -2963,14 +2963,14 @@
       &datasource-settings;
     </Datasource>
 </Layer>
-<Layer name="waterway-bridges" status="on" srs="&osm2pgsql_projection;" maxzoom="&max_zoom14;">
+<Layer name="waterway-bridges" status="on" maxzoom="&max_zoom14;">
     <StyleName>waterway-bridges</StyleName>
     <Datasource>
       <Parameter name="table">(select way,name from &prefix;_line where waterway='canal' and bridge in ('yes','true','1','aqueduct') order by z_order) as water</Parameter>
       &datasource-settings;
     </Datasource>
 </Layer>
-<Layer name="access-pre_bridges" status="on" srs="&osm2pgsql_projection;" maxzoom="&max_zoom15;">
+<Layer name="access-pre_bridges" status="on" maxzoom="&max_zoom15;">
     <StyleName>access</StyleName>
     <Datasource>
       <Parameter name="table">
@@ -2984,7 +2984,7 @@
       &datasource-settings;
     </Datasource>
 </Layer>
-<Layer name="direction_pre_bridges" status="on" srs="&osm2pgsql_projection;" maxzoom="&max_zoom16;">
+<Layer name="direction_pre_bridges" status="on" maxzoom="&max_zoom16;">
      <StyleName>directions</StyleName>
      <Datasource>
       <Parameter name="table">
@@ -2999,7 +2999,7 @@
       &datasource-settings;
     </Datasource>
 </Layer>
-<Layer name="bridges_layer0" status="on" srs="&osm2pgsql_projection;" maxzoom="&max_zoom12;">
+<Layer name="bridges_layer0" status="on" maxzoom="&max_zoom12;" cache-features="on">
     <StyleName>bridges_casing</StyleName>
     <StyleName>bridges_casing2</StyleName>
     <StyleName>bridges_fill</StyleName>
@@ -3021,7 +3021,7 @@
       &datasource-settings;
     </Datasource>
 </Layer>
-<Layer name="bridges_access0" status="on" srs="&osm2pgsql_projection;" maxzoom="&max_zoom15;">
+<Layer name="bridges_access0" status="on" maxzoom="&max_zoom15;">
     <StyleName>access</StyleName>
     <Datasource>
       <Parameter name="table">
@@ -3036,7 +3036,7 @@
       &datasource-settings;
     </Datasource>
 </Layer>
-<Layer name="bridges_directions0" status="on" srs="&osm2pgsql_projection;" maxzoom="&max_zoom16;">
+<Layer name="bridges_directions0" status="on" maxzoom="&max_zoom16;">
      <StyleName>directions</StyleName>
      <Datasource>
       <Parameter name="table">
@@ -3052,7 +3052,7 @@
       &datasource-settings;
     </Datasource>
 </Layer>
-<Layer name="bridges_layer1" status="on" srs="&osm2pgsql_projection;" maxzoom="&max_zoom12;">
+<Layer name="bridges_layer1" status="on" maxzoom="&max_zoom12;" cache-features="on">
     <StyleName>bridges_casing</StyleName>
     <StyleName>bridges_casing2</StyleName>
     <StyleName>bridges_fill</StyleName>
@@ -3074,7 +3074,7 @@
       &datasource-settings;
     </Datasource>
 </Layer>
-<Layer name="bridges_access1" status="on" srs="&osm2pgsql_projection;" maxzoom="&max_zoom15;">
+<Layer name="bridges_access1" status="on" maxzoom="&max_zoom15;">
     <StyleName>access</StyleName>
     <Datasource>
       <Parameter name="table">
@@ -3089,7 +3089,7 @@
       &datasource-settings;
     </Datasource>
 </Layer>
-<Layer name="bridges_directions1" status="on" srs="&osm2pgsql_projection;" maxzoom="&max_zoom16;">
+<Layer name="bridges_directions1" status="on" maxzoom="&max_zoom16;">
      <StyleName>directions</StyleName>
      <Datasource>
       <Parameter name="table">
@@ -3105,9 +3105,9 @@
       &datasource-settings;
     </Datasource>
 </Layer>
-<Layer name="bridges_layer2" status="on" srs="&osm2pgsql_projection;" maxzoom="&max_zoom12;">
+<Layer name="bridges_layer2" status="on" maxzoom="&max_zoom12;" cache-features="on">
     <StyleName>bridges_casing</StyleName>
-	<StyleName>bridges_casing2</StyleName>
+    <StyleName>bridges_casing2</StyleName>
     <StyleName>bridges_fill</StyleName>
     <Datasource>
       <Parameter name="table">
@@ -3127,7 +3127,7 @@
       &datasource-settings;
     </Datasource>
 </Layer>
-<Layer name="bridges_access2" status="on" srs="&osm2pgsql_projection;" maxzoom="&max_zoom15;">
+<Layer name="bridges_access2" status="on" maxzoom="&max_zoom15;">
     <StyleName>access</StyleName>
     <Datasource>
       <Parameter name="table">
@@ -3142,7 +3142,7 @@
       &datasource-settings;
     </Datasource>
 </Layer>
-<Layer name="bridges_directions2" status="on" srs="&osm2pgsql_projection;" maxzoom="&max_zoom16;">
+<Layer name="bridges_directions2" status="on" maxzoom="&max_zoom16;">
      <StyleName>directions</StyleName>
      <Datasource>
       <Parameter name="table">
@@ -3158,7 +3158,7 @@
       &datasource-settings;
     </Datasource>
 </Layer>
-<Layer name="highway-junctions" status="on" srs="&osm2pgsql_projection;" maxzoom="&max_zoom11;">
+<Layer name="highway-junctions" status="on" maxzoom="&max_zoom11;">
     <StyleName>highway-junctions</StyleName>
     <Datasource>
      <Parameter name="table">

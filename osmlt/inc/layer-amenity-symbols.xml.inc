@@ -116,7 +116,7 @@
     </Rule>
 </Style>
 
-<Layer name="amenity-symbols" status="on" srs="&osm2pgsql_projection;" maxzoom="&max_zoom9;">
+<Layer name="amenity-symbols" maxzoom="&max_zoom9;">
     <StyleName>symbols</StyleName>
     <Datasource>
       <Parameter name="table">
@@ -133,7 +133,7 @@
       &datasource-settings;
     </Datasource>
 </Layer>
-<Layer name="amenity-symbols-poly" status="on" srs="&osm2pgsql_projection;" maxzoom="&max_zoom9;">
+<Layer name="amenity-symbols-poly" maxzoom="&max_zoom9;">
     <StyleName>symbols</StyleName>
     <Datasource>
       <Parameter name="table">

@@ -142,7 +142,7 @@
     </Rule>
 </Style>
 
-<Layer name="placenames-large" status="on" srs="&osm2pgsql_projection;" maxzoom="&max_zoom2;" minzoom="&min_zoom8;">
+<Layer name="placenames-large" maxzoom="&max_zoom2;" minzoom="&min_zoom8;" cache-features="on">
     <StyleName>country</StyleName>
     <StyleName>state</StyleName>
     <Datasource>
@@ -154,7 +154,7 @@
       &datasource-settings;
     </Datasource>
 </Layer>
-<Layer name="placenames-capital" status="on" srs="&osm2pgsql_projection;" maxzoom="&max_zoom5;" minzoom="&min_zoom14;">
+<Layer name="placenames-capital" maxzoom="&max_zoom5;" minzoom="&min_zoom14;">
     <StyleName>capital</StyleName>
     <Datasource>
       <Parameter name="table">
@@ -165,7 +165,7 @@
       &datasource-settings;
     </Datasource>
 </Layer>
-<Layer name="placenames-medium" status="on" srs="&osm2pgsql_projection;" maxzoom="&max_zoom6;">
+<Layer name="placenames-medium" maxzoom="&max_zoom6;" cache-features="on">
     <StyleName>city</StyleName>
     <StyleName>town</StyleName>
     <Datasource>
@@ -178,7 +178,7 @@
       &datasource-settings;
     </Datasource>
 </Layer>
-<Layer name="placenames-small" status="on" srs="&osm2pgsql_projection;" maxzoom="&max_zoom12;">
+<Layer name="placenames-small" maxzoom="&max_zoom12;" cache-features="on">
     <StyleName>suburb</StyleName>
     <StyleName>village</StyleName>
     <StyleName>hamlet</StyleName>

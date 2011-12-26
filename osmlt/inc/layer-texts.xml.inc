@@ -167,6 +167,7 @@
       <TextSymbolizer fontset-name="book-fonts" size="10" fill="#0066ff" dy="15" halo-radius="1" wrap-width="70">[name]</TextSymbolizer>
     </Rule>
     <Rule>
+
       <Filter>[tourism] = 'caravan_site'</Filter>
       &maxscale_zoom17;
       <TextSymbolizer fontset-name="book-fonts" size="10" fill="#0066ff" dy="19" halo-radius="1" wrap-width="70">[name]</TextSymbolizer>
@@ -291,7 +292,7 @@
       <TextSymbolizer fontset-name="book-fonts" size="10" fill="#000033" halo-radius="1" wrap-width="20">[name]</TextSymbolizer>
     </Rule>
 </Style>
-<Layer name="text" status="on" srs="&osm2pgsql_projection;" maxzoom="&max_zoom12;">
+<Layer name="text" status="on" maxzoom="&max_zoom12;">
     <StyleName>text</StyleName>
     <Datasource>
       <Parameter name="table">
@@ -314,7 +315,7 @@
       &datasource-settings;
     </Datasource>
 </Layer>
-<Layer name="text-poly" status="on" srs="&osm2pgsql_projection;" maxzoom="&max_zoom12;">
+<Layer name="text-poly" status="on" maxzoom="&max_zoom12;">
     <StyleName>text</StyleName>
     <Datasource>
       <Parameter name="table">
@@ -335,7 +336,7 @@
       &datasource-settings;
     </Datasource>
 </Layer>
-<Layer name="area-text" status="on" srs="&osm2pgsql_projection;" maxzoom="&max_zoom14;">
+<Layer name="area-text" status="on" maxzoom="&max_zoom14;">
     <StyleName>area-text</StyleName>
     <Datasource>
       <Parameter name="table">

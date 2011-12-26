@@ -10,7 +10,7 @@
     </Rule>
 </Style>
 
-<Layer name="ferry-routes" status="on" srs="&osm2pgsql_projection;">
+<Layer name="ferry-routes">
     <StyleName>ferry-routes</StyleName>
     <Datasource>
       <Parameter name="table">
