@@ -350,6 +350,18 @@ function fetch_poi($left, $top, $right, $bottom, $p_type)
     echo '{"type":"FeatureCollection","features":', json_encode($arr), '}';
 } // fetch_poi
 
+// respond to preflights
+if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
+    // return only the headers and not the content
+    // only allow CORS if we're doing a GET - i.e. no saving for now.
+    if (isset($_SERVER['HTTP_ACCESS_CONTROL_REQUEST_METHOD']) &&
+              $_SERVER['HTTP_ACCESS_CONTROL_REQUEST_METHOD'] == 'GET') {
+        header('Access-Control-Allow-Origin: *');
+        header('Access-Control-Allow-Headers: X-Requested-With');
+    }
+    exit;
+}
+
 //***********************************************************************
 // Check if debugging is on/off
 // When debugging is on, prior to geojson information you will get
