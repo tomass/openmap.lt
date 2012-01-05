@@ -360,6 +360,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
         header('Access-Control-Allow-Headers: X-Requested-With');
     }
     exit;
+}else{ //simple scenario without preflight
+    header('Access-Control-Allow-Origin: *');
 }
 
 //***********************************************************************
