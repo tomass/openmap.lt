@@ -36,6 +36,72 @@ function debug($txt) {
     }
 } // debug
 
+/***************************************************************
+ * Explode a single CSV string (line) into an array.
+ * Is more intelligent than simple "explode" - handles quotes
+ * and commas inside quoted strings
+ ***************************************************************/
+function csvexplode($str, $delim = ',', $qual = "\"")
+{
+    $len = strlen($str);  // Store the complete length of the string for easy reference.
+    $inside = false;  // Maintain state when we're inside quoted elements.
+    $lastWasDelim = false;  // Maintain state if we just started a new element.
+    $word = '';  // Accumulator for current element.
+
+    for($i = 0; $i < $len; ++$i) {
+        // We're outside a quoted element, and the current char is a field delimiter.
+        if(!$inside && $str[$i]==$delim) {
+            $out[] = $word;
+            $word = '';
+            $lastWasDelim = true;
+        } 
+
+        // We're inside a quoted element, the current char is a qualifier, and the next char is a qualifier.
+        elseif($inside && $str[$i]==$qual && ($i<$len && $str[$i+1]==$qual)) {
+            $word .= $qual;  // Add one qual into the element,
+            ++$i; // Then skip ahead to the next non-qual char.
+        }
+
+        // The current char is a qualifier (so we're either entering or leaving a quoted element.)
+        elseif ($str[$i] == $qual) {
+            $inside = !$inside;
+        }
+
+        // We're outside a quoted element, the current char is whitespace and the 'last' char was a delimiter.
+        elseif( !$inside && ($str[$i]==" ")  && $lastWasDelim) {
+            // Just skip the char because it's leading whitespace in front of an element.
+        }
+
+        // Outside a quoted element, the current char is whitespace, the "next" char is a delimiter.
+        elseif(!$inside && ($str[$i]==" ") ) {
+            // Look ahead for the next non-whitespace char.
+            $lookAhead = $i+1;
+            while(($lookAhead < $len) && ($str[$lookAhead] == " ")) {
+                ++$lookAhead;
+            }
+
+            // If the next char is formatting, we're dealing with trailing whitespace.
+            if($str[$lookAhead] == $delim || $str[$lookAhead] == $qual) {
+                $i = $lookAhead-1;  // Jump the pointer ahead to right before the delimiter or qualifier.
+            }
+
+            // Otherwise we're still in the middle of an element, so add the whitespace to the output.
+            else {
+                $word .= $str[$i];  
+            }
+        }
+
+        // If all else fails, add the character to the current element.
+        else {
+            $word .= $str[$i];
+            $lastWasDelim = false;
+        }
+    }
+
+    $out[] = $word;
+    return $out;
+} // csvexplode
+
 /************************************************************
  * Parse tags in a given string
  ************************************************************/
@@ -45,7 +111,7 @@ function parse_tags($tagstr)
          'phone', 'email', 'website', 'wikipedia', 'wikipedialt', 'notes', 'height', 'fee',
          'information', 'wikipediaen', 'phone');
     $tags = trim($tagstr, '{}');
-    $tags = explode(',', $tags);
+    $tags = csvexplode($tags);
     for($i = 0, $cnt = count($tags);$i < $cnt; $i += 2){
         $key = $tags[$i];
         $value = $tags[$i + 1];
@@ -196,7 +262,7 @@ function fetch_poi($left, $top, $right, $bottom, $p_type)
     debug("poi type is " . $p_type);
     switch ($p_type) {
         case 'groupAttraction':
-            $p_type = 'history|monument|tower|attraction';
+            $p_type = 'history|monument|tower|attraction|museum';
             break;
         case 'groupCamping':
             $p_type = 'camping|picnic_fireplace|picnic_nofireplace';
@@ -238,6 +304,10 @@ function fetch_poi($left, $top, $right, $bottom, $p_type)
             case 'attraction':
                 $filter = "p.tourism in ('attraction', 'viewpoint')";
                 $tp = 'ATT';
+                break;
+            case 'museum':
+                $filter = "p.tourism = 'museum'";
+                $tp = 'MUS';
                 break;
             case 'picnic_fireplace':
                 $filter = "p.tourism = 'picnic_site' and fireplace = 'yes'";
@@ -283,6 +353,12 @@ function fetch_poi($left, $top, $right, $bottom, $p_type)
 			FROM planet_osm_point p
 			LEFT JOIN planet_osm_nodes n ON n.id = p.osm_id
 			WHERE p.way && ST_Transform(SetSRID('BOX3D({$left} {$top},{$right} {$bottom})'::box3d,4326), 900913)
+                     AND {$filter}
+                  union all
+                  SELECT ST_X(ST_Transform(st_centroid(way),4326)) lat, ST_Y(ST_Transform(st_centroid(way),4326)) lon, n.tags
+			FROM planet_osm_polygon p
+			LEFT JOIN planet_osm_ways n ON n.id = p.osm_id
+			WHERE p.way && ST_Transform(SetSRID('BOX3D({$left} {$top},{$right} {$bottom})'::box3d,4326), 900913)
                      AND {$filter}";
         debug('Query is: ' . $query);
         $res = pg_query($link, $query);
@@ -319,6 +395,9 @@ function fetch_poi($left, $top, $right, $bottom, $p_type)
                     break;
                 case 'camping':
                     $default_title = 'Kempingas';
+                    break;
+                case 'museum':
+                    $default_title = 'Muziejus';
                     break;
                 default:
                     $default_title = 'Nežinomas taškas';
