@@ -109,7 +109,7 @@ function parse_tags($tagstr)
 {
     $fields = array('name', 'operator', 'description', 'opening_hours', 'city', 'street', 'housenumber',
          'phone', 'email', 'website', 'wikipedia', 'wikipedialt', 'notes', 'height', 'fee',
-         'information', 'wikipediaen', 'phone');
+         'information', 'wikipediaen', 'phone', 'url' /* deprecated tag, website should be used*/);
     $tags = trim($tagstr, '{}');
     $tags = csvexplode($tags);
     for($i = 0, $cnt = count($tags);$i < $cnt; $i += 2){
@@ -147,6 +147,8 @@ function add_to_description($info)
 
     if (!empty($p_description)) {
         $p_description = $p_description . '<br>';
+    } else {
+        $p_description = $p_description . '<p>';
     }
     $p_description = $p_description . $info;
 } // add_to_description
@@ -178,7 +180,7 @@ function assemble_description()
 {
   global $name, $operator, $description, $opening_hours, $city, $street, $housenumber,
          $information, $wikipedia, $wikipedialt, $wikipediaen, $phone, $email, $website,
-         $height, $fee; // tags
+         $height, $fee, $url; // tags
   global $p_lat, $p_lon, $p_title, $p_description; // properties
 
     // Description
@@ -186,60 +188,65 @@ function assemble_description()
 
     // Information
     if (!empty($information)) {
-        add_to_description("<br>{$information}");
+        add_to_description("{$information}");
     }
 
     // Working time
     if (!empty($opening_hours)) {
-        add_to_description("<br><i>Darbo laikas:</i> {$opening_hours}");
+        add_to_description("<i>Darbo laikas:</i> {$opening_hours}");
     }
 
     // Address
     if (!empty($city) || !empty($street) || !empty($housenumber)) {
-        add_to_description("<br><i>Adr:</i> {$city} {$street} {$housenumber}");
+        add_to_description("<i>Adr:</i> {$city} {$street} {$housenumber}");
     }
 
     // Phone
     if (!empty($phone)) {
-        add_to_description("<br><i>Tel:</i> {$phone}");
+        add_to_description("<i>Tel:</i> {$phone}");
     }
 
     // E-mail
     if (!empty($email)) {
-        add_to_description("<br><i>Tel:</i> {$email}");
+        add_to_description("<i>Tel:</i> {$email}");
     }
 
     // Website (according to OSM wiki url tag is deprecated, website tag should be used)
     if (!empty($website)) {
-        add_to_description("<br><i>Svetainė:</i> {$website}");
+        add_to_description("<a href=\"{$website}\" target=\" blank\">Svetainė</a>");
+    }
+
+    // Website (according to OSM wiki url tag is deprecated, website tag should be used)
+    if (!empty($url)) {
+        add_to_description("<a href=\"{$url}\" target=\" blank\">Svetainė</a>");
     }
 
     // Wikipedia lt
     if (!empty($wikipedialt)) {
-        add_to_description("<br><a href=\"http://lt.wikipedia.org/wiki/{$wikipedialt}\" target=\" blank\">Vikipedija (LT)</a>");
+        add_to_description("<a href=\"http://lt.wikipedia.org/wiki/{$wikipedialt}\" target=\" blank\">Vikipedija (LT)</a>");
     }
 
     // Wikipedia en
     if (!empty($wikipediaen)) {
-        add_to_description("<br><a href=\"http://en.wikipedia.org/wiki/{$wikipediaen}\" target=\" blank\">Vikipedija (EN)</a>");
+        add_to_description("<a href=\"http://en.wikipedia.org/wiki/{$wikipediaen}\" target=\" blank\">Vikipedija (EN)</a>");
     }
 
     // Wikipedia default
     if (!empty($wikipedia)) {
-        add_to_description("<br><a href=\"http://en.wikipedia.org/wiki/{$wikipedia}\" target=\" blank\">Vikipedija (EN)</a>");
+        add_to_description("<a href=\"http://en.wikipedia.org/wiki/{$wikipedia}\" target=\" blank\">Vikipedija (EN)</a>");
     }
 
     // Height
     if (!empty($height)) {
-        add_to_description("<br><i>Aukštis:</i> {$height}m.");
+        add_to_description("<i>Aukštis:</i> {$height}m.");
     }
 
     // Fee
     if (!empty($fee)) {
         if ($fee != "no") {
-            add_to_description("<br><i>Apsilankymas mokamas</i>");
+            add_to_description("<i>Apsilankymas mokamas</i>");
         } else {
-            add_to_description("<br><i>Apsilankymas nemokamas</i>");
+            add_to_description("<i>Apsilankymas nemokamas</i>");
         }
     }
 

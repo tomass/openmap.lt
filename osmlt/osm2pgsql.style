@@ -109,6 +109,7 @@ node,way   wikipedia    text         linear
 node,way   wikipedia:lt text         linear
 node,way   wikipedia:en text         linear
 node,way   website      text         linear
+node,way   url          text         linear
 node,way   opening_hours text         linear
 node,way   phone        text         linear
 node,way   email        text         linear
