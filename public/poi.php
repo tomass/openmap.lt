@@ -329,7 +329,7 @@ function fetch_poi($left, $top, $right, $bottom, $p_type)
                 $tp = 'CAM';
                 break;
             case 'hostel':
-                $filter = "p.tourism in ('chalet', 'hostel')";
+                $filter = "p.tourism in ('chalet', 'hostel', 'guest_house')";
                 $tp = 'HOS';
                 break;
             case 'fuel':
