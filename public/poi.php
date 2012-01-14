@@ -275,7 +275,7 @@ function fetch_poi($left, $top, $right, $bottom, $p_type)
             $p_type = 'camping|picnic_fireplace|picnic_nofireplace';
             break;
         case 'groupFood':
-            $p_type = 'restaurant|cafe|pub';
+            $p_type = 'restaurant|cafe|pub|fast_food';
             break;
         case 'groupAccomodation':
             $p_type = 'hostel|hotel';
@@ -317,11 +317,11 @@ function fetch_poi($left, $top, $right, $bottom, $p_type)
                 $tp = 'MUS';
                 break;
             case 'picnic_fireplace':
-                $filter = "p.tourism = 'picnic_site' and fireplace = 'yes'";
+                $filter = "p.tourism = 'picnic_site' and p.fireplace = 'yes'";
                 $tp = 'PIF';
                 break;
             case 'picnic_nofireplace':
-                $filter = "p.tourism = 'picnic_site' and (fireplace is null or fireplace = 'no')";
+                $filter = "p.tourism = 'picnic_site' and (p.fireplace is null or p.fireplace = 'no')";
                 $tp = 'PIC';
                 break;
             case 'camping':
@@ -339,6 +339,10 @@ function fetch_poi($left, $top, $right, $bottom, $p_type)
             case 'cafe':
                 $filter = "p.amenity = 'cafe'";
                 $tp = 'CAF';
+                break;
+            case 'fast_food':
+                $filter = "p.amenity = 'fast_food'";
+                $tp = 'FAS';
                 break;
             case 'restaurant':
                 $filter = "p.amenity = 'restaurant'";
