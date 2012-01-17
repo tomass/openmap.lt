@@ -109,7 +109,7 @@ function parse_tags($tagstr)
 {
     $fields = array('name', 'operator', 'description', 'opening_hours', 'city', 'street', 'housenumber',
          'phone', 'email', 'website', 'wikipedia', 'wikipedialt', 'notes', 'height', 'fee',
-         'information', 'wikipediaen', 'phone', 'url' /* deprecated tag, website should be used*/);
+         'information', 'wikipediaen', 'phone', 'url', 'postcode', 'image' /* deprecated tag, website should be used*/);
     $tags = trim($tagstr, '{}');
     $tags = csvexplode($tags);
     for($i = 0, $cnt = count($tags);$i < $cnt; $i += 2){
@@ -124,6 +124,7 @@ function parse_tags($tagstr)
             case 'city':
             case 'street':
             case 'housenumber':
+            case 'postcode':
                 $GLOBALS[$field] = $tags['addr:' . $field];
                 break;
             case 'wikipedialt':
@@ -180,7 +181,7 @@ function assemble_description()
 {
   global $name, $operator, $description, $opening_hours, $city, $street, $housenumber,
          $information, $wikipedia, $wikipedialt, $wikipediaen, $phone, $email, $website,
-         $height, $fee, $url; // tags
+         $height, $fee, $url, $image, $postcode; // tags
   global $p_lat, $p_lon, $p_title, $p_description; // properties
 
     // Description
@@ -198,7 +199,7 @@ function assemble_description()
 
     // Address
     if (!empty($city) || !empty($street) || !empty($housenumber)) {
-        add_to_description("<i>Adr:</i> {$city} {$street} {$housenumber}");
+        add_to_description("<i>Adr:</i> {$city} {$postcode} {$street} {$housenumber}");
     }
 
     // Phone
@@ -208,15 +209,21 @@ function assemble_description()
 
     // E-mail
     if (!empty($email)) {
-        add_to_description("<i>Tel:</i> {$email}");
+        add_to_description("<i>E-paštas:</i> {$email}");
     }
 
     // Website (according to OSM wiki url tag is deprecated, website tag should be used)
+    if (!empty($website) and substr($website, 1, 4) !== "http") {
+        $website = "http://" . $website;
+    }
     if (!empty($website)) {
         add_to_description("<a href=\"{$website}\" target=\" blank\">Svetainė</a>");
     }
 
     // Website (according to OSM wiki url tag is deprecated, website tag should be used)
+    if (!empty($url) and substr($url, 1, 4) !== "http") {
+        $url = "http://" . $url;
+    }
     if (!empty($url)) {
         add_to_description("<a href=\"{$url}\" target=\" blank\">Svetainė</a>");
     }
@@ -263,13 +270,13 @@ function assemble_description()
  ************************************************************/
 function fetch_poi($left, $top, $right, $bottom, $p_type)
 {
-    global $p_title, $p_description;
+    global $p_title, $p_description, $image;
     global $link;
     // Contruct a query part filtering out only required POI's
     debug("poi type is " . $p_type);
     switch ($p_type) {
         case 'groupAttraction':
-            $p_type = 'history|monument|tower|attraction|museum';
+            $p_type = 'history|monument|tower|attraction|museum|information';
             break;
         case 'groupCamping':
             $p_type = 'camping|picnic_fireplace|picnic_nofireplace';
@@ -281,7 +288,10 @@ function fetch_poi($left, $top, $right, $bottom, $p_type)
             $p_type = 'hostel|hotel';
             break;
         case 'groupAuto':
-            $p_type = 'fuel';
+            $p_type = 'fuel|speed_camera';
+            break;
+        case 'groupCulture':
+            $p_type = 'theatre|cinema|arts';
             break;
     }
     $types = explode("|", $p_type);
@@ -356,6 +366,26 @@ function fetch_poi($left, $top, $right, $bottom, $p_type)
                 $filter = "p.tourism = 'hotel'";
                 $tp = 'HOT';
                 break;
+            case 'information':
+                $filter = "p.tourism = 'information'";
+                $tp = 'INF';
+                break;
+            case 'theatre':
+                $filter = "p.amenity = 'theatre'";
+                $tp = 'THE';
+                break;
+            case 'cinema':
+                $filter = "p.amenity = 'cinema'";
+                $tp = 'CIN';
+                break;
+            case 'speed_camera':
+                $filter = "p.highway = 'speed_camera'";
+                $tp = 'SPE';
+                break;
+            case 'arts':
+                $filter = "p.amenity = 'arts_centre'";
+                $tp = 'ART';
+                break;
             default:
                 $filter = '1';
         }
@@ -410,6 +440,9 @@ function fetch_poi($left, $top, $right, $bottom, $p_type)
                 case 'museum':
                     $default_title = 'Muziejus';
                     break;
+                case 'information':
+                    $default_title = 'Informacija';
+                    break;
                 default:
                     $default_title = 'Nežinomas taškas';
             }
@@ -429,6 +462,7 @@ function fetch_poi($left, $top, $right, $bottom, $p_type)
                     'tp' => $tp,
                     'title' => $p_title,
                     'description' => $p_description,
+                    'image' => $image,
                 ),
                 'id' => $id,
             );
