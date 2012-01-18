@@ -115,3 +115,5 @@ node,way   phone        text         linear
 node,way   email        text         linear
 node,way   fee          text         linear
 node,way   height       text         linear
+node,way   description  text         linear
+node,way   image        text         linear
