@@ -213,19 +213,29 @@ function assemble_description()
     }
 
     // Website (according to OSM wiki url tag is deprecated, website tag should be used)
-    if (!empty($website) and substr($website, 1, 4) !== "http") {
+    if (!empty($website) and substr($website, 0, 4) !== "http") {
         $website = "http://" . $website;
     }
     if (!empty($website)) {
-        add_to_description("<a href=\"{$website}\" target=\" blank\">Svetainė</a>");
+        if (strlen($website) > 30) {
+            $url_name = "Svetainė";
+        } else {
+            $url_name = $website;
+        }
+        add_to_description("<a href=\"{$website}\" target=\" blank\">{$url_name}</a>");
     }
 
     // Website (according to OSM wiki url tag is deprecated, website tag should be used)
-    if (!empty($url) and substr($url, 1, 4) !== "http") {
+    if (!empty($url) and substr($url, 0, 4) !== "http") {
         $url = "http://" . $url;
     }
     if (!empty($url)) {
-        add_to_description("<a href=\"{$url}\" target=\" blank\">Svetainė</a>");
+        if (strlen($url) > 30) {
+            $url_name = "Svetainė";
+        } else {
+            $url_name = $url;
+        }
+        add_to_description("<a href=\"{$url}\" target=\" blank\">{$url_name}</a>");
     }
 
     // Wikipedia lt
