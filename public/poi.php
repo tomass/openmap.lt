@@ -36,109 +36,6 @@ function debug($txt) {
     }
 } // debug
 
-/***************************************************************
- * Explode a single CSV string (line) into an array.
- * Is more intelligent than simple "explode" - handles quotes
- * and commas inside quoted strings
- ***************************************************************/
-function csvexplode($str, $delim = ',', $qual = "\"")
-{
-    $len = strlen($str);  // Store the complete length of the string for easy reference.
-    $inside = false;  // Maintain state when we're inside quoted elements.
-    $lastWasDelim = false;  // Maintain state if we just started a new element.
-    $word = '';  // Accumulator for current element.
-
-    for($i = 0; $i < $len; ++$i) {
-        // We're outside a quoted element, and the current char is a field delimiter.
-        if(!$inside && $str[$i]==$delim) {
-            $out[] = $word;
-            $word = '';
-            $lastWasDelim = true;
-        } 
-
-        // We're inside a quoted element, the current char is a qualifier, and the next char is a qualifier.
-        elseif($inside && $str[$i]==$qual && ($i<$len && $str[$i+1]==$qual)) {
-            $word .= $qual;  // Add one qual into the element,
-            ++$i; // Then skip ahead to the next non-qual char.
-        }
-
-        // The current char is a qualifier (so we're either entering or leaving a quoted element.)
-        elseif ($str[$i] == $qual) {
-            $inside = !$inside;
-        }
-
-        // We're outside a quoted element, the current char is whitespace and the 'last' char was a delimiter.
-        elseif( !$inside && ($str[$i]==" ")  && $lastWasDelim) {
-            // Just skip the char because it's leading whitespace in front of an element.
-        }
-
-        // Outside a quoted element, the current char is whitespace, the "next" char is a delimiter.
-        elseif(!$inside && ($str[$i]==" ") ) {
-            // Look ahead for the next non-whitespace char.
-            $lookAhead = $i+1;
-            while(($lookAhead < $len) && ($str[$lookAhead] == " ")) {
-                ++$lookAhead;
-            }
-
-            // If the next char is formatting, we're dealing with trailing whitespace.
-            if($str[$lookAhead] == $delim || $str[$lookAhead] == $qual) {
-                $i = $lookAhead-1;  // Jump the pointer ahead to right before the delimiter or qualifier.
-            }
-
-            // Otherwise we're still in the middle of an element, so add the whitespace to the output.
-            else {
-                $word .= $str[$i];  
-            }
-        }
-
-        // If all else fails, add the character to the current element.
-        else {
-            $word .= $str[$i];
-            $lastWasDelim = false;
-        }
-    }
-
-    $out[] = $word;
-    return $out;
-} // csvexplode
-
-/************************************************************
- * Parse tags in a given string
- ************************************************************/
-function parse_tags($tagstr)
-{
-    $fields = array('name', 'operator', 'description', 'opening_hours', 'city', 'street', 'housenumber',
-         'phone', 'email', 'website', 'wikipedia', 'wikipedialt', 'notes', 'height', 'fee',
-         'information', 'wikipediaen', 'phone', 'url', 'postcode', 'image' /* deprecated tag, website should be used*/);
-    $tags = trim($tagstr, '{}');
-    $tags = csvexplode($tags);
-    for($i = 0, $cnt = count($tags);$i < $cnt; $i += 2){
-        $key = $tags[$i];
-        $value = $tags[$i + 1];
-        $tags[$key] = $value;
-        unset($tags[$i], $tags[$i + 1]);
-    }
-    foreach ($fields as $field){
-        $GLOBALS[$field] = '';
-        switch($field){
-            case 'city':
-            case 'street':
-            case 'housenumber':
-            case 'postcode':
-                $GLOBALS[$field] = $tags['addr:' . $field];
-                break;
-            case 'wikipedialt':
-                $GLOBALS['wikipedialt'] = $tags['wikipedia:lt'];
-                break;
-            case 'wikipediaen':
-                $GLOBALS['wikipediaen'] = $tags['wikipedia:en'];
-                break;
-            default:
-                $GLOBALS[$field] = @$tags[$field];
-        }
-    }
-} // parse_tags
-
 /*******************************************************************
  * Add a given string to a description
  ************************************************************/
@@ -213,19 +110,29 @@ function assemble_description()
     }
 
     // Website (according to OSM wiki url tag is deprecated, website tag should be used)
-    if (!empty($website) and substr($website, 1, 4) !== "http") {
+    if (!empty($website) and substr($website, 0, 4) !== "http") {
         $website = "http://" . $website;
     }
     if (!empty($website)) {
-        add_to_description("<a href=\"{$website}\" target=\" blank\">Svetainė</a>");
+        if (strlen($website) > 30) {
+            $url_name = "Svetainė";
+        } else {
+            $url_name = $website;
+        }
+        add_to_description("<a href=\"{$website}\" target=\" blank\">{$url_name}</a>");
     }
 
     // Website (according to OSM wiki url tag is deprecated, website tag should be used)
-    if (!empty($url) and substr($url, 1, 4) !== "http") {
+    if (!empty($url) and substr($url, 0, 4) !== "http") {
         $url = "http://" . $url;
     }
     if (!empty($url)) {
-        add_to_description("<a href=\"{$url}\" target=\" blank\">Svetainė</a>");
+        if (strlen($url) > 30) {
+            $url_name = "Svetainė";
+        } else {
+            $url_name = $url;
+        }
+        add_to_description("<a href=\"{$url}\" target=\" blank\">{$url_name}</a>");
     }
 
     // Wikipedia lt
@@ -272,6 +179,9 @@ function fetch_poi($left, $top, $right, $bottom, $p_type)
 {
     global $p_title, $p_description, $image;
     global $link;
+    global $name, $operator, $description, $opening_hours, $city, $street, $housenumber,
+           $information, $wikipedia, $wikipedialt, $wikipediaen, $phone, $email, $website,
+           $height, $fee, $url, $image, $postcode; // tags
     // Contruct a query part filtering out only required POI's
     debug("poi type is " . $p_type);
     switch ($p_type) {
@@ -307,99 +217,136 @@ function fetch_poi($left, $top, $right, $bottom, $p_type)
 
         switch($types[$i]){
             case 'history':
-                $filter = "p.historic in ('hill_fort', 'archaeological_site', 'castle', 'ruins')";
+                $filter = "historic in ('hill_fort', 'archaeological_site', 'castle', 'ruins')";
                 $tp = 'HIS';
                 break;
             case 'monument':
-                $filter = "p.historic in ('monument', 'memorial')";
+                $filter = "historic in ('monument', 'memorial')";
                 $tp = 'MON';
                 break;
             case 'tower':
-                $filter = "p.man_made = 'tower' and \"tower:type\" = 'observation'";
+                $filter = "man_made = 'tower' and \"tower:type\" = 'observation'";
                 $tp = 'TOW';
                 break;
             case 'attraction':
-                $filter = "p.tourism in ('attraction', 'viewpoint')";
+                // some historic poi's are also marked as attractions, those will not be fetched as "attractions"
+                $filter = "tourism in ('attraction', 'viewpoint') and historic not in ('hill_fort', 'archaeological_site', 'castle', 'ruins', 'monument', 'memorial')";
                 $tp = 'ATT';
                 break;
             case 'museum':
-                $filter = "p.tourism = 'museum'";
+                $filter = "tourism = 'museum'";
                 $tp = 'MUS';
                 break;
             case 'picnic_fireplace':
-                $filter = "p.tourism = 'picnic_site' and p.fireplace = 'yes'";
+                $filter = "tourism = 'picnic_site' and fireplace = 'yes'";
                 $tp = 'PIF';
                 break;
             case 'picnic_nofireplace':
-                $filter = "p.tourism = 'picnic_site' and (p.fireplace is null or p.fireplace = 'no')";
+                $filter = "tourism = 'picnic_site' and (fireplace is null or fireplace = 'no')";
                 $tp = 'PIC';
                 break;
             case 'camping':
-                $filter = "p.tourism = 'camp_site'";
+                $filter = "tourism = 'camp_site'";
                 $tp = 'CAM';
                 break;
             case 'hostel':
-                $filter = "p.tourism in ('chalet', 'hostel', 'guest_house')";
+                $filter = "tourism in ('chalet', 'hostel', 'guest_house')";
                 $tp = 'HOS';
                 break;
             case 'fuel':
-                $filter = "p.amenity = 'fuel'";
+                $filter = "amenity = 'fuel'";
                 $tp = 'FUE';
                 break;
             case 'cafe':
-                $filter = "p.amenity = 'cafe'";
+                $filter = "amenity = 'cafe'";
                 $tp = 'CAF';
                 break;
             case 'fast_food':
-                $filter = "p.amenity = 'fast_food'";
+                $filter = "amenity = 'fast_food'";
                 $tp = 'FAS';
                 break;
             case 'restaurant':
-                $filter = "p.amenity = 'restaurant'";
+                $filter = "amenity = 'restaurant'";
                 $tp = 'RES';
                 break;
             case 'pub':
-                $filter = "p.amenity in ('pub', 'bar')";
+                $filter = "amenity in ('pub', 'bar')";
                 $tp = 'PUB';
                 break;
             case 'hotel':
-                $filter = "p.tourism = 'hotel'";
+                $filter = "tourism = 'hotel'";
                 $tp = 'HOT';
                 break;
             case 'information':
-                $filter = "p.tourism = 'information'";
+                $filter = "tourism = 'information'";
                 $tp = 'INF';
                 break;
             case 'theatre':
-                $filter = "p.amenity = 'theatre'";
+                $filter = "amenity = 'theatre'";
                 $tp = 'THE';
                 break;
             case 'cinema':
-                $filter = "p.amenity = 'cinema'";
+                $filter = "amenity = 'cinema'";
                 $tp = 'CIN';
                 break;
             case 'speed_camera':
-                $filter = "p.highway = 'speed_camera'";
+                $filter = "highway = 'speed_camera'";
                 $tp = 'SPE';
                 break;
             case 'arts':
-                $filter = "p.amenity = 'arts_centre'";
+                $filter = "amenity = 'arts_centre'";
                 $tp = 'ART';
                 break;
             default:
                 $filter = '1';
         }
 
-        $query = "SELECT ST_X(ST_Transform(way,4326)) lat, ST_Y(ST_Transform(way,4326)) lon, n.tags
-			FROM planet_osm_point p
-			LEFT JOIN planet_osm_nodes n ON n.id = p.osm_id
-			WHERE p.way && ST_Transform(SetSRID('BOX3D({$left} {$top},{$right} {$bottom})'::box3d,4326), 900913)
+        $query = "SELECT ST_X(ST_Transform(way,4326)) lat, ST_Y(ST_Transform(way,4326)) lon
+                        ,name
+                        ,operator
+                        ,description
+                        ,opening_hours
+                        ,\"addr:city\"
+                        ,\"addr:street\"
+                        ,\"addr:housenumber\"
+                        ,information
+                        ,wikipedia
+                        ,\"wikipedia:lt\"
+                        ,\"wikipedia:en\"
+                        ,phone
+                        ,email
+                        ,website
+                        ,height
+                        ,fee
+                        ,url
+                        ,image
+                        ,\"addr:postcode\"
+                        FROM planet_osm_point
+                        WHERE way && ST_Transform(SetSRID('BOX3D({$left} {$top},{$right} {$bottom})'::box3d,4326), 900913)
                      AND {$filter}
                   union all
-                  SELECT ST_X(ST_Transform(st_centroid(way),4326)) lat, ST_Y(ST_Transform(st_centroid(way),4326)) lon, n.tags
-			FROM planet_osm_polygon p
-			LEFT JOIN planet_osm_ways n ON n.id = p.osm_id
-			WHERE p.way && ST_Transform(SetSRID('BOX3D({$left} {$top},{$right} {$bottom})'::box3d,4326), 900913)
+                  SELECT ST_X(ST_Transform(st_centroid(way),4326)) lat, ST_Y(ST_Transform(st_centroid(way),4326)) lon
+                        ,name
+                        ,operator
+                        ,description
+                        ,opening_hours
+                        ,\"addr:city\"
+                        ,\"addr:street\"
+                        ,\"addr:housenumber\"
+                        ,information
+                        ,wikipedia
+                        ,\"wikipedia:lt\"
+                        ,\"wikipedia:en\"
+                        ,phone
+                        ,email
+                        ,website
+                        ,height
+                        ,fee
+                        ,url
+                        ,image
+                        ,\"addr:postcode\"
+                        FROM planet_osm_polygon
+                        WHERE way && ST_Transform(SetSRID('BOX3D({$left} {$top},{$right} {$bottom})'::box3d,4326), 900913)
                      AND {$filter}";
         debug('Query is: ' . $query);
         $res = pg_query($link, $query);
@@ -410,7 +357,25 @@ function fetch_poi($left, $top, $right, $bottom, $p_type)
         }
         while ($row = pg_fetch_row($res)) {
             debug("lat:" . $row[0] . ", lon:" . $row[1] . ", tags:" . $row[2]);
-            parse_tags($row[2]);
+            $name = $row[2];
+            $operator = $row[3];
+            $description = $row[4];
+            $opening_hours = $row[5];
+            $city = $row[6];
+            $street = $row[7];
+            $housenumber = $row[8];
+            $information = $row[9];
+            $wikipedia = $row[10];
+            $wikipedialt = $row[11];
+            $wikipediaen = $row[12];
+            $phone = $row[13];
+            $email = $row[14];
+            $website = $row[15];
+            $height = $row[16];
+            $fee = $row[17];
+            $url = $row[18];
+            $image = $row[19];
+            $postcode = $row[20];
             $default_title = "";
             switch($types[$i]) {
                 case 'fuel':
