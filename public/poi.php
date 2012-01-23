@@ -201,7 +201,7 @@ function fetch_poi($left, $top, $right, $bottom, $p_type)
             $p_type = 'fuel|speed_camera';
             break;
         case 'groupCulture':
-            $p_type = 'theatre|cinema|arts';
+            $p_type = 'theatre|cinema|arts|library';
             break;
     }
     $types = explode("|", $p_type);
@@ -215,50 +215,61 @@ function fetch_poi($left, $top, $right, $bottom, $p_type)
     while ($i < count($types)) {
         debug("processing type=" . $types[$i]);
 
-        switch($types[$i]){
+        switch($types[$i]) {
             case 'history':
-                $filter = "historic in ('hill_fort', 'archaeological_site', 'castle', 'ruins')";
+                $filter = "historic is not null and historic not in ('monument', 'memorial')";
+                $default_title = 'Istorinė vieta';
                 $tp = 'HIS';
                 break;
             case 'monument':
                 $filter = "historic in ('monument', 'memorial')";
+                $default_title = 'Paminklas';
                 $tp = 'MON';
                 break;
             case 'tower':
                 $filter = "man_made = 'tower' and \"tower:type\" = 'observation'";
+                $default_title = 'Bokštas';
                 $tp = 'TOW';
                 break;
             case 'attraction':
                 // some historic poi's are also marked as attractions, those will not be fetched as "attractions"
-                $filter = "tourism in ('attraction', 'viewpoint') and historic not in ('hill_fort', 'archaeological_site', 'castle', 'ruins', 'monument', 'memorial')";
+                $filter = "tourism in ('attraction', 'viewpoint') and historic is null";
+                $default_title = 'Lankytina vieta';
                 $tp = 'ATT';
                 break;
             case 'museum':
                 $filter = "tourism = 'museum'";
+                $default_title = 'Muziejus';
                 $tp = 'MUS';
                 break;
             case 'picnic_fireplace':
                 $filter = "tourism = 'picnic_site' and fireplace = 'yes'";
+                $default_title = 'Poilsiavietė su laužu';
                 $tp = 'PIF';
                 break;
             case 'picnic_nofireplace':
                 $filter = "tourism = 'picnic_site' and (fireplace is null or fireplace = 'no')";
+                $default_title = 'Poilsiavietė';
                 $tp = 'PIC';
                 break;
             case 'camping':
                 $filter = "tourism = 'camp_site'";
+                $default_title = 'Kempingas';
                 $tp = 'CAM';
                 break;
             case 'hostel':
                 $filter = "tourism in ('chalet', 'hostel', 'guest_house')";
+                $default_title = 'Kaimo sodyba';
                 $tp = 'HOS';
                 break;
             case 'fuel':
                 $filter = "amenity = 'fuel'";
+                $default_title = 'Kolonėlė';
                 $tp = 'FUE';
                 break;
             case 'cafe':
                 $filter = "amenity = 'cafe'";
+                $default_title = 'Kavinė';
                 $tp = 'CAF';
                 break;
             case 'fast_food':
@@ -267,38 +278,51 @@ function fetch_poi($left, $top, $right, $bottom, $p_type)
                 break;
             case 'restaurant':
                 $filter = "amenity = 'restaurant'";
+                $default_title = 'Restoranas';
                 $tp = 'RES';
                 break;
             case 'pub':
                 $filter = "amenity in ('pub', 'bar')";
+                $default_title = 'Aludė';
                 $tp = 'PUB';
                 break;
             case 'hotel':
                 $filter = "tourism = 'hotel'";
+                $default_title = 'Viešbutis';
                 $tp = 'HOT';
                 break;
             case 'information':
                 $filter = "tourism = 'information'";
+                $default_title = 'Informacija';
                 $tp = 'INF';
                 break;
             case 'theatre':
                 $filter = "amenity = 'theatre'";
+                $default_title = 'Teatras';
                 $tp = 'THE';
                 break;
             case 'cinema':
                 $filter = "amenity = 'cinema'";
+                $default_title = 'Kino teatras';
                 $tp = 'CIN';
                 break;
             case 'speed_camera':
                 $filter = "highway = 'speed_camera'";
+                $default_title = 'Greičio kamera';
                 $tp = 'SPE';
                 break;
             case 'arts':
                 $filter = "amenity = 'arts_centre'";
                 $tp = 'ART';
                 break;
+            case 'library':
+                $filter = "amenity = 'library'";
+                $default_title = 'Biblioteka';
+                $tp = 'LIB';
+                break;
             default:
-                $filter = '1';
+                $filter = '1=0'; // no records will be returned
+                $default_title = 'Nežinomas taškas';
         }
 
         $query = "SELECT ST_X(ST_Transform(way,4326)) lat, ST_Y(ST_Transform(way,4326)) lon
@@ -376,41 +400,6 @@ function fetch_poi($left, $top, $right, $bottom, $p_type)
             $url = $row[18];
             $image = $row[19];
             $postcode = $row[20];
-            $default_title = "";
-            switch($types[$i]) {
-                case 'fuel':
-                    $default_title = 'Kolonėlė';
-                    break;
-                case 'cafe':
-                    $default_title = 'Kavinė';
-                    break;
-                case 'hotel':
-                    $default_title = 'Viešbutis';
-                    break;
-                case 'hostel':
-                    $default_title = 'Kaimo sodyba';
-                    break;
-                case 'picnic_nofireplace':
-                    $default_title = 'Poilsiavietė';
-                    break;
-                case 'picnic_fireplace':
-                    $default_title = 'Poilsiavietė su laužu';
-                    break;
-                case 'pub':
-                    $default_title = 'Aludė';
-                    break;
-                case 'camping':
-                    $default_title = 'Kempingas';
-                    break;
-                case 'museum':
-                    $default_title = 'Muziejus';
-                    break;
-                case 'information':
-                    $default_title = 'Informacija';
-                    break;
-                default:
-                    $default_title = 'Nežinomas taškas';
-            }
             assemble_title($default_title);
             assemble_description();
 
