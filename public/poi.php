@@ -175,7 +175,7 @@ function assemble_description()
  *   cafe - amenity=cafe
  *   hotel - tourism=hotel
  ************************************************************/
-function fetch_poi($left, $top, $right, $bottom, $p_type)
+function fetch_poi($left, $top, $right, $bottom, $p_type, $p_format)
 {
     global $p_title, $p_description, $image;
     global $link;
@@ -379,6 +379,19 @@ function fetch_poi($left, $top, $right, $bottom, $p_type)
             throw new Exception(pg_last_error($link));
             exit;
         }
+        if ($p_format === "kml") {
+            // Creates the KML/XML Document.
+            $dom = new DOMDocument('1.0', 'UTF-8');
+
+            // Creates the root KML element and appends it to the root document.
+            //$node = $dom->createElementNS('http://earth.google.com/kml/2.1', 'kml');
+            $node = $dom->createElementNS('http://www.opengis.net/kml/2.2', 'kml');
+            $parNode = $dom->appendChild($node);
+
+            // Creates a KML Document element and append it to the KML element.
+            $dnode = $dom->createElement('Document');
+            $docNode = $parNode->appendChild($dnode);
+        }
         while ($row = pg_fetch_row($res)) {
             debug("lat:" . $row[0] . ", lon:" . $row[1] . ", tags:" . $row[2]);
             $name = $row[2];
@@ -403,29 +416,58 @@ function fetch_poi($left, $top, $right, $bottom, $p_type)
             assemble_title($default_title);
             assemble_description();
 
-            // add data to future json
-            $latlon = array($row[0],$row[1]);
+            if ($p_format === "geojson") {
+                // add data to future json
+                $latlon = array($row[0],$row[1]);
 
-            $arr[] = array(
-                'geometry' => array(
-                    'type' => 'Point',
-                    'coordinates' => $latlon,
-                ),
-                'type' => 'Feature',
-                'properties' => array(
-                    'tp' => $tp,
-                    'title' => $p_title,
-                    'description' => $p_description,
-                    'image' => $image,
-                ),
-                'id' => $id,
-            );
+                $arr[] = array(
+                    'geometry' => array(
+                        'type' => 'Point',
+                        'coordinates' => $latlon,
+                    ),
+                    'type' => 'Feature',
+                    'properties' => array(
+                        'tp' => $tp,
+                        'title' => $p_title,
+                        'description' => $p_description,
+                        'image' => $image,
+                    ),
+                    'id' => $id,
+                );
+            } else {
+                // Creates a Placemark and append it to the Document.
+                $node = $dom->createElement('Placemark');
+                $placeNode = $docNode->appendChild($node);
+
+                // Creates an id attribute and assign it the value of id column.
+                $placeNode->setAttribute('id', 'placemark' . $id);
+
+                // Create name, and description elements and assigns them the values of the name and address columns from the results.
+                $nameNode = $dom->createElement('name',/*htmlentities(*/$p_title . $p_description/*)*/);
+                $placeNode->appendChild($nameNode);
+
+                // Creates a Point element.
+                $pointNode = $dom->createElement('Point');
+                $placeNode->appendChild($pointNode);
+
+                // Creates a coordinates element and gives it the value of the lng and lat columns from the results.
+                $coorStr = $row[1] . ','  . $row[0];
+                $coorNode = $dom->createElement('coordinates', $coorStr);
+                $pointNode->appendChild($coorNode);
+            }
             $id++;
         }
         $i++;
     } // while loop through all type values
-    header('Content-type: application/json; charset=UTF-8');
-    echo '{"type":"FeatureCollection","features":', json_encode($arr), '}';
+
+    if ($p_format === "geojson") {
+        header('Content-type: application/json; charset=UTF-8');
+        echo '{"type":"FeatureCollection","features":', json_encode($arr), '}';
+    } else /* KML */ {
+        $kmlOutput = $dom->saveXML();
+        header('Content-type: application/vnd.google-earth.kml+xml');
+        echo $kmlOutput;
+    }
 } // fetch_poi
 
 // respond to preflights
@@ -493,6 +535,12 @@ if ($type === null) {
   $type = "fuel"; // default poi type is fuel
 }
 
+// Result format (geojson|kml)
+$format = $_GET["format"];
+if ($format === null) {
+  $format = "geojson"; // default format is geoJSON
+}
+
 $config = require './config.php';
 $link = pg_connect(vsprintf('host=%s port=%u dbname=%s user=%s password=%s', $config['resource']['db']));
 if (!$link) {
@@ -500,6 +548,6 @@ if (!$link) {
     die;
 }
 
-fetch_poi($left, $top, $right, $bottom, $type);
+fetch_poi($left, $top, $right, $bottom, $type, $format);
 
 pg_close($link);
