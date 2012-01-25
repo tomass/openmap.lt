@@ -451,7 +451,7 @@ function fetch_poi($left, $top, $right, $bottom, $p_type, $p_format)
                 $placeNode->appendChild($pointNode);
 
                 // Creates a coordinates element and gives it the value of the lng and lat columns from the results.
-                $coorStr = $row[1] . ','  . $row[0];
+                $coorStr = $row[0] . ','  . $row[1];
                 $coorNode = $dom->createElement('coordinates', $coorStr);
                 $pointNode->appendChild($coorNode);
             }
