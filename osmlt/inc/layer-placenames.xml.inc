@@ -118,7 +118,7 @@
 <Style name="village">
     <Rule>
       <Filter>[place] = 'village' or [place]='large_village'</Filter>
-      &maxscale_zoom12;
+      &maxscale_zoom11;
       &minscale_zoom14;
       <TextSymbolizer fontset-name="book-fonts" size="10" fill="#000" halo-radius="2" wrap-width="0">[name]</TextSymbolizer>
     </Rule>
@@ -131,7 +131,7 @@
 <Style name="hamlet">
     <Rule>
       <Filter>[place] = 'hamlet' or [place] = 'locality' or [place] = 'isolated_dwelling' or [place] = 'farm'</Filter>
-      &maxscale_zoom14;
+      &maxscale_zoom13;
       &minscale_zoom15;
       <TextSymbolizer fontset-name="book-fonts" size="8" fill="#000" halo-radius="1" wrap-width="0">[name]</TextSymbolizer>
     </Rule>
@@ -178,7 +178,7 @@
       &datasource-settings;
     </Datasource>
 </Layer>
-<Layer name="placenames-small" maxzoom="&max_zoom12;" cache-features="on">
+<Layer name="placenames-small" maxzoom="&max_zoom11;" cache-features="on">
     <StyleName>suburb</StyleName>
     <StyleName>village</StyleName>
     <StyleName>hamlet</StyleName>
