@@ -149,16 +149,17 @@
       &maxscale_zoom14;
       <PolygonPatternSymbolizer file="&symbols;/allotments.png"/>
     </Rule>
+
     <Rule>
       <Filter>[landuse] = 'forest'</Filter>
       &maxscale_zoom8;
-      &minscale_zoom13;
-      <PolygonSymbolizer fill="#bdef9c"/>
+      &minscale_zoom9;
+      <PolygonSymbolizer fill="#c6deb5"/>
     </Rule>
     <Rule>
       <Filter>[landuse] = 'forest'</Filter>
-      &maxscale_zoom14;
-      <PolygonPatternSymbolizer file="&symbols;/forest_light.png"/>
+      &maxscale_zoom10;
+      <PolygonSymbolizer fill="#a7cc95"/>
     </Rule>
     <Rule>
       <Filter>[landuse]='farmyard'</Filter>

@@ -77,15 +77,15 @@
 <!ENTITY motorway_col "#ff9900">
 <!ENTITY motorway_cas_col "#ff0000">
 <!ENTITY trunk_col "#ffbb50">
-<!ENTITY trunk_cas_col "#ff0000">
-<!ENTITY primary_col "#ffcc70">
-<!ENTITY primary_cas_col "#ff0000">
-<!ENTITY secondary_col "#ffee90">
-<!ENTITY secondary_cas_col "#ff0000">
+<!ENTITY trunk_cas_col "#b48545">
+<!ENTITY primary_col "#fef973">
+<!ENTITY primary_cas_col "#e1cb87">
+<!ENTITY secondary_col "#fefdbc">
+<!ENTITY secondary_cas_col "#d9c896">
 <!ENTITY tertiary_col "#ffffa0">
 <!ENTITY tertiary_cas_col "#ff5555">
 
-<!ENTITY color_water "#c5e0f0">
+<!ENTITY color_water "#90a7c6">
 
 <!ENTITY % layers SYSTEM "layers.xml.inc">
 %layers;

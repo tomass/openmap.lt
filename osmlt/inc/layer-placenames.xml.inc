@@ -107,12 +107,12 @@
       <Filter>[place] = 'suburb'</Filter>
       &maxscale_zoom12;
       &minscale_zoom13;
-      <TextSymbolizer fontset-name="book-fonts" size="10" fill="#000" halo-radius="2" wrap-width="0">[name]</TextSymbolizer>
+      <TextSymbolizer fontset-name="book-fonts" size="10" fill="#000" halo-radius="1" wrap-width="0">[name]</TextSymbolizer>
     </Rule>
     <Rule>
       <Filter>[place] = 'suburb'</Filter>
       &maxscale_zoom14;
-      <TextSymbolizer fontset-name="book-fonts" size="13" fill="#777777" halo-radius="2" wrap-width="0">[name]</TextSymbolizer>
+      <TextSymbolizer fontset-name="book-fonts" size="13" fill="#777777" halo-radius="1" wrap-width="0">[name]</TextSymbolizer>
     </Rule>
 </Style>
 <Style name="village">
@@ -120,12 +120,12 @@
       <Filter>[place] = 'village' or [place]='large_village'</Filter>
       &maxscale_zoom11;
       &minscale_zoom14;
-      <TextSymbolizer fontset-name="book-fonts" size="10" fill="#000" halo-radius="2" wrap-width="0">[name]</TextSymbolizer>
+      <TextSymbolizer fontset-name="book-fonts" size="10" fill="#000" halo-radius="1" wrap-width="0">[name]</TextSymbolizer>
     </Rule>
     <Rule>
       <Filter>[place] = 'village' or [place]='large_village'</Filter>
       &maxscale_zoom15;
-      <TextSymbolizer fontset-name="book-fonts" size="12" fill="#777777" halo-radius="2" wrap-width="0">[name]</TextSymbolizer>
+      <TextSymbolizer fontset-name="book-fonts" size="12" fill="#777777" halo-radius="1" wrap-width="0">[name]</TextSymbolizer>
     </Rule>
 </Style>
 <Style name="hamlet">

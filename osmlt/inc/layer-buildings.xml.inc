@@ -25,23 +25,20 @@
 
 <Style name="buildings">
     <Rule>
-      <Filter>[building] = 'INT-light'</Filter>
-      &maxscale_zoom12;
-      <PolygonSymbolizer fill="#bca9a9" fill-opacity="0.7"/>
+        <Filter>[building] = 'INT-light'</Filter>
+        &maxscale_zoom13;
+        <PolygonSymbolizer fill="#c6c5c3" fill-opacity="0.7"/>
+        <LineSymbolizer stroke="#8d8a8a" stroke-width="0.5"/>
     </Rule>
     <Rule>
-      <Filter>[building] != 'INT-light' and [building] != ''</Filter>
-      &maxscale_zoom12;
-      <PolygonSymbolizer fill="#bca9a9" fill-opacity="0.9"/>
-    </Rule>
-    <Rule>
-      <Filter>[building] != 'INT-light' and [building] != ''</Filter>
-      &maxscale_zoom16;
-      <LineSymbolizer stroke="#330066" stroke-width="0.2"/>
+        <Filter>[building] != 'INT-light' and [building] != ''</Filter>
+        &maxscale_zoom13;
+        <PolygonSymbolizer fill="#c6c5c3" fill-opacity="0.9"/>
+        <LineSymbolizer stroke="#8d8a8a" stroke-width="0.5"/>
     </Rule>
     <Rule>
       <Filter>[aeroway] = 'terminal'</Filter>
-      &maxscale_zoom12;
+      &maxscale_zoom13;
       <PolygonSymbolizer fill="#cc99ff"/>
     </Rule>
     <Rule>
@@ -68,7 +65,7 @@
 
 <!-- Render the other building types. Some sql filtering is needed to exclude
      any type not already specifically rendered in buildings-lz. -->
-<Layer name="buildings" maxzoom="&max_zoom10;">
+<Layer name="buildings" maxzoom="&max_zoom13;">
     <StyleName>buildings</StyleName>
     <Datasource>
       <Parameter name="table">
