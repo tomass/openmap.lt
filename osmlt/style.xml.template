@@ -3,7 +3,7 @@
     <!ENTITY % entities SYSTEM "inc/entities.xml.inc">
     %entities;
 ]>
-<Map srs="&srs900913;" background-color="#FFFFFF">
+<Map srs="&srs900913;" background-color="#f5f1e8">
 &fontset-settings;
 &layer-shapefiles;
 &layer-landcover;
