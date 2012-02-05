@@ -576,21 +576,34 @@
     <Rule>
       <Filter>[highway] = 'primary_link' and not [tunnel] = 'yes'</Filter>
       &maxscale_zoom13;      
+      &minscale_zoom13;
+      <LineSymbolizer stroke="&primary_cas_col;" stroke-width="3" stroke-linejoin="round"/>
+    </Rule>
+    <Rule>
+      <Filter>[highway] = 'primary_link' and not [tunnel] = 'yes'</Filter>
+      &maxscale_zoom14;      
       &minscale_zoom14;
-      <LineSymbolizer stroke="&primary_cas_col;" stroke-width="7.5" stroke-linejoin="round"/>
+      <LineSymbolizer stroke="&primary_cas_col;" stroke-width="4" stroke-linejoin="round"/>
     </Rule>
     <Rule>
       <Filter>[highway] = 'primary_link' and not [tunnel] = 'yes'</Filter>
       &maxscale_zoom15;      
+      &minscale_zoom15;
+      <LineSymbolizer stroke="&primary_cas_col;" stroke-width="5" stroke-linejoin="round"/>
+    </Rule>
+    <Rule>
+      <Filter>[highway] = 'primary_link' and not [tunnel] = 'yes'</Filter>
+      &maxscale_zoom16;
       &minscale_zoom16;
-      <LineSymbolizer stroke="&primary_cas_col;" stroke-width="11.5" stroke-linejoin="round"/>
+      <LineSymbolizer stroke="&primary_cas_col;" stroke-width="8" stroke-linejoin="round"/>
     </Rule>
     <Rule>
       <Filter>[highway] = 'primary_link' and not [tunnel] = 'yes'</Filter>
       &maxscale_zoom17;      
       &minscale_zoom18;
-      <LineSymbolizer stroke="&primary_cas_col;" stroke-width="16" stroke-linejoin="round"/>
+      <LineSymbolizer stroke="&primary_cas_col;" stroke-width="14" stroke-linejoin="round"/>
     </Rule>
+
     <Rule>
       <Filter>[highway] = 'secondary_link' and not [tunnel] = 'yes'</Filter>
       &maxscale_zoom12;
@@ -707,19 +720,25 @@
       <Filter>[highway] = 'primary' and not [tunnel] = 'yes'</Filter>
       &maxscale_zoom14;      
       &minscale_zoom14;
-      <LineSymbolizer stroke="&primary_cas_col;" stroke-width="5.5" stroke-linejoin="round"/>
+      <LineSymbolizer stroke="&primary_cas_col;" stroke-width="6" stroke-linejoin="round"/>
     </Rule>
     <Rule>
       <Filter>[highway] = 'primary' and not [tunnel] = 'yes'</Filter>
       &maxscale_zoom15;      
-      &minscale_zoom16;
+      &minscale_zoom15;
       <LineSymbolizer stroke="&primary_cas_col;" stroke-width="7.5" stroke-linejoin="round"/>
+    </Rule>
+    <Rule>
+      <Filter>[highway] = 'primary' and not [tunnel] = 'yes'</Filter>
+      &maxscale_zoom16;
+      &minscale_zoom16;
+      <LineSymbolizer stroke="&primary_cas_col;" stroke-width="14" stroke-linejoin="round"/>
     </Rule>
     <Rule>
       <Filter>[highway] = 'primary' and not [tunnel] = 'yes'</Filter>
       &maxscale_zoom17;      
       &minscale_zoom18;
-      <LineSymbolizer stroke="&primary_cas_col;" stroke-width="16" stroke-linejoin="round"/>
+      <LineSymbolizer stroke="&primary_cas_col;" stroke-width="16.5" stroke-linejoin="round"/>
     </Rule>
 
     <Rule>
@@ -772,6 +791,13 @@
       <LineSymbolizer stroke="&tertiary_cas_col;" stroke-width="11" stroke-linejoin="round" stroke-linecap="round"/>
     </Rule>
     <Rule>
+      <Filter>([highway] = 'tertiary') and not [tunnel]='yes'</Filter>
+      &maxscale_zoom17;
+      &minscale_zoom18;
+      <LineSymbolizer stroke="&tertiary_cas_col;" stroke-width="16" stroke-linejoin="round" stroke-linecap="round"/>
+    </Rule>
+
+    <Rule>
       <Filter>([highway] = 'residential' or [highway] = 'unclassified' or [highway] = 'road') and not [tunnel]='yes'</Filter>
       &maxscale_zoom13;
       &minscale_zoom13;
@@ -796,16 +822,10 @@
       <LineSymbolizer stroke="#bbb" stroke-width="11" stroke-linejoin="round" stroke-linecap="round"/>
     </Rule>
     <Rule>
-      <Filter>([highway] = 'tertiary') and not [tunnel]='yes'</Filter>
-      &maxscale_zoom17;
-      &minscale_zoom18;
-      <LineSymbolizer stroke="&tertiary_cas_col;" stroke-width="16" stroke-linejoin="round" stroke-linecap="round"/>
-    </Rule>
-    <Rule>
       <Filter>([highway] = 'residential' or [highway] = 'unclassified' or [highway] = 'road') and not [tunnel]='yes'</Filter>
       &maxscale_zoom17;
       &minscale_zoom18;
-      <LineSymbolizer stroke="#bbb" stroke-width="16" stroke-linejoin="round" stroke-linecap="round"/>
+      <LineSymbolizer stroke="#bbb" stroke-width="14.5" stroke-linejoin="round" stroke-linecap="round"/>
     </Rule>
     
     <Rule>
@@ -973,22 +993,35 @@
     <Rule>
       <Filter>[highway] = 'primary_link' and not [tunnel] = 'yes'</Filter>
       &maxscale_zoom13;
+      &minscale_zoom13;
+      <LineSymbolizer stroke="&primary_col;" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+    </Rule>
+    <Rule>
+      <Filter>[highway] = 'primary_link' and not [tunnel] = 'yes'</Filter>
+      &maxscale_zoom14;
       &minscale_zoom14;
-      <LineSymbolizer stroke="&primary_col;" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/>
+      <LineSymbolizer stroke="&primary_col;" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
     </Rule>
     <Rule>
       <Filter>[highway] = 'primary_link' and not [tunnel] = 'yes'</Filter>
       &maxscale_zoom15;
+      &minscale_zoom15;
+      <LineSymbolizer stroke="&primary_col;" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+    </Rule>
+    <Rule>
+      <Filter>[highway] = 'primary_link' and not [tunnel] = 'yes'</Filter>
+      &maxscale_zoom16;
       &minscale_zoom16;
-      <LineSymbolizer stroke="&primary_col;" stroke-width="11" stroke-linejoin="round" stroke-linecap="round"/>
+      <LineSymbolizer stroke="&primary_col;" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
     </Rule>
     <Rule>
       <Filter>[highway] = 'primary_link' and not [tunnel] = 'yes'</Filter>
       &maxscale_zoom17;
       &minscale_zoom18;
-      <LineSymbolizer stroke="&primary_col;" stroke-width="15.5" stroke-linejoin="round" stroke-linecap="round"/>
+      <LineSymbolizer stroke="&primary_col;" stroke-width="12" stroke-linejoin="round" stroke-linecap="round"/>
     </Rule>
-   <Rule>
+
+    <Rule>
       <Filter>[highway] = 'secondary_link' and not [tunnel]='yes'</Filter>
       &maxscale_zoom12;
       &minscale_zoom12;
@@ -1237,20 +1270,32 @@
     <Rule>
       <Filter>[highway] = 'primary' and not [tunnel] = 'yes'</Filter>
       &maxscale_zoom13;
-      &minscale_zoom14;
-      <LineSymbolizer stroke="&primary_col;" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+      &minscale_zoom13;
+      <LineSymbolizer stroke="&primary_col;" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
     </Rule> 
     <Rule>
       <Filter>[highway] = 'primary' and not [tunnel] = 'yes'</Filter>
+      &maxscale_zoom14;
+      &minscale_zoom14;
+      <LineSymbolizer stroke="&primary_col;" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+    </Rule>
+    <Rule>
+      <Filter>[highway] = 'primary' and not [tunnel] = 'yes'</Filter>
       &maxscale_zoom15;
+      &minscale_zoom15;
+      <LineSymbolizer stroke="&primary_col;" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+    </Rule>
+    <Rule>
+      <Filter>[highway] = 'primary' and not [tunnel] = 'yes'</Filter>
+      &maxscale_zoom16;
       &minscale_zoom16;
-      <LineSymbolizer stroke="&primary_col;" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+      <LineSymbolizer stroke="&primary_col;" stroke-width="12" stroke-linejoin="round" stroke-linecap="round"/>
     </Rule>
     <Rule>
       <Filter>[highway] = 'primary' and not [tunnel] = 'yes'</Filter>
       &maxscale_zoom17;
       &minscale_zoom18;
-      <LineSymbolizer stroke="&primary_col;" stroke-width="15" stroke-linejoin="round" stroke-linecap="round"/>
+      <LineSymbolizer stroke="&primary_col;" stroke-width="14" stroke-linejoin="round" stroke-linecap="round"/>
     </Rule>
 
     <Rule>
@@ -1316,7 +1361,7 @@
     </Rule>
 
     <Rule>
-      &maxscale_zoom13;
+      &maxscale_zoom14;
       &minscale_zoom18;
       <Filter>[railway] = 'rail' and [tunnel] = 'yes'</Filter>
       <LineSymbolizer stroke="#ffffff" stroke-width="3" stroke-linejoin="round" stroke-dasharray="1,9"/>
@@ -1332,13 +1377,6 @@
       &minscale_zoom18;
       <Filter>([railway] = 'disused' or [railway] = 'abandoned' or [railway]='construction') and not [highway] != ''</Filter>
       <LineSymbolizer stroke="grey" stroke-width="2" stroke-linejoin="round" stroke-dasharray="2,4"/>
-    </Rule>
-    <Rule>
-      &maxscale_zoom13;
-      &minscale_zoom13;
-      <Filter>[railway] = 'rail' and not [tunnel] = 'yes'</Filter>
-      <LineSymbolizer stroke="#999999" stroke-width="3" stroke-linejoin="round"/>
-      <LineSymbolizer stroke="white" stroke-width="1" stroke-linejoin="round" stroke-dasharray="8,12"/>
     </Rule>
     <Rule>
       &maxscale_zoom14;
@@ -1488,8 +1526,9 @@
       <Filter>([highway] = 'residential' or [highway] = 'unclassified') and not [tunnel] = 'yes'</Filter>
       &maxscale_zoom17;
       &minscale_zoom18;
-      <LineSymbolizer stroke="#fff" stroke-width="13" stroke-linejoin="round" stroke-linecap="round"/>
+      <LineSymbolizer stroke="#fff" stroke-width="12" stroke-linejoin="round" stroke-linecap="round"/>
     </Rule>
+
     <Rule>
       <Filter>[highway] = 'living_street'</Filter>
       &maxscale_zoom12;
@@ -1877,16 +1916,10 @@
     </Rule>
 </Style>
 <Style name="bridges_casing">
-     <Rule>
-      <Filter>[highway] = 'motorway' or [highway]='motorway_link'</Filter>
-      &maxscale_zoom12;
-      &minscale_zoom12;
-        <LineSymbolizer stroke="#506077" stroke-width="3"/>
-    </Rule>
     <Rule>
-      <Filter>[highway] = 'motorway' or [highway]='motorway_link'</Filter>
-      &maxscale_zoom13;
-      &minscale_zoom14;
+        <Filter>[highway] = 'motorway' or [highway]='motorway_link'</Filter>
+        &maxscale_zoom14;
+        &minscale_zoom14;
         <LineSymbolizer stroke="black" stroke-width="6.5"/>
     </Rule>    
     <Rule>
@@ -1901,15 +1934,10 @@
       &minscale_zoom18;
         <LineSymbolizer stroke="black" stroke-width="12"/>
     </Rule>
+
     <Rule>
       <Filter>[highway] = 'trunk' or [highway]='trunk_link'</Filter>
-      &maxscale_zoom12;
-      &minscale_zoom12;
-        <LineSymbolizer stroke="#477147" stroke-width="4"/>
-    </Rule>
-    <Rule>
-      <Filter>[highway] = 'trunk' or [highway]='trunk_link'</Filter>
-      &maxscale_zoom13;
+      &maxscale_zoom14;
       &minscale_zoom14;
         <LineSymbolizer stroke="black" stroke-width="8"/>
     </Rule>
@@ -1925,17 +1953,12 @@
       &minscale_zoom18;
         <LineSymbolizer stroke="black" stroke-width="16"/>
     </Rule>
+
     <Rule>
-      <Filter>[highway] = 'primary' or [highway]='primary_link'</Filter>
-      &maxscale_zoom12;
-      &minscale_zoom12;
-        <LineSymbolizer stroke="#8d4346" stroke-width="4"/>
-    </Rule>
-    <Rule>
-      <Filter>[highway] = 'primary' or [highway]='primary_link'</Filter>
-      &maxscale_zoom13;
-      &minscale_zoom14;
-        <LineSymbolizer stroke="black" stroke-width="8"/>
+        <Filter>[highway] = 'primary' or [highway]='primary_link'</Filter>
+        &maxscale_zoom14;
+        &minscale_zoom14;
+        <LineSymbolizer stroke="black" stroke-width="5.5"/>
     </Rule>
     <Rule>
       <Filter>[highway] = 'primary' or [highway]='primary_link'</Filter>
@@ -1949,9 +1972,10 @@
       &minscale_zoom18;
         <LineSymbolizer stroke="black" stroke-width="16"/>
     </Rule>
+
     <Rule>
       <Filter>[highway] = 'secondary' or [highway]='secondary_link'</Filter>
-      &maxscale_zoom13;
+      &maxscale_zoom14;
       &minscale_zoom14;
       <LineSymbolizer stroke="black" stroke-width="10"/>
     </Rule>
@@ -2094,7 +2118,7 @@
       <LineSymbolizer stroke="black" stroke-width="5.5"/>
     </Rule>
     <Rule>
-      &maxscale_zoom13;
+      &maxscale_zoom14;
       &minscale_zoom18;
       <Filter>[railway] = 'rail'</Filter>
       <LineSymbolizer stroke="black" stroke-width="6.5" stroke-linejoin="round"/>
@@ -2192,13 +2216,13 @@
       <LineSymbolizer stroke="white" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
     </Rule>
     <Rule>
-      &maxscale_zoom13;
+      &maxscale_zoom14;
       &minscale_zoom18;
       <Filter>[railway] = 'rail'</Filter>
       <LineSymbolizer stroke="white" stroke-width="5" stroke-linejoin="round"/>
     </Rule>
     <Rule>
-      &maxscale_zoom13;
+      &maxscale_zoom14;
       &minscale_zoom18;
       <Filter>[railway] = 'INT-spur-siding-yard'</Filter>
       <LineSymbolizer stroke="white" stroke-width="4" stroke-linejoin="round"/>
@@ -2241,15 +2265,9 @@
      </Rule>    
 </Style>
 <Style name="bridges_fill">
-     <Rule>
-      <Filter>[highway] = 'motorway' or [highway]='motorway_link'</Filter>
-      &maxscale_zoom12;
-      &minscale_zoom12;
-      <LineSymbolizer stroke="&motorway_col;" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
-    </Rule>   
     <Rule>
       <Filter>[highway] = 'motorway' or [highway]='motorway_link'</Filter>
-      &maxscale_zoom13;
+      &maxscale_zoom14;
       &minscale_zoom14;
       <LineSymbolizer stroke="&motorway_col;" stroke-width="5.5" stroke-linejoin="round" stroke-linecap="round"/>
     </Rule>   
@@ -2265,15 +2283,10 @@
       &minscale_zoom18;
       <LineSymbolizer stroke="&motorway_col;" stroke-width="10" stroke-linejoin="round" stroke-linecap="round"/>
     </Rule>
+
     <Rule>
       <Filter>[highway] = 'trunk' or [highway]='trunk_link'</Filter>
-      &maxscale_zoom12;
-      &minscale_zoom12;
-      <LineSymbolizer stroke="&trunk_col;" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
-    </Rule>
-    <Rule>
-      <Filter>[highway] = 'trunk' or [highway]='trunk_link'</Filter>
-      &maxscale_zoom13;
+      &maxscale_zoom14;
       &minscale_zoom14;
       <LineSymbolizer stroke="&trunk_col;" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/>
     </Rule>
@@ -2289,18 +2302,13 @@
       &minscale_zoom18;
       <LineSymbolizer stroke="&trunk_col;" stroke-width="14.5" stroke-linejoin="round" stroke-linecap="round"/>
     </Rule>
+
     <Rule>
       <Filter>[highway] = 'primary' or [highway]='primary_link'</Filter>
-      &maxscale_zoom12;
-      &minscale_zoom12;
-      <LineSymbolizer stroke="&primary_col;" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
-    </Rule>
-    <Rule>
-      <Filter>[highway] = 'primary' or [highway]='primary_link'</Filter>
-      &maxscale_zoom13;
+      &maxscale_zoom14;
       &minscale_zoom14;
-      <LineSymbolizer stroke="&primary_col;" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/>
-    </Rule>   
+      <LineSymbolizer stroke="&primary_col;" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+    </Rule>
     <Rule>
       <Filter>[highway] = 'primary' or [highway]='primary_link'</Filter>
       &maxscale_zoom15;
@@ -2313,9 +2321,10 @@
       &minscale_zoom18;
       <LineSymbolizer stroke="&primary_col;" stroke-width="14.5" stroke-linejoin="round" stroke-linecap="round"/>
     </Rule>
+
     <Rule>
       <Filter>[highway] = 'secondary' or [highway] = 'secondary_link'</Filter>
-      &maxscale_zoom13;
+      &maxscale_zoom14;
       &minscale_zoom14;
       <LineSymbolizer stroke="&secondary_col;" stroke-width="9" stroke-linejoin="round" stroke-linecap="round"/>
     </Rule>
@@ -2331,6 +2340,7 @@
       &minscale_zoom18;
       <LineSymbolizer stroke="&secondary_col;" stroke-width="14.5" stroke-linejoin="round" stroke-linecap="round"/>
     </Rule>
+
     <Rule>
       <Filter>[highway] = 'tertiary' or [highway]='tertiary_link'</Filter>
       &maxscale_zoom14;
@@ -2349,6 +2359,7 @@
       &minscale_zoom18;
       <LineSymbolizer stroke="&tertiary_col;" stroke-width="14" stroke-linejoin="round" stroke-linecap="round"/>
     </Rule>
+
     <Rule>
       <Filter>[highway] = 'road'</Filter>
       &maxscale_zoom14;
@@ -2367,6 +2378,7 @@
       &minscale_zoom18;
       <LineSymbolizer stroke="#ddd" stroke-width="14" stroke-linejoin="round" stroke-linecap="round"/>
     </Rule>
+
     <Rule>
       <Filter>[highway] = 'residential' or [highway] = 'unclassified'</Filter>
       &maxscale_zoom14;
@@ -2391,6 +2403,7 @@
       &minscale_zoom18;
       <LineSymbolizer stroke="white" stroke-width="14" stroke-linejoin="round" stroke-linecap="round"/>
     </Rule>
+
     <Rule>
       <Filter>[highway] = 'service'</Filter>
       &maxscale_zoom14;
@@ -2475,13 +2488,6 @@
       <LineSymbolizer stroke="#ffcc00" stroke-width="1.5" stroke-dasharray="3,4" stroke-linejoin="round" stroke-linecap="round"/>
     </Rule>
     <Rule>
-      &maxscale_zoom13;
-      &minscale_zoom13;
-      <Filter>[railway] = 'rail'</Filter>
-      <LineSymbolizer stroke="#999999" stroke-width="3" stroke-linejoin="round"/>
-      <LineSymbolizer stroke="white" stroke-width="1" stroke-linejoin="round" stroke-dasharray="8,12"/>
-    </Rule>
-    <Rule>
       &maxscale_zoom14;
       &minscale_zoom18;
       <Filter>[railway] = 'rail'</Filter>
@@ -2564,7 +2570,7 @@
       &maxscale_zoom11;
       &minscale_zoom11;
       <LineSymbolizer stroke="&motorway_cas_col;" stroke-width="3.5"/>
-      <LineSymbolizer stroke="&motorway_col;" stroke-width="2.5"/>
+      <LineSymbolizer stroke="&motorway_col;" stroke-width="2"/>
    </Rule>
     <!-- TRUNK -->
     <Rule>
@@ -2664,16 +2670,16 @@
        <LineSymbolizer stroke="#ccc" stroke-width="1"/>
     </Rule>
     <Rule>
-      &maxscale_zoom10;
-      &minscale_zoom12;
-      <Filter>[railway] = 'rail' and not [tunnel]='yes'</Filter>
-       <LineSymbolizer stroke="#aaa" stroke-width="2"/>
+        &maxscale_zoom10;
+        &minscale_zoom13;
+        <Filter>[railway] = 'rail' and not [tunnel]='yes'</Filter>
+        <LineSymbolizer stroke="#aaa" stroke-width="1.5"/>
     </Rule>
     <Rule>
-      &maxscale_zoom10;
-      &minscale_zoom12;
-      <Filter>[railway] = 'rail' and [tunnel]='yes'</Filter>
-       <LineSymbolizer stroke="#aaa" stroke-width="2" stroke-dasharray="5,2"/>
+        &maxscale_zoom10;
+        &minscale_zoom13;
+        <Filter>[railway] = 'rail' and [tunnel]='yes'</Filter>
+        <LineSymbolizer stroke="#aaa" stroke-width="1.5" stroke-dasharray="5,2"/>
     </Rule>
     <Rule>
       &maxscale_zoom10;

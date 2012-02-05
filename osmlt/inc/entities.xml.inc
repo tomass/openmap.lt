@@ -74,12 +74,13 @@
 <!ENTITY minscale_zoom17 "<MinScaleDenominator>2500</MinScaleDenominator>">
 <!ENTITY maxscale_zoom18 "<MaxScaleDenominator>2500</MaxScaleDenominator>">
 <!ENTITY minscale_zoom18 "<MinScaleDenominator>50</MinScaleDenominator>">
+
 <!ENTITY motorway_col "#ff9900">
 <!ENTITY motorway_cas_col "#ff0000">
-<!ENTITY trunk_col "#ffbb50">
+<!ENTITY trunk_col "#f1be24">
 <!ENTITY trunk_cas_col "#b48545">
 <!ENTITY primary_col "#fef973">
-<!ENTITY primary_cas_col "#e1cb87">
+<!ENTITY primary_cas_col "#c5bb81">
 <!ENTITY secondary_col "#fefdbc">
 <!ENTITY secondary_cas_col "#d9c896">
 <!ENTITY tertiary_col "#ffffa0">

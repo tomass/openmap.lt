@@ -54,7 +54,7 @@
       &maxscale_zoom10;
       &minscale_zoom18;
       <Filter>[landuse] = 'residential'</Filter>
-      <PolygonSymbolizer fill="#f4f4f4"/>
+      <PolygonSymbolizer fill="#eae8e5"/>
     </Rule>
     <Rule>
       &maxscale_zoom12;
