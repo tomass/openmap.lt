@@ -296,64 +296,45 @@
 <Layer name="water-lines-casing" status="on" maxzoom="&max_zoom13;">
     <StyleName>water-lines-casing</StyleName>
     <Datasource>
-      <Parameter name="table">
-      (select way,waterway
-      from &prefix;_line
-      where waterway in ('stream','drain','ditch')
-        and (tunnel is null or tunnel != 'yes')
-      ) as water_lines</Parameter>
-      &datasource-settings;
+        <Parameter name="table">(select way,waterway from &prefix;_line where waterway in ('stream','drain','ditch') and (tunnel is null or tunnel != 'yes')) as water_lines</Parameter>
+        &datasource-settings;
     </Datasource>
 </Layer>
 <Layer name="water_areas" status="on" maxzoom="&max_zoom6;">
     <StyleName>water_areas</StyleName>
     <Datasource>
-      <Parameter name="table">
-      (select way,"natural",waterway,landuse,name
-      from &prefix;_polygon
-      where waterway in ('dock','mill_pond','riverbank','canal')
-         or landuse in ('reservoir','water','basin')
-         or "natural" in ('lake','water','land','glacier','mud','bay')
-      order by z_order,way_area desc
-      ) as water_areas</Parameter>
-      &datasource-settings;
+        <Parameter name="table">(select way,"natural",waterway,landuse,name from &prefix;_polygon
+            where building is null and (waterway in ('dock','mill_pond','riverbank','canal')
+            or landuse in ('reservoir','water','basin')
+            or "natural" in ('lake','water','land','glacier','mud','bay'))
+            order by z_order,way_area desc
+            ) as water_areas</Parameter>
+        &datasource-settings;
     </Datasource>
 </Layer>
 <!-- Make sure overlay styles are always rendered on top of solid areas. -->
 <Layer name="water-areas-overlay" status="on" maxzoom="&max_zoom13;">
     <StyleName>water-areas-overlay</StyleName>
     <Datasource>
-      <Parameter name="table">
-      (select way,"natural"
-      from &prefix;_polygon
-      where "natural" in ('marsh','wetland')
-      order by z_order,way_area desc
-      ) as water_areas</Parameter>
-      &datasource-settings;
+        <Parameter name="table">(select way,"natural" from &prefix;_polygon
+            where building is null and "natural" in ('marsh','wetland')
+            order by z_order,way_area desc) as water_areas</Parameter>
+        &datasource-settings;
     </Datasource>
 </Layer>
 <Layer name="glaciers-text" status="on" maxzoom="&max_zoom10;">
     <StyleName>glaciers-text</StyleName>
     <Datasource>
-      <Parameter name="table">
-      (select way,name,way_area
-      from &prefix;_polygon
-      where "natural"='glacier'
-      order by way_area desc
-      ) as glaciers</Parameter>
-      &datasource-settings;
+        <Parameter name="table">(select way,name,way_area from &prefix;_polygon where "natural"='glacier' order by way_area desc) as glaciers</Parameter>
+        &datasource-settings;
     </Datasource>
 </Layer>
 
 <Layer name="water-lines-low-zoom" status="on" minzoom="&min_zoom11;" maxzoom="&max_zoom8;">
     <StyleName>water-lines-low-zoom</StyleName>
     <Datasource>
-      <Parameter name="table">
-      (select way,waterway
-      from &prefix;_line
-      where waterway='river'
-      ) as water_lines</Parameter>
-      &datasource-settings;
+        <Parameter name="table">(select way,waterway from &prefix;_line where waterway='river') as water_lines</Parameter>
+        &datasource-settings;
     </Datasource>
 </Layer>
 

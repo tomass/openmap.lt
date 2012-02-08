@@ -7,17 +7,17 @@
 <Style name="housenumbers">
     <Rule>
       &maxscale_zoom17;
-      <TextSymbolizer fontset-name="book-fonts" size="9" fill="#444" dy="0" wrap-width="0">[addr:housenumber]</TextSymbolizer>
+      <TextSymbolizer fontset-name="book-fonts" size="9" fill="#444" wrap-width="0" placement="interior">[addr:housenumber]</TextSymbolizer>
     </Rule>
 </Style>
 <Style name="housenames">
     <Rule>
       &maxscale_zoom17;
-      <TextSymbolizer fontset-name="book-fonts" size="8" fill="#444" dy="0" wrap-width="20">[addr:housename]</TextSymbolizer>
+      <TextSymbolizer fontset-name="book-fonts" size="8" fill="#444" wrap-width="20" placement="interior">[addr:housename]</TextSymbolizer>
     </Rule>
     <Rule>
       &maxscale_zoom18;
-      <TextSymbolizer fontset-name="book-fonts" size="9" fill="#444" dy="0" wrap-width="20">[addr:housename]</TextSymbolizer>
+      <TextSymbolizer fontset-name="book-fonts" size="9" fill="#444" wrap-width="20" placement="interior">[addr:housename]</TextSymbolizer>
     </Rule>
 </Style>
 <Layer name="interpolation_lines" maxzoom="&max_zoom17;">
