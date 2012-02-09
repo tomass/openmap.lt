@@ -33,6 +33,12 @@
     <Rule>
         <Filter>[building] != 'INT-light' and [building] != ''</Filter>
         &maxscale_zoom13;
+        &minscale_zoom15;
+        <PolygonSymbolizer fill="#c6c5c3"/>
+    </Rule>
+    <Rule>
+        <Filter>[building] != 'INT-light' and [building] != ''</Filter>
+        &maxscale_zoom15;
         <PolygonSymbolizer fill="#c6c5c3" fill-opacity="0.9"/>
         <LineSymbolizer stroke="#8d8a8a" stroke-width="0.5"/>
     </Rule>
