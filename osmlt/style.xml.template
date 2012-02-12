@@ -10,6 +10,7 @@
 &layer-water;
 &layer-water_features;
 &layer-ferry-routes;
+&layer-barriers;
 &layer-buildings;
 &layer-ways;
 &layer-admin;
