@@ -61,13 +61,11 @@
     <Rule>
       <Filter>[highway] = 'trunk' and [length] le 7</Filter>
       &maxscale_zoom13;
-      &minscale_zoom18;
       <ShieldSymbolizer dy="-2" face-name="&font_bold;" size="10" fill="#fff" placement="point" file="&symbols;/aut_shield[length].png" minimum-distance="30" spacing="750">[ref]</ShieldSymbolizer>
     </Rule>
     <Rule>
       <Filter>[highway] = 'trunk' and [length] ge 8</Filter>
       &maxscale_zoom13;
-      &minscale_zoom18;
       <ShieldSymbolizer dy="-2" face-name="&font_bold;" size="10" fill="#fff" placement="point" file="&symbols;/aut_shield8.png" minimum-distance="30" spacing="750">[ref]</ShieldSymbolizer>
     </Rule>
 
@@ -123,7 +121,7 @@
 
     <Rule>
       <Filter>[highway] = 'trunk'</Filter>
-      &maxscale_zoom12;
+      &maxscale_zoom13;
       &minscale_zoom13;
       <TextSymbolizer face-name="&font_book;" size="8" fill="black" halo-radius="1" halo-fill="&trunk_col;" placement="line">[name]</TextSymbolizer>
     </Rule>
@@ -142,7 +140,7 @@
 
     <Rule>
       <Filter>[highway] = 'primary'</Filter>
-      &maxscale_zoom12;
+      &maxscale_zoom13;
       &minscale_zoom13;
       <TextSymbolizer face-name="&font_book;" size="8" fill="black" halo-radius="1" halo-fill="&primary_col;" placement="line">[name]</TextSymbolizer>
     </Rule>
@@ -218,18 +216,6 @@
       &maxscale_zoom17;
       &minscale_zoom18;
       <TextSymbolizer face-name="&font_book;" size="11" fill="#000" halo-radius="1" spacing="400" placement="line">[name]</TextSymbolizer>
-    </Rule>
-    <Rule>
-      <ElseFilter/>
-      &maxscale_zoom15;
-      &minscale_zoom16;
-      <TextSymbolizer face-name="&font_book;" size="9" fill="#000" halo-radius="1" placement="line">[name]</TextSymbolizer>
-    </Rule>
-    <Rule>
-      <ElseFilter/>
-      &maxscale_zoom17;
-      &minscale_zoom18;
-      <TextSymbolizer face-name="&font_book;" size="11" fill="#000" halo-radius="1" placement="line">[name]</TextSymbolizer>
     </Rule>
 </Style>
 <Layer name="planet roads text osm low zoom" maxzoom="&max_zoom10;" minzoom="&min_zoom12;">

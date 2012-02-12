@@ -574,8 +574,9 @@
      <Filter>[highway] = 'trunk_link' and not [tunnel] = 'yes'</Filter>
       &maxscale_zoom17;
       &minscale_zoom18;
-      <LineSymbolizer stroke="&trunk_cas_col;" stroke-width="16" stroke-linejoin="round"/>
+      <LineSymbolizer stroke="&trunk_cas_col;" stroke-width="12" stroke-linejoin="round"/>
     </Rule>
+
     <Rule>
       <Filter>[highway] = 'primary_link' and not [tunnel] = 'yes'</Filter>
       &maxscale_zoom12;      
@@ -1004,8 +1005,9 @@
       <Filter>[highway] = 'trunk_link' and not [tunnel] = 'yes'</Filter>
       &maxscale_zoom17;
       &minscale_zoom18;
-      <LineSymbolizer stroke="&trunk_col;" stroke-width="15.5" stroke-linejoin="round" stroke-linecap="round"/>
+      <LineSymbolizer stroke="&trunk_col;" stroke-width="9" stroke-linejoin="round" stroke-linecap="round"/>
    </Rule>
+
    <Rule>
       <Filter>[highway] = 'primary_link' and not [tunnel] = 'yes'</Filter>
       &maxscale_zoom12;
@@ -1286,7 +1288,7 @@
       <Filter>[highway] = 'trunk' and not [tunnel] = 'yes'</Filter>
       &maxscale_zoom17;
       &minscale_zoom18;
-      <LineSymbolizer stroke="&trunk_col;" stroke-width="15" stroke-linejoin="round" stroke-linecap="round"/>
+      <LineSymbolizer stroke="&trunk_col;" stroke-width="13" stroke-linejoin="round" stroke-linecap="round"/>
    </Rule>
 
    <Rule>
@@ -3250,6 +3252,7 @@
 </Layer>
 <Layer name="highway-junctions" status="on" maxzoom="&max_zoom11;">
     <StyleName>highway-junctions</StyleName>
+
     <Datasource>
      <Parameter name="table">
      (select way,ref,name
