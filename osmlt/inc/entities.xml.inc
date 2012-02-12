@@ -88,5 +88,8 @@
 
 <!ENTITY color_water "#90a7c6">
 
+<!ENTITY font_bold "DejaVu Sans Bold">
+<!ENTITY font_book "DejaVu Sans Book">
+
 <!ENTITY % layers SYSTEM "layers.xml.inc">
 %layers;
