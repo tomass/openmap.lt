@@ -1,6 +1,6 @@
 <Style name="coastline">
     <Rule>
-      <PolygonSymbolizer fill="#c5e0f0"/>
+        <PolygonSymbolizer fill="&color_water;"/>
     </Rule>
 </Style>
 <Layer name="coastline" status="on" srs="&srs900913;">
