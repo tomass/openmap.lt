@@ -81,8 +81,8 @@
 <!ENTITY trunk_cas_col "#b48545">
 <!ENTITY primary_col "#fef973">
 <!ENTITY primary_cas_col "#c5bb81">
-<!ENTITY secondary_col "#fefdbc">
-<!ENTITY secondary_cas_col "#d9c896">
+<!ENTITY secondary_col "#fefebd">
+<!ENTITY secondary_cas_col "#baaf84">
 <!ENTITY tertiary_col "#ffffa0">
 <!ENTITY tertiary_cas_col "#ff5555">
 
