@@ -2,19 +2,19 @@
      <Rule>
       <Filter>[leisure] = 'swimming_pool'</Filter>
       &maxscale_zoom14;
-     <PolygonSymbolizer fill="#b5d0d0"/>
+      <PolygonSymbolizer fill="#b5d0d0"/>
       <LineSymbolizer stroke="blue" stroke-width="0.5"/>
     </Rule>
     <Rule>
       <Filter>[leisure] = 'playground'</Filter>
       &maxscale_zoom13;
-     <PolygonSymbolizer fill="#ccfff1"/>
+      <PolygonSymbolizer fill="#ccfff1"/>
       <LineSymbolizer stroke="#666" stroke-width="0.3"/>
     </Rule>
     <Rule>
       <Filter>[tourism] = 'camp_site' or [tourism]='caravan_site' or [tourism] = 'picnic_site'</Filter>
       &maxscale_zoom13;
-     <PolygonSymbolizer fill="#ccff99" fill-opacity="0.5"/>
+      <PolygonSymbolizer fill="#ccff99" fill-opacity="0.5"/>
       <LineSymbolizer stroke="#666" stroke-width="0.3"/>
     </Rule>        
     <Rule>
@@ -194,7 +194,7 @@
     <Rule>
       <Filter>[landuse] = 'industrial' or [landuse]='railway'</Filter>
       &maxscale_zoom10;
-      <PolygonSymbolizer fill="#f4e5ea"/>
+      <PolygonSymbolizer fill="#e2e1dc"/>
     </Rule>
     <Rule>
       <Filter>[power] = 'station' or [power]='generator'</Filter>
@@ -217,7 +217,7 @@
     <Rule>
       <Filter>[landuse] = 'commercial'</Filter>
       &maxscale_zoom10;
-      <PolygonSymbolizer fill="#ffe8e8"/>
+      <PolygonSymbolizer fill="#f0cccb"/>
     </Rule>
     <Rule>
       <Filter>[landuse] = 'brownfield' or [landuse]='landfill' or [landuse] = 'greenfield' or [landuse]='construction'</Filter>
