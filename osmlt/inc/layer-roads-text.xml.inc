@@ -123,9 +123,15 @@
       <TextSymbolizer face-name="&font_book;" size="9" fill="black" halo-radius="1" halo-fill="&trunk_col;" placement="line">[name]</TextSymbolizer>
     </Rule>
     <Rule>
-      <Filter>[highway] = 'trunk'</Filter>
-      &maxscale_zoom15;
-      <TextSymbolizer face-name="&font_book;" size="10" fill="black" halo-radius="1" halo-fill="&trunk_col;" placement="line">[name]</TextSymbolizer>
+        <Filter>[highway] = 'trunk'</Filter>
+        &maxscale_zoom15;
+        &minscale_zoom16;
+        <TextSymbolizer face-name="&font_book;" size="10" fill="black" halo-radius="1" halo-fill="&trunk_col;" placement="line">[name]</TextSymbolizer>
+    </Rule>
+    <Rule>
+        <Filter>[highway] = 'trunk'</Filter>
+        &maxscale_zoom17;
+        <TextSymbolizer face-name="&font_book;" size="12" fill="black" halo-radius="1" halo-fill="&trunk_col;" placement="line">[name]</TextSymbolizer>
     </Rule>
 
     <Rule>
@@ -141,9 +147,15 @@
       <TextSymbolizer face-name="&font_book;" size="9" fill="black" halo-radius="1" halo-fill="&primary_col;" placement="line">[name]</TextSymbolizer>
     </Rule>
     <Rule>
-      <Filter>[highway] = 'primary'</Filter>
-      &maxscale_zoom15;
-      <TextSymbolizer face-name="&font_book;" size="10" fill="black" halo-radius="1" halo-fill="&primary_col;" placement="line">[name]</TextSymbolizer>
+        <Filter>[highway] = 'primary'</Filter>
+        &maxscale_zoom15;
+        &minscale_zoom16;
+        <TextSymbolizer face-name="&font_book;" size="10" fill="black" halo-radius="1" halo-fill="&primary_col;" placement="line">[name]</TextSymbolizer>
+    </Rule>
+    <Rule>
+        <Filter>[highway] = 'primary'</Filter>
+        &maxscale_zoom17;
+        <TextSymbolizer face-name="&font_book;" size="12" fill="black" halo-radius="1" halo-fill="&primary_col;" placement="line">[name]</TextSymbolizer>
     </Rule>
 
     <Rule>
@@ -157,10 +169,17 @@
       &maxscale_zoom14;
       &minscale_zoom14;
       <TextSymbolizer face-name="&font_book;" size="9" fill="black" halo-radius="1" halo-fill="&secondary_col;" placement="line">[name]</TextSymbolizer>
-    </Rule><Rule>
-      <Filter>[highway] = 'secondary'</Filter>
-      &maxscale_zoom15;
-      <TextSymbolizer face-name="&font_book;" size="10" fill="black" halo-radius="1" halo-fill="&secondary_col;" placement="line">[name]</TextSymbolizer>
+    </Rule>
+    <Rule>
+        <Filter>[highway] = 'secondary'</Filter>
+        &maxscale_zoom15;
+        &minscale_zoom16;
+        <TextSymbolizer face-name="&font_book;" size="10" fill="black" halo-radius="1" halo-fill="&secondary_col;" placement="line">[name]</TextSymbolizer>
+    </Rule>
+    <Rule>
+        <Filter>[highway] = 'secondary'</Filter>
+        &maxscale_zoom17;
+        <TextSymbolizer face-name="&font_book;" size="12" fill="black" halo-radius="1" halo-fill="&secondary_col;" placement="line">[name]</TextSymbolizer>
     </Rule>
 
     <Rule>
@@ -200,7 +219,7 @@
     <Rule>
       <Filter>[highway] = 'unclassified' or [highway] = 'residential'</Filter>
       &maxscale_zoom17;
-      <TextSymbolizer face-name="&font_book;" size="11" fill="#000" halo-radius="1" spacing="400" placement="line">[name]</TextSymbolizer>
+      <TextSymbolizer face-name="&font_book;" size="12" fill="#000" halo-radius="1" spacing="400" placement="line">[name]</TextSymbolizer>
     </Rule>
 </Style>
 <Layer name="planet roads text osm low zoom" maxzoom="&max_zoom10;" minzoom="&min_zoom12;">
