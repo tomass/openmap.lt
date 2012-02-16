@@ -103,7 +103,7 @@
     <Rule>
       <Filter>([leisure] != '' or [landuse] != '') and [point] = 'yes'</Filter>
       &maxscale_zoom15;
-      <TextSymbolizer fontset-name="book-fonts" size="9" fill="#000" halo-radius="2" wrap-width="10">[name]</TextSymbolizer>
+      <TextSymbolizer fontset-name="book-fonts" size="9" fill="#000" halo-radius="1" wrap-width="10">[name]</TextSymbolizer>
     </Rule>
     <Rule>
       <Filter>[natural] = 'bay'</Filter>
@@ -167,6 +167,7 @@
       <TextSymbolizer fontset-name="book-fonts" size="10" fill="#0066ff" dy="15" halo-radius="1" wrap-width="70">[name]</TextSymbolizer>
     </Rule>
     <Rule>
+
 
       <Filter>[tourism] = 'caravan_site'</Filter>
       &maxscale_zoom17;
