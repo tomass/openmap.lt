@@ -3,100 +3,100 @@
       <Filter>[highway] = 'motorway' and [length] le 6</Filter>
       &maxscale_zoom10;
       &minscale_zoom12;
-      <ShieldSymbolizer dy="-2" face-name="&font_bold;" size="10" fill="#fff" placement="point" file="&symbols;/aut_shield[length].png" minimum-distance="30" spacing="750">[ref]</ShieldSymbolizer>
+      <ShieldSymbolizer face-name="&font_bold;" size="10" fill="#fff" placement="point" file="&symbols;/aut_shield[length].png" minimum-distance="30" spacing="750">[ref]</ShieldSymbolizer>
     </Rule>
     <Rule>
       <Filter>[highway] = 'motorway' and [length] = 7</Filter>
       &maxscale_zoom10;
       &minscale_zoom12;
-      <ShieldSymbolizer dy="-2" face-name="&font_bold;" size="10" fill="#fff" placement="point" file="&symbols;/aut_shield6.png" minimum-distance="30" spacing="750">[ref]</ShieldSymbolizer>
+      <ShieldSymbolizer face-name="&font_bold;" size="10" fill="#fff" placement="point" file="&symbols;/aut_shield6.png" minimum-distance="30" spacing="750">[ref]</ShieldSymbolizer>
     </Rule>
     <Rule>
       <Filter>[highway] = 'motorway' and [length] ge 8</Filter>
       &maxscale_zoom10;
       &minscale_zoom12;
-      <ShieldSymbolizer dy="-2" face-name="&font_bold;" size="10" fill="#fff" placement="point" file="&symbols;/aut_shield7.png" minimum-distance="30" spacing="750">[ref]</ShieldSymbolizer>
+      <ShieldSymbolizer face-name="&font_bold;" size="10" fill="#fff" placement="point" file="&symbols;/aut_shield7.png" minimum-distance="30" spacing="750">[ref]</ShieldSymbolizer>
     </Rule>
 
     <Rule>
       <Filter>[highway] = 'trunk' and [length] le 7</Filter>
       &maxscale_zoom11;
       &minscale_zoom12;
-      <ShieldSymbolizer dy="-2" face-name="&font_bold;" size="10" fill="#fff" placement="point" file="&symbols;/aut_shield[length].png" minimum-distance="30" spacing="750">[ref]</ShieldSymbolizer>
+      <ShieldSymbolizer face-name="&font_bold;" size="10" fill="#fff" placement="point" file="&symbols;/aut_shield[length].png" minimum-distance="30" spacing="750">[ref]</ShieldSymbolizer>
     </Rule>
     <Rule>
       <Filter>[highway] = 'trunk' and [length] ge 8</Filter>
       &maxscale_zoom11;
       &minscale_zoom12;
-      <ShieldSymbolizer dy="-2" face-name="&font_bold;" size="10" fill="#fff" placement="point" file="&symbols;/aut_shield8.png" minimum-distance="30" spacing="750">[ref]</ShieldSymbolizer>
+      <ShieldSymbolizer face-name="&font_bold;" size="10" fill="#fff" placement="point" file="&symbols;/aut_shield8.png" minimum-distance="30" spacing="750">[ref]</ShieldSymbolizer>
     </Rule>
 
     <Rule>
       <Filter>[highway] = 'primary' and [length] le 8</Filter>
       &maxscale_zoom11;
       &minscale_zoom12;
-      <ShieldSymbolizer dy="-2" face-name="&font_bold;" size="10" fill="#000" placement="point" file="&symbols;/kra_shield[length].png" minimum-distance="30" spacing="750">[ref]</ShieldSymbolizer>
+      <ShieldSymbolizer face-name="&font_bold;" size="10" fill="#000" placement="point" file="&symbols;/kra_shield[length].png" minimum-distance="30" spacing="750">[ref]</ShieldSymbolizer>
     </Rule>
 </Style>
 <Style name="roads-text">
     <Rule>
       <Filter>[highway] = 'motorway' and [length] le 6</Filter>
       &maxscale_zoom13;
-      <ShieldSymbolizer dy="-2" face-name="&font_bold;" size="10" fill="#fff" placement="point" file="&symbols;/aut_shield[length].png" minimum-distance="30" spacing="750">[ref]</ShieldSymbolizer>
+      <ShieldSymbolizer face-name="&font_bold;" size="10" fill="#fff" placement="point" file="&symbols;/aut_shield[length].png" minimum-distance="30" spacing="750">[ref]</ShieldSymbolizer>
     </Rule>
     <Rule>
       <Filter>[highway] = 'motorway' and [length] = 7</Filter>
       &maxscale_zoom13;
-      <ShieldSymbolizer dy="-2" face-name="&font_bold;" size="10" fill="#fff" placement="point" file="&symbols;/aut_shield6.png" minimum-distance="30" spacing="750">[ref]</ShieldSymbolizer>
+      <ShieldSymbolizer face-name="&font_bold;" size="10" fill="#fff" placement="point" file="&symbols;/aut_shield6.png" minimum-distance="30" spacing="750">[ref]</ShieldSymbolizer>
     </Rule>
     <Rule>
       <Filter>[highway] = 'motorway' and [length] ge 8</Filter>
       &maxscale_zoom13;
-      <ShieldSymbolizer dy="-2" face-name="&font_bold;" size="10" fill="#fff" placement="point" file="&symbols;/aut_shield7.png" minimum-distance="30" spacing="750">[ref]</ShieldSymbolizer>
+      <ShieldSymbolizer face-name="&font_bold;" size="10" fill="#fff" placement="point" file="&symbols;/aut_shield7.png" minimum-distance="30" spacing="750">[ref]</ShieldSymbolizer>
     </Rule>
 
     <Rule>
       <Filter>[highway] = 'trunk' and [length] le 7</Filter>
       &maxscale_zoom13;
-      <ShieldSymbolizer dy="-2" face-name="&font_bold;" size="10" fill="#fff" placement="point" file="&symbols;/aut_shield[length].png" minimum-distance="30" spacing="750">[ref]</ShieldSymbolizer>
+      <ShieldSymbolizer face-name="&font_bold;" size="10" fill="#fff" placement="point" file="&symbols;/aut_shield[length].png" minimum-distance="30" spacing="750">[ref]</ShieldSymbolizer>
     </Rule>
     <Rule>
       <Filter>[highway] = 'trunk' and [length] ge 8</Filter>
       &maxscale_zoom13;
-      <ShieldSymbolizer dy="-2" face-name="&font_bold;" size="10" fill="#fff" placement="point" file="&symbols;/aut_shield8.png" minimum-distance="30" spacing="750">[ref]</ShieldSymbolizer>
+      <ShieldSymbolizer face-name="&font_bold;" size="10" fill="#fff" placement="point" file="&symbols;/aut_shield8.png" minimum-distance="30" spacing="750">[ref]</ShieldSymbolizer>
     </Rule>
 
     <Rule>
       <Filter>[highway] = 'primary' and [length] le 7</Filter>
       &maxscale_zoom13;
-      <ShieldSymbolizer dy="-2" face-name="&font_bold;" size="10" fill="#000" placement="point" file="&symbols;/kra_shield[length].png" minimum-distance="30" spacing="750">[ref]</ShieldSymbolizer>
+      <ShieldSymbolizer face-name="&font_bold;" size="10" fill="#000" placement="point" file="&symbols;/kra_shield[length].png" minimum-distance="30" spacing="750">[ref]</ShieldSymbolizer>
     </Rule>
     <Rule>
       <Filter>[highway] = 'primary' and [length] ge 8</Filter>
       &maxscale_zoom13;
-      <ShieldSymbolizer dy="-2" face-name="&font_bold;" size="10" fill="#000" placement="point" file="&symbols;/kra_shield8.png" minimum-distance="30" spacing="750">[ref]</ShieldSymbolizer>
+      <ShieldSymbolizer face-name="&font_bold;" size="10" fill="#000" placement="point" file="&symbols;/kra_shield8.png" minimum-distance="30" spacing="750">[ref]</ShieldSymbolizer>
     </Rule>
 
     <Rule>
       <Filter>[highway] = 'secondary' and [length] le 7 and not [bridge]='yes'</Filter>
       &maxscale_zoom13;
-      <ShieldSymbolizer dy="-2" face-name="&font_bold;" size="10" fill="#fff" placement="point" file="&symbols;/raj_shield[length].png" minimum-distance="40" spacing="750">[ref]</ShieldSymbolizer>
+      <ShieldSymbolizer face-name="&font_bold;" size="10" fill="#fff" placement="point" file="&symbols;/raj_shield[length].png" minimum-distance="40" spacing="750">[ref]</ShieldSymbolizer>
     </Rule>
     <Rule>
       <Filter>[highway] = 'secondary' and [length] ge 8 and not [bridge]='yes'</Filter>
       &maxscale_zoom13;
-      <ShieldSymbolizer dy="-2" face-name="&font_bold;" size="10" fill="#fff" placement="point" file="&symbols;/raj_shield8.png" minimum-distance="40" spacing="750">[ref]</ShieldSymbolizer>
+      <ShieldSymbolizer face-name="&font_bold;" size="10" fill="#fff" placement="point" file="&symbols;/raj_shield8.png" minimum-distance="40" spacing="750">[ref]</ShieldSymbolizer>
     </Rule>
 
     <Rule>
       <Filter>[highway] = 'tertiary' and [length] le 7 and not [bridge]='yes'</Filter>
       &maxscale_zoom13;
-      <ShieldSymbolizer dy="-2" face-name="&font_bold;" size="10" fill="#fff" placement="point" file="&symbols;/raj_shield[length].png" minimum-distance="40" spacing="750">[ref]</ShieldSymbolizer>
+      <ShieldSymbolizer face-name="&font_bold;" size="10" fill="#fff" placement="point" file="&symbols;/raj_shield[length].png" minimum-distance="40" spacing="750">[ref]</ShieldSymbolizer>
     </Rule>
     <Rule>
       <Filter>[highway] = 'tertiary' and [length] ge 8 and not [bridge]='yes'</Filter>
       &maxscale_zoom13;
-      <ShieldSymbolizer dy="-2" face-name="&font_bold;" size="10" fill="#fff" placement="point" file="&symbols;/raj_shield8.png" minimum-distance="40" spacing="750">[ref]</ShieldSymbolizer>
+      <ShieldSymbolizer face-name="&font_bold;" size="10" fill="#fff" placement="point" file="&symbols;/raj_shield8.png" minimum-distance="40" spacing="750">[ref]</ShieldSymbolizer>
     </Rule>
 
     <Rule>
