@@ -3,7 +3,7 @@
       <Filter>[place] = 'island'</Filter>
       &maxscale_zoom12;
       &minscale_zoom18;
-      <TextSymbolizer fontset-name="oblique-fonts" size="9" fill="#000" dy="0" halo-radius="1" wrap-width="0">[name]</TextSymbolizer>
+      <TextSymbolizer fontset-name="oblique-fonts" size="9" fill="black" halo-radius="1" wrap-width="0">[name]</TextSymbolizer>
     </Rule>
     <Rule>
       <Filter>[amenity]='pub' or [amenity]='restaurant' or [amenity]='cafe' or [amenity]='fast_food' or [amenity]='biergarten'</Filter>
@@ -96,11 +96,6 @@
       <TextSymbolizer fontset-name="book-fonts" size="9" fill="brown" dy="12" halo-radius="1" wrap-width="20" >[name]</TextSymbolizer>
     </Rule>
     <Rule>
-      <Filter>[natural] = 'water' or [natural] = 'lake' or [landuse] = 'reservoir' or [landuse] = 'basin'</Filter>
-      &maxscale_zoom15;
-      <TextSymbolizer fontset-name="book-fonts" size="10" fill="#6699cc" halo-radius="1" wrap-width="20">[name]</TextSymbolizer>
-    </Rule>
-    <Rule>
       <Filter>([leisure] != '' or [landuse] != '') and [point] = 'yes'</Filter>
       &maxscale_zoom15;
       <TextSymbolizer fontset-name="book-fonts" size="9" fill="#000" halo-radius="1" wrap-width="10">[name]</TextSymbolizer>
@@ -167,8 +162,6 @@
       <TextSymbolizer fontset-name="book-fonts" size="10" fill="#0066ff" dy="15" halo-radius="1" wrap-width="70">[name]</TextSymbolizer>
     </Rule>
     <Rule>
-
-
       <Filter>[tourism] = 'caravan_site'</Filter>
       &maxscale_zoom17;
       <TextSymbolizer fontset-name="book-fonts" size="10" fill="#0066ff" dy="19" halo-radius="1" wrap-width="70">[name]</TextSymbolizer>
@@ -275,22 +268,22 @@
     <Rule>
       <Filter>[way_area] &gt;= 150000</Filter>
       &maxscale_zoom14;
-      <TextSymbolizer fontset-name="book-fonts" size="10" fill="#000033" halo-radius="1" wrap-width="20">[name]</TextSymbolizer>
+      <TextSymbolizer fontset-name="book-fonts" size="10" fill="#000033" halo-radius="1" wrap-width="20" placement="interior">[name]</TextSymbolizer>
     </Rule>
     <Rule>
       <Filter>[way_area] &gt;= 80000 and [way_area] &lt; 150000</Filter>
       &maxscale_zoom15;
-      <TextSymbolizer fontset-name="book-fonts" size="10" fill="#000033" halo-radius="1" wrap-width="20">[name]</TextSymbolizer>
+      <TextSymbolizer fontset-name="book-fonts" size="10" fill="#000033" halo-radius="1" wrap-width="20" placement="interior">[name]</TextSymbolizer>
     </Rule>
     <Rule>
       <Filter>[way_area] &gt;= 20000 and [way_area] &lt; 80000</Filter>
       &maxscale_zoom16;
-      <TextSymbolizer fontset-name="book-fonts" size="10" fill="#000033" halo-radius="1" wrap-width="20">[name]</TextSymbolizer>
+      <TextSymbolizer fontset-name="book-fonts" size="10" fill="#000033" halo-radius="1" wrap-width="20" placement="interior">[name]</TextSymbolizer>
     </Rule>
     <Rule>
       <Filter>[way_area] &lt; 20000</Filter>
       &maxscale_zoom17;
-      <TextSymbolizer fontset-name="book-fonts" size="10" fill="#000033" halo-radius="1" wrap-width="20">[name]</TextSymbolizer>
+      <TextSymbolizer fontset-name="book-fonts" size="10" fill="#000033" halo-radius="1" wrap-width="20" placement="interior">[name]</TextSymbolizer>
     </Rule>
 </Style>
 <Layer name="text" status="on" maxzoom="&max_zoom12;">
