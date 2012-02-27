@@ -1964,10 +1964,16 @@
         <LineSymbolizer stroke="black" stroke-width="6.5"/>
     </Rule>    
     <Rule>
-      <Filter>[highway] = 'motorway' or [highway]='motorway_link'</Filter>
-      &maxscale_zoom15;
-      &minscale_zoom16;
-        <LineSymbolizer stroke="black" stroke-width="9"/>
+        <Filter>[highway] = 'motorway' or [highway]='motorway_link'</Filter>
+        &maxscale_zoom15;
+        &minscale_zoom15;
+        <LineSymbolizer stroke="black" stroke-width="7.5"/>
+    </Rule>
+    <Rule>
+        <Filter>[highway] = 'motorway' or [highway]='motorway_link'</Filter>
+        &maxscale_zoom16;
+        &minscale_zoom16;
+        <LineSymbolizer stroke="black" stroke-width="12"/>
     </Rule>
     <Rule>
       <Filter>[highway] = 'motorway' or [highway]='motorway_link'</Filter>
@@ -1992,7 +1998,7 @@
         <Filter>[highway] = 'trunk' or [highway]='trunk_link'</Filter>
         &maxscale_zoom16;
         &minscale_zoom16;
-        <LineSymbolizer stroke="black" stroke-width="13"/>
+        <LineSymbolizer stroke="black" stroke-width="12"/>
     </Rule>
     <Rule>
       <Filter>[highway] = 'trunk' or [highway]='trunk_link'</Filter>
