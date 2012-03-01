@@ -20,8 +20,6 @@ OpenLayers.Util.OSM.originalOnImageLoadError = OpenLayers.Util.onImageLoadError;
 OpenLayers.Util.onImageLoadError = function() {
     if (this.src.match(/^http:\/\/[abc]\.[a-z]+\.openstreetmap\.org\//)) {
         this.src = OpenLayers.Util.OSM.MISSING_TILE_URL;
-    } else if (this.src.match(/^http:\/\/[def]\.tah\.openstreetmap\.org\//)) {
-        // do nothing - this layer is transparent
     } else {
         OpenLayers.Util.OSM.originalOnImageLoadError;
     }
@@ -44,7 +42,7 @@ function createMap(divName, options) {
         numZoomLevels : 20,
         displayProjection : epsg4326,
         maxResolution : 156543.0339,
-        theme : "http://openmap.lt/css/theme/openmap/style.css"
+        theme : "/css/theme/openmap/style.css"
     });
     var mapnik = new OpenLayers.Layer.OSM.Mapnik("Mapnik", {
     	keyid : "mapnik",
@@ -54,13 +52,6 @@ function createMap(divName, options) {
     }, "http://tiles.openmap.lt");
     map.addLayer(mapnik);
     map.addLayer(new OpenLayers.Layer.OSM.Lt("Lt", {keyid:"lt",layerCode:"L"}, "http://osmlt.openmap.lt"));
-    var osmarender = new OpenLayers.Layer.OSM.Osmarender("Osmarender", {
-        keyid : "osmarender",
-        displayOutsideMaxExtent : true,
-        wrapDateLine : true,
-        layerCode : "O"
-    });
-    map.addLayer(osmarender);
     var cycle = new OpenLayers.Layer.OSM.CycleMap("Cycle Map", {
         keyid : "cycle",
         displayOutsideMaxExtent : true,
@@ -78,11 +69,9 @@ function createMap(divName, options) {
         keyid : "transport",
         layerCode : "T"
     }, "http://pt.openmap.lt"));
-    // TODO retrive numZoomLevels from map
-    var numZoomLevels = Math.max(mapnik.numZoomLevels, osmarender.numZoomLevels);
     markers = new OpenLayers.Layer.Markers("Markers", {
         displayInLayerSwitcher : false,
-        numZoomLevels : numZoomLevels,
+        numZoomLevels : 19,
         maxExtent : new OpenLayers.Bounds(-20037508, -20037508, 20037508, 20037508),
         maxResolution : 156543,
         units : "m",
