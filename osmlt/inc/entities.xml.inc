@@ -83,8 +83,8 @@
 <!ENTITY primary_cas_col "#c5bb81">
 <!ENTITY secondary_col "#fefebd">
 <!ENTITY secondary_cas_col "#baaf84">
-<!ENTITY tertiary_col "#ffffa0">
-<!ENTITY tertiary_cas_col "#ff5555">
+<!ENTITY tertiary_col "#fef4dc">
+<!ENTITY tertiary_cas_col "#c7beaa">
 
 <!ENTITY color_water "#90a7c6">
 
