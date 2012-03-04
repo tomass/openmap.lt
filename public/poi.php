@@ -11,21 +11,6 @@
  *       groupAuto (fuel, garages etc.)
  ****************************************************************/
 
-// tags on nodes/ways
-$name = "";
-$operator = "";
-$description = "";
-$opening_hours = "";
-$city = "";
-$street = "";
-$housenumber = "";
-
-// properties
-$p_lat = "";
-$p_lon = "";
-$p_title = "";
-$p_description = "";
-
 /***************************************************************
  * Print out debug information. This print out something only
  * if called with an parameter debug=yes
@@ -36,21 +21,6 @@ function debug($txt) {
     }
 } // debug
 
-/*******************************************************************
- * Add a given string to a description
- ************************************************************/
-function add_to_description($info)
-{
-    global $p_description;
-
-    if (!empty($p_description)) {
-        $p_description = $p_description . '<br>';
-    } else {
-        $p_description = $p_description . '<p>';
-    }
-    $p_description = $p_description . $info;
-} // add_to_description
-
 /**********************************************************************
  * Assemble html title for a poi using a prefetched tag info
  * function parse_tags should have been called before calling this one.
@@ -58,73 +28,69 @@ function add_to_description($info)
  * empty, then a given default value would be used. Default value
  * would usually specify type of POI (fuel, cafe, restaurant etc.)
  **********************************************************************/
-function assemble_title($default)
+function assemble_title(array &$row, $default)
 {
-  global $p_title, $name;
-
-  if (!empty($name)) {
-    $p_title = $name;
-  } else {
-    $p_title = $default;
-  }
-  debug("Title=" . $p_title);
+    $row['name'] = trim($row['name']);
+    if (empty($row['name'])) {
+        $row['name'] = $default;
+    }
+    debug("Title=" . $row['name']);
 } // assemble_title
 
 /***********************************************************************
  * Assemble html description for a poi using a prefetched tag info
  * function parse_tags should have been called before calling this one.
  **********************************************************************/
-function assemble_description()
+function assemble_description(array &$row)
 {
-  global $name, $operator, $description, $opening_hours, $city, $street, $housenumber,
-         $information, $wikipedia, $wikipedialt, $wikipediaen, $phone, $email, $website,
-         $height, $fee, $url, $image, $postcode; // tags
-  global $p_lat, $p_lon, $p_title, $p_description; // properties
-
-    // Description
-    $p_description = $description;
-
+    extract($row);
+    $description = array();
+    
+    if(!empty($row['description'])){
+        $description[] = $row['description'];
+    }
+    
     // Information
     if (!empty($information)) {
-        add_to_description("{$information}");
+        $description[] = $information;
     }
 
     // Working time
     if (!empty($opening_hours)) {
-        add_to_description("<i>Darbo laikas:</i> {$opening_hours}");
+        $description[] = "<i>Darbo laikas:</i> {$opening_hours}";
     }
 
     // Address
     if (!empty($city) || !empty($street) || !empty($housenumber)) {
-        add_to_description("<i>Adr:</i> {$city} {$postcode} {$street} {$housenumber}");
+        $description[] = "<i>Adr:</i> {$city} {$postcode} {$street} {$housenumber}";
     }
 
     // Phone
     if (!empty($phone)) {
-        add_to_description("<i>Tel:</i> {$phone}");
+        $description[] = "<i>Tel:</i> {$phone}";
     }
 
     // E-mail
     if (!empty($email)) {
-        add_to_description("<i>E-paštas:</i> {$email}");
+        $description[] = "<i>E-paštas:</i> {$email}";
     }
 
     // Website (according to OSM wiki url tag is deprecated, website tag should be used)
-    if (!empty($website) and substr($website, 0, 4) !== "http") {
-        $website = "http://" . $website;
+    if (!empty($website) && strpos($website, 'http') === 0) {
+        $website = 'http://' . $website;
     }
     if (!empty($website)) {
         if (strlen($website) > 30) {
-            $url_name = "Svetainė";
+            $url_name = 'Svetainė';
         } else {
             $url_name = $website;
         }
-        add_to_description("<a href=\"{$website}\" target=\" blank\">{$url_name}</a>");
+        $description[] = "<a href=\"{$website}\" target=\" blank\">{$url_name}</a>";
     }
 
     // Website (according to OSM wiki url tag is deprecated, website tag should be used)
-    if (!empty($url) and substr($url, 0, 4) !== "http") {
-        $url = "http://" . $url;
+    if (!empty($url) && strpos($url, 'http') === 0) {
+        $url = 'http://' . $url;
     }
     if (!empty($url)) {
         if (strlen($url) > 30) {
@@ -132,39 +98,47 @@ function assemble_description()
         } else {
             $url_name = $url;
         }
-        add_to_description("<a href=\"{$url}\" target=\" blank\">{$url_name}</a>");
+        $description[] = "<a href=\"{$url}\" target=\" blank\">{$url_name}</a>";
     }
 
     // Wikipedia lt
-    if (!empty($wikipedialt)) {
-        add_to_description("<a href=\"http://lt.wikipedia.org/wiki/{$wikipedialt}\" target=\" blank\">Vikipedija (LT)</a>");
+    if (!empty($wikipedia_lt)) {
+        $description[] = "<a href=\"http://lt.wikipedia.org/wiki/{$wikipedia_lt}\" target=\" blank\">Vikipedija (LT)</a>";
     }
 
     // Wikipedia en
-    if (!empty($wikipediaen)) {
-        add_to_description("<a href=\"http://en.wikipedia.org/wiki/{$wikipediaen}\" target=\" blank\">Vikipedija (EN)</a>");
+    if (!empty($wikipedia_en)) {
+        $description[] = "<a href=\"http://en.wikipedia.org/wiki/{$wikipedia_en}\" target=\" blank\">Vikipedija (EN)</a>";
     }
 
     // Wikipedia default
     if (!empty($wikipedia)) {
-        add_to_description("<a href=\"http://en.wikipedia.org/wiki/{$wikipedia}\" target=\" blank\">Vikipedija (EN)</a>");
+        $description[] = "<a href=\"http://en.wikipedia.org/wiki/{$wikipedia}\" target=\" blank\">Vikipedija (EN)</a>";
     }
 
     // Height
     if (!empty($height)) {
-        add_to_description("<i>Aukštis:</i> {$height}m.");
+        $description[] = "<i>Aukštis:</i> {$height}m.";
     }
 
     // Fee
     if (!empty($fee)) {
-        if ($fee != "no") {
-            add_to_description("<i>Apsilankymas mokamas</i>");
+        if ($fee != 'no') {
+            $description[] = "<i>Apsilankymas mokamas</i>";
         } else {
-            add_to_description("<i>Apsilankymas nemokamas</i>");
+            $description[] = "<i>Apsilankymas nemokamas</i>";
         }
     }
+    
+    //TODO: html tags should be added in client side, depending on use case
+    if(!empty($description)){
+        $description = '<p>' . implode('<br>', $description) . '</p>';
+    }else{
+        $description = '';
+    }
+    $row['description'] = $description;
 
-    debug("Description=".$p_description);
+    debug("Description=". $description);
 } // assemble_description
 
 /*************************************************************
@@ -177,11 +151,7 @@ function assemble_description()
  ************************************************************/
 function fetch_poi($left, $top, $right, $bottom, $p_type, $p_format)
 {
-    global $p_title, $p_description, $image;
     global $link;
-    global $name, $operator, $description, $opening_hours, $city, $street, $housenumber,
-           $information, $wikipedia, $wikipedialt, $wikipediaen, $phone, $email, $website,
-           $height, $fee, $url, $image, $postcode; // tags
     // Contruct a query part filtering out only required POI's
     debug("poi type is " . $p_type);
     switch ($p_type) {
@@ -210,7 +180,6 @@ function fetch_poi($left, $top, $right, $bottom, $p_type, $p_format)
         die;
     }
     $id = 0;
-    $arr = array();
     $i = 0;
     while ($i < count($types)) {
         debug("processing type=" . $types[$i]);
@@ -321,153 +290,59 @@ function fetch_poi($left, $top, $right, $bottom, $p_type, $p_format)
                 $tp = 'LIB';
                 break;
             default:
-                $filter = '1=0'; // no records will be returned
-                $default_title = 'Nežinomas taškas';
+                continue;
         }
-
-        $query = "SELECT ST_X(ST_Transform(way,4326)) lat, ST_Y(ST_Transform(way,4326)) lon
-                        ,name
-                        ,operator
+        $fields = 'name,operator
                         ,description
                         ,opening_hours
-                        ,\"addr:city\"
-                        ,\"addr:street\"
-                        ,\"addr:housenumber\"
+                        ,"addr:city" city
+                        ,"addr:street" street
+                        ,"addr:housenumber" housenumber
+                        ,"addr:postcode" postcode
                         ,information
                         ,wikipedia
-                        ,\"wikipedia:lt\"
-                        ,\"wikipedia:en\"
+                        ,"wikipedia:lt" wikipedia_lt
+                        ,"wikipedia:en" wikipedia_en
                         ,phone
                         ,email
                         ,website
                         ,height
                         ,fee
                         ,url
-                        ,image
-                        ,\"addr:postcode\"
+                        ,image';
+        $query = "SELECT ST_X(ST_Transform(way,4326)) lat, ST_Y(ST_Transform(way,4326)) lon, {$fields}
                         FROM planet_osm_point
                         WHERE way && ST_Transform(SetSRID('BOX3D({$left} {$top},{$right} {$bottom})'::box3d,4326), 900913)
                      AND {$filter}
                   union all
-                  SELECT ST_X(ST_Transform(st_centroid(way),4326)) lat, ST_Y(ST_Transform(st_centroid(way),4326)) lon
-                        ,name
-                        ,operator
-                        ,description
-                        ,opening_hours
-                        ,\"addr:city\"
-                        ,\"addr:street\"
-                        ,\"addr:housenumber\"
-                        ,information
-                        ,wikipedia
-                        ,\"wikipedia:lt\"
-                        ,\"wikipedia:en\"
-                        ,phone
-                        ,email
-                        ,website
-                        ,height
-                        ,fee
-                        ,url
-                        ,image
-                        ,\"addr:postcode\"
+                  SELECT ST_X(ST_Transform(st_centroid(way),4326)) lat, ST_Y(ST_Transform(st_centroid(way),4326)) lon, {$fields}
                         FROM planet_osm_polygon
                         WHERE way && ST_Transform(SetSRID('BOX3D({$left} {$top},{$right} {$bottom})'::box3d,4326), 900913)
                      AND {$filter}";
         debug('Query is: ' . $query);
         $res = pg_query($link, $query);
         if (!$res) {
-            echo pg_last_error();
             throw new Exception(pg_last_error($link));
             exit;
         }
-        if ($p_format === "kml") {
-            // Creates the KML/XML Document.
-            $dom = new DOMDocument('1.0', 'UTF-8');
 
-            // Creates the root KML element and appends it to the root document.
-            //$node = $dom->createElementNS('http://earth.google.com/kml/2.1', 'kml');
-            $node = $dom->createElementNS('http://www.opengis.net/kml/2.2', 'kml');
-            $parNode = $dom->appendChild($node);
-
-            // Creates a KML Document element and append it to the KML element.
-            $dnode = $dom->createElement('Document');
-            $docNode = $parNode->appendChild($dnode);
-        }
-        while ($row = pg_fetch_row($res)) {
-            debug("lat:" . $row[0] . ", lon:" . $row[1] . ", tags:" . $row[2]);
-            $name = $row[2];
-            $operator = $row[3];
-            $description = $row[4];
-            $opening_hours = $row[5];
-            $city = $row[6];
-            $street = $row[7];
-            $housenumber = $row[8];
-            $information = $row[9];
-            $wikipedia = $row[10];
-            $wikipedialt = $row[11];
-            $wikipediaen = $row[12];
-            $phone = $row[13];
-            $email = $row[14];
-            $website = $row[15];
-            $height = $row[16];
-            $fee = $row[17];
-            $url = $row[18];
-            $image = $row[19];
-            $postcode = $row[20];
-            assemble_title($default_title);
-            assemble_description();
-
-            if ($p_format === "geojson") {
-                // add data to future json
-                $latlon = array($row[0],$row[1]);
-
-                $arr[] = array(
-                    'geometry' => array(
-                        'type' => 'Point',
-                        'coordinates' => $latlon,
-                    ),
-                    'type' => 'Feature',
-                    'properties' => array(
-                        'tp' => $tp,
-                        'title' => $p_title,
-                        'description' => $p_description,
-                        'image' => $image,
-                    ),
-                    'id' => $id,
-                );
-            } else {
-                // Creates a Placemark and append it to the Document.
-                $node = $dom->createElement('Placemark');
-                $placeNode = $docNode->appendChild($node);
-
-                // Creates an id attribute and assign it the value of id column.
-                $placeNode->setAttribute('id', 'placemark' . $id);
-
-                // Create name, and description elements and assigns them the values of the name and address columns from the results.
-                $nameNode = $dom->createElement('name',/*htmlentities(*/$p_title . $p_description/*)*/);
-                $placeNode->appendChild($nameNode);
-
-                // Creates a Point element.
-                $pointNode = $dom->createElement('Point');
-                $placeNode->appendChild($pointNode);
-
-                // Creates a coordinates element and gives it the value of the lng and lat columns from the results.
-                $coorStr = $row[0] . ','  . $row[1];
-                $coorNode = $dom->createElement('coordinates', $coorStr);
-                $pointNode->appendChild($coorNode);
-            }
+        $format = 'Poi_Format_' . ucfirst(strtolower($p_format));
+        $format = new $format;
+        
+        while ($row = pg_fetch_assoc($res)) {
+            debug("lat:" . $row['lat'] . ", lon:" . $row['lon'] . ", tags:" . $row['name']);
+            $row['id'] = $id;
+            // process title & description
+            assemble_title($row, $default_title);
+            assemble_description($row);
+            // add data to formated output
+            $format->addRow($row);
             $id++;
         }
         $i++;
     } // while loop through all type values
-
-    if ($p_format === "geojson") {
-        header('Content-type: application/json; charset=UTF-8');
-        echo '{"type":"FeatureCollection","features":', json_encode($arr), '}';
-    } else /* KML */ {
-        $kmlOutput = $dom->saveXML();
-        header('Content-type: application/vnd.google-earth.kml+xml');
-        echo $kmlOutput;
-    }
+    // return output
+    $format->output();
 } // fetch_poi
 
 // respond to preflights
@@ -532,13 +407,17 @@ if(abs($top - $bottom) * abs($right - $left) > 1){
 // Check the type of poi to be fetched
 $type = $_GET["type"];
 if ($type === null) {
-  $type = "fuel"; // default poi type is fuel
+    $type = "fuel"; // default poi type is fuel
 }
 
 // Result format (geojson|kml)
-$format = $_GET["format"];
-if ($format === null) {
-  $format = "geojson"; // default format is geoJSON
+$formats = array('geojson', 'kml');
+$format = trim($_GET['format']);
+if (empty($format)) {
+    $format = 'geojson'; // default format is geoJSON
+}
+if(!in_array($format, $formats)){
+    die('Format not supported');
 }
 
 $config = require './config.php';
@@ -551,3 +430,102 @@ if (!$link) {
 fetch_poi($left, $top, $right, $bottom, $type, $format);
 
 pg_close($link);
+
+/**
+ * Class files
+ */
+abstract class Poi_Format_Abstract
+{
+    /**
+     * Data array
+     * @var array
+     */
+    protected $_data = array();
+    
+    /**
+     * Output formated data
+     * @return string
+     */
+    abstract public function output();
+    
+    /**
+     * Add row to formated output
+     * @param array $row
+     */
+    public function addRow(array $row)
+    {
+        // convert to object
+        $row = (object)$row;
+        $this->_data[] = $row;
+    }
+}
+
+class Poi_Format_Geojson extends Poi_Format_Abstract
+{
+    public function output()
+    {
+        $features = array();
+        foreach($this->_data as $row){
+            // add data to future json
+            $latlon = array($row->lat, $row->lon);
+        
+            $features[] = array(
+                'geometry' => array(
+                    'type' => 'Point',
+                    'coordinates' => $latlon,
+                ),
+                'type' => 'Feature',
+                'properties' => array(
+                    'tp' => $tp,
+                    'title' => $row->name,
+                    'description' => $row->description,
+                    'image' => $row->image,
+                ),
+                'id' => $row->id,
+            );
+        }
+        @header('Content-type: application/json; charset=UTF-8');
+        echo '{"type":"FeatureCollection","features":', json_encode($features), '}';
+    }
+}
+
+class Poi_Format_Kml extends Poi_Format_Abstract
+{
+    public function output()
+    {
+        // Creates the KML/XML Document.
+        $dom = new DOMDocument('1.0', 'UTF-8');
+
+        // Creates the root KML element and appends it to the root document.
+        $kml = $dom->createElementNS('http://www.opengis.net/kml/2.2', 'kml');
+        $dom->appendChild($kml);
+
+        // Creates a KML Document element and append it to the KML element.
+        $document = $dom->createElement('Document');
+        $kml->appendChild($document);
+        
+        foreach($this->_data as $row){
+            // Creates a Placemark and append it to the Document.
+            $placemark = $dom->createElement('Placemark');
+            $document->appendChild($placemark);
+
+            // Creates an id attribute and assign it the value of id column.
+            $placemark->setAttribute('id', 'placemark' . $row->id);
+
+            // Create name, and description elements and assigns them the values of the name and address columns from the results.
+            $name = $dom->createElement('name', $row->title . $row->description);
+            $placemark->appendChild($name);
+
+            // Creates a Point element.
+            $point = $dom->createElement('Point');
+            $placemark->appendChild($point);
+
+            // Creates a coordinates element and gives it the value of the lng and lat columns from the results.
+            $coorNode = $dom->createElement('coordinates', $row->lat . ','  . $row->lon);
+            $point->appendChild($coorNode);
+        }
+        
+        @header('Content-type: application/vnd.google-earth.kml+xml; charset=UTF-8');
+        echo $dom->saveXML();
+    }
+}
