@@ -266,24 +266,29 @@
 </Style>
 <Style name="area-text">
     <Rule>
-      <Filter>[way_area] &gt;= 150000</Filter>
-      &maxscale_zoom14;
-      <TextSymbolizer fontset-name="book-fonts" size="10" fill="#000033" halo-radius="1" wrap-width="20" placement="interior">[name]</TextSymbolizer>
+        <Filter>[way_area] &gt;= 10000000</Filter>
+        &maxscale_zoom12;
+        <TextSymbolizer fontset-name="book-fonts" size="10" fill="#000033" halo-radius="1" wrap-width="20" placement="interior">[name]</TextSymbolizer>
     </Rule>
     <Rule>
-      <Filter>[way_area] &gt;= 80000 and [way_area] &lt; 150000</Filter>
-      &maxscale_zoom15;
-      <TextSymbolizer fontset-name="book-fonts" size="10" fill="#000033" halo-radius="1" wrap-width="20" placement="interior">[name]</TextSymbolizer>
+        <Filter>[way_area] &gt;= 300000 and [way_area] &lt; 10000000</Filter>
+        &maxscale_zoom14;
+        <TextSymbolizer fontset-name="book-fonts" size="10" fill="#000033" halo-radius="1" wrap-width="20" placement="interior">[name]</TextSymbolizer>
     </Rule>
     <Rule>
-      <Filter>[way_area] &gt;= 20000 and [way_area] &lt; 80000</Filter>
-      &maxscale_zoom16;
-      <TextSymbolizer fontset-name="book-fonts" size="10" fill="#000033" halo-radius="1" wrap-width="20" placement="interior">[name]</TextSymbolizer>
+        <Filter>[way_area] &gt;= 80000 and [way_area] &lt; 300000</Filter>
+        &maxscale_zoom15;
+        <TextSymbolizer fontset-name="book-fonts" size="10" fill="#000033" halo-radius="1" wrap-width="20" placement="interior">[name]</TextSymbolizer>
     </Rule>
     <Rule>
-      <Filter>[way_area] &lt; 20000</Filter>
-      &maxscale_zoom17;
-      <TextSymbolizer fontset-name="book-fonts" size="10" fill="#000033" halo-radius="1" wrap-width="20" placement="interior">[name]</TextSymbolizer>
+        <Filter>[way_area] &gt;= 20000 and [way_area] &lt; 80000</Filter>
+        &maxscale_zoom16;
+        <TextSymbolizer fontset-name="book-fonts" size="10" fill="#000033" halo-radius="1" wrap-width="20" placement="interior">[name]</TextSymbolizer>
+    </Rule>
+    <Rule>
+        <Filter>[way_area] &lt; 20000</Filter>
+        &maxscale_zoom17;
+        <TextSymbolizer fontset-name="book-fonts" size="10" fill="#000033" halo-radius="1" wrap-width="20" placement="interior">[name]</TextSymbolizer>
     </Rule>
 </Style>
 <Layer name="text" status="on" maxzoom="&max_zoom12;">
@@ -330,7 +335,7 @@
       &datasource-settings;
     </Datasource>
 </Layer>
-<Layer name="area-text" status="on" maxzoom="&max_zoom14;">
+<Layer name="area-text" status="on" maxzoom="&max_zoom12;">
     <StyleName>area-text</StyleName>
     <Datasource>
       <Parameter name="table">
