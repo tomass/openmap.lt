@@ -76,7 +76,7 @@ function assemble_description(array &$row)
     }
 
     // Website (according to OSM wiki url tag is deprecated, website tag should be used)
-    if (!empty($website) && strpos($website, 'http') === 0) {
+    if (!empty($website) && strpos($website, 'http') !== 0) {
         $website = 'http://' . $website;
     }
     if (!empty($website)) {
@@ -89,7 +89,7 @@ function assemble_description(array &$row)
     }
 
     // Website (according to OSM wiki url tag is deprecated, website tag should be used)
-    if (!empty($url) && strpos($url, 'http') === 0) {
+    if (!empty($url) && strpos($url, 'http') !== 0) {
         $url = 'http://' . $url;
     }
     if (!empty($url)) {
