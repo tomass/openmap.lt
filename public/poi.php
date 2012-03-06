@@ -332,6 +332,7 @@ function fetch_poi($left, $top, $right, $bottom, $p_type, $p_format)
         while ($row = pg_fetch_assoc($res)) {
             debug("lat:" . $row['lat'] . ", lon:" . $row['lon'] . ", tags:" . $row['name']);
             $row['id'] = $id;
+            $row['type'] = $tp;
             // process title & description
             assemble_title($row, $default_title);
             assemble_description($row);
@@ -476,7 +477,7 @@ class Poi_Format_Geojson extends Poi_Format_Abstract
                 ),
                 'type' => 'Feature',
                 'properties' => array(
-                    'tp' => $tp,
+                    'tp' => $row->type,
                     'title' => $row->name,
                     'description' => $row->description,
                     'image' => $row->image,
