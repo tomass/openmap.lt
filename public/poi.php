@@ -3,6 +3,7 @@
  * Parameters:
  *  debug=yes|no - turn on debugging (default=no)
  *  bbox=L,B,R,T - bounding box in EPSG:4326
+ *  format=(geojson|kml)
  *  type=history|monument|tower|attraction|picnic_fireplace|picnic_nofireplace|camping|cafe|restaurant|pub|hotel|hostel|fuel
  *       groupAttraction| (castles, hillforts, museums, parks and other attractions)
  *       groupCamping| (camping, picnic palces etc.)
@@ -326,13 +327,15 @@ function fetch_poi($left, $top, $right, $bottom, $p_type, $p_format)
             exit;
         }
 
+        $bbox = (object)compact('left', 'bottom', 'right', 'top');
         $format = 'Poi_Format_' . ucfirst(strtolower($p_format));
-        $format = new $format;
+        $format = new $format($bbox);
         
         while ($row = pg_fetch_assoc($res)) {
             debug("lat:" . $row['lat'] . ", lon:" . $row['lon'] . ", tags:" . $row['name']);
             $row['id'] = $id;
-            $row['type'] = $tp;
+            $row['tp'] = $tp;
+            $row['type'] = $types[$i];
             // process title & description
             assemble_title($row, $default_title);
             assemble_description($row);
@@ -443,6 +446,13 @@ abstract class Poi_Format_Abstract
      */
     protected $_data = array();
     
+    protected $_bbox;
+    
+    public function __construct($bbox = null)
+    {
+        $this->_bbox = $bbox;
+    }
+    
     /**
      * Output formated data
      * @return string
@@ -477,16 +487,21 @@ class Poi_Format_Geojson extends Poi_Format_Abstract
                 ),
                 'type' => 'Feature',
                 'properties' => array(
-                    'tp' => $row->type,
+                    'tp' => $row->tp, // @deprecated: property name confusing
+                    'type' => $row->type,
                     'title' => $row->name,
                     'description' => $row->description,
-                    'image' => $row->image,
+                	'image' => $row->image,
                 ),
                 'id' => $row->id,
             );
         }
         @header('Content-type: application/json; charset=UTF-8');
-        echo '{"type":"FeatureCollection","features":', json_encode($features), '}';
+        echo json_encode(array(
+        	'type' => 'FeatureCollection',
+            'bbox' => array($this->_bbox->left, $this->_bbox->bottom, $this->_bbox->right, $this->_bbox->top),
+            'features' => $features,
+        ));
     }
 }
 
