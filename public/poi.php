@@ -293,7 +293,7 @@ function fetch_poi($left, $top, $right, $bottom, $p_type, $p_format)
             default:
                 continue;
         }
-        $fields = 'name,operator
+        $fields = 'osm_id id,name,operator
                         ,description
                         ,opening_hours
                         ,"addr:city" city
@@ -333,7 +333,6 @@ function fetch_poi($left, $top, $right, $bottom, $p_type, $p_format)
         
         while ($row = pg_fetch_assoc($res)) {
             debug("lat:" . $row['lat'] . ", lon:" . $row['lon'] . ", tags:" . $row['name']);
-            $row['id'] = $id;
             $row['tp'] = $tp;
             $row['type'] = $types[$i];
             // process title & description
@@ -467,7 +466,10 @@ abstract class Poi_Format_Abstract
     {
         // convert to object
         $row = (object)$row;
-        $this->_data[] = $row;
+        $row->id = (int)$row->id;
+        $row->lat = (float)$row->lat;
+        $row->lon = (float)$row->lon;
+        $this->_data[$row->id] = $row;
     }
 }
 
