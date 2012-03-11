@@ -150,7 +150,7 @@ function assemble_description(array &$row)
  *   cafe - amenity=cafe
  *   hotel - tourism=hotel
  ************************************************************/
-function fetch_poi($left, $top, $right, $bottom, $p_type, $p_format)
+function fetch_poi($left, $top, $right, $bottom, $p_type, Poi_Format_Abstract $format)
 {
     global $link;
     // Contruct a query part filtering out only required POI's
@@ -327,10 +327,6 @@ function fetch_poi($left, $top, $right, $bottom, $p_type, $p_format)
             exit;
         }
 
-        $bbox = (object)compact('left', 'bottom', 'right', 'top');
-        $format = 'Poi_Format_' . ucfirst(strtolower($p_format));
-        $format = new $format($bbox);
-        
         while ($row = pg_fetch_assoc($res)) {
             debug("lat:" . $row['lat'] . ", lon:" . $row['lon'] . ", tags:" . $row['name']);
             $row['tp'] = $tp;
@@ -344,8 +340,6 @@ function fetch_poi($left, $top, $right, $bottom, $p_type, $p_format)
         }
         $i++;
     } // while loop through all type values
-    // return output
-    $format->output();
 } // fetch_poi
 
 // respond to preflights
@@ -402,11 +396,6 @@ debug("top="    . $top);
 debug("right="  . $right);
 debug("bottom=" . $bottom);
 
-//limit request to 1 square degree
-if(abs($top - $bottom) * abs($right - $left) > 1){
-    die('Requests are limited to 1 square degree');
-}
-
 // Check the type of poi to be fetched
 $type = $_GET["type"];
 if ($type === null) {
@@ -423,6 +412,17 @@ if(!in_array($format, $formats)){
     die('Format not supported');
 }
 
+$bbox = (object)compact('left', 'bottom', 'right', 'top');
+$format = 'Poi_Format_' . ucfirst(strtolower($format));
+$format = new $format($bbox);
+
+//limit request to 1 square degree
+if(abs($top - $bottom) * abs($right - $left) > 1){
+    debug('Requests are limited to 1 square degree');
+    $format->output();
+    die;
+}
+
 $config = require './config.php';
 $link = pg_connect(vsprintf('host=%s port=%u dbname=%s user=%s password=%s', $config['resource']['db']));
 if (!$link) {
@@ -431,6 +431,7 @@ if (!$link) {
 }
 
 fetch_poi($left, $top, $right, $bottom, $type, $format);
+$format->output();
 
 pg_close($link);
 
@@ -439,6 +440,8 @@ pg_close($link);
  */
 abstract class Poi_Format_Abstract
 {
+    const FORMAT_GEOJSON    = 'geojson';
+    const FORMAT_KML        = 'kml';
     /**
      * Data array
      * @var array
