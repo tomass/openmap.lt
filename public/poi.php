@@ -137,7 +137,7 @@ function assemble_description(array &$row)
     }else{
         $description = '';
     }
-    $row['description'] = $description;
+    $row['description_html'] = $description;
 
     debug("Description=". $description);
 } // assemble_description
@@ -487,13 +487,7 @@ class Poi_Format_Geojson extends Poi_Format_Abstract
                     'coordinates' => $latlon,
                 ),
                 'type' => 'Feature',
-                'properties' => array(
-                    'tp' => $row->tp, // @deprecated: property name confusing
-                    'type' => $row->type,
-                    'title' => $row->name,
-                    'description' => $row->description,
-                	'image' => $row->image,
-                ),
+                'properties' => $this->_getProperties($row),
                 'id' => $row->id,
             );
         }
@@ -503,6 +497,35 @@ class Poi_Format_Geojson extends Poi_Format_Abstract
             'bbox' => array($this->_bbox->left, $this->_bbox->bottom, $this->_bbox->right, $this->_bbox->top),
             'features' => $features,
         ));
+    }
+    
+    protected function _getProperties($row)
+    {
+        $properties = array();
+        foreach($row as $prop => $value){
+            if(empty($value)){
+                continue;
+            }
+            switch($prop){
+                case 'id':
+                    continue;
+                case 'name':
+                    $properties['title'] = $value;
+                    continue;
+                case 'housenumber';
+                case 'street':
+                case 'city':
+                case 'postcode':
+                    if(!isset($properties['address'])){
+                        $properties['address'] = array();
+                    }
+                    $properties['address'][$prop] = $value;
+                    break;
+                default:
+                    $properties[$prop] = $value;
+            }
+        }
+        return $properties;
     }
 }
 
