@@ -40,7 +40,7 @@
 </Style>
 <Style name="water-areas-overlay">
     <Rule>
-      &maxscale_zoom13;
+      &maxscale_zoom12;
       <Filter>[natural] = 'marsh' or [natural] = 'wetland'</Filter>
       <PolygonPatternSymbolizer file="&symbols;/marsh.png"/>
     </Rule>
@@ -313,7 +313,7 @@
     </Datasource>
 </Layer>
 <!-- Make sure overlay styles are always rendered on top of solid areas. -->
-<Layer name="water-areas-overlay" status="on" maxzoom="&max_zoom13;">
+<Layer name="water-areas-overlay" status="on" maxzoom="&max_zoom12;">
     <StyleName>water-areas-overlay</StyleName>
     <Datasource>
         <Parameter name="table">(select way,"natural" from &prefix;_polygon
