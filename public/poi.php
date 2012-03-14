@@ -175,17 +175,15 @@ function fetch_poi($left, $top, $right, $bottom, $p_type, Poi_Format_Abstract $f
             $p_type = 'theatre|cinema|arts|library';
             break;
     }
-    $types = explode("|", $p_type);
+    $types = explode('|', $p_type);
     if (!is_array($types) or count($types) == 0) {
         debug("ERROR: Incorrect type parameter");
         die;
     }
-    $id = 0;
-    $i = 0;
-    while ($i < count($types)) {
-        debug("processing type=" . $types[$i]);
 
-        switch($types[$i]) {
+    foreach($types as $type) {
+        debug("processing type={$type}");
+        switch($type) {
             case 'history':
                 $filter = "historic is not null and historic not in ('monument', 'memorial')";
                 $default_title = 'Istorinė vieta';
@@ -328,17 +326,15 @@ function fetch_poi($left, $top, $right, $bottom, $p_type, Poi_Format_Abstract $f
         }
 
         while ($row = pg_fetch_assoc($res)) {
-            debug("lat:" . $row['lat'] . ", lon:" . $row['lon'] . ", tags:" . $row['name']);
+            debug("lat:{$row['lat']}, lon:{$row['lon']}, tags:{$row['name']}");
             $row['tp'] = $tp;
-            $row['type'] = $types[$i];
+            $row['type'] = $type;
             // process title & description
             assemble_title($row, $default_title);
             assemble_description($row);
             // add data to formated output
             $format->addRow($row);
-            $id++;
         }
-        $i++;
     } // while loop through all type values
 } // fetch_poi
 
