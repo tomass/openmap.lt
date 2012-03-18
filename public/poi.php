@@ -183,163 +183,161 @@ function fetch_poi($left, $top, $right, $bottom, $p_type, Poi_Format_Abstract $f
         die;
     }
 
-    $filter = array();
     foreach($types as $type) {
         debug("processing type={$type}");
         switch($type) {
             case 'history':
-                $filter[] = "historic IS NOT NULL AND historic NOT IN ('monument', 'memorial')";
+                $filter = "historic is not null and historic not in ('monument', 'memorial')";
                 $default_title = 'Istorinė vieta';
                 $tp = 'HIS';
                 break;
             case 'monument':
-                $filter[] = "historic IN ('monument', 'memorial')";
+                $filter = "historic in ('monument', 'memorial')";
                 $default_title = 'Paminklas';
                 $tp = 'MON';
                 break;
             case 'tower':
-                $filter[] = "man_made = 'tower' AND \"tower:type\" = 'observation'";
+                $filter = "man_made = 'tower' and \"tower:type\" = 'observation'";
                 $default_title = 'Bokštas';
                 $tp = 'TOW';
                 break;
             case 'attraction':
                 // some historic poi's are also marked as attractions, those will not be fetched as "attractions"
-                $filter[] = "tourism IN ('attraction', 'viewpoint') AND historic IS NULL";
+                $filter = "tourism in ('attraction', 'viewpoint') and historic is null";
                 $default_title = 'Lankytina vieta';
                 $tp = 'ATT';
                 break;
             case 'museum':
-                $filter[] = "tourism = 'museum'";
+                $filter = "tourism = 'museum'";
                 $default_title = 'Muziejus';
                 $tp = 'MUS';
                 break;
             case 'picnic_fireplace':
-                $filter[] = "tourism = 'picnic_site' AND fireplace = 'yes'";
+                $filter = "tourism = 'picnic_site' and fireplace = 'yes'";
                 $default_title = 'Poilsiavietė su laužu';
                 $tp = 'PIF';
                 break;
             case 'picnic_nofireplace':
-                $filter[] = "tourism = 'picnic_site' AND (fireplace IS NULL OR fireplace = 'no')";
+                $filter = "tourism = 'picnic_site' and (fireplace is null or fireplace = 'no')";
                 $default_title = 'Poilsiavietė';
                 $tp = 'PIC';
                 break;
             case 'camping':
-                $filter[] = "tourism = 'camp_site'";
+                $filter = "tourism = 'camp_site'";
                 $default_title = 'Kempingas';
                 $tp = 'CAM';
                 break;
             case 'hostel':
-                $filter[] = "tourism IN ('chalet', 'hostel', 'guest_house')";
+                $filter = "tourism in ('chalet', 'hostel', 'guest_house')";
                 $default_title = 'Kaimo sodyba';
                 $tp = 'HOS';
                 break;
             case 'fuel':
-                $filter[] = "amenity = 'fuel'";
+                $filter = "amenity = 'fuel'";
                 $default_title = 'Kolonėlė';
                 $tp = 'FUE';
                 break;
             case 'cafe':
-                $filter[] = "amenity = 'cafe'";
+                $filter = "amenity = 'cafe'";
                 $default_title = 'Kavinė';
                 $tp = 'CAF';
                 break;
             case 'fast_food':
-                $filter[] = "amenity = 'fast_food'";
+                $filter = "amenity = 'fast_food'";
                 $tp = 'FAS';
                 break;
             case 'restaurant':
-                $filter[] = "amenity = 'restaurant'";
+                $filter = "amenity = 'restaurant'";
                 $default_title = 'Restoranas';
                 $tp = 'RES';
                 break;
             case 'pub':
-                $filter[] = "amenity IN ('pub', 'bar')";
+                $filter = "amenity in ('pub', 'bar')";
                 $default_title = 'Aludė';
                 $tp = 'PUB';
                 break;
             case 'hotel':
-                $filter[] = "tourism = 'hotel'";
+                $filter = "tourism = 'hotel'";
                 $default_title = 'Viešbutis';
                 $tp = 'HOT';
                 break;
             case 'information':
-                $filter[] = "tourism = 'information'";
+                $filter = "tourism = 'information'";
                 $default_title = 'Informacija';
                 $tp = 'INF';
                 break;
             case 'theatre':
-                $filter[] = "amenity = 'theatre'";
+                $filter = "amenity = 'theatre'";
                 $default_title = 'Teatras';
                 $tp = 'THE';
                 break;
             case 'cinema':
-                $filter[] = "amenity = 'cinema'";
+                $filter = "amenity = 'cinema'";
                 $default_title = 'Kino teatras';
                 $tp = 'CIN';
                 break;
             case 'speed_camera':
-                $filter[] = "highway = 'speed_camera'";
+                $filter = "highway = 'speed_camera'";
                 $default_title = 'Greičio kamera';
                 $tp = 'SPE';
                 break;
             case 'arts':
-                $filter[] = "amenity = 'arts_centre'";
+                $filter = "amenity = 'arts_centre'";
                 $tp = 'ART';
                 break;
             case 'library':
-                $filter[] = "amenity = 'library'";
+                $filter = "amenity = 'library'";
                 $default_title = 'Biblioteka';
                 $tp = 'LIB';
                 break;
             default:
                 continue;
         }
-    }
-    $filter = '((' . implode(') OR (', $filter) . '))';
-    $fields = 'osm_id id,name,operator
-                    ,description
-                    ,opening_hours
-                    ,"addr:city" city
-                    ,"addr:street" street
-                    ,"addr:housenumber" housenumber
-                    ,"addr:postcode" postcode
-                    ,information
-                    ,wikipedia
-                    ,"wikipedia:lt" wikipedia_lt
-                    ,"wikipedia:en" wikipedia_en
-                    ,phone
-                    ,email
-                    ,website
-                    ,height
-                    ,fee
-                    ,url
-                    ,image';
-    $query = "SELECT ST_X(ST_Transform(way,4326)) lat, ST_Y(ST_Transform(way,4326)) lon, {$fields}
-                    FROM planet_osm_point
-                    WHERE way && ST_Transform(SetSRID('BOX3D({$left} {$top},{$right} {$bottom})'::box3d,4326), 900913)
-                 AND {$filter}
-              union all
-              SELECT ST_X(ST_Transform(st_centroid(way),4326)) lat, ST_Y(ST_Transform(st_centroid(way),4326)) lon, {$fields}
-                    FROM planet_osm_polygon
-                    WHERE way && ST_Transform(SetSRID('BOX3D({$left} {$top},{$right} {$bottom})'::box3d,4326), 900913)
-                 AND {$filter}";
-    debug('Query is: ' . $query);
-    $res = pg_query($link, $query);
-    if (!$res) {
-        throw new Exception(pg_last_error($link));
-        exit;
-    }
+        $fields = 'osm_id id,name,operator
+                        ,description
+                        ,opening_hours
+                        ,"addr:city" city
+                        ,"addr:street" street
+                        ,"addr:housenumber" housenumber
+                        ,"addr:postcode" postcode
+                        ,information
+                        ,wikipedia
+                        ,"wikipedia:lt" wikipedia_lt
+                        ,"wikipedia:en" wikipedia_en
+                        ,phone
+                        ,email
+                        ,website
+                        ,height
+                        ,fee
+                        ,url
+                        ,image';
+        $query = "SELECT ST_X(ST_Transform(way,4326)) lat, ST_Y(ST_Transform(way,4326)) lon, {$fields}
+                        FROM planet_osm_point
+                        WHERE way && ST_Transform(SetSRID('BOX3D({$left} {$top},{$right} {$bottom})'::box3d,4326), 900913)
+                     AND {$filter}
+                  union all
+                  SELECT ST_X(ST_Transform(st_centroid(way),4326)) lat, ST_Y(ST_Transform(st_centroid(way),4326)) lon, {$fields}
+                        FROM planet_osm_polygon
+                        WHERE way && ST_Transform(SetSRID('BOX3D({$left} {$top},{$right} {$bottom})'::box3d,4326), 900913)
+                     AND {$filter}";
+        debug('Query is: ' . $query);
+        $res = pg_query($link, $query);
+        if (!$res) {
+            throw new Exception(pg_last_error($link));
+            exit;
+        }
 
-    while ($row = pg_fetch_assoc($res)) {
-        debug("lat:{$row['lat']}, lon:{$row['lon']}, tags:{$row['name']}");
-        $row['tp'] = $tp;
-        $row['type'] = $type;
-        // process title & description
-        assemble_title($row, $default_title);
-        assemble_description($row);
-        // add data to formated output
-        $format->addRow($row);
-    }
+        while ($row = pg_fetch_assoc($res)) {
+            debug("lat:{$row['lat']}, lon:{$row['lon']}, tags:{$row['name']}");
+            $row['tp'] = $tp;
+            $row['type'] = $type;
+            // process title & description
+            assemble_title($row, $default_title);
+            assemble_description($row);
+            // add data to formated output
+            $format->addRow($row);
+        }
+    } // while loop through all type values
 } // fetch_poi
 
 // respond to preflights
