@@ -157,26 +157,15 @@ function fetch_poi($left, $top, $right, $bottom, $p_type, Poi_Format_Abstract $f
     global $link;
     // Contruct a query part filtering out only required POI's
     debug("poi type is " . $p_type);
-    switch ($p_type) {
-        case 'groupAttraction':
-            $p_type = 'history|monument|tower|attraction|museum|information';
-            break;
-        case 'groupCamping':
-            $p_type = 'camping|picnic_fireplace|picnic_nofireplace';
-            break;
-        case 'groupFood':
-            $p_type = 'restaurant|cafe|pub|fast_food';
-            break;
-        case 'groupAccomodation':
-            $p_type = 'hostel|hotel';
-            break;
-        case 'groupAuto':
-            $p_type = 'fuel|speed_camera';
-            break;
-        case 'groupCulture':
-            $p_type = 'theatre|cinema|arts|library';
-            break;
-    }
+    $groups = array(
+    	'groupAttraction' => 'history|monument|tower|attraction|museum|information',
+        'groupCamping' => 'camping|picnic_fireplace|picnic_nofireplace',
+        'groupFood' => 'restaurant|cafe|pub|fast_food',
+        'groupAccomodation' => 'hostel|hotel',
+        'groupAuto' => 'fuel|speed_camera',
+        'groupCulture' => 'theatre|cinema|arts|library',
+    );
+    $p_type = str_ireplace(array_keys($groups), array_values($groups), $p_type);
     $types = explode('|', $p_type);
     if (!is_array($types) or count($types) == 0) {
         debug("ERROR: Incorrect type parameter");
@@ -293,24 +282,11 @@ function fetch_poi($left, $top, $right, $bottom, $p_type, Poi_Format_Abstract $f
             default:
                 continue;
         }
-        $fields = 'osm_id id,name,operator
-                        ,description
-                        ,opening_hours
-                        ,"addr:city" city
-                        ,"addr:street" street
-                        ,"addr:housenumber" housenumber
-                        ,"addr:postcode" postcode
-                        ,information
-                        ,wikipedia
-                        ,"wikipedia:lt" wikipedia_lt
-                        ,"wikipedia:en" wikipedia_en
-                        ,phone
-                        ,email
-                        ,website
-                        ,height
-                        ,fee
-                        ,url
-                        ,image';
+        $fields = 'osm_id id,name,operator,description,information,image
+                        ,opening_hours,fee
+                        ,"addr:city" city, "addr:street" street,"addr:housenumber" housenumber,"addr:postcode" postcode
+                        ,wikipedia,"wikipedia:lt" wikipedia_lt,"wikipedia:en" wikipedia_en
+                        ,phone,email,website,url,height';
         $query = "SELECT ST_X(ST_Transform(way,4326)) lat, ST_Y(ST_Transform(way,4326)) lon, {$fields}
                         FROM planet_osm_point
                         WHERE way && ST_Transform(SetSRID('BOX3D({$left} {$top},{$right} {$bottom})'::box3d,4326), 900913)
