@@ -116,7 +116,13 @@ function assemble_description(array &$row)
 
     // Wikipedia default
     if (!empty($wikipedia)) {
-        $description[] = "<a href=\"http://en.wikipedia.org/wiki/{$wikipedia}\" target=\" blank\">Vikipedija (EN)</a>";
+        if (substr($wikipedia, 2, 1) == ":") {
+            $description[] = "<a href=\"http://" . substr($wikipedia, 0, 2) . ".wikipedia.org/wiki/" .
+                             substr($wikipedia, 3) . "\" target=\" blank\">Vikipedija (" .
+                             substr($wikipedia, 0, 2) . ")</a>";
+        } else {
+            $description[] = "<a href=\"http://en.wikipedia.org/wiki/{$wikipedia}\" target=\" blank\">Vikipedija (EN)</a>";
+        }
     }
 
     // Height
@@ -132,7 +138,12 @@ function assemble_description(array &$row)
             $description[] = "<i>Apsilankymas nemokamas</i>";
         }
     }
-    
+
+    // Reference number
+    if ($ref) {
+        $description[] = "<i>Reg. Nr.:</i> {$ref}";
+    }
+
     //TODO: html tags should be added in client side, depending on use case
     if(!empty($description)){
         $description = '<p>' . implode('<br>', $description) . '</p>';
